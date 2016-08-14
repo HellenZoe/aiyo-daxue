@@ -9,6 +9,28 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/aiyo');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  var UserSchema = mongoose.Schema({
+    name: String,
+    age: Number
+  });
+
+  var UserModel = mongoose.model('user', UserSchema);
+
+  var u = new UserModel({name: 'zhuhaihao', age: 20});
+
+  u.save(function(err, user) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(user);
+  })
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
