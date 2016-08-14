@@ -21,7 +21,7 @@ gulp.task('clean', function() {
 
 
 gulp.task('style', function() {
-  return gulp.src('./src/less/*.less')
+  return gulp.src('src/less/*.less')
   .pipe(gulpPlumber())
   .pipe(less())
   .pipe(gulp.dest('public/stylesheets'));
@@ -50,7 +50,7 @@ gulp.task('build:style', function() {
 })
 
 gulp.task('watch', ['style', 'js'], function() {
-  gulp.watch('src/css/*.less', ['style']);
+  gulp.watch('src/less/*.less', ['style']);
   gulp.watch('src/js/*.js', ['js']);
 })
 
