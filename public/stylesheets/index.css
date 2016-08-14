@@ -1,3 +1,6 @@
 body {
   color: #666;
 }
+.swiper-slide img {
+  width: 100%;
+}
