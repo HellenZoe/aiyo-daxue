@@ -1,1 +1,8 @@
-console.log("this is index");
+$.init();
+
+$(function() {
+  var swiperConfig = {
+
+  }
+  $(".swiper-container").swiper();
+})

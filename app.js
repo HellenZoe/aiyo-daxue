@@ -11,8 +11,8 @@ var routes = require('./routes/index');
 routes(app);
 
 // connect to mongodb
-var dbConnect = require('./config/db.js');
-dbConnect.connect();
+// var dbConnect = require('./config/db.js');
+// dbConnect.connect();
 
 
 // view engine setup

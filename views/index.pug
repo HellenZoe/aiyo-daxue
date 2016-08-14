@@ -1,12 +1,23 @@
 extends layout
 
 block styles
+  link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
   link(href='stylesheets/index.css', rel='stylesheet')
 block content
-  h1= title
-  p Welcome to #{title}
-  p 这里是首页
-
+  div.page-group
+    div(class="page page-current")
+      header(class="bar bar-nav back-blue")
+        h1.title.text-white 哎哟大学
+      div.content
+        div(class="swiper-container" data-space-between="10")
+          div.swiper-wrapper
+            div.swiper-slide
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg") 
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+          div.swiper-pagination                             
+            div.swiper-pagination-bullet
 block scripts
+  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
   script(src='javascripts/index.js', type='text/javascript')
   
