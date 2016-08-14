@@ -4,26 +4,37 @@ var cleanCss = require('gulp-clean-css');
 var gulpif = require('gulp-if');
 var del = require('del');
 var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
+var coffee = require('gulp-coffee');
+var gulpPlumber = require('gulp-plumber');
 
+//错误处理
+function errHandler(err) {
+  gutil.beep()
+  gutil.log(err.toString());
+}
 
 gulp.task('clean', function() {
-  del(['./public/javascripts/', './public/stylesheets/']);
+  del(['./public/javascripts/*.js', './public/stylesheets/*.css']);
 })
 
 
 gulp.task('style', function() {
-  return gulp.src('src/less/*.less')
+  return gulp.src('./src/less/*.less')
+  .pipe(gulpPlumber())
   .pipe(less())
-  .pipe(gulp.dest('./public/stylesheets/'));
+  .pipe(gulp.dest('./public/stylesheets'));
 })
 
 gulp.task('js', function() {
   return gulp.src('./src/js/*.js')
-  .pipe(gulp.dest('./public/javascripts/'))
+  .pipe(gulpPlumber())
+  .pipe(gulp.dest('./public/javascripts'))
 })
 
 gulp.task('build:js', function() {
   return gulp.src('./src/js/*.js')
+  .pipe(gulpPlumber())
   .pipe(uglify())
   .pipe(gulp.dest('./public/javascripts/'));
 })
@@ -31,6 +42,7 @@ gulp.task('build:js', function() {
 
 gulp.task('build:style', function() {
   return gulp.src('./src/less/*.less')
+  .pipe(gulpPlumber())
   .pipe(less())
   .pipe(cleanCss())
   .pipe(gulp.dest('./public/stylesheets/'))
@@ -41,4 +53,4 @@ gulp.task('watch', ['style', 'js'], function() {
   gulp.watch('./src/js/*.js', ['js']);
 })
 
-gulp.task('build', ['build:js', 'build:css']);
+gulp.task('build', ['build:js', 'build:style']);
