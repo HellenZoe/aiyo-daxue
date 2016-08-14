@@ -10,8 +10,8 @@ var UserSchema = new Schema({
   department: String,
   status: Number,
   collection: {
-    treeholeID: [ Schema.types.ObejctId ],
-    sellerID: [[ Schema.Types.ObejctId ],
+    treeholeID: [ Schema.Types.ObejctId ],
+    sellerID: [ Schema.Types.ObejctId ],
     goodsId: [ Schema.types.ObejctId ],
     valuebleId: [ Schema.types.ObejctId ]
   }
