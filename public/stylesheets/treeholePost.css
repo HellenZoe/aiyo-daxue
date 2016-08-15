@@ -20,6 +20,38 @@
   width: 100%;
   max-height: 8rem;
 }
+.content .post-treehole .treehole-content #previewAllPic:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+}
+.content .post-treehole .treehole-content #previewAllPic div {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  height: 5rem;
+  width: 5rem;
+  float: left;
+  margin-right: .5rem;
+  padding: .2rem;
+  border: 1px solid #dedede;
+}
+.content .post-treehole .treehole-content #previewAllPic div i {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+}
+.content .post-treehole .treehole-content #previewAllPic img {
+  max-width: 2rem;
+  z-index: 10000;
+}
+.content .post-treehole .treehole-content span #fileToUpload {
+  visibility: hidden;
+  overflow: hidden;
+  display: none;
+}
 .content .post-treehole .if-anonymous {
   float: right;
   margin-top: 1rem;
@@ -65,6 +97,21 @@
   font-size: 4rem;
   font-style: normal;
   color: #dedede;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'iconfont-postDelete';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-postDelete.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-postDelete.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-postDelete.svg#iconfont-postDelete') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-postDelete {
+  font-family: "iconfont-postDelete" !important;
+  font-size: 16px;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;

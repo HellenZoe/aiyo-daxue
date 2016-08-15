@@ -1,12 +1,12 @@
 extends treeholelayout
 
 block styles
-  link(rel="stylesheet",  href="../stylesheets/treeholePost.css")
+  link(rel="stylesheet" href="../stylesheets/treeholePost.css")
 block content
   div.page-group
     div.page.page-current
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.treehole-back.pull-left(href="/treehole", data-transition='slide-out')
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
           span.icon.icon-left.text-white
         a.button.button-link.button-nav.pull-right(href="/treehole") 完成
         h1.title.text-white 发布树洞
@@ -15,12 +15,14 @@ block content
           h3.content-title  发布内容
           div.treehole-content
             textarea
+            div#previewAllPic
             span.icon
+              input#fileToUpload(type="file" name="fileToUpload")
               i.iconfont-treeholePost &#xe605;
           div.if-anonymous
             input#anonymous(type="checkbox")
             label(for="anonymous")
-            span 匿名购买
+            span 匿名发布
 block scripts
   script(src="../javascripts/autosize.min.js")
   script(src="../javascripts/treeholePost.js")
