@@ -1,0 +1,52 @@
+extends layout
+
+block styles
+  link(href="./stylesheets/treehole.css", rel='stylesheet')
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/", style={color: '#fff'})
+          span.icon.icon-left
+        h1.title.text-white 树洞
+      div.bar.bar-header-secondary.treehole-searchbar
+        div.searchbar
+          a.searchbar-cancel 取消
+          div.search-input
+            label.icon.icon-search(for="search")
+            input#search(type="search", placeholder="搜索感兴趣的话题")             
+      div.content.treehole-content
+        div.buttons-tab
+          a.tab-link.button.active(href="#tab-hot") 热门
+          a.tab-link.button(href="#tab-nearby") 附近
+          a.tab-link.button(href="#tab-school") 学校
+        div.content-block
+          div.tabs
+            div#tab-hot.tab.active
+              div.content-block
+                div.card.facebook-card
+                  div.card-header.no-border
+                    div.facebook-avatar
+                      img(src="./images/user-logo.png")
+                    div.card-info
+                      div.facebook-name 朱海浩
+                      div.facebook-date 07.13 17:30 来自[青岛大学]
+                  div.card-content
+                    h3.card-content-title 想带着你南下, 感受四季的变化
+                    p.card-content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.好他妈恶心
+                  div.card-footer
+                    a.link(href="#") 赞
+                    a.link(href="#") 评论
+            div#tab-nearby.tab
+              div.content-block
+                div 这是附近
+            div#tab-school.tab
+              div.content-block
+                div 这是学校
+    
+      
+                
+            
+          
+
+block scripts
