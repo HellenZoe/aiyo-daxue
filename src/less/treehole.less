@@ -9,7 +9,7 @@
   margin: 0px;
   padding: 0px;
   .tabs .content-block{
-    margin: .5rem 0px;
+    margin: 0rem;
     padding: 0px;
   }
 }
@@ -27,8 +27,7 @@
 
 
 .facebook-card{
-
-  margin: 0px;
+  margin:.5rem 0px;
   .facebook-avatar img{
     height: 2rem;
   }
@@ -42,4 +41,38 @@
     margin: .3rem 0px;
   }
 
+}
+
+//   底部工具栏icon-text
+@font-face {font-family: 'iconfont-treeHoleTabsBar';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-treeHoleTabsBar.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-treeHoleTabsBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-treeHoleTabsBar.svg#iconfont-treeHoleTabsBar') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-treeHoleTabsBar{
+    font-family:"iconfont-treeHoleTabsBar" !important;
+    font-size:1.2rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// 因为主页的图标是和首页一样的, 所以这里也声明一下
+@font-face {font-family: 'iconfont-indexTabBar';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-indexTabBar.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-indexTabBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-indexTabBar.svg#iconfont-indexTabBar') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-indexTabBar{
+    font-family:"iconfont-indexTabBar" !important;
+    font-size:1.3rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
 }
