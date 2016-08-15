@@ -6,15 +6,15 @@ block content
   div.page-group
     div.page.page-current
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/", style={color: '#fff'})
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/")
           span.icon.icon-left
         h1.title.text-white 树洞
       nav.bar.bar-tab
-        a.tab-item.external
+        a.tab-item.external(href="/treehole")
           span.icon
             i.iconfont-indexTabBar &#xe601;
           span.tab-label 主页
-        a.tab-item.external
+        a.tab-item(href="/treehole/post")
           span.icon
             i.iconfont-treeHoleTabsBar &#xe603;
           span.tab-label 发布

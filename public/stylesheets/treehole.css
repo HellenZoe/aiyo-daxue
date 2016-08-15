@@ -1,3 +1,6 @@
+.bar .treehole-back {
+  color: #fff;
+}
 .treehole-content .buttons-tab .button.active {
   color: #F57E7A;
   border-color: #F57E7A;
@@ -32,6 +35,10 @@
 .facebook-card .card-info .facebook-name,
 .facebook-card .card-info .facebook-date {
   margin-left: 0px;
+}
+.facebook-card .card-content-title {
+  font-weight: normal;
+  color: #333;
 }
 .facebook-card .card-content-title,
 .facebook-card .card-content-text {
