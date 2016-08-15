@@ -20,6 +20,39 @@
   width: 100%;
   max-height: 8rem;
 }
+.content .post-treehole .if-anonymous {
+  float: right;
+  margin-top: 1rem;
+}
+.content .post-treehole .if-anonymous input#anonymous {
+  display: none;
+}
+.content .post-treehole .if-anonymous input#anonymous + label {
+  display: inline-block;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  border: 1px solid #dedede;
+  position: relative;
+}
+.content .post-treehole .if-anonymous input#anonymous:checked + label {
+  border: none;
+  background-color: #F77A7A;
+}
+.content .post-treehole .if-anonymous input#anonymous:checked + label:after {
+  content: '\2714';
+  font-size: 1rem;
+  position: absolute;
+  color: #fff;
+  top: -3px;
+  left: 2px;
+}
+.content .post-treehole .if-anonymous span {
+  position: relative;
+  top: -0.3rem;
+  margin-left: .4rem;
+  color: #666;
+}
 @font-face {
   font-family: 'iconfont-treeholePost';
   src: url('iconfont.eot');

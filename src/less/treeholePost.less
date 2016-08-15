@@ -19,6 +19,39 @@
         max-height: 8rem;
       }
     }
+    .if-anonymous{
+      float: right;
+      margin-top: 1rem;
+      input#anonymous{
+        display: none;
+      }
+      input#anonymous + label{
+        display: inline-block;
+        height: 1.2rem;
+        width: 1.2rem;
+        border-radius: 50%;
+        border: 1px solid #dedede;
+        position: relative;
+      }
+      input#anonymous:checked + label{
+        border: none;
+        background-color: #F77A7A;
+      }
+      input#anonymous:checked + label:after{
+        content: '\2714';
+        font-size: 1rem;
+        position: absolute;
+        color: #fff;
+        top: -3px;
+        left: 2px;
+      }
+      span{
+        position: relative;
+        top: -.3rem;
+        margin-left: .4rem;
+        color: #666;
+      }
+    }
   }
 }
 
