@@ -1,0 +1,42 @@
+@content-back-color: #fafafa;
+.content{
+  background-color: @content-back-color;
+  .post-treehole{
+    padding: .8rem .8rem;
+    .content-title{
+        margin: 0px 0px .5rem;
+        font-weight: normal;
+        color: #333;
+    }
+    .treehole-content{
+      background-color: #fff;
+      padding: .5rem .4rem 0 .4rem;
+      textarea{
+        -webkit-appearance: none;
+        border: none;
+        resize: none;
+        width: 100%;
+        max-height: 8rem;
+      }
+    }
+  }
+}
+
+// 添加图片的图标
+
+@font-face {font-family: 'iconfont-treeholePost';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-treeholePost.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-treeholePost.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-treeholePost.svg#iconfont-treeholePost') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-treeholePost{
+    font-family:"iconfont-treeholePost" !important;
+    font-size:4rem;font-style:normal;
+    color: #dedede;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
