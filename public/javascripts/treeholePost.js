@@ -3,6 +3,10 @@ $.init();
 
 autosize(document.querySelectorAll("textarea"));
 
+
+var allPic = [];
+var picCount = 0;
+
 // hack 默认的上传文件的样式  然后用另外一个图标的点击来触发
 var newFileIcon = $('.iconfont-treeholePost');
 newFileIcon.on('click', function() {
@@ -10,21 +14,54 @@ newFileIcon.on('click', function() {
   return false;
 })
 
+
+//  点击右上角完成按钮时  先通过ajax提交， 然后再重定向到/treehole页面
+
+var finishButton = $('.finishPost');
+finishButton.on('click', function(e) {
+  //  阻止默认的链接事件
+  e.preventDefault();
+
+  //  显示进度图标
+  $.showPreloader();
+
+  allPic.forEach(function(item, index) {
+    sendFile(item);
+    console.log("上传 ", item);
+  })
+
+  // 发送完请求之后隐藏
+  $.hidePreloader();
+
+  //  提醒用户已经发布成功  然后回到树洞首页
+  $.alert("现在返回主页", "发布成功", function() {
+    location.href="http://localhost:3000/treehole";
+    return;
+  })
+
+})
+
+
 // 点击删除小图标的时候
 function bindDeleteAction(node) {
   $(node).on('click', function(e) {
+    var index = $(this).parent('div').attr('data-index');
+    allPic.pop(index);
+    console.log("delete", allPic);
     $(this).parent('div').remove();
   })
+
+
 
 }
 
 // 提醒用户他的手机不支持上传图片
 function showMessageFail(string) {
-  console.log(string);
+  $.alert(string, "出错");
 }
 
 function showMessageSuccess(string) {
-  console.error(string);
+  $.toast(string, 2000, "successToast");
 }
 //  测试浏览器是否支持文件上传
 function isUploadSupported() {
@@ -75,7 +112,6 @@ function readFile(file) {
 function processFile(dataURL, fileType) {
 	var maxWidth = 100;
 	var maxHeight = 100;
-
 	var image = new Image();
 	image.onload = function () {
     // var previewContainer = document.getElementById("previewAllPic");
@@ -92,17 +128,7 @@ function processFile(dataURL, fileType) {
 		if (!shouldResize) {
       var ctx =  canvas.getContext("2d");
       ctx.drawImage(this, 0, 0, width, height);
-      var wrapper = document.createElement("div");
-      var deleteIcon = document.createElement("i");
-      deleteIcon.className = "iconfont-postDelete";
-      deleteIcon.innerHTML = "&#xe607;"
-      bindDeleteAction(deleteIcon);
-      wrapper.appendChild(deleteIcon);
-      wrapper.appaendChild(canvas);
-      var previewContainer = document.getElementById("previewAllPic");
-      previewContainer.appendChild(wrapper);
-
-			sendFile(dataURL);
+      addCanvasToPreview(canvas, fileType);
 			return;
 		}
 
@@ -121,21 +147,8 @@ function processFile(dataURL, fileType) {
 		canvas.height = newHeight;
 
 		var context = canvas.getContext('2d');
-    console.log(newHeight, newWidth);
 		context.drawImage(this, 0, 0, newWidth, newHeight);
-    var wrapper = document.createElement("div");
-    var deleteIcon = document.createElement("i");
-    deleteIcon.className = "iconfont-postDelete";
-    deleteIcon.innerHTML = "&#xe607;"
-    bindDeleteAction(deleteIcon);
-    wrapper.appendChild(deleteIcon);
-    wrapper.appendChild(canvas);
-    var previewContainer = document.getElementById("previewAllPic");
-    previewContainer.appendChild(wrapper);
-
-
-		dataURL = canvas.toDataURL(fileType);
-		sendFile(dataURL);
+    addCanvasToPreview(canvas, fileType);
 	};
 
 
@@ -145,6 +158,28 @@ function processFile(dataURL, fileType) {
 
   image.src = dataURL;
 }
+
+
+function addCanvasToPreview(canvas, fileType) {
+  var wrapper = document.createElement("div");
+  var deleteIcon = document.createElement("i");
+  deleteIcon.className = "iconfont-postDelete";
+  deleteIcon.innerHTML = "&#xe607;"
+  bindDeleteAction(deleteIcon);
+  wrapper.appendChild(deleteIcon);
+  wrapper.appendChild(canvas);
+  wrapper.setAttribute('data-index', picCount);
+  var previewContainer = document.getElementById("previewAllPic");
+  previewContainer.appendChild(wrapper);
+
+
+  dataURL = canvas.toDataURL(fileType);
+  // sendFile(dataURL);
+  allPic.push(dataURL);
+  console.log("new ", allPic);
+  picCount = picCount + 1;
+}
+
 
 //  上传文件
 function sendFile(fileData) {
@@ -161,47 +196,12 @@ function sendFile(fileData) {
 		processData: false,
 		success: function (data) {
 			if (data) {
-				showMessageSuccess("上传成功");
-        console.log(data.url);
+				// showMessageSuccess("上传成功");
+        console.log("上传成功");
 			}
 		},
 		error: function (data) {
 				showMessageFail("上传出错, 请重试");
-        console.log("这里错了");
 		}
 	});
 }
-
-
-// $("#fileToUpload").on("change", function(e) {
-//   if($("#fileToUpload").val().length){
-//     var fileName = $("#fileToUpload").val();
-//     console.log(fileName);
-//     var extension = fileName.substring(fileName.lastIndexOf("."), fileName.length).toLowerCase();
-//     if (extension == ".jpg" || extension == ".png") {
-//       console.log($("#fileToUpload").files);
-//       var data = new FormData();
-//       data.append("upload", $("#fileToUpload").files[0]);
-//       $.ajax({
-//         url: "/treehole/new",
-//         type: "POST",
-//         data: data,
-//         cache: false,
-//         contentType: false,
-//         success: function(data) {
-//           var displayUrl = data.displayUrl;
-//           var imgPreview = $("<img />", {
-//             src: displayUrl,
-//             class: "imgPreview"
-//           })
-//           $(".previewAllPic").css("display", "block");
-//           $(imgPreview).insertAfter('.previewAllPic > p');
-//         },
-//         error: function(xhr) {
-//           console.log("上传失败");
-//         }
-//       })
-//
-//     }
-//   }
-// })

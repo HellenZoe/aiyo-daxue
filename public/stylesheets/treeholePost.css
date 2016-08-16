@@ -1,3 +1,10 @@
+.bar .button-link {
+  color: #fff;
+}
+.successToast {
+  background-color: #F77A7A;
+  color: #fff;
+}
 .content {
   background-color: #fafafa;
 }
