@@ -14,6 +14,9 @@ router.get('/post', function(req, res) {
   res.render('treeholePost', {title: "发布"})
 })
 
+router.get('/self', function(req, res) {
+  res.render('treeholeSelf', {title: "个人中心"})
+})
 router.post('/new', upload.single('test'), function(req, res) {
     var imageData= req.body['imageData'];
     var base64Data = imageData.split(',')[1];

@@ -36,7 +36,7 @@ finishButton.on('click', function(e) {
   //  提醒用户已经发布成功  然后回到树洞首页
   $.alert("现在返回主页", "发布成功", function() {
     location.href="http://localhost:3000/treehole";
-    return;
+    return; 
   })
 
 })
