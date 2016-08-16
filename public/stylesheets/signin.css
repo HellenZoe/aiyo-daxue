@@ -8,6 +8,13 @@
 .actionRow div {
   font-size: .7rem;
 }
+.actionRow div .qq-login {
+  margin-left: .5rem;
+  display: inline-block;
+}
+.actionRow div .qq-login:hover {
+  cursor: pointer;
+}
 .actionRow div.submit {
   margin: 1rem 1rem 0 1rem;
   height: 2rem;
