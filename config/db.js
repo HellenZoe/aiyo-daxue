@@ -12,6 +12,7 @@ module.exports = {
     db.once('open', function() {
       console.log('mongodb has been connected!')
     })
+    return db;
   },
 
   db: db

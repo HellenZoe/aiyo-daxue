@@ -10,13 +10,20 @@ router.get('/', function(req, res) {
   res.render('treeholeIndex', {title: "树洞"})
 })
 
+// 发布树洞页
 router.get('/post', function(req, res) {
   res.render('treeholePost', {title: "发布"})
 })
 
+// 个人中心页
 router.get('/self', function(req, res) {
-  res.render('treeholeSelf', {title: "个人中心"})
+  res.render('treeholeSelf', {
+    title: "个人中心",
+    user: req.session.user
+  })
 })
+
+//  发布新的树洞
 router.post('/new', upload.single('test'), function(req, res) {
     var imageData= req.body['imageData'];
     var base64Data = imageData.split(',')[1];

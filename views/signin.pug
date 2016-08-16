@@ -1,0 +1,92 @@
+extends layout
+
+block styles
+  link(rel="stylesheet" href="./stylesheets/signin.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole/self")
+          span.icon.icon-left.text-white
+        h1.title.text-white 注册
+      div.content
+        div.list-block
+          ul
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label 姓名
+                  div.item-input
+                    input(type="text" placeholder="尊姓大名")
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label 电话
+                  div.item-input
+                    input(type="text" placeholder="您的电话")
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label qq
+                  div.item-input
+                    input(type="text" placeholder="您的qq")
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label 学校
+                  div.item-input
+                    input(type="text" placeholder="您的学校")
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label 院系
+                  div.item-input
+                    input(type="text" placeholder="您的院系")
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label 密码
+                  div.item-input
+                    input(type="password" placeholder="输入密码")
+                      
+        div.content-block
+          div.actionRow
+            div.submit
+              a.button.button-fill.button-success(href="#") 提交
+          div.actionRow
+            div
+              span 已经有账号?
+              a.link.underline(href="#login") 登陆
+    div.page#login
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left(href="#signup")
+          span.icon.icon-left.text-white
+        h1.title.text-white 登陆
+      div.content
+        div.list-block
+          ul
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label 电话
+                  div.item-input
+                    input(type="text" placeholder="您的电话")
+            li
+              div.item-content
+                div.item-inner
+                  div.item-title.label 密码
+                  div.item-input
+                    input(type="password" placeholder="输入密码")
+                      
+        div.content-block
+          div.actionRow
+            div.submit
+              a.button.button-fill.button-success(href="/login") 提交
+          div.actionRow
+            div
+              span 还没有账号?
+              a.link.underline(href="#signup") 注册
+block scripts
+  //- script(src="../javascripts/treeholeSelf.js")
+  
