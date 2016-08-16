@@ -102,7 +102,7 @@ function processFile(dataURL, fileType) {
       var previewContainer = document.getElementById("previewAllPic");
       previewContainer.appendChild(wrapper);
 
-			// sendFile(dataURL);
+			sendFile(dataURL);
 			return;
 		}
 
@@ -135,7 +135,7 @@ function processFile(dataURL, fileType) {
 
 
 		dataURL = canvas.toDataURL(fileType);
-		// sendFile(dataURL);
+		sendFile(dataURL);
 	};
 
 
@@ -154,16 +154,15 @@ function sendFile(fileData) {
 
 	$.ajax({
 		type: 'POST',
-		url: '/treehole/new',
+		url: 'http://localhost:3000/treehole/new',
+    dataType: "json",
 		data: formData,
 		contentType: false,
 		processData: false,
 		success: function (data) {
-      console.log("上传成功");
-			if (data.success) {
+			if (data) {
 				showMessageSuccess("上传成功");
-			} else {
-				showMessageFail("上传出错, 请重试");
+        console.log(data.url);
 			}
 		},
 		error: function (data) {
