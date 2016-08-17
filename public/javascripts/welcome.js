@@ -61,7 +61,7 @@ QC.api("get_user_info", paras)
 
 		//  让去完善的按钮带上相应用户的参数
 		var oldHref = $('.gotoSelf').attr('href');
-		var newHref = oldHref + "?userAavatarUrl=" + avatarUrl
+		var newHref = oldHref + "?AavatarUrl=" + avatarUrl
 		$('.gotoSelf').attr('href', newHref);
 
 		// 隐藏加载
