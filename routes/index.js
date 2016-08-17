@@ -15,7 +15,8 @@ module.exports = function(app) {
 
   app.get('/welcome', function(req, res) {
     res.render('welcome', {
-      title: "成功注册"
+      title: "成功注册",
+      user: req.session.user
     })
   })
 
@@ -29,10 +30,7 @@ module.exports = function(app) {
       avatarUrl: avatarUrl,
       gender: gender
     })
-    // req.session.user = user;
-    res.render("treeholeSelf", {
-      user: user
-    })
+    req.session.user = user;
     // res.redirect(redirectUrl);
     // user.save(function(err) {
     //   if (err) {

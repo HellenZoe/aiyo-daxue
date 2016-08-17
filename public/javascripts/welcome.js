@@ -25,42 +25,41 @@ QC.api("get_user_info", paras)
     // showHint("获取信息成功", "success");
 
     // 用户点击去完善的时候  就发送post请求把用户信息发送到路由/user   然后跳转到相应模块的个人中心
-    $(".gotoSelf").on("click", function(e) {
 
       // 获取参数
-      var userName = s.data.nickname;
-      var avatarUrl = s.data.figureurl_qq_1;
-      var gender = s.data.gender;
-      var redirectUrl = "/treehole/self";
-      var userInfo = {
-        userName: userName,
-        avatarUrl: avatarUrl,
-        gender: gender,
-        redirectUrl: redirectUrl
-      }
+    var userName = s.data.nickname;
+    var avatarUrl = s.data.figureurl_qq_1;
+    var gender = s.data.gender;
+    var redirectUrl = "/treehole/self";
+    var userInfo = {
+      userName: userName,
+      avatarUrl: avatarUrl,
+      gender: gender,
+      redirectUrl: redirectUrl
+    }
 
-			console.log(userInfo);
-		  var url = "http://" + location.host + "/user"
-      $.ajax({
-        type: "POST",
-        url: url,
-        dataType: "json",
-        data: userInfo,
-        contentType: false,
-        processData: false,
-        success: function (data) {
-          if (data) {
+		console.log(userInfo);
+	  var url = "http://" + location.host + "/user"
+    $.ajax({
+      type: "POST",
+      url: url,
+      dataType: "json",
+      data: userInfo,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+        if (data) {
 
-            console.log("上传成功");
-          }
-        },
-        error: function (data) {
-            // showMessageFail("上传出错, 请重试");
+          console.log("上传成功");
         }
-      })
-
-
+      },
+      error: function (data) {
+          // showMessageFail("上传出错, 请重试");
+      }
     })
+
+    $.hidePreloader();
+
 
 
 
@@ -68,7 +67,7 @@ QC.api("get_user_info", paras)
 	//指定接口访问失败的接收函数，f为失败返回Response对象
 	.error(function(f){
 		//失败回调
-    $.hidePreloader();
+
     // showHint("获取信息失败,麻烦重新登陆", "fail");
 	})
 	//指定接口完成请求后的接收函数，c为完成请求返回Response对象
