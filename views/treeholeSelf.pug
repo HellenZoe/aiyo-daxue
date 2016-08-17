@@ -13,9 +13,9 @@ block content
       if user
         div.content
           div.content-block
-            img(src=user.avatarUrl)
-            span #{user}
-            span #{user}
+            img(src=#{user.avatarUrl})
+            span #{user.name}
+            span #{user.gender}
       else
         div.content
           div.content-block
