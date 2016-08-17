@@ -1,0 +1,21 @@
+extends treeholelayout
+
+block styles
+  link(rel="stylesheet" href="./stylesheets/welcome.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        h1.title.text-white 登陆成功
+      div.content
+        div.content-block
+          div.hint
+            div.message 
+            div.actionRow
+              div
+                a.button-link.button.button-fill.button-success.external(href="/signin")  
+
+block scripts
+  script(type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101345948" data-redirecturi="http://localhost:3000/welcome" charset="utf-8")
+  script(type="text/javascript" src="./javascripts/welcome.js")

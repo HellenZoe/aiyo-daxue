@@ -1,0 +1,3 @@
+QC.Login({
+  btnId: "qqLogin"
+})
