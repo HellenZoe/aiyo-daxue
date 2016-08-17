@@ -9,17 +9,64 @@ block content
       header.bar.bar-nav.back-blue
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
           span.icon.icon-left.text-white
+        a.button.button-link.button-nav.treehole-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
         h1.title.text-white 个人中心
-      if user
-                //- 这里如果用户已经登陆的界面　数据先自己用静态的代替   我在做接口
-      else
-        div.content
-          div.content-block
-            div.hint
-              div.message 你还没有登陆
-              div.actionRow
-                div.signup
-                  a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
+        
+      div.self
+        div
+          img(src="../images/user-logo.png")
+          div.self-info
+            div.facebook-name 朱海浩
+            div.facebook-sign-name 个性签名：吹个逼
+            a 编辑资料>
+            
+      div.topic-tag
+        div.tag-left
+        div.tag-middle 
+          h5 我的话题
+        div.tag-right
+        
+      div.topic-block
+        div.my-topic
+          img(src="../images/book.jpg")
+          div.topic-content
+            div.content-title 想带你南下
+            div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
+            div
+              span.icon
+                i.iconfont-selfEnjoy &#xe611;
+              span.enjoy-count 188
+              span.icon
+                i.iconfont-selfComment &#xe612;
+              span.comment-count 188
+              a 删除
+        div.my-topic
+          img(src="../images/book.jpg")
+          div.topic-content
+            div.content-title 想带你南下
+            div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
+            span.icon
+              i.iconfont-selfEnjoy &#xe611;
+            span.enjoy-count 188
+            span.icon
+              i.iconfont-selfComment &#xe612;
+            span.comment-count 188
+            a 删除
+          
+      //- if user
+      //-           //- 这里如果用户已经登陆的界面　数据先自己用静态的代替   我在做接口
+      //-   div.content
+      //-     div.buttons-tab
+      //- else
+      //-   div.content
+      //-     div.content-block
+      //-       div.hint
+      //-         div.message 你还没有登陆
+      //-         div.actionRow
+      //-           div.signup
+      //-             a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
 
 block scripts
   //- script(src="../javascripts/treeholeSelf.js")
