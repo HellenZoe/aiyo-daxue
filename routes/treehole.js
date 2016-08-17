@@ -19,6 +19,7 @@ router.get('/post', function(req, res) {
 
 // 个人中心页
 router.get('/self', function(req, res) {
+  //  如果请求参数有  那么去除对应的user   返回
   if (req.params.avatarUrl) {
     User.find({avatarUrl: req.params.avatarUrl}, function(err, docs) {
       res.render('treeholeSelf', {
@@ -28,7 +29,8 @@ router.get('/self', function(req, res) {
     })
   }
 
-  req.render('treeholeSelf', {
+  // 如果没有 说明没有登陆
+  res.render('treeholeSelf', {
     title: "个人中心",
     user: ''
   })
