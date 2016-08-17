@@ -34,10 +34,10 @@ module.exports = function(app) {
       name: userName,
       gender: gender,
       avatarUrl: avatarUrl,
-      tel: " ",
-      qq: " ",
-      school: " ",
-      department: " ",
+      tel: ' ',
+      qq: ' ',
+      school: ' ',
+      department: ' ',
       status: 0
     })
     // req.session.user = user;
