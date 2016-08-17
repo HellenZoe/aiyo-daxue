@@ -36,7 +36,6 @@ module.exports = function(app) {
       if (err) {
         console.log("save user error!");
       }
-      res.redirect(redirectUrl);
     })
 
 
