@@ -20,8 +20,10 @@ router.get('/post', function(req, res) {
 // 个人中心页
 router.get('/self', function(req, res) {
   //  如果请求参数有  那么去除对应的user   返回
-  if (req.params.avatarUrl) {
+  console.log("*************************log from /treehole/self**********************", req.query.avau);
+  if (req.query.avatarUrl) {
     User.find({avatarUrl: req.params.avatarUrl}, function(err, docs) {
+      console.log("******************************log from /treehole/self*******************", docs);
       res.render('treeholeSelf', {
         title: "个人中心",
         user: docs
