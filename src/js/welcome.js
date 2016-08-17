@@ -26,11 +26,10 @@ QC.api("get_user_info", paras)
 	//指定接口访问失败的接收函数，f为失败返回Response对象
 	.error(function(f){
 		//失败回调
-    $.hidePreloader();    
+    $.hidePreloader();
     showHint("获取信息失败,麻烦重新登陆", "fail");
 	})
 	//指定接口完成请求后的接收函数，c为完成请求返回Response对象
 	.complete(function(c){
 		//完成请求回调
 	});
-</script>
