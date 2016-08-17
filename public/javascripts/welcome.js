@@ -39,7 +39,7 @@ QC.api("get_user_info", paras)
         redirectUrl: redirectUrl
       }
 
-			alert(userInfo);
+			console.log(userInfo);
 		  var url = "http://" + location.host + "/user"
       $.ajax({
         type: "POST",
