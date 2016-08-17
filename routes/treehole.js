@@ -29,13 +29,13 @@ router.get('/self', function(req, res) {
         user: docs
       })
     })
+  }else{
+    // 如果没有 说明没有登陆
+    res.render('treeholeSelf', {
+      title: "个人中心",
+      user: ''
+    })
   }
-
-  // 如果没有 说明没有登陆
-  res.render('treeholeSelf', {
-    title: "个人中心",
-    user: ''
-  })
 })
 
 //  发布新的树洞
