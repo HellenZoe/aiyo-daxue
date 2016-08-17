@@ -11,7 +11,11 @@ block content
           span.icon.icon-left.text-white
         h1.title.text-white 个人中心
       if user
-                //- 这里如果用户已经登陆的界面　数据先自己用静态的代替   我在做接口
+        div.content
+          div.content-block
+            img(src=user.avatarUrl)
+            span= user.name
+            span= user.gender
       else
         div.content
           div.content-block

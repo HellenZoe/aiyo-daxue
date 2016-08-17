@@ -4,9 +4,14 @@ var Schema = mongoose.Schema
 var treeholeSchema = Schema({
   picurl: String,
   title: String,
-  text: String,
-  author: Schema.Types.ObjectId,
-  comment: [ Schema.Types.ObjectId ],
+  content: String,
+  author: String,
+  comment: [{
+    author: String,
+    reply: String,
+    time: {type: Date, default: Date.now},
+
+  }],
   time: { type: Date, default: Date.now},
   meta: {
     fav: Number,
