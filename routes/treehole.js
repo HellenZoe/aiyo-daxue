@@ -5,7 +5,7 @@ var fs = require('fs');
 var multer= require('multer');
 var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
-var USer = require('../model/user');
+var User = require('../model/user');
 
 
 router.get('/', function(req, res) {
