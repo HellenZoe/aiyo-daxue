@@ -30,7 +30,7 @@ module.exports = function uploadToQiniu(path, module) {
 
   //上传到七牛后保存的文件名
   var fileNameArr = path.split('/');
-  var key = module + "/" + fileName2Arr[fileNameArr.length - 1];
+  var key = module + "/" + fileNameArr[fileNameArr.length - 1];
 
   //构建上传策略函数
   function uptoken(bucket, key) {

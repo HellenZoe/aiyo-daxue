@@ -1,3 +1,3 @@
 module.exports = {
-  uri: "mongodb://localhost/aiyo"
+  uri: process.env.MONGO_URI || "mongodb://localhost/aiyo"
 }

@@ -3,7 +3,7 @@ var router = express.Router();
 var formidable = require('formidable');
 var fs = require('fs');
 var multer= require('multer');
-var upload = multer({dest: "../public/uploads"});
+var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 
 router.get('/', function(req, res) {
