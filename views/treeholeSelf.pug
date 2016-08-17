@@ -13,6 +13,7 @@ block content
       if user
         div.content
           div.content-block
+            - var user = JSON.parse(user)
             img(src=user.avatarUrl)
             span #{user.name}
             span #{user.gender}
