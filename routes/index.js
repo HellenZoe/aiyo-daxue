@@ -13,7 +13,7 @@ module.exports = function(app) {
 
 
   app.get('/welcome', function(req, res) {
-    req.render('welcome', {
+    res.render('welcome', {
       title: "成功注册"
     })
   })
