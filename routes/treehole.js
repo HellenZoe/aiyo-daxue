@@ -26,7 +26,7 @@ router.get('/self', function(req, res) {
       console.log("******************************log from /treehole/self--docs*******************", docs);
       return res.render('treeholeSelf', {
         title: "个人中心",
-        user: docs
+        user: docs[0]
       })
     })
   }else{
