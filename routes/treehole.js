@@ -25,8 +25,9 @@ router.get('/self', function(req, res) {
         title: "个人中心",
         user: docs
       })
-    }})
+    })
   }
+
   req.render('treeholeSelf', {
     title: "个人中心",
     user: ''
