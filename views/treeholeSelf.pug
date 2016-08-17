@@ -9,13 +9,53 @@ block content
       header.bar.bar-nav.back-blue
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
           span.icon.icon-left.text-white
+        a.button.button-link.button-nav.treehole-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
         h1.title.text-white 个人中心
       if user
         div.content
-          div.content-block
-            img(src= user.avatarUrl)
-            span= user.name
-            span= user.gender
+          div.content-block        
+            div.self
+              div
+                img(src="../images/user-logo.png")
+                div.self-info
+                  div.facebook-name 朱海浩
+                  div.facebook-sign-name 个性签名：吹个逼
+                  a 编辑资料>
+            
+            div.topic-tag
+              div.tag-left
+              div.tag-middle 
+                h5 我的话题
+              div.tag-right
+        
+            div.topic-block
+              div.my-topic
+                img(src="../images/book.jpg")
+                div.topic-content
+                  a.content-title 想带你南下
+                  div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
+                  div
+                    span.icon
+                      i.iconfont-selfEnjoy &#xe611;
+                    span.enjoy-count 188
+                    span.icon
+                      i.iconfont-selfComment &#xe612;
+                    span.comment-count 188
+                    a.delete 删除
+              div.my-topic
+                img(src="../images/book.jpg")
+                div.topic-content
+                  a.content-title 想带你南下
+                  div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
+                  span.icon
+                    i.iconfont-selfEnjoy &#xe611;
+                  span.enjoy-count 188
+                  span.icon
+                    i.iconfont-selfComment &#xe612;
+                  span.comment-count 188
+                  a.delete 删除
       else
         div.content
           div.content-block

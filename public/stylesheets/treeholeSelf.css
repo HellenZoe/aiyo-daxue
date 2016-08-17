@@ -1,4 +1,5 @@
-.page .page-group {
+.page,
+.page-group {
   background-color: #fff;
 }
 .message {
@@ -20,4 +21,147 @@
 .actionRow div.signup {
   font-size: .7rem;
   width: 4rem;
+}
+.self {
+  margin-top: 2.2rem;
+  height: 5.5rem;
+  background-image: url('../images/self-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.self img {
+  margin: 1.2rem .3rem;
+  height: 2.9rem;
+  float: left;
+}
+.self .self-info {
+  margin-left: 2.5rem;
+  padding-top: 1.0rem;
+}
+.self .self-info .facebook-name {
+  font-size: .9rem;
+}
+.self .self-info .facebook-sign-name,
+.self .self-info a {
+  font-size: .4rem;
+}
+.self .self-info .facebook-name,
+.self .self-info .facebook-sign-name {
+  margin-left: 0px;
+  color: #fff;
+}
+.self .self-info a {
+  color: #F57E7A;
+}
+.topic-tag {
+  width: 100%;
+}
+.topic-tag .tag-left,
+.topic-tag .tag-right,
+.topic-tag .tag-middle {
+  width: 33.33%;
+  float: left;
+  height: 2.3rem;
+}
+.topic-tag .tag-left,
+.topic-tag .tag-right {
+  border-bottom: 1px solid #e0e0e0;
+}
+.topic-tag .tag-middle {
+  border-bottom: 1px solid #F57E7A;
+}
+.topic-tag .tag-middle > h5 {
+  color: #F57E7A;
+  text-align: center;
+}
+.topic-block {
+  margin-top: 3rem;
+  width: 100%;
+}
+.topic-block .my-topic {
+  width: 96%;
+  margin: 0.5rem 2%;
+  border: 1px solid #e7e7e7;
+}
+.topic-block .my-topic img {
+  width: 4rem;
+  height: 4rem;
+  margin: 0.4rem;
+  float: left;
+}
+.topic-block .my-topic .topic-content {
+  height: 4rem;
+  margin: 0.4rem 0.4rem 0.4rem 0px;
+}
+.topic-block .my-topic .topic-content .content-title {
+  font-size: .7rem;
+  font-weight: bold;
+  color: #131313;
+}
+.topic-block .my-topic .topic-content .content-text {
+  font-size: .5rem;
+  color: #999;
+  margin: .2rem 0rem;
+}
+.topic-block .my-topic .topic-content .enjoy-count,
+.topic-block .my-topic .topic-content .comment-count {
+  font-size: .7rem;
+  color: #999;
+}
+.topic-block .my-topic .topic-content .enjoy-count {
+  margin-right: 1rem;
+}
+.topic-block .my-topic .topic-content .delete {
+  color: #F57E7A;
+  font-size: .6rem;
+  float: right;
+  padding-top: .22rem;
+}
+@font-face {
+  font-family: 'iconfont-selfShare';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfShare.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfShare.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfShare.svg#iconfont-selfShare') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-selfShare {
+  font-family: "iconfont-selfShare" !important;
+  font-size: 1rem;
+  font-style: normal;
+  margin-right: 0.3rem;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'iconfont-selfComment';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfComment.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfComment.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfComment.svg#iconfont-selfComment') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-selfComment {
+  font-family: "iconfont-selfComment" !important;
+  font-size: .7rem;
+  font-style: normal;
+  color: #F57E7A;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'iconfont-selfEnjoy';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfEnjoy.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfEnjoy.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfEnjoy.svg#iconfont-selfEnjoy') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-selfEnjoy {
+  font-family: "iconfont-selfEnjoy" !important;
+  font-size: .7rem;
+  font-style: normal;
+  color: #F57E7A;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
 }
