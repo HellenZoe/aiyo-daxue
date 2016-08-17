@@ -96,6 +96,7 @@
 .topic-block .my-topic .topic-content .content-title {
   font-size: .7rem;
   font-weight: bold;
+  color: #131313;
 }
 .topic-block .my-topic .topic-content .content-text {
   font-size: .5rem;
@@ -110,7 +111,7 @@
 .topic-block .my-topic .topic-content .enjoy-count {
   margin-right: 1rem;
 }
-.topic-block .my-topic .topic-content a {
+.topic-block .my-topic .topic-content .delete {
   color: #F57E7A;
   font-size: .6rem;
   float: right;

@@ -11,7 +11,7 @@ var mongoStore = require("connect-mongo")(session);
 var app = express();
 
 
-连接数据库
+//连接数据库
 var dbConnect = require('./config/db.js');
 var connection = dbConnect.connect();
 
@@ -34,7 +34,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
 }))
- 设置静态目录
+ //设置静态目录
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 设置路由
