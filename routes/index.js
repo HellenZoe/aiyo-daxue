@@ -18,7 +18,7 @@ module.exports = function(app) {
       title: "成功注册"
     })
   })
-  
+
   app.post('/user', function(req, res) {
     var userName = req.body.userName;
     var avatarUrl = req.body.avatarUrl;
@@ -29,14 +29,19 @@ module.exports = function(app) {
       avatarUrl: avatarUrl,
       gender: gender
     })
-    user.save(function(err) {
-      if (err) {
-        console.log("save user error!");
-        return;
-      }
-      req.session.user = user;
-      res.redirect(redirectUrl);
+    // req.session.user = user;
+    res.render("treeholeSelf", {
+      user: user
     })
+    // res.redirect(redirectUrl);
+    // user.save(function(err) {
+    //   if (err) {
+    //     console.log("save user error!");
+    //     return;
+    //   }
+    //   req.session.user = user;
+    //   res.redirect(redirectUrl);
+    // })
   })
   app.use('/treehole', treehole);
 }
