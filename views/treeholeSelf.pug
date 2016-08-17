@@ -14,55 +14,51 @@ block content
             i.iconfont-selfShare &#xe610;
         h1.title.text-white 个人中心
       if user
-        div.content
-          div.content-block        
-            div.self
-              div
-                img(src= user.avatarUrl)
-                div.self-info
-                  div.facebook-name user.name
-                  div.facebook-sign-name 个性签名:
-                  a 编辑资料>
-            
-            div.topic-tag
-              div.tag-left
-              div.tag-middle 
-                h5 我的话题
-              div.tag-right
+        div.self
+          div
+            img(src= user.avatarUrl)
+            div.self-info
+              div.facebook-name= user.name
+              div.facebook-sign-name 个性签名:
+              a 编辑资料>
         
-            div.topic-block
-              div.my-topic
-                img(src="../images/book.jpg")
-                div.topic-content
-                  a.content-title 想带你南下
-                  div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
-                  div
-                    span.icon
-                      i.iconfont-selfEnjoy &#xe611;
-                    span.enjoy-count 188
-                    span.icon
-                      i.iconfont-selfComment &#xe612;
-                    span.comment-count 188
-                    a.delete 删除
-              div.my-topic
-                img(src="../images/book.jpg")
-                div.topic-content
-                  a.content-title 想带你南下
-                  div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
-                  span.icon
-                    i.iconfont-selfEnjoy &#xe611;
-                  span.enjoy-count 188
-                  span.icon
-                    i.iconfont-selfComment &#xe612;
-                  span.comment-count 188
-                  a.delete 删除
+        div.topic-tag
+          div.tag-left
+          div.tag-middle 
+            h5 我的话题
+          div.tag-right
+    
+        div.topic-block
+          div.my-topic
+            img(src="../images/book.jpg")
+            div.topic-content
+              a.content-title 想带你南下
+              div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
+              div
+                span.icon
+                  i.iconfont-selfEnjoy &#xe611;
+                span.enjoy-count 188
+                span.icon
+                  i.iconfont-selfComment &#xe612;
+                span.comment-count 188
+                a.delete 删除
+          div.my-topic
+            img(src="../images/book.jpg")
+            div.topic-content
+              a.content-title 想带你南下
+              div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
+              span.icon
+                i.iconfont-selfEnjoy &#xe611;
+              span.enjoy-count 188
+              span.icon
+                i.iconfont-selfComment &#xe612;
+              span.comment-count 188
+              a.delete 删除
       else
-        div.content
-          div.content-block
-            div.hint
-              div.message 你还没有登陆
-              div.actionRow
-                div.signup
-                  a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
+        div.hint
+          div.message 你还没有登陆
+          div.actionRow
+            div.signup
+              a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
 
 block scripts
