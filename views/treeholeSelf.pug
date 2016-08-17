@@ -10,22 +10,24 @@ block content
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
           span.icon.icon-left.text-white
         h1.title.text-white 个人中心
-      if user
-        div.content
-          div.content-block
-            - var user = JSON.parse(user)
-            img(src=user.avatarUrl)
-            span #{user.name}
-            span #{user.gender}
-      else
-        div.content
-          div.content-block
-            div.hint
-              div.message 你还没有登陆
-              div.actionRow
-                div.signup
-                  a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
+      - var user = JSON.parse(user)      
+        if user
+          div.content
+            div.content-block
+              img(src=user.avatarUrl)
+              span #{user.name}
+              span #{user.gender}
+        else
+          div.content
+            div.content-block
+              div.hint
+                div.message 你还没有登陆
+                div.actionRow
+                  div.signup
+                    a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
 
 block scripts
-  //- script(src="../javascripts/treeholeSelf.js")
+  scirpt.
+    var user = #{user};
+    console.log(user);
   
