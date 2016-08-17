@@ -18,6 +18,7 @@ module.exports = function(app) {
       title: "成功注册"
     })
   })
+  
   app.post('/user', function(req, res) {
     var userName = req.body.userName;
     var avatarUrl = req.body.avatarUrl;

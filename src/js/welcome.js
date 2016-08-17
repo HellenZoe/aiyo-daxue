@@ -39,9 +39,11 @@ QC.api("get_user_info", paras)
         redirectUrl: redirectUrl
       }
 
+			alert(userInfo);
+		  var url = "http://" + location.host + "/user"
       $.ajax({
         type: "POST",
-        url: 'http://young-escarpment-36912.herokuapp.com/user',
+        url: url,
         dataType: "json",
         data: userInfo,
         contentType: false,

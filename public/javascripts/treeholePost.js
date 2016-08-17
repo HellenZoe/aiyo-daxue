@@ -188,9 +188,10 @@ function sendFile(fileData) {
 
 	formData.append('imageData', fileData);
 
+  var url = "http://" + location.host + "/treehole/new"
 	$.ajax({
 		type: 'POST',
-		url: 'http://young-escarpment-36912.herokuapp.com/treehole/new',
+		url: url,
     dataType: "json",
 		data: formData,
 		contentType: false,
