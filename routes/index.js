@@ -24,12 +24,6 @@ module.exports = function(app) {
     var avatarUrl = req.body.avatarUrl;
     var gender = req.body.gender;
     var redirectUrl = req.body.redirectUrl;
-    // var user = {
-    //   name: userName,
-    //   avatarUrl: avatarUrl,
-    //   gender: gender
-    // }
-    //
     var newUser =  new User({
       name: userName,
       gender: gender,

@@ -22,9 +22,9 @@ app.set('view engine', 'pug');
 
 //  设置中间件
 app.use(logger('dev'));
-app.use(bodyParser.json());
 // app.use(multer({dest: "../public/uploads/"}));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session({
   store: new mongoStore({mongooseConnection: connection}),

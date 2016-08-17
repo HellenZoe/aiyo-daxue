@@ -38,14 +38,13 @@ QC.api("get_user_info", paras)
       redirectUrl: redirectUrl
     }
 
-		console.log(userInfo);
 	  var url = "http://" + location.host + "/user"
     $.ajax({
       type: "POST",
       url: url,
       dataType: "json",
-      data: userInfo,
-      contentType: false,
+			contentType: "application/json",
+      data: JSON.stringify(userInfo),
       processData: false,
       success: function (data) {
         if (data) {
