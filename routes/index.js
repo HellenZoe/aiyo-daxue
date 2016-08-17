@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   app.get('/welcome', function(req, res) {
     req.render('welcome', {
-      title: 注册成功
+      title: "成功注册"
     })
   })
   app.post('/login', function(req, res) {
