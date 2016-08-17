@@ -29,6 +29,8 @@ module.exports = function(app) {
       gender: gender,
       avatarUrl: avatarUrl,
     })
+    req.session.user = user;
+    console.log(req.session.user);
     // req.session.user = user;
     // res.redirect(redirectUrl);
     newUser.save(function(err, user) {
@@ -36,7 +38,6 @@ module.exports = function(app) {
         console.log("save user error!");
       }
       console.log(user);
-      req.session.user = user;
       // res.redirect(redirectUrl);
     })
 
