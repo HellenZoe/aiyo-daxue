@@ -32,12 +32,12 @@ module.exports = function(app) {
     //
     var newUser =  new User({
       name: userName,
-      avatarUrl: avatarUrl,
       gender: gender,
-      tel: ""，
-      qq: ""，
-      school: ""，
-      department: ""，
+      avatarUrl: avatarUrl,
+      tel: " ",
+      qq: " ",
+      school: " ",
+      department: " ",
       status: 0
     })
     // req.session.user = user;
