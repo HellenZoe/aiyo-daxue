@@ -34,19 +34,14 @@ module.exports = function(app) {
       name: userName,
       gender: gender,
       avatarUrl: avatarUrl,
-      tel: ' ',
-      qq: ' ',
-      school: ' ',
-      department: ' ',
-      status: 0
     })
     // req.session.user = user;
     // res.redirect(redirectUrl);
     newUser.save(function(err, user) {
       if (err) {
         console.log("save user error!");
-        return;
       }
+      console.log(user);
       req.session.user = user;
       // res.redirect(redirectUrl);
     })
