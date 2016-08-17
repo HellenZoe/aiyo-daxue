@@ -30,7 +30,6 @@ module.exports = function(app) {
       avatarUrl: avatarUrl,
     })
     req.session.user = user;
-    console.log(req.session.user);
     // req.session.user = user;
     // res.redirect(redirectUrl);
     newUser.save(function(err, user) {

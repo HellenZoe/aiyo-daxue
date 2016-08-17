@@ -17,6 +17,7 @@ router.get('/post', function(req, res) {
 
 // 个人中心页
 router.get('/self', function(req, res) {
+  console.log("[logging from /treehole/self]", req.session.user);
   res.render('treeholeSelf', {
     title: "个人中心",
     user: req.session.user
