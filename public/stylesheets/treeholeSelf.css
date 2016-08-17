@@ -33,9 +33,10 @@
   margin: 1.2rem .3rem;
   height: 2.9rem;
   float: left;
+  border-radius: 50%;
 }
 .self .self-info {
-  margin-left: 2.5rem;
+  margin-left: 3.8rem;
   padding-top: 1.0rem;
 }
 .self .self-info .facebook-name {
@@ -43,7 +44,7 @@
 }
 .self .self-info .facebook-sign-name,
 .self .self-info a {
-  font-size: .4rem;
+  font-size: .7rem;
 }
 .self .self-info .facebook-name,
 .self .self-info .facebook-sign-name {
@@ -88,18 +89,18 @@
   height: 4rem;
   margin: 0.4rem;
   float: left;
+  border-radius: 50%;
 }
 .topic-block .my-topic .topic-content {
   height: 4rem;
   margin: 0.4rem 0.4rem 0.4rem 0px;
 }
 .topic-block .my-topic .topic-content .content-title {
-  font-size: .7rem;
-  font-weight: bold;
-  color: #131313;
+  font-size: .8rem;
+  color: #444;
 }
 .topic-block .my-topic .topic-content .content-text {
-  font-size: .5rem;
+  font-size: .6rem;
   color: #999;
   margin: .2rem 0rem;
 }
