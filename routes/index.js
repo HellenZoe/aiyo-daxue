@@ -33,7 +33,12 @@ module.exports = function(app) {
     var newUser =  new User({
       name: userName,
       avatarUrl: avatarUrl,
-      gender: gender
+      gender: gender,
+      tel: ""
+      qq: ""
+      school: ""
+      department: ""
+      status: 0
     })
     // req.session.user = user;
     // res.redirect(redirectUrl);
