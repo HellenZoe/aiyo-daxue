@@ -5,6 +5,8 @@ var fs = require('fs');
 var multer= require('multer');
 var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
+var USer = require('../model/user');
+
 
 router.get('/', function(req, res) {
   res.render('treeholeIndex', {title: "树洞"})
@@ -17,10 +19,17 @@ router.get('/post', function(req, res) {
 
 // 个人中心页
 router.get('/self', function(req, res) {
-  console.log("[logging from /treehole/self]", req.session.user);
-  res.render('treeholeSelf', {
+  if (req.params.avatarUrl) {
+    User.find({avatarUrl: req.params.avatarUrl}, function(err, docs) {
+      res.render('treeholeSelf', {
+        title: "个人中心",
+        user: docs
+      })
+    }})
+  }
+  req.render('treeholeSelf', {
     title: "个人中心",
-    user: req.session.user
+    user: ''
   })
 })
 

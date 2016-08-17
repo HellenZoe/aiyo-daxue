@@ -38,6 +38,7 @@ QC.api("get_user_info", paras)
       redirectUrl: redirectUrl
     }
 
+		//  把用户登陆信息提交到服务端 存储到数据库
 	  var url = "http://" + location.host + "/user"
     $.ajax({
       type: "POST",
@@ -57,6 +58,13 @@ QC.api("get_user_info", paras)
       }
     })
 
+
+		//  让去完善的按钮带上相应用户的参数
+		var oldHref = $('.gotoSelf').attr('href');
+		var newHref = oldHref + "?userAavatarUrl=" + avatarUrl
+		$('.gotoSelf').attr('href', newHref);
+
+		// 隐藏加载
     $.hidePreloader();
 
 
