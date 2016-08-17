@@ -17,10 +17,9 @@ router.get('/post', function(req, res) {
 
 // 个人中心页
 router.get('/self', function(req, res) {
-  var user = JSON.stringify(req.session.user);
   res.render('treeholeSelf', {
     title: "个人中心",
-    user: user
+    user: req.session.user
   })
 })
 

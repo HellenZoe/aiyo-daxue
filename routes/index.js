@@ -16,7 +16,6 @@ module.exports = function(app) {
   app.get('/welcome', function(req, res) {
     res.render('welcome', {
       title: "成功注册",
-      user: req.session.user
     })
   })
 
@@ -46,6 +45,8 @@ module.exports = function(app) {
       req.session.user = user;
       // res.redirect(redirectUrl);
     })
+
+
   })
   app.use('/treehole', treehole);
 }
