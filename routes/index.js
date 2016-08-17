@@ -12,12 +12,12 @@ module.exports = function(app) {
   })
 
 
-  app.get('welcome', function(req, res) {
+  app.get('/welcome', function(req, res) {
     req.render('welcome', {
       title: 注册成功
     })
   })
-  app.post('login', function(req, res) {
+  app.post('/login', function(req, res) {
 
   })
   app.use('/treehole', treehole);
