@@ -30,14 +30,14 @@ module.exports = function(app) {
     //   gender: gender
     // }
     //
-    var user =  new User({
+    var newUser =  new User({
       name: userName,
       avatarUrl: avatarUrl,
       gender: gender
     })
     // req.session.user = user;
     // res.redirect(redirectUrl);
-    user.save(function(err, user) {
+    newUser.save(function(err, user) {
       if (err) {
         console.log("save user error!");
         return;
