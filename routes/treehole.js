@@ -24,7 +24,7 @@ router.get('/self', function(req, res) {
   if (req.query.avatarUrl) {
     User.find({avatarUrl: req.query.avatarUrl}, function(err, docs) {
       console.log("******************************log from /treehole/self--docs*******************", docs);
-      res.render('treeholeSelf', {
+      return res.render('treeholeSelf', {
         title: "个人中心",
         user: docs
       })
