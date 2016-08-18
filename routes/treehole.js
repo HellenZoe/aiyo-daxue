@@ -9,6 +9,7 @@ var User = require('../model/user');
 
 
 router.get('/', function(req, res) {
+  console.log("*********************8logging from /treehole************************".req.session.user);
   res.render('treeholeIndex', {title: "树洞"})
 })
 
@@ -37,7 +38,7 @@ router.get('/self', function(req, res) {
   //   })
   // }
   var user = req.session.user;
-  console.log("********************logging from /treehole/self***********************", req.session.user);
+  console.log("********************logging from /treehole/self***********************", req.session);
   res.render('treeholeSelf', {
     title: "个人中心",
     user: user
