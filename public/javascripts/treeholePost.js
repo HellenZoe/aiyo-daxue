@@ -212,7 +212,7 @@ function sendFile(info) {
 			}
 		},
 		error: function (data) {
-				showMessageFail("上传出错, 请重试");
+				// showMessageFail("上传出错, 请重试");
 		}
 	});
 }

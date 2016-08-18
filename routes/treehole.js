@@ -12,12 +12,25 @@ router.get('/', function(req, res) {
 
   console.log("*********************logging from /treehole--user************************", req.session.user);
   // var crtUser = req.session.user;
-  Treehole.find(function(err, docs) {
+  var allUsersInfo = [];
+  Treehole.find({skip: 10}, function(err, ts) {
     if (err) {
-      console.log("取出用户对应的树洞出错", err);
+      console.log(err);
     }else {
-      console.log("*******************logging from /treehole--treeholes***************", docs);
-      res.render('treeholeIndex', {title: "树洞", treeholes: docs});
+      ts.forEach(function(item, index) {
+        User.findById(item.author, function(err, u) {
+          if (err) {
+            console.log(err);
+          }else {
+            allUsersInfo.push(u)
+          }
+        })
+      })
+      res.render("treeholeIndex", {
+        title: "树洞首页",
+        users: allUsersInfo,
+        treeholes: ts
+      })
     }
   })
 
@@ -48,12 +61,20 @@ router.get('/self', function(req, res) {
   //     user: ''
   //   })
   // }
-  var user = req.session.user;
-  console.log("********************logging from /treehole/self***********************", req.session);
-  res.render('treeholeSelf', {
-    title: "个人中心",
-    user: user
-  });
+  //
+  //
+  Treehole.find({author: req.session.user._id}, function(err, ts) {
+    if (err) {
+      console.log("取出用户对应的树洞出错", err);
+    }else {
+      console.log("*******************logging from /treehole/self--treeholes***************", ts);
+      res.render({
+        title: "个人中心",
+        treeholes: ts,
+        user: req.session.user
+      })
+    }
+  })
 })
 
 //  发布新的树洞
@@ -96,7 +117,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           }
       	});
       })
-        
+
     })
 
 })

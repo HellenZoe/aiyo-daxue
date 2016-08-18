@@ -14,8 +14,8 @@ var treeholeSchema = Schema({
   }],
   time: { type: Date, default: Date.now},
   meta: {
-    fav: Number,
-    comments: Number
+    fav: {type: Number, default: 0)
+    comments: {type: Number, default: 0}
   }
 })
 
