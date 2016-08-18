@@ -9,7 +9,7 @@ var User = require('../model/user');
 
 
 router.get('/', function(req, res) {
-  console.log("*********************8logging from /treehole************************".req.session.user);
+  console.log("*********************8logging from /treehole************************"，req.session.user);
   res.render('treeholeIndex', {title: "树洞"})
 })
 
