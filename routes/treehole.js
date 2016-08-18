@@ -46,6 +46,13 @@ router.get('/self', function(req, res) {
   });
 })
 
+router.get('/details', function(req, res) {
+  res.render('treeholeDetails', {
+    title: "详情",
+    //user: user
+  });
+})
+
 //  发布新的树洞
 router.post('/new', upload.single('test'), function(req, res) {
     var imageData= req.body['imageData'];
