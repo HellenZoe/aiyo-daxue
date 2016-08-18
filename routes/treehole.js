@@ -13,13 +13,15 @@ router.get('/', function(req, res) {
   // console.log("*********************logging from /treehole--user************************", req.session.user);
   // var crtUser = req.session.user;
   var allUsersInfo = [];
-  Treehole.find(function(err, ts) {
+  var queryTreehole = Treehole.find({});
+  queryTreehole.exec(function(err, ts) {
     if (err) {
       console.log(err);
     }else {
       if (ts.length != 0) {
         ts.forEach(function(item, index) {
-          User.find({_id: item.author}, function(err, u) {
+          var queryUser = User.find({_id: item.author});
+          queryUser.exec(function(err, u) {
             if (err) {
               console.log(err);
             }else {
