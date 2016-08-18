@@ -195,8 +195,9 @@ function addCanvasToPreview(canvas, fileType) {
 //  上传文件
 function sendFile(info) {
 	var formData = new FormData();
-
-	formData.append('postInfo', info);
+	formData.append('postInfo', JSON.stringify(info.pics));
+  formData.append('author', info.author);
+  formData.append('postText', info.postText);
   var url = "http://" + location.host + "/treehole/new"
 	$.ajax({
 		type: 'POST',
