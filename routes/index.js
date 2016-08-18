@@ -28,13 +28,13 @@ module.exports = function(app) {
       name: userName,
       gender: gender,
       avatarUrl: avatarUrl,
-    })
+    });
     console.log("*******************logging from /user************************", newUser);
     newUser.save(function(err, user) {
       if (err) {
         console.log("save user error!");
       }
-      // 将user存储到session 保持用户登陆状态
+      // 将user存储到session 保持用户登陆
       req.session.user = user;
       console.log("*************************logging from /user*********************", req.session);
       res.redirect('/treehole/self');

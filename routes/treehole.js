@@ -48,6 +48,7 @@ router.get('/self', function(req, res) {
 
 //  发布新的树洞
 router.post('/new', upload.single('test'), function(req, res) {
+    console.log("*************8logging from /treehole/new***************", req.session.user);
     var imageData= req.body['imageData'];
     var base64Data = imageData.split(',')[1];
     var fileType = imageData.split(';')[0].split('/')[1];

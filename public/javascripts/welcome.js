@@ -24,7 +24,6 @@ QC.api("get_user_info", paras)
     $.hidePreloader();
     // showHint("获取信息成功", "success");
 
-    // 用户点击去完善的时候  就发送post请求把用户信息发送到路由/user   然后跳转到相应模块的个人中心
 
       // 获取参数
     var userName = s.data.nickname;
@@ -58,12 +57,19 @@ QC.api("get_user_info", paras)
       }
     })
 
-
+		//  之前的实现方式  现在已经改用session实现
 		//  让去完善的按钮带上相应用户的参数
-		var oldHref = $('.gotoSelf').attr('href');
-		var newHref = oldHref + "?avatarUrl=" + avatarUrl
-		$('.gotoSelf').attr('href', newHref);
+		// var oldHref = $('.gotoSelf').attr('href');
+		// var newHref = oldHref + "?avatarUrl=" + avatarUrl
+		// $('.gotoSelf').attr('href', newHref);
 
+
+		//  将用户信息存储到localstorage 每次进入到首页用ajax获取数据
+
+		if (window.utils) {
+			utils.saveToLocal(userInfo);
+		}
+		
 		// 隐藏加载
     $.hidePreloader();
 
