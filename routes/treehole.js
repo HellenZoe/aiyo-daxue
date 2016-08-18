@@ -80,7 +80,7 @@ router.post('/new', upload.single('test'), function(req, res) {
     var imageData = JSON.parse(req.body['imageData']);
     var content = req.body['postText'];
     var authorId = req.session.user._id;
-    User.find({_id: authorId}, {name, school, avatarUrl}, function(err, us) {
+    User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
       if (err) {
         console.log(err);
       }else {
