@@ -38,7 +38,7 @@ router.get('/', function(req, res) {
 
 })
 
-router.get('/:id', function(req, res) {
+router.get('/details/:id', function(req, res) {
   var id = req.params.id;
   Treehole.find({_id: id}, function(err, doc) {
     res.render({
