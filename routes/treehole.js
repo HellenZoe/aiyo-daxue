@@ -40,7 +40,7 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res) {
   var id = req.params.id;
-  Treehole.get({_id: id}, function(err, doc) {
+  Treehole.find({_id: id}, function(err, doc) {
     res.render({
       title: "详情",
       tInfo: doc[0]
