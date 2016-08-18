@@ -27,33 +27,21 @@ block content
           div.tag-middle 
             h5 我的话题
           div.tag-right
-    
-        div.topic-block
-          div.my-topic
-            img(src="../images/book.jpg")
-            div.topic-content
-              a.content-title 想带你南下
-              div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
-              div
-                span.icon
-                  i.iconfont-selfEnjoy &#xe611;
-                span.enjoy-count 188
-                span.icon
-                  i.iconfont-selfComment &#xe612;
-                span.comment-count 188
-                a.delete 删除
-          div.my-topic
-            img(src="../images/book.jpg")
-            div.topic-content
-              a.content-title 想带你南下
-              div.content-text 想带着你南下,感受四季的变化,远离世俗的喧嚣,走过春秋和东西啊.真尼玛恶心
-              span.icon
-                i.iconfont-selfEnjoy &#xe611;
-              span.enjoy-count 188
-              span.icon
-                i.iconfont-selfComment &#xe612;
-              span.comment-count 188
-              a.delete 删除
+        each item in treeholes
+          div.topic-block
+            div.my-topic
+              img(src= item.picUrl[0])
+              div.topic-content
+                a.content-title= item.title
+                div.content-text= item.content
+                div
+                  span.icon
+                    i.iconfont-selfEnjoy &#xe611;
+                  span.enjoy-count= item.meta.fav
+                  span.icon
+                    i.iconfont-selfComment &#xe612;
+                  span.comment-count= item.meta.comments
+                  a.delete 删除
       else
         div.content
           div.content-block
