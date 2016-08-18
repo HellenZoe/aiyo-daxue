@@ -20,6 +20,7 @@ router.get('/post', function(req, res) {
 
 // 个人中心页
 router.get('/self', function(req, res) {
+  //  这是之前的实现方式   现在已经改用session实现
   //  如果请求参数有  那么去除对应的user   返回
   // console.log("*************************log from /treehole/self--req.query.avatarUrl**********************", req.query.avatarUrl);
   // if (req.query.avatarUrl) {
