@@ -9,13 +9,13 @@ var User = require('../model/user');
 
 
 router.get('/', function(req, res) {
-  console.log("*********************8logging from /treehole************************"，req.session.user);
-  res.render('treeholeIndex', {title: "树洞"})
+  console.log("*********************logging from /treehole************************", req.session.user);
+  res.render('treeholeIndex', {title: "树洞"});
 })
 
 // 发布树洞页
 router.get('/post', function(req, res) {
-  res.render('treeholePost', {title: "发布"})
+  res.render('treeholePost', {title: "发布"});
 })
 
 // 个人中心页
