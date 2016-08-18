@@ -67,17 +67,26 @@
   color: #F57E7A;
 }
 
+.card-footer{
+  padding: 0px;
+  min-height: 2rem;
+}
 .topic-card-footer{
-  min-height: 2.2rem;
   width: 100%;
   position: relative;
   box-sizing: border-box;
   background-color: #fff;
 }
 
-#enjoy, #comment{
-  float: right;
-  margin: .7rem .5rem;
+#comment{
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+#enjoy{
+    position: absolute;
+    top: .5rem;
+    right: 3rem;
 }
 
 .enjoy-count, .comment-count{
@@ -155,7 +164,7 @@
     url('../fonts/iconfont-nullEnjoy.svg#iconfont-nullEnjoy') format('svg'); /* iOS 4.1- */
 }
 
-.iconfont-nullEnjoy{
+.piconfont-nullEnjoy{
     font-family:"iconfont-nullEnjoy" !important;
     font-size:.8rem;
     font-style:normal;
