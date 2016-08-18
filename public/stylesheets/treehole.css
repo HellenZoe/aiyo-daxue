@@ -38,14 +38,40 @@
 .facebook-card .card-info .facebook-name,
 .facebook-card .card-info .facebook-date {
   margin-left: 0px;
+  color: #444;
 }
 .facebook-card .card-content-title {
   font-weight: normal;
-  color: #333;
+  color: #444;
 }
 .facebook-card .card-content-title,
 .facebook-card .card-content-text {
   margin: .3rem 0px;
+}
+.iconfont-nullEnjoy,
+.iconfont-selfEnjoy {
+  color: #F57E7A;
+}
+.topic-card-footer {
+  min-height: 2.2rem;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+#enjoy,
+#comment {
+  float: right;
+  margin: .7rem .5rem;
+}
+.enjoy-count,
+.comment-count {
+  margin-left: .3rem;
+  font-size: .9rem;
+  color: #999;
+}
+.index-color {
+  color: #F57E7A;
 }
 @font-face {
   font-family: 'iconfont-treeHoleTabsBar';
@@ -78,6 +104,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 @font-face {
+  font-family: 'iconfont-selfEnjoy';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfEnjoy.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfEnjoy.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfEnjoy.svg#iconfont-selfEnjoy') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-selfEnjoy {
+  font-family: "iconfont-selfEnjoy" !important;
+  font-size: .8rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
   font-family: 'iconfont-nullEnjoy';
   src: url('iconfont.eot');
   /* IE9*/
@@ -86,8 +127,24 @@
 }
 .iconfont-nullEnjoy {
   font-family: "iconfont-nullEnjoy" !important;
-  font-size: 16px;
+  font-size: .8rem;
   font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'iconfont-selfComment';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfComment.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfComment.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfComment.svg#iconfont-selfComment') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-selfComment {
+  font-family: "iconfont-selfComment" !important;
+  font-size: .8rem;
+  font-style: normal;
+  color: #E3E3E3;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
