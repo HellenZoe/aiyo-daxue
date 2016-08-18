@@ -29,7 +29,7 @@ treeholeSchema.virtual('date').get(function() {
   var day = d.getDate();
   var hour = d.getHours();
   var minute = d.getMinutes();
-  minute = (minute >= 10) ? minute : minute + "0";
+  minute = (minute >= 10) ? minute : "0" +  minute;
   return month + "-" + day + "  " + hour + ":" + minute;
 })
 
