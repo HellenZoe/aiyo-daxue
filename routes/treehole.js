@@ -19,10 +19,11 @@ router.get('/', function(req, res) {
     }else {
       if (ts.length != 0) {
         ts.forEach(function(item, index) {
-          User.findById(item.author, function(err, u) {
+          User.find({_id: item.author}, function(err, u) {
             if (err) {
               console.log(err);
             }else {
+              console.log("**********************loggging from /treehole--userinfo****************", item.author, u);
               allUsersInfo.push(u)
             }
           })
