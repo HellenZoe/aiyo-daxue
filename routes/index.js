@@ -29,13 +29,15 @@ module.exports = function(app) {
       gender: gender,
       avatarUrl: avatarUrl,
     })
-    req.session.user = user;
     // req.session.user = user;
     // res.redirect(redirectUrl);
+    console.log("*******************logging from /user************************", newUser);
     newUser.save(function(err, user) {
       if (err) {
         console.log("save user error!");
       }
+      req.session.user = user;
+      console.log("*************************logging from /user*********************", req.session.user);
     })
 
 
