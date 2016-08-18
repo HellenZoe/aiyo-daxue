@@ -10,7 +10,7 @@ var Treehole  = require('../model/treehole');
 
 router.get('/', function(req, res) {
 
-  console.log("*********************logging from /treehole--user************************", req.session.user);
+  // console.log("*********************logging from /treehole--user************************", req.session.user);
   // var crtUser = req.session.user;
   var allUsersInfo = [];
   Treehole.find(function(err, ts) {
@@ -27,6 +27,7 @@ router.get('/', function(req, res) {
             }
           })
         })
+        console.log("***********************logging from /treehole--renderinfo", allUsersInfo, ts);
         res.render("treeholeIndex", {
           title: "树洞首页",
           users: allUsersInfo,
