@@ -60,12 +60,12 @@ router.get('/self', function(req, res) {
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /treehole/new--user***************", req.session.user);
     console.log("*************logging from /treehole/new--postInfo**************", req.body['postInfo']);
-    console.log("*************logging from /treehole/new--postInfo**************", req.body['postInfo'][author]);       
+    console.log("*************logging from /treehole/new--postInfo**************", req.body['postText']);
     // var postInfo = JSON.parse(req.body['postInfo']);
     // console.log("*************************logging from /treehole/new--postInfo", postInfo);
-    var imageData= postInfo.pics;
-    var content = postInfo.postText;
-    var author = postInfo.author;
+
+    var imageData = JSON.parse(req.body['imageData']);
+    var content = req.body['postText'];
     var avatarUrl = req.session.user.avatarUrl;
     console.log("*************************logging from /treehole/new--postInfo", imageData, content, author, avatarUrl);
     var newTreehole = new Treehole({
@@ -86,7 +86,7 @@ router.post('/new', upload.single('test'), function(req, res) {
     	var dataBuffer = new Buffer(base64Data, 'base64');
       var cmp = Date.now();
       var picUrl = "obzokcbc0.bkt.clouddn.com/treehole/" + cmp + "." + fileType;
-      Treehole.update({author: author}, {"$push": {"picUrl": picUrl}}, function(err, raw) {
+      Treehole.update({author: avatarUrl}, {"$push": {"picUrl": picUrl}}, function(err, raw) {
         if (err) {
           console.log("保存treehole url出错", err);
         }else {

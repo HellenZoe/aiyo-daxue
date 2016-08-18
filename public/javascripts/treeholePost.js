@@ -5,7 +5,6 @@ autosize(document.querySelectorAll("textarea"));
 
 
 var allPic  = {
-  author: window.utils.getFromLocal("userInfo").avatarUrl,
   postText: "",
   pics: []
 }
@@ -195,8 +194,8 @@ function addCanvasToPreview(canvas, fileType) {
 //  上传文件
 function sendFile(info) {
 	var formData = new FormData();
-	formData.append('postInfo', JSON.stringify(info.pics));
-  formData.append('author', info.author);
+  console.log("post信息", info);
+	formData.append('imageData', JSON.stringify(info.pics));
   formData.append('postText', info.postText);
   var url = "http://" + location.host + "/treehole/new"
 	$.ajax({
