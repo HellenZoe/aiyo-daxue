@@ -31,7 +31,7 @@ finishButton.on('click', function(e) {
 
   //  获取用户输入内容
   var postText = $('.treehole-content > textarea').val();
-  console.log("用户输入的内容是"， postText);
+  console.log(postText);
   allPic.postText = postText;
 
   //  发送所有信息
