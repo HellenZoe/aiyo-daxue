@@ -38,25 +38,28 @@ block content
           div.tabs
             div#tab-hot.tab.active
               div.content-block
-                each treehole, index in treeholes
-                  div.card.facebook-card
-                    div.card-header.no-border
-                      div.facebook-avatar
-                        each url, index in treehole.picUrl
-                          img(src= url)
-                      div.card-info
-                        div.facebook-name= users[index].name
-                        div.facebook-date=  item.time users[index].school ? 来自[#{users[index].school}] : ""
-                    div.card-content
-                      h3.card-content-title items.title
-                      p.card-content-text items.content
-                    divcard-footer
-                      a#enjoy.icon.link(href="#")
-                        i.iconfont-nullEnjoy &#xe614;
-                      span.enjoy-count= #{items.meta.fav}
-                      a#comment.icon.link(href="#")
-                        i.iconfont-selfComment &#xe612;
-                      span.comment-count= #{items.meta.comments}
+                if treeholes
+                  each treehole, index in treeholes
+                    div.card.facebook-card
+                      div.card-header.no-border
+                        div.facebook-avatar
+                          each url, index in treehole.picUrl
+                            img(src= url)
+                        div.card-info
+                          div.facebook-name= users[index].name
+                          div.facebook-date=  item.time users[index].school ? 来自[#{users[index].school}] : ""
+                      div.card-content
+                        h3.card-content-title items.title
+                        p.card-content-text items.content
+                      divcard-footer
+                        a#enjoy.icon.link(href="#")
+                          i.iconfont-nullEnjoy &#xe614;
+                        span.enjoy-count= #{items.meta.fav}
+                        a#comment.icon.link(href="#")
+                          i.iconfont-selfComment &#xe612;
+                        span.comment-count= #{items.meta.comments}
+                else
+                  div 还没有人发布树洞  
                 //- div.card.facebook-card
                 //-   div.card-header.no-border
                 //-     div.facebook-avatar

@@ -17,20 +17,27 @@ router.get('/', function(req, res) {
     if (err) {
       console.log(err);
     }else {
-      ts.forEach(function(item, index) {
-        User.findById(item.author, function(err, u) {
-          if (err) {
-            console.log(err);
-          }else {
-            allUsersInfo.push(u)
-          }
+      if (ts.length != 0) {
+        ts.forEach(function(item, index) {
+          User.findById(item.author, function(err, u) {
+            if (err) {
+              console.log(err);
+            }else {
+              allUsersInfo.push(u)
+            }
+          })
         })
-      })
-      res.render("treeholeIndex", {
-        title: "树洞首页",
-        users: allUsersInfo,
-        treeholes: ts
-      })
+        res.render("treeholeIndex", {
+          title: "树洞首页",
+          users: allUsersInfo,
+          treeholes: ts
+        })
+      }else {
+        res.render({
+          title: "树洞首页"，
+          treeholes: null
+        })
+      }
     }
   })
 
