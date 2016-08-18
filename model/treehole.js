@@ -25,10 +25,11 @@ var treeholeSchema = Schema({
 treeholeSchema.virtual('date').get(function() {
   var d = new Date();
   d.setTime(this.time);
-  var month = d.getMonth();
+  var month = d.getMonth() + 1;
   var day = d.getDate();
   var hour = d.getHours();
   var minute = d.getMinutes();
+  minute = (minute >= 10) ? minute : minute + "0";
   return month + "-" + day + "  " + hour + ":" + minute;
 })
 
