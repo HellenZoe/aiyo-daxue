@@ -18,9 +18,14 @@ router.get('/', function(req, res) {
       console.log(err);
     }else {
       if (ts.length != 0) {
+        console.log("*******************logging from /treehole--treeeholesTransformed***************", ts.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }));
         res.render("treeholeIndex", {
           title: "树洞首页",
-          treeholes: ts
+          treeholes: ts.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          })
         });
       }else {
         res.render("treeholeIndex", {

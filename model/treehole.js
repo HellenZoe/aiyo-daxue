@@ -22,5 +22,16 @@ var treeholeSchema = Schema({
   }
 })
 
+treeholeSchema.virtual('date').get(function() {
+  var d = new Date();
+  d.setTime(this.time);
+  var month = d.getMonth();
+  var day = d.getDate();
+  var hour = d.getHours();
+  var minute = d.getMinutes();
+  return month + "-" + day + "  " + hour + ":" + minute;
+})
+
+
 var TreeHole = mongoose.model('TreeHole', treeholeSchema);
 module.exports =  TreeHole;
