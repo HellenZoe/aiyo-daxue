@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
           treeholes: ts
         })
       }else {
-        res.render({
+        res.render("treeholeIndex", {
           title: "树洞首页",
           treeholes: null
         })
