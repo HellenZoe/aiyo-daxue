@@ -5,6 +5,11 @@
   color: #F57E7A;
   border-color: #F57E7A;
 }
+.buttons-tab {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
 .treehole-content > .content-block {
   margin: 0px;
   padding: 0px;
