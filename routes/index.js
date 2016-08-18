@@ -29,7 +29,7 @@ module.exports = function(app) {
       gender: gender,
       avatarUrl: avatarUrl,
     })
-    // req.session.user = user;
+    req.session.user = user;
     // req.session.user = user;
     // res.redirect(redirectUrl);
     newUser.save(function(err, user) {

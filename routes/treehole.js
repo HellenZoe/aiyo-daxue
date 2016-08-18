@@ -20,22 +20,28 @@ router.get('/post', function(req, res) {
 // 个人中心页
 router.get('/self', function(req, res) {
   //  如果请求参数有  那么去除对应的user   返回
-  console.log("*************************log from /treehole/self--req.query.avatarUrl**********************", req.query.avatarUrl);
-  if (req.query.avatarUrl) {
-    User.find({avatarUrl: req.query.avatarUrl}, function(err, docs) {
-      console.log("******************************log from /treehole/self--docs*******************", docs);
-      return res.render('treeholeSelf', {
-        title: "个人中心",
-        user: docs[0]
-      })
-    })
-  }else{
-    // 如果没有 说明没有登陆
-    res.render('treeholeSelf', {
-      title: "个人中心",
-      user: ''
-    })
-  }
+  // console.log("*************************log from /treehole/self--req.query.avatarUrl**********************", req.query.avatarUrl);
+  // if (req.query.avatarUrl) {
+  //   User.find({avatarUrl: req.query.avatarUrl}, function(err, docs) {
+  //     console.log("******************************log from /treehole/self--docs*******************", docs);
+  //     return res.render('treeholeSelf', {
+  //       title: "个人中心",
+  //       user: docs[0]
+  //     })
+  //   })
+  // }else{
+  //   // 如果没有 说明没有登陆
+  //   res.render('treeholeSelf', {
+  //     title: "个人中心",
+  //     user: ''
+  //   })
+  // }
+  var user = req.session.user;
+  console.log(user);
+  res.render('treeholeSelf', {
+    title: "个人中心",
+    user: user
+  });
 })
 
 //  发布新的树洞
