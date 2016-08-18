@@ -9,7 +9,7 @@ var utils = {
   },
 
   getFromLocal: function(name) {
-    return localStorage.get(name);
+    return localStorage.Item(name);
   }
 
 }
