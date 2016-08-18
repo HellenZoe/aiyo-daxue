@@ -27,21 +27,24 @@ block content
           div.tag-middle 
             h5 我的话题
           div.tag-right
-        each item in treeholes
-          div.topic-block
-            div.my-topic
-              img(src= item.picUrl[0])
-              div.topic-content
-                a.content-title= item.title
-                div.content-text= item.content
-                div
-                  span.icon
-                    i.iconfont-selfEnjoy &#xe611;
-                  span.enjoy-count= item.meta.fav
-                  span.icon
-                    i.iconfont-selfComment &#xe612;
-                  span.comment-count= item.meta.comments
-                  a.delete 删除
+        if treeholes
+          each item in treeholes
+            div.topic-block
+              div.my-topic
+                img(src= item.picUrl[0])
+                div.topic-content
+                  a.content-title= item.title
+                  div.content-text= item.content
+                  div
+                    span.icon
+                      i.iconfont-selfEnjoy &#xe611;
+                    span.enjoy-count= item.meta.fav
+                    span.icon
+                      i.iconfont-selfComment &#xe612;
+                    span.comment-count= item.meta.comments
+                    a.delete 删除
+        else
+          div  你还没有发布话题哦~~~
       else
         div.content
           div.content-block

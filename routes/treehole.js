@@ -74,26 +74,35 @@ router.get('/self', function(req, res) {
   // }
   //
   //
-  console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);
-  Treehole.find({author: req.session.user._id}, function(err, ts) {
-    if (err) {
-      console.log("取出用户对应的树洞出错", err);
-    }else {
-      console.log("*******************logging from /treehole/self--treeholes***************", ts);
-      if (ts) {
-        res.render("treeholeSelf", {
-          title: "个人中心",
-          treeholes: ts,
-          user: req.session.user
-        })
+  if (req.session.user) {
+    console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);
+    Treehole.find({author: req.session.user._id}, function(err, ts) {
+      if (err) {
+        console.log("取出用户对应的树洞出错", err);
       }else {
-        res.render("treeholeSelf", {
-          title: "个人中心",
-          user: req.session.user
-        })
+        console.log("*******************logging from /treehole/self--treeholes***************", ts);
+        if (ts) {
+          res.render("treeholeSelf", {
+            title: "个人中心",
+            treeholes: ts,
+            user: req.session.user
+          })
+        }else {
+          res.render("treeholeSelf", {
+            title: "个人中心",
+            user: req.session.user,
+            treeholes: null,
+          })
+        }
       }
+    })
+  }else {
+    res.render("treeholeSelf", {
+      title: "个人中心",
+      user: null,
+      treeholes: null,
     }
-  })
+  }
 })
 
 //  发布新的树洞
