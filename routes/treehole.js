@@ -60,7 +60,7 @@ router.get('/self', function(req, res) {
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /treehole/new--user***************", req.session.user);
     console.log("*************logging from /treehole/new--postInfo**************", req.body['postInfo']);
-    console.log("*************logging from /treehole/new--postInfo**************", JSON.stringify(req.body['postInfo']));    
+    console.log("*************logging from /treehole/new--postInfo**************", req.body['postInfo'][author]);       
     // var postInfo = JSON.parse(req.body['postInfo']);
     // console.log("*************************logging from /treehole/new--postInfo", postInfo);
     var imageData= postInfo.pics;
