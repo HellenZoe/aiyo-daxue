@@ -6,6 +6,9 @@ var treeholeSchema = Schema({
   title: String,
   content: String,
   author: String,
+  authorAvatarUrl: String,
+  authorName: String,
+  authorSchool: String,
   comment: [{
     author: String,
     reply: String,

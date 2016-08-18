@@ -12,35 +12,21 @@ router.get('/', function(req, res) {
 
   // console.log("*********************logging from /treehole--user************************", req.session.user);
   // var crtUser = req.session.user;
-  var allUsersInfo = [];
   var queryTreehole = Treehole.find({});
   queryTreehole.exec(function(err, ts) {
     if (err) {
       console.log(err);
     }else {
       if (ts.length != 0) {
-        ts.forEach(function(item, index) {
-          var queryUser = User.find({_id: item.author});
-          queryUser.exec(function(err, u) {
-            if (err) {
-              console.log(err);
-            }else {
-              console.log("**********************loggging from /treehole--userinfo****************", item.author, u);
-              allUsersInfo.push(u)
-            }
-          })
-        })
-        console.log("***********************logging from /treehole--renderinfo", allUsersInfo, ts);
         res.render("treeholeIndex", {
           title: "树洞首页",
-          users: allUsersInfo,
           treeholes: ts
-        })
+        });
       }else {
         res.render("treeholeIndex", {
           title: "树洞首页",
           treeholes: null
-        })
+        });
       }
     }
   })
@@ -94,41 +80,51 @@ router.post('/new', upload.single('test'), function(req, res) {
     var imageData = JSON.parse(req.body['imageData']);
     var content = req.body['postText'];
     var authorId = req.session.user._id;
-    var newTreehole = new Treehole({
-        author: authorId,
-        content: content,
-        title: "测试",
-    })
-    newTreehole.save(function(err, treehole) {
+    User.find({_id: authorId}, {name, school, avatarUrl}, function(err, us) {
       if (err) {
-        console.log("save treehole error");
-      }
-      console.log("*******************logging from /treehole/new--treehole", treehole);
-      imageData.forEach(function(item, index) {
-        var base64Data = item.split(',')[1];
-        var fileType = item.split(';')[0].split('/')[1];
-      	var dataBuffer = new Buffer(base64Data, 'base64');
-        var cmp = Date.now();
-        var picUrl = "obzokcbc0.bkt.clouddn.com/treehole/" + cmp + "." + fileType;
-        console.log("*****************logging from /treehole/new--picUrl**************", picUrl);
-        Treehole.update({author: authorId}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+        console.log(err);
+      }else {
+        var newTreehole = new Treehole({
+            author: authorId,
+            authorName: us[0].name,
+            authorAvatarUrl: us[0].avatarUrl,
+            authorSchool: us[0].authorSchool,
+            content: content,
+            title: "测试",
+        })
+        newTreehole.save(function(err, treehole) {
           if (err) {
-            console.log("保存treehole url出错", err);
-          }else {
-            console.log(raw);
+            console.log("save treehole error");
           }
-        });
-        var tmpFilePath = "./upload/tmp/" + cmp + "." + fileType;
-      	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
-      		if(err){
-      		  console.log(err);
-      		}else{
-            uploadToQiniu(tmpFilePath, "treehole");
-            console.log("success upload");
-          }
-      	});
-      })
+          console.log("*******************logging from /treehole/new--treehole", treehole);
+          imageData.forEach(function(item, index) {
+            var base64Data = item.split(',')[1];
+            var fileType = item.split(';')[0].split('/')[1];
+          	var dataBuffer = new Buffer(base64Data, 'base64');
+            var cmp = Date.now();
+            var picUrl = "obzokcbc0.bkt.clouddn.com/treehole/" + cmp + "." + fileType;
+            console.log("*****************logging from /treehole/new--picUrl**************", picUrl);
+            Treehole.update({author: authorId}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+              if (err) {
+                console.log("保存treehole url出错", err);
+              }else {
+                console.log(raw);
+              }
+            });
+            var tmpFilePath = "./upload/tmp/" + cmp + "." + fileType;
+          	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
+          		if(err){
+          		  console.log(err);
+          		}else{
+                uploadToQiniu(tmpFilePath, "treehole");
+                console.log("success upload");
+              }
+          	});
+          })
 
+        })
+
+      }
     })
 
 })
