@@ -29,8 +29,15 @@
 .facebook-card .facebook-avatar img {
   height: 2rem;
 }
+.facebook-card .facebook-avatar img {
+  border-radius: 50%;
+}
 .facebook-card .card-content {
-  padding: 0.5rem;
+  padding: 0 .5rem .5rem .5rem;
+}
+.facebook-card .card-content .picsWrapper img {
+  display: inline-block;
+  margin-right: .2rem;
 }
 .facebook-card .card-info {
   margin-left: 2.5rem;
