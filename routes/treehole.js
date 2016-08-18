@@ -88,10 +88,11 @@ router.post('/new', upload.single('test'), function(req, res) {
             author: authorId,
             authorName: us[0].name,
             authorAvatarUrl: us[0].avatarUrl,
-            authorSchool: us[0].authorSchool,
+            authorSchool: us[0].school,
             content: content,
             title: "测试",
         })
+        console.log("logging from ******************logging from /treehole/new --treeholeToSave", newTreehole);
         newTreehole.save(function(err, treehole) {
           if (err) {
             console.log("save treehole error");
