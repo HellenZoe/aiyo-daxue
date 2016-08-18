@@ -43,8 +43,7 @@ block content
                     div.card.facebook-card
                       div.card-header.no-border
                         div.facebook-avatar
-                          each url, index in treehole.picUrl
-                            img(src= url)
+                            img(src= treehole.authorAvatarUrl)
                         div.card-info
                           div.facebook-name= treehole.authorName
                           div.facebook-date
@@ -53,6 +52,9 @@ block content
                       div.card-content
                         h3.card-content-title= treehole.title
                         p.card-content-text= treehole.content
+                        div.picsWrapper
+                          each url in treehole.picUrl
+                            img(src= url)
                       div.card-footer
                         a#enjoy.icon.link(href="#")
                           i.iconfont-nullEnjoy &#xe614;
