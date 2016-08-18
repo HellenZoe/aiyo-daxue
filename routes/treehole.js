@@ -59,7 +59,7 @@ router.get('/self', function(req, res) {
 //  发布新的树洞
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /treehole/new--user***************", req.session.user);
-    console.log("*************logging from /treehole/new--req.body**************");
+    console.log("*************logging from /treehole/new--req.body**************", req.body);
     var imageData= req.body['postInfo'].pics;
     var content = req.body['postInfo'].postText;
     var author = req.body['postInfo'].author;
