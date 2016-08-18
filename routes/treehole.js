@@ -34,7 +34,7 @@ router.get('/', function(req, res) {
         })
       }else {
         res.render({
-          title: "树洞首页"，
+          title: "树洞首页",
           treeholes: null
         })
       }
