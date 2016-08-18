@@ -59,9 +59,9 @@ router.get('/self', function(req, res) {
 //  发布新的树洞
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /treehole/new--user***************", req.session.user);
-    console.log("*************logging from /treehole/new--req.body**************", JSON.parse(req.body['postInfo']));
-    var postInfo = JSON.parse(req.body['postInfo']);
-    console.log("*************************logging from /treehole/new--postInfo", postInfo);
+    console.log("*************logging from /treehole/new--postInfo**************", req.body['postInfo']);
+    // var postInfo = JSON.parse(req.body['postInfo']);
+    // console.log("*************************logging from /treehole/new--postInfo", postInfo);
     var imageData= postInfo.pics;
     var content = postInfo.postText;
     var author = postInfo.author;
