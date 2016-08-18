@@ -47,17 +47,19 @@ block content
                             img(src= url)
                         div.card-info
                           div.facebook-name= users[index].name
-                          div.facebook-date=  item.time users[index].school ? 来自[#{users[index].school}] : ""
+                          div.facebook-date
+                            span= item.time 
+                            span= users[index].school
                       div.card-content
                         h3.card-content-title items.title
                         p.card-content-text items.content
-                      divcard-footer
+                      div.card-footer
                         a#enjoy.icon.link(href="#")
                           i.iconfont-nullEnjoy &#xe614;
-                        span.enjoy-count= #{items.meta.fav}
+                        span.enjoy-count= items.meta.fav
                         a#comment.icon.link(href="#")
                           i.iconfont-selfComment &#xe612;
-                        span.comment-count= #{items.meta.comments}
+                        span.comment-count= items.meta.comments
                 else
                   div 还没有人发布树洞  
                 //- div.card.facebook-card
