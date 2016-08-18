@@ -91,7 +91,7 @@ router.get('/self', function(req, res) {
           res.render("treeholeSelf", {
             title: "个人中心",
             user: req.session.user,
-            treeholes: null,
+            treeholes: null
           })
         }
       }
@@ -100,8 +100,8 @@ router.get('/self', function(req, res) {
     res.render("treeholeSelf", {
       title: "个人中心",
       user: null,
-      treeholes: null,
-    }
+      treeholes: null
+    })
   }
 })
 
