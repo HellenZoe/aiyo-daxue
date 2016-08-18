@@ -9,9 +9,10 @@ var User = require('../model/user');
 var Treehole  = require('../model/treehole');
 
 router.get('/', function(req, res) {
+
   console.log("*********************logging from /treehole--user************************", req.session.user);
-  var crtUser = req.session.user;
-  Treehole.find({author: crtUser.avatarUrl}, function(err, docs) {
+  // var crtUser = req.session.user;
+  Treehole.find(function(err, docs) {
     if (err) {
       console.log("取出用户对应的树洞出错", err);
     }else {
