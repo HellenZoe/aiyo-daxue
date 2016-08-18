@@ -37,7 +37,7 @@ module.exports = function(app) {
         console.log("save user error!");
       }
       req.session.user = user;
-      console.log("*************************logging from /user*********************", req.session.user);
+      console.log("*************************logging from /user*********************", req.session);
     })
 
 
