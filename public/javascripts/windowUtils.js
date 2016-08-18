@@ -1,12 +1,17 @@
 var utils = {
-  saveToLocal: function(obj) {
+  saveToLocal: function(name, obj) {
     var s = JSON.stringify(obj);
-    if (window.localstorage) {
-      localstorage.setItem("userInfo", s);
+    if (window.localStorage) {
+      localStorage.setItem(name, s);
     }else {
-      console.log("不支持localstorage");
+      console.log("不支持localStorage");
     }
+  },
+
+  getFromLocal: function(name) {
+    return localStorage.get(name);
   }
+
 }
 
 

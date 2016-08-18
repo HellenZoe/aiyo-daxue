@@ -67,9 +67,10 @@ QC.api("get_user_info", paras)
 		//  将用户信息存储到localstorage 每次进入到首页用ajax获取数据
 
 		if (window.utils) {
-			utils.saveToLocal(userInfo);
+			utils.saveToLocal("userInfo", userInfo);
+			console.log("save userInfo success", window.getFromLocal("userInfo"));
 		}
-		
+
 		// 隐藏加载
     $.hidePreloader();
 

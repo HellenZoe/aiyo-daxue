@@ -2,7 +2,7 @@ var mongoose =require('mongoose');
 var Schema = mongoose.Schema
 
 var treeholeSchema = Schema({
-  picurl: String,
+  picurl: [ String ],
   title: String,
   content: String,
   author: String,
