@@ -46,20 +46,20 @@ block content
                           each url, index in treehole.picUrl
                             img(src= url)
                         div.card-info
-                          div.facebook-name= users[index].name
+                          div.facebook-name= treehole.authorName
                           div.facebook-date
-                            span= item.time 
-                            span= users[index].school
+                            span= treehole.time 
+                            span= treehole.authorSchool
                       div.card-content
-                        h3.card-content-title items.title
-                        p.card-content-text items.content
+                        h3.card-content-title= treehole.title
+                        p.card-content-text= treehole.content
                       div.card-footer
                         a#enjoy.icon.link(href="#")
                           i.iconfont-nullEnjoy &#xe614;
-                        span.enjoy-count= items.meta.fav
+                        span.enjoy-count= treehole.mate.fav
                         a#comment.icon.link(href="#")
                           i.iconfont-selfComment &#xe612;
-                        span.comment-count= items.meta.comments
+                        span.comment-count= treehole.meta.comments
                 else
                   div 还没有人发布树洞  
                 //- div.card.facebook-card
