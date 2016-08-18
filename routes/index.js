@@ -38,6 +38,7 @@ module.exports = function(app) {
       }
       req.session.user = user;
       console.log("*************************logging from /user*********************", req.session);
+      req.redirect('/treehole/self');
     })
 
 
