@@ -7,7 +7,7 @@ $('.card-content').on('click', function(e) {
 
 $('.iconfont-nullEnjoy').on('click', function(e) {
   var enjoyCount = $(this).parent().parent().children('#enjoy').children('enjoy-count').text();
-  var treeholeId = $(this).parent().parent().parent().attr(data-tId);
+  var treeholeId = $(this).parent().parent().parent().attr('data-tid');
   var countInfo = {
     fav: enjoyCount,
     treeholeId: treeholeId
