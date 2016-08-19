@@ -35,12 +35,13 @@ block content
                           div.comment-icon
                             span.icon
                               i.iconfont-selfComment &#xe612;
-        each c in comments
-          div.comment-item 
-            span.name= c.authorName
-            span.replay 回复 
-            span.replay-object= comment.name：
-            sapn.comment-text= c.content
-            sapn.comment-data= c.date
+        if comments
+          each c in comments
+            div.comment-item 
+              span.name= c.authorName
+              span.replay 回复 
+              span.replay-object= c.replyToName
+              sapn.comment-text= c.content
+              sapn.comment-data= c.date
                                                     
 block scripts
