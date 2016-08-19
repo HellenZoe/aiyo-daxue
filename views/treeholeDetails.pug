@@ -42,10 +42,10 @@ block content
                       div.topic-card-footer
                         a#comment.icon
                           i.iconfont-selfComment &#xe612;
-                          span.comment-count= tInfo.meta.comments
+                          span.comment-count= tInfo.comments
                         a#enjoy.icon
                           i.iconfont-nullEnjoy &#xe614;
-                          span.enjoy-count= tInfo.meta.fav
+                          span.enjoy-count= tInfo.fav
           
           if comments
               
@@ -59,7 +59,7 @@ block content
                         div.comment-card-header
                           span.icon.header-span
                             i.iconfont-detailsComment &#xe615;
-                            span#comment-total 评论 #{tInfo.meta.comments} 条
+                            span#comment-total 评论 #{tInfo.comments} 条
                             
                         each c in comments
                           div.card-header.no-border

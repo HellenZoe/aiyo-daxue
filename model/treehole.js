@@ -10,10 +10,8 @@ var treeholeSchema = Schema({
   authorName: String,
   authorSchool: String,
   time: { type: Date, default: Date.now},
-  meta: {
-    fav: {type: Number, default: 0},
-    comments: {type: Number, default: 0}
-  }
+  fav: {type: Number, default: 0},
+  comments: {type: Number, default: 0}
 })
 
 treeholeSchema.virtual('date').get(function() {
