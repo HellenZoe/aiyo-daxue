@@ -14,7 +14,7 @@ var commentSchema = new Schema({
 })
 
 
-treeholeSchema.virtual('date').get(function() {
+commentSchema.virtual('date').get(function() {
   var n = Date.now();
   var d = new Date();
   var p = new Date();
