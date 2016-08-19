@@ -1,0 +1,216 @@
+@tab-color: #F57E7A;
+@self-red: #F57E7A;
+
+//  但会图标为白色
+.bar .treehole-back{
+  color: #fff;
+}
+
+//  tabs 栏的颜色
+.treehole-content .category-tab .button.active{
+    color: @tab-color;
+    border-color: @tab-color;
+}
+
+
+.category-tab{
+  background-color: #fff;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  overflow-x: scroll;
+  .tab-controller{
+    white-space: nowrap;
+    a{
+      color: #444;
+      display: inline-block;;
+      box-sizing: content-box;
+      margin: .5rem;
+    }
+    a.active{
+      color: @self-red;
+      border-bottom: 2px solid @self-red;
+    }
+  }
+}
+
+.treehole-content > .content-block{
+  margin: 2.4rem 0 0 0;
+  padding: 0px;
+  .tabs .content-block{
+    margin: 0rem;
+    padding: 0px;
+  }
+}
+
+.treehole-searchbar{
+  background-color: #fff;
+  .searchbar{
+    background-color: #fff;
+    input#search{
+      background-color: #f5f5f5;
+      border-radius: .5rem;
+    }
+  }
+}
+
+
+.facebook-card{
+  margin:.5rem 0px;
+  .facebook-avatar img{
+    height: 2rem;
+  }
+  .facebook-avatar img{
+    border-radius: 50%;
+  }
+  .card-content{
+    padding: 0 .5rem .5rem .5rem;
+    .picsWrapper img{
+      display: inline-block;
+      margin-right: .2rem;
+    }
+  }
+  .card-info{
+    margin-left: 2.5rem;
+    .facebook-name, .facebook-date{
+      margin-left: 0px;
+      color: #444;
+    }
+  }
+  .card-content-title{
+    font-weight: normal;
+    color: #444;
+  }
+  .card-content-title, .card-content-text{
+    margin: .3rem 0px;
+  }
+
+}
+
+.iconfont-nullEnjoy, .iconfont-selfEnjoy{
+  color: #F57E7A;
+}
+
+.card-footer{
+  padding: 0px;
+  min-height: 2rem;
+}
+.topic-card-footer{
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+#comment{
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+#enjoy{
+    position: absolute;
+    top: .5rem;
+    right: 3rem;
+}
+
+.enjoy-count, .comment-count{
+  margin-left: .3rem;
+  font-size: .9rem;
+  color: #999;
+}
+
+.index-color{
+  color: @tab-color;
+}
+
+
+
+
+//   底部工具栏icon-text
+@font-face {font-family: 'iconfont-treeHoleTabsBar';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-treeHoleTabsBar.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-treeHoleTabsBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-treeHoleTabsBar.svg#iconfont-treeHoleTabsBar') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-treeHoleTabsBar{
+    font-family:"iconfont-treeHoleTabsBar" !important;
+    font-size:1.2rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// 因为主页的图标是和首页一样的, 所以这里也声明一下
+@font-face {font-family: 'iconfont-indexTabBar';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-indexTabBar.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-indexTabBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-indexTabBar.svg#iconfont-indexTabBar') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-indexTabBar{
+    font-family:"iconfont-indexTabBar" !important;
+    font-size:1.3rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//实心星型
+@font-face {font-family: 'iconfont-selfEnjoy';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-selfEnjoy.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-selfEnjoy.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-selfEnjoy.svg#iconfont-selfEnjoy') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-selfEnjoy{
+    font-family:"iconfont-selfEnjoy" !important;
+    font-size:.8rem;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+//空心星型icon
+@font-face {font-family: 'iconfont-nullEnjoy';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-nullEnjoy.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-nullEnjoy.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-nullEnjoy.svg#iconfont-nullEnjoy') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-nullEnjoy{
+    font-family:"iconfont-nullEnjoy" !important;
+    font-size:.8rem;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {font-family: 'iconfont-selfComment';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-selfComment.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-selfComment.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-selfComment.svg#iconfont-selfComment') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-selfComment{
+    font-family:"iconfont-selfComment" !important;
+    font-size:.8rem;
+    font-style:normal;
+    color: 	#E3E3E3;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
