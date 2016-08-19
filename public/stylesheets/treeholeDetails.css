@@ -72,7 +72,10 @@
 .comment-content {
   margin-top: .5rem;
 }
-.comment-content .card-info span i {
+.comment-content .card-info span.icon {
+  float: right;
+}
+.comment-content .card-info span.icon i {
   color: #F57E7A;
 }
 .comment-content > .content-block {
