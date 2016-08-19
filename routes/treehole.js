@@ -234,7 +234,7 @@ router.post('/fav', function(req, res) {
         c: favCount + 1
       })
     }
-  }
+  });
 
 })
 
