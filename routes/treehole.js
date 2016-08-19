@@ -7,6 +7,7 @@ var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
 var Treehole  = require('../model/treehole');
+var Comment = require('../model/comment');
 
 router.get('/', function(req, res) {
 
@@ -41,11 +42,22 @@ router.get('/', function(req, res) {
 //  树洞详情页
 router.get('/detail/:id', function(req, res) {
   var id = req.params.id;
-  Treehole.find({_id: id}, function(err, doc) {
-    console.log("************************logging from /detail/:id--treehole", doc);
-    res.render("treeholeDetails", {
-      title: "详情",
-      tInfo: doc[0].toObject({getters: true, virtuals: true})
+  Treehole.find({_id: id}, function(err, ts) {
+    console.log("************************logging from /detail/:id--treehole", ts);
+    Comment.find({treeholeId: id}, function(err, cs) {
+      console.log("******************logging from /detail/:id--comments", cs);
+      if (cs.length) {
+        res.render("treeholeDetails", {
+          title: "详情",
+          tInfo: ts[0].toObject({getters: true, virtuals: true}),
+          comments: cs
+        })
+      }else {
+        res.render("treeholeDetails", {
+          title: "详情",
+          tInfo: ts[0].toObject({getters: true, virtuals: true}),
+          comments: null
+      }
     })
   })
 })
@@ -171,5 +183,29 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 })
 
+//  发布新的评论
+router.post('/comment', function(req, res) {
+  console.log("***************************logging from /treehole/comment--req.body", req.body);
+  var cInfo = {
+    content: req.body.content,
+    time: req.body.time,
+    authorName: authorName,
+    authorAvatarUrl: authorAvatarUrl,
+    authorSchool: authorSchool,
+    type: "treehole"
+  }
+
+  var c = new Comment(cInfo);
+
+  c.save(function(err, c) {
+    if (err) {
+      console.log(err);
+    }else{
+      res.json({
+        success: true
+      })
+    }
+  })
+})
 
 module.exports = router;

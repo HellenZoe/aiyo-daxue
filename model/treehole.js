@@ -9,14 +9,6 @@ var treeholeSchema = Schema({
   authorAvatarUrl: String,
   authorName: String,
   authorSchool: String,
-  comment: [{
-    authorName: String,
-    authorAvatarUrl: String,
-    authorSchool: String,
-    replyName: String,
-    content: String,
-    time: {type: Date, default: Date.now},
-  }],
   time: { type: Date, default: Date.now},
   meta: {
     fav: {type: Number, default: 0},

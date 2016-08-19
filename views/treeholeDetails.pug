@@ -42,42 +42,45 @@ block content
                       div.topic-card-footer
                         a#comment.icon
                           i.iconfont-selfComment &#xe612;
-                          span.comment-count= tInfo.meta.comment
+                          span.comment-count= tInfo.meta.comments
                         a#enjoy.icon
                           i.iconfont-nullEnjoy &#xe614;
                           span.enjoy-count= tInfo.meta.fav
           
-
-          div.comment-content
-            div.content-block
-              div.tabs
-                div#tab-hot.tab.active
-                  div.content-block
-                    div.card.facebook-card
-                      
-                      div.comment-card-header
-                        span.icon.header-span
-                          i.iconfont-detailsComment &#xe615;
-                          span#comment-total 评论 #{tInfo.comment.length} 条
-                          
-                      each c in tInfo.comment
-                        div.card-header.no-border
-                          div.facebook-avatar
-                            img(src= c.authorAvatarUrl)
-                          div.card-info
-                            div.facebook-name= c.authorName
-                            div.facebook-date 
-                              span= c.time
-                              span 来自[#{c.authorSchool}]
-                            span.icon
-                              i.iconfont-selfComment &#xe612;
-                            div.card-comment
-                              div.commnet-text= t.content
-                              div.replay-text 回复#{c.replyName}的评论：都是套路
-                              div.check-session
-                                a(href="#") 查看对话
-                      
+          if comments
+              
+            div.comment-content
+              div.content-block
+                div.tabs
+                  div#tab-hot.tab.active
+                    div.content-block
+                      div.card.facebook-card
+                        
+                        div.comment-card-header
+                          span.icon.header-span
+                            i.iconfont-detailsComment &#xe615;
+                            span#comment-total 评论 #{tInfo.comment.length} 条
                             
+                        each c in comments
+                          div.card-header.no-border
+                            div.facebook-avatar
+                              img(src= c.authorAvatarUrl)
+                            div.card-info
+                              div.facebook-name= c.authorName
+                              div.facebook-date 
+                                span= c.date
+                                span 来自[#{c.authorSchool}]
+                              span.icon
+                                i.iconfont-selfComment &#xe612;
+                              div.card-comment
+                                div.commnet-text= c.content
+                                div.replay-text
+                                  span 回复#{c.replyToName}的评论：
+                                  span= c.replyToContent
+                                div.check-session
+                                  a(href="#" data-commentId= c._id) 查看对话
+                        
+                              
       //-   这是需要删除的
       
       else
@@ -143,3 +146,4 @@ block content
                             div.check-session
                               a(href="#") 查看对话
 block scripts
+  script(src="../../javascripts/treeholeDetails.js")
