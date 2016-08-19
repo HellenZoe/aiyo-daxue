@@ -198,10 +198,12 @@ router.post('/comment', function(req, res) {
 
   var c = new Comment(cInfo);
 
+
   c.save(function(err, c) {
     if (err) {
       console.log(err);
     }else{
+      console.log("***************************logging from /treehole/comment-newcomment", c);
       res.json({
         success: true
       })
