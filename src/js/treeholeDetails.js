@@ -17,6 +17,7 @@ $('.send').on('click', function(e) {
     treeholeId: treeholeId
   }
 
+  console.log(commentInfo);
   var url = "http://" + location.host + "/treehole/comment";
 
   //  显示加载指示器
