@@ -17,6 +17,10 @@ $('.send').on('click', function(e) {
   }
 
   var url = "http://" + location.host + "/treehole/comment";
+
+  //  显示加载指示器
+  $.showPreloader();
+
   $.ajax({
     type: "POST",
     url: url,
@@ -25,8 +29,10 @@ $('.send').on('click', function(e) {
     data: JSON.stringify(commentInfo),
     processData: false,
     success: function (data) {
-      if (data) {
+      if (data.success) {
         console.log("上传成功");
+        $.hidePreloader();
+        $.toast('评论成功', 2000);
       }
     },
     error: function (data) {
