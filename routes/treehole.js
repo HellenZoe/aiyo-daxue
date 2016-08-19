@@ -57,6 +57,7 @@ router.get('/detail/:id', function(req, res) {
           title: "详情",
           tInfo: ts[0].toObject({getters: true, virtuals: true}),
           comments: null
+        })
       }
     })
   })
@@ -208,4 +209,11 @@ router.post('/comment', function(req, res) {
   })
 })
 
+
+//  查看路由
+router.get('/comment/:id', function(req, res) {
+  res.render("commentDetail", {
+    title: "查看对话"
+  })
+})
 module.exports = router;

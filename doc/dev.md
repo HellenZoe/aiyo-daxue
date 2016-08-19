@@ -8,8 +8,7 @@
 + 获取当前location.host  然后拼接
 + 手动替换
 
-目前就采用第三种.虽然第一种和第二种看上去更可行.  因为涉及到需要改动的地方也不是很多.
+目前采用第二种
 
-目前需要替换的页面有(及时补充)
-+ treeholePost 传送用户发布的数据处
-+ signin qq登陆的redirectUrl
+##  treehole 路由
+'/treehole/comment/:id'  查看对话页面   比如本地开发在浏览器输入http://localhost:3000/treehole/comment/1   即可访问
