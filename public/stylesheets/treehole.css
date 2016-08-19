@@ -33,6 +33,7 @@
   border-radius: .5rem;
 }
 .facebook-card {
+  cursor: pointer;
   margin: .5rem 0px;
 }
 .facebook-card .facebook-avatar img {
