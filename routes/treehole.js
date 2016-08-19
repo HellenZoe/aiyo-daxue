@@ -43,6 +43,7 @@ router.get('/', function(req, res) {
 router.get('/detail/:id', function(req, res) {
   var id = req.params.id;
   Treehole.find({_id: id}, function(err, ts) {
+    
     console.log("************************logging from /detail/:id--treehole", ts);
     Comment.find({treeholeId: id}, function(err, cs) {
       console.log("******************logging from /detail/:id--comments", cs);
