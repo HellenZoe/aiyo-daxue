@@ -208,7 +208,7 @@ router.post('/comment', function(req, res) {
     }else{
       console.log("***************************logging from /treehole/comment-newcomment", c);
       //  更新treehole的评论数量
-      Treehole.update({_id: req.body.treeholeId}, {comments: nowCommentCount}, function(err, t) {
+      Treehole.update({_id: req.body.treeholeId}, {comments: nowCommentCount + 1}, function(err, t) {
         if (err) {
           console.log(err);
         }else {
