@@ -1,4 +1,5 @@
-//  用户点击发送按钮时   通过ajax发送信息
+ // 用户点击发送按钮时   通过ajax发送信息
+
 $('.send').on('click', function(e) {
   var content = $('.input-block').val();
   var time = Date.now();
@@ -40,5 +41,5 @@ $('.send').on('click', function(e) {
         console.log("上传失败");
     }
 
-
+  });
 })
