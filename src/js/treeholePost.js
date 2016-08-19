@@ -4,7 +4,10 @@ $.init();
 autosize(document.querySelectorAll("textarea"));
 
 
-var allPic = [];
+var allPic  = {
+  postText: "",
+  pics: []
+}
 var picCount = 0;
 
 // hack 默认的上传文件的样式  然后用另外一个图标的点击来触发
@@ -25,10 +28,17 @@ finishButton.on('click', function(e) {
   //  显示进度图标
   $.showPreloader();
 
-  allPic.forEach(function(item, index) {
-    sendFile(item);
-    console.log("上传 ", item);
-  })
+  //  获取用户输入内容
+  var postText = $('.treehole-content > textarea').val();
+  console.log(postText);
+  allPic.postText = postText;
+
+  //  发送所有信息
+  sendFile(allPic);
+  // allPic.pics.forEach(function(item, index) {
+  //   sendFile(item);
+  //   console.log("上传 ", item);
+  // })
 
   // 发送完请求之后隐藏
   $.hidePreloader();
@@ -47,8 +57,8 @@ finishButton.on('click', function(e) {
 function bindDeleteAction(node) {
   $(node).on('click', function(e) {
     var index = $(this).parent('div').attr('data-index');
-    allPic.pop(index);
-    console.log("delete", allPic);
+    allPic.pics.pop(index);
+    console.log("delete", allPic.pics);
     $(this).parent('div').remove();
   })
 
@@ -175,19 +185,18 @@ function addCanvasToPreview(canvas, fileType) {
 
 
   dataURL = canvas.toDataURL(fileType);
-  // sendFile(dataURL);
-  allPic.push(dataURL);
-  console.log("new ", allPic);
+  allPic.pics.push(dataURL);
+  console.log("new ", allPic.pics);
   picCount = picCount + 1;
 }
 
 
 //  上传文件
-function sendFile(fileData) {
+function sendFile(info) {
 	var formData = new FormData();
-
-	formData.append('imageData', fileData);
-
+  console.log("post信息", info);
+	formData.append('imageData', JSON.stringify(info.pics));
+  formData.append('postText', info.postText);
   var url = "http://" + location.host + "/treehole/new"
 	$.ajax({
 		type: 'POST',
@@ -203,7 +212,7 @@ function sendFile(fileData) {
 			}
 		},
 		error: function (data) {
-				showMessageFail("上传出错, 请重试");
+				// showMessageFail("上传出错, 请重试");
 		}
 	});
 }
