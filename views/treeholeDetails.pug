@@ -68,19 +68,19 @@ block content
                             div.card-info
                               div.facebook-name= c.authorName
                               div.facebook-date 
+                                span.icon
+                                  i.iconfont-selfComment &#xe612;
                                 span= c.date
                                 if c.authorSchool
                                   span 来自[#{c.authorSchool}]
-                              span.icon
-                                i.iconfont-selfComment &#xe612;
                               div.card-comment
-                                div.commnet-text= c.content
-                                if c.replyToContent
-                                  div.replay-text
-                                    span 回复#{c.replyToName}的评论：
-                                    span= c.replyToContent
-                                div.check-session
-                                  a(href="#" data-commentId= c._id) 查看对话
+                              div.commnet-text= c.content
+                              if c.replyToContent
+                                div.replay-text
+                                  span 回复#{c.replyToName}的评论：
+                                  span= c.replyToContent
+                              div.check-session
+                                a(href="#" data-commentId= c._id) 查看对话
                         
                               
       //-   这是需要删除的

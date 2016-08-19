@@ -27,7 +27,7 @@ commentSchema.virtual('date').get(function() {
   if (month > 1) {
     return "超久了"
   }else {
-    return hour+ "个小时" + minute + "分钟之前";
+    return minute + "分钟之前";
   }
 })
 
