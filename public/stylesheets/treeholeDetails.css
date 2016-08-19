@@ -72,9 +72,6 @@
 .comment-content {
   margin-top: .5rem;
 }
-.comment-content .card-info span {
-  float: right;
-}
 .comment-content .card-info span i {
   color: #F57E7A;
 }
