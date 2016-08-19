@@ -23,7 +23,6 @@ commentSchema.virtual('date').get(function() {
   var month = p.getMonth()  -d.getMonth();
   var hour = p.getHours() - d.getHours();
   var minute = p.getMinutes() - d.getMinutes();
-  minute = (minute >= 10) ? minute : "0" +  minute;
   if (month > 1) {
     return "超久了"
   }else {

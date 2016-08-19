@@ -70,10 +70,10 @@ block content
                               div.facebook-date 
                                 span.icon
                                   i.iconfont-selfComment &#xe612;
-                                span= c.date
+                                span.date= c.date
                                 if c.authorSchool
                                   span 来自[#{c.authorSchool}]
-                              div.card-comment
+                            div.card-comment
                               div.commnet-text= c.content
                               if c.replyToContent
                                 div.replay-text
