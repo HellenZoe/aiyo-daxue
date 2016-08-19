@@ -5,7 +5,6 @@ $('.send').on('click', function(e) {
   var time = Date.now();
   var crtUserName = window.utils.getFromLocal('userInfo').userName;
   var crtUserAvatarUrl = window.utils.getFromLocal('userInfo').avatarUrl;
-  var crtUserSchool = window.utils.getFromLocal('userInfo').school;
   var treeholeId = location.pathname.split('/').pop();
 
   var commentInfo = {
@@ -13,7 +12,6 @@ $('.send').on('click', function(e) {
     content: content,
     authorName: crtUserName,
     authorAvatarUrl: crtUserAvatarUrl,
-    authorSchool: crtUserSchool,
     treeholeId: treeholeId
   }
 

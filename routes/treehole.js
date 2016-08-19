@@ -190,8 +190,8 @@ router.post('/comment', function(req, res) {
   var cInfo = {
     content: req.body.content,
     time: req.body.time,
-    authorName: authorName,
-    authorAvatarUrl: authorAvatarUrl,
+    authorName: req.body.authorName,
+    authorAvatarUrl: req.body.authorAvatarUrl,
     authorSchool: "",
     type: "treehole"
   }
