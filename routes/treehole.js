@@ -187,8 +187,8 @@ router.post('/new', upload.single('test'), function(req, res) {
 //  发布新的评论
 router.post('/comment', function(req, res) {
   console.log("***************************logging from /treehole/comment--req.body", req.body);
-  var nowCommentCount = req.body.commentCount;
-  var enjoyCount = req.body.enjoyCount;
+  var nowCommentCount = parseInt(req.body.commentCount);
+  var enjoyCount = parseInt(req.body.enjoyCount);
   var cInfo = {
     content: req.body.content,
     time: req.body.time,
@@ -221,8 +221,25 @@ router.post('/comment', function(req, res) {
   })
 })
 
+router.post('/fav', function(req, res) {
+  console.log("***************************logging from /treehole/comment--req.body", req.body);
+  var favCount = parseInt(req.body.fav);
+      //  更新treehole的评论数量
+  Treehole.update({_id: req.body.treeholeId}, {fav: favCount + 1}, function(err, t) {
+    if (err) {
+      console.log(err);
+    }else {
+      res.json({
+        success: true,
+        c: favCount + 1
+      })
+    }
+  }
 
-//  查看路由
+})
+
+
+//  查看对话
 router.get('/comment/:id', function(req, res) {
   res.render("commentDetail", {
     title: "查看对话"

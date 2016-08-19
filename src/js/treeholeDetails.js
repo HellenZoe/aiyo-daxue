@@ -8,7 +8,7 @@ $('.send').on('click', function(e) {
   var crtUserName = window.utils.getFromLocal('userInfo').userName;
   var crtUserAvatarUrl = window.utils.getFromLocal('userInfo').avatarUrl;
   var treeholeId = location.pathname.split('/').pop();
-  var enjoyCount = $('.enjoy-count').text();
+
   var commentCount = $('.comment-count').text();
 
   var commentInfo = {
@@ -17,9 +17,8 @@ $('.send').on('click', function(e) {
     authorName: crtUserName,
     authorAvatarUrl: crtUserAvatarUrl,
     treeholeId: treeholeId,
-    commentCount: commentCount,
-    enjoyCount: enjoyCount
-  }
+    commentCount: commentCount
+    }
 
   console.log(commentInfo);
   var url = "http://" + location.host + "/treehole/comment";
@@ -50,4 +49,45 @@ $('.send').on('click', function(e) {
     }
 
   });
+})
+
+
+$('.iconfont-nullEnjoy').ob('click', function(e) {
+  var enjoyCount = $('.enjoy-count').text();
+  var treeholeId = location.pathname.split('/').pop();
+  var countInfo = {
+    fav: enjoyCount,
+    treeholeId: treeholeId
+  }
+
+  var url = "http://" + location.host + "/treehole/fav";
+
+  //  显示加载指示器
+  $.showPreloader();
+
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    dataType: "json",
+		contentType: "application/json",
+    data: JSON.stringify(countInfo),
+    processData: false,
+    success: function (data) {
+      if (data.success) {
+        console.log("上传成功");
+
+        $.hidePreloader();
+        $.toast('点赞成功', 2000, "toast-success");
+        //  点赞数加1
+        $('.enjoy-count').text(data.c);
+      }
+    },
+    error: function (data) {
+        // showMessageFail("上传出错, 请重试");
+        console.log("上传失败");
+    }
+
+  });
+
 })
