@@ -1,18 +1,29 @@
 .bar .treehole-back {
   color: #fff;
 }
-.bar-tab {
-  background-color: #fff;
-  border-top: 1px solid #F1F1F1;
-}
-.treehole-content .buttons-tab .button.active {
+.treehole-content .category-tab .button.active {
   color: #F57E7A;
   border-color: #F57E7A;
 }
-.buttons-tab {
+.category-tab {
+  background-color: #fff;
   position: fixed;
-  width: 100%;
   z-index: 100;
+  width: 100%;
+  overflow-x: scroll;
+}
+.category-tab .tab-controller {
+  white-space: nowrap;
+}
+.category-tab .tab-controller a {
+  color: #444;
+  display: inline-block;
+  box-sizing: content-box;
+  margin: .5rem;
+}
+.category-tab .tab-controller a.active {
+  color: #F57E7A;
+  border-bottom: 2px solid #F57E7A;
 }
 .treehole-content > .content-block {
   margin: 2.4rem 0 0 0;
@@ -55,9 +66,6 @@
 .facebook-card .card-info .facebook-date {
   margin-left: 0px;
   color: #444;
-}
-.facebook-card .card-info .facebook-name {
-  font-size: .8rem;
 }
 .facebook-card .card-content-title {
   font-weight: normal;

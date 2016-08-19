@@ -18,9 +18,14 @@ router.get('/', function(req, res) {
       console.log(err);
     }else {
       if (ts.length != 0) {
+        console.log("*******************logging from /treehole--treeeholesTransformed***************", ts.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }));
         res.render("treeholeIndex", {
           title: "树洞首页",
-          treeholes: ts
+          treeholes: ts.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          })
         });
       }else {
         res.render("treeholeIndex", {
@@ -33,6 +38,15 @@ router.get('/', function(req, res) {
 
 })
 
+router.get('/details/:id', function(req, res) {
+  var id = req.params.id;
+  Treehole.find({_id: id}, function(err, doc) {
+    res.render({
+      title: "详情",
+      tInfo: doc[0]
+    })
+  })
+})
 // 发布树洞页
 router.get('/post', function(req, res) {
   res.render('treeholePost', {title: "发布"});
@@ -60,18 +74,35 @@ router.get('/self', function(req, res) {
   // }
   //
   //
-  Treehole.find({author: req.session.user._id}, function(err, ts) {
-    if (err) {
-      console.log("取出用户对应的树洞出错", err);
-    }else {
-      console.log("*******************logging from /treehole/self--treeholes***************", ts);
-      res.render({
-        title: "个人中心",
-        treeholes: ts,
-        user: req.session.user
-      })
-    }
-  })
+  if (req.session.user) {
+    console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);
+    Treehole.find({author: req.session.user._id}, function(err, ts) {
+      if (err) {
+        console.log("取出用户对应的树洞出错", err);
+      }else {
+        console.log("*******************logging from /treehole/self--treeholes***************", ts);
+        if (ts) {
+          res.render("treeholeSelf", {
+            title: "个人中心",
+            treeholes: ts,
+            user: req.session.user
+          })
+        }else {
+          res.render("treeholeSelf", {
+            title: "个人中心",
+            user: req.session.user,
+            treeholes: null
+          })
+        }
+      }
+    })
+  }else {
+    res.render("treeholeSelf", {
+      title: "个人中心",
+      user: null,
+      treeholes: null
+    })
+  }
 })
 
 router.get('/details', function(req, res) {
@@ -87,6 +118,7 @@ router.post('/new', upload.single('test'), function(req, res) {
     var imageData = JSON.parse(req.body['imageData']);
     var content = req.body['postText'];
     var authorId = req.session.user._id;
+    var time = Date.now();
     User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
       if (err) {
         console.log(err);
@@ -98,6 +130,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             authorSchool: us[0].school,
             content: content,
             title: "测试",
+            time: time
         })
         console.log("logging from ******************logging from /treehole/new --treeholeToSave", newTreehole);
         newTreehole.save(function(err, treehole) {
@@ -109,17 +142,16 @@ router.post('/new', upload.single('test'), function(req, res) {
             var base64Data = item.split(',')[1];
             var fileType = item.split(';')[0].split('/')[1];
           	var dataBuffer = new Buffer(base64Data, 'base64');
-            var cmp = Date.now();
-            var picUrl = "http://obzokcbc0.bkt.clouddn.com/treehole/" + cmp + "." + fileType;
+            var picUrl = "http://obzokcbc0.bkt.clouddn.com/treehole/" + time + "." + fileType;
             console.log("*****************logging from /treehole/new--picUrl**************", picUrl);
-            Treehole.update({author: authorId}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+            Treehole.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
                 console.log("保存treehole url出错", err);
               }else {
                 console.log(raw);
               }
             });
-            var tmpFilePath = "./upload/tmp/" + cmp + "." + fileType;
+            var tmpFilePath = "./upload/tmp/" + time + "." + fileType;
           	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
           		if(err){
           		  console.log(err);

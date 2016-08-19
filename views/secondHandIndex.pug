@@ -1,28 +1,28 @@
-extends layout
+extends servicelayout
 
 block styles
-  link(href="./stylesheets/treehole.css" rel='stylesheet')
+  link(href="./stylesheets/secondHand.css" rel='stylesheet')
+
 block content
   div.page-group
     div.page.page-current
       header.bar.bar-nav.back-blue
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/")
           span.icon.icon-left
-        h1.title.text-white 树洞
+        h1.title.text-white 二手交易
       nav.bar.bar-tab
-        a.tab-item.external(href="/treehole")
+        a.tab-item.external(href="/secondHand")
           span.icon.index-color
             i.iconfont-indexTabBar &#xe601;
           span.tab-label 主页
-        a.tab-item.external(href="/treehole/post")
+        a.tab-item.external(href="/secondHand/post")
           span.icon
             i.iconfont-treeHoleTabsBar &#xe603;
           span.tab-label 发布
-        a.tab-item.external(href="/treehole/self")
+        a.tab-item.external(href="/secondHand/self")
           span.icon
             i.iconfont-treeHoleTabsBar &#xe604;
           span.tab-label 个人中心
-        
       div.bar.bar-header-secondary.treehole-searchbar
         div.searchbar
           a.searchbar-cancel 取消
@@ -30,14 +30,20 @@ block content
             label.icon.icon-search(for="search")
             input#search(type="search", placeholder="搜索感兴趣的话题")             
       div.content.treehole-content
-        div.buttons-tab
-          a.tab-link.button.active(href="#tab-hot") 热门
-          a.tab-link.button(href="#tab-nearby") 附近
-          a.tab-link.button(href="#tab-school") 学校
+        div.category-tab
+          div.tab-controller
+            a.tab-link.active(href="#tab-index") 首页
+            a.tab-link(href="#tab-trans") 交通工具
+            a.tab-link(href="#tab-sport") 运动健身
+            a.tab-link(href="#tab-ele") 电子产品
+            a.tab-link(href="#tab-eleEqui") 电器
+            a.tab-link(href="#tab-beauty") 丽人美妆
+            a.tab-link(href="#tab-other") 其他
+            a.tab-link(href="#tab-eleEqui") 电器
         div.content-block
           div.tabs
-            div#tab-hot.tab.active
-              div.content-block            
+            div#tab-index.tab.active
+              div.content-block
                 if treeholes
                   each treehole, index in treeholes
                     div.card.facebook-card(data-tId= treehole._id)
@@ -64,16 +70,25 @@ block content
                           span.enjoy-count= treehole.meta.fav
                 else
                   div 还没有人发布树洞  
-            div#tab-nearby.tab
+            div#tab-trans.tab
               div.content-block
-                div 这是附近
-            div#tab-school.tab
+                div 这里是交通工具
+            div#tab-sport.tab
               div.content-block
-                div 这是学校
-    
-      
-                
-            
-          
-
+                div 这是运动健身
+            div#tab-ele.tab
+              div.content-block
+                div 这是电子产品
+            div#tab-eleEqui.tab
+              div.content-block
+                div 这是电器
+            div#tab-beauty.tab
+              div.content-block
+                div 这是丽人美妆
+            div#tab-other.tab
+              div.content-block
+                div 这是其他
+  
+  
+  
 block scripts

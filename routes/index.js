@@ -1,5 +1,7 @@
 var treehole = require('./treehole');
+var secondHand = require('./secondHand');
 var User = require("../model/user");
+
 
 module.exports = function(app) {
   app.get('/', function(req, res) {
@@ -37,10 +39,11 @@ module.exports = function(app) {
       // 将user存储到session 保持用户登陆
       req.session.user = user;
       console.log("*************************logging from /user*********************", req.session);
-      res.redirect('/treehole/self');
+      res.redirect(redirectUrl);
     })
 
 
   })
   app.use('/treehole', treehole);
+  app.use('/secondHand',  secondHand);
 }

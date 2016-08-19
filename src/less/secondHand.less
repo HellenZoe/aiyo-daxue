@@ -1,23 +1,37 @@
 @tab-color: #F57E7A;
 @self-red: #F57E7A;
 
+//  但会图标为白色
 .bar .treehole-back{
   color: #fff;
 }
 
-
-.bar-tab{
-  background-color: #fff;
-  border-top: 1px solid #F1F1F1;
-}
-.treehole-content .buttons-tab .button.active{
+//  tabs 栏的颜色
+.treehole-content .category-tab .button.active{
     color: @tab-color;
     border-color: @tab-color;
 }
-.buttons-tab{
+
+
+.category-tab{
+  background-color: #fff;
   position: fixed;
-  width: 100%;
   z-index: 100;
+  width: 100%;
+  overflow-x: scroll;
+  .tab-controller{
+    white-space: nowrap;
+    a{
+      color: #444;
+      display: inline-block;;
+      box-sizing: content-box;
+      margin: .5rem;
+    }
+    a.active{
+      color: @self-red;
+      border-bottom: 2px solid @self-red;
+    }
+  }
 }
 
 .treehole-content > .content-block{
@@ -61,10 +75,6 @@
     .facebook-name, .facebook-date{
       margin-left: 0px;
       color: #444;
-    }
-
-    .facebook-name{
-      font-size: .8rem;
     }
   }
   .card-content-title{
@@ -112,7 +122,6 @@
 .index-color{
   color: @tab-color;
 }
-
 
 
 
