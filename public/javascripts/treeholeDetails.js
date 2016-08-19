@@ -51,7 +51,7 @@ $('.send').on('click', function(e) {
   });
 })
 
-
+//  用户点赞
 $('.iconfont-nullEnjoy').on('click', function(e) {
   var enjoyCount = $('.enjoy-count').text();
   var treeholeId = location.pathname.split('/').pop();
@@ -90,4 +90,10 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
 
   });
 
+})
+
+
+//  用户查看评论
+$('.check-session a').on('click',  function(e) {
+  location.href = "http://" + location.host + "/treehole/comment/" + $(this).attr('data-commentid');
 })

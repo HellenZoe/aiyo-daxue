@@ -43,7 +43,7 @@ router.get('/', function(req, res) {
 router.get('/detail/:id', function(req, res) {
   var id = req.params.id;
   Treehole.find({_id: id}, function(err, ts) {
-    
+
     console.log("************************logging from /detail/:id--treehole", ts);
     Comment.find({treeholeId: id}, function(err, cs) {
       console.log("******************logging from /detail/:id--comments", cs);
@@ -63,11 +63,6 @@ router.get('/detail/:id', function(req, res) {
     })
   })
 })
-
-//用于测试--胡博  树洞详情页
-// router.get('/detail', function(req, res) {
-//   res.render('treeholeDetails', {title: "详情"});
-// })
 
 // 发布树洞页
 router.get('/post', function(req, res) {
@@ -222,6 +217,7 @@ router.post('/comment', function(req, res) {
   })
 })
 
+// 点赞
 router.post('/fav', function(req, res) {
   console.log("***************************logging from /treehole/comment--req.body", req.body);
   var favCount = parseInt(req.body.fav);
@@ -242,8 +238,33 @@ router.post('/fav', function(req, res) {
 
 //  查看对话
 router.get('/comment/:id', function(req, res) {
-  res.render("commentDetail", {
-    title: "查看对话"
+  var commentId = req.params.commentId;
+  Comment.find({_id: commentId}, function(err, c) {
+    if (err) {
+      console.log(err);
+    }else {
+      Comment.find({replyToId: commentId}, function(err, cs) {
+        if (err) {
+          console.log(err);
+        }else {
+          if (cs.length != 0) {
+            res.render("treeholeCommentDetail", {
+              title: "查看对话",
+              comments: cs,
+              comment: c[0].toObject({getters: true, virtuals: true}),
+            })
+          }else {
+            res.render("treeholeCommentDetail", {
+              title: "查看对话",
+              comments: null,
+              comment: c[0].toObject({getters: true, virtuals: true}),
+
+            })
+          }
+        }
+      })
+
+    }
   })
 })
 module.exports = router;

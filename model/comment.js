@@ -7,6 +7,7 @@ var commentSchema = new Schema({
   authorAvatarUrl: String,
   authorSchool: String,
   content: String,
+  replyToId: String,
   replyToName: String,
   replyToContent: String,
   time: {type: Date, default: Date.now},
