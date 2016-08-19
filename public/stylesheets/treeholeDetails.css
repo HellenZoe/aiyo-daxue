@@ -152,9 +152,11 @@
   width: 100%;
 }
 .input-comment .send {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  width: 18%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @font-face {
   font-family: 'iconfont-selfShare';
