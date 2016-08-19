@@ -187,6 +187,8 @@ router.post('/new', upload.single('test'), function(req, res) {
 //  发布新的评论
 router.post('/comment', function(req, res) {
   console.log("***************************logging from /treehole/comment--req.body", req.body);
+  var nowCommentCount = req.body.commentCount;
+  var enjoyCount = req.body.enjoyCount;
   var cInfo = {
     content: req.body.content,
     time: req.body.time,
@@ -205,8 +207,15 @@ router.post('/comment', function(req, res) {
       console.log(err);
     }else{
       console.log("***************************logging from /treehole/comment-newcomment", c);
-      res.json({
-        success: true
+      //  更新treehole的评论数量
+      Treehole.update({_id: req.body.treeholeId}, {meta.comments: nowCommentCount}, function(err, t) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          })
+        }
       })
     }
   })

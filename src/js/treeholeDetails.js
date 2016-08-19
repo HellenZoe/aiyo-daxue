@@ -8,13 +8,17 @@ $('.send').on('click', function(e) {
   var crtUserName = window.utils.getFromLocal('userInfo').userName;
   var crtUserAvatarUrl = window.utils.getFromLocal('userInfo').avatarUrl;
   var treeholeId = location.pathname.split('/').pop();
+  var enjoyCount = $('.enjoy-count').text();
+  var commentCount = $('.comment-count').text();
 
   var commentInfo = {
     time: time,
     content: content,
     authorName: crtUserName,
     authorAvatarUrl: crtUserAvatarUrl,
-    treeholeId: treeholeId
+    treeholeId: treeholeId,
+    commentCount: commentCount,
+    enjoyCount: enjoyCount
   }
 
   console.log(commentInfo);
