@@ -52,7 +52,7 @@ $('.send').on('click', function(e) {
 })
 
 
-$('.iconfont-nullEnjoy').ob('click', function(e) {
+$('.iconfont-nullEnjoy').on('click', function(e) {
   var enjoyCount = $('.enjoy-count').text();
   var treeholeId = location.pathname.split('/').pop();
   var countInfo = {
