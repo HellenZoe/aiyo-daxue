@@ -7,8 +7,7 @@ var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
 var Treehole  = require('../model/treehole');
-
-
+var Valueble = require('../model/valuable');
 //   二手交易首页
 router.get('/', function(req, res) {
   res.render('secondHandIndex', {
@@ -29,7 +28,7 @@ router.get('/post', function(req, res) {
 
 router.get('/self', function(req, res) {
   if (req.session.user) {
-    console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);
+    console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
     Valueble.find({author: req.session.user._id}, function(err, vs) {
       if (err) {
         console.log("取出用户对应的树洞出错", err);

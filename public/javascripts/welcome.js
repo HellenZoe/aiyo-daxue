@@ -38,6 +38,7 @@ QC.api("get_user_info", paras)
       redirectUrl: redirectUrl
     }
 
+		$('.gotoSelf').attr('href', redirectUrl);
 		//  把用户登陆信息提交到服务端 存储到数据库
 	  var url = "http://" + location.host + "/user"
     $.ajax({
