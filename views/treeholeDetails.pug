@@ -42,10 +42,10 @@ block content
                       div.topic-card-footer
                         a#comment.icon
                           i.iconfont-selfComment &#xe612;
-                          span.comment-count 188
+                          span.comment-count= tInfo.meta.comment
                         a#enjoy.icon
                           i.iconfont-nullEnjoy &#xe614;
-                          span.enjoy-count 188
+                          span.enjoy-count= tInfo.meta.fav
           
 
           div.comment-content
@@ -58,7 +58,7 @@ block content
                       div.comment-card-header
                         span.icon.header-span
                           i.iconfont-detailsComment &#xe615;
-                          span#comment-total 评论 #{tInfo.comment.length}
+                          span#comment-total 评论 #{tInfo.comment.length} 条
                           
                       each c in tInfo.comment
                         div.card-header.no-border
@@ -67,7 +67,7 @@ block content
                           div.card-info
                             div.facebook-name= c.authorName
                             div.facebook-date 
-                              span= c.date
+                              span= c.time
                               span 来自[#{c.authorSchool}]
                             span.icon
                               i.iconfont-selfComment &#xe612;
