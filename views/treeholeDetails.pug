@@ -69,14 +69,16 @@ block content
                               div.facebook-name= c.authorName
                               div.facebook-date 
                                 span= c.date
-                                span 来自[#{c.authorSchool}]
+                                if c.authorSchool
+                                  span 来自[#{c.authorSchool}]
                               span.icon
                                 i.iconfont-selfComment &#xe612;
                               div.card-comment
                                 div.commnet-text= c.content
-                                div.replay-text
-                                  span 回复#{c.replyToName}的评论：
-                                  span= c.replyToContent
+                                if c.replyToContent
+                                  div.replay-text
+                                    span 回复#{c.replyToName}的评论：
+                                    span= c.replyToContent
                                 div.check-session
                                   a(href="#" data-commentId= c._id) 查看对话
                         

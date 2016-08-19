@@ -1,3 +1,7 @@
+.toast-success {
+  background-color: #F57E7A;
+  color: #fff;
+}
 .details-content {
   margin-top: -0.5rem;
 }
