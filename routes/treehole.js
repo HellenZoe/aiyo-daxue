@@ -43,7 +43,7 @@ router.get('/detail/:id', function(req, res) {
   var id = req.params.id;
   Treehole.find({_id: id}, function(err, doc) {
     console.log("************************logging from /detail/:id--treehole", doc);
-    res.render({
+    res.render("treeholeDetails", {
       title: "详情",
       tInfo: doc[0].toObject({getters: true, virtuals: true})
     })
