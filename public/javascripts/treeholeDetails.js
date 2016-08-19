@@ -1,4 +1,6 @@
- // 用户点击发送按钮时   通过ajax发送信息
+//  textarea  换行
+autosize(document.querySelectorAll("textarea"));
+// 用户点击发送按钮时   通过ajax发送信息
 
 $('.send').on('click', function(e) {
   var content = $('.input-block').val();
