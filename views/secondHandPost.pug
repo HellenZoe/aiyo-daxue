@@ -1,0 +1,36 @@
+extends servicelayout
+
+block styles
+  link(href="../stylesheets/secondHandPost.css" rel="stylesheets")
+    
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external.text-white.finishPost(href="/treehole") 完成
+        h1.title.text-white 发布树洞
+      div.content
+        div.post-valueble
+          div.title
+            h3 商品名称
+            input.border-buttom
+          div.desc
+            h3 商品描述
+            input.border-buttom
+          div.price
+            h3 商品价格
+            input.border-buttom
+          div.location
+            h3 交易地点
+            input.border-buttom
+          div.category
+            input#anonymous(type="checkbox")
+            label(for="anonymous")
+            span 匿名发布
+            
+                        
+              
+              
+block scripts
