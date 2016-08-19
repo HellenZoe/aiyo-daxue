@@ -33,8 +33,8 @@ router.get('/self', function(req, res) {
       if (err) {
         console.log("取出用户对应的树洞出错", err);
       }else {
-        console.log("*******************logging from /treehole/self--treeholes***************", vs);
-        if (ts) {
+        console.log("*******************logging from /secondHand/self--valuebles***************", vs);
+        if (vs) {
           res.render("secondHandSelf", {
             title: "个人中心",
             valuebles: vs,
