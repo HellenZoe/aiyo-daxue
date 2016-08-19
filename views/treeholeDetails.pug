@@ -33,7 +33,8 @@ block content
                           div.facebook-name= tInfo.authorName
                           div.facebook-date 
                             span.time= tInfo.date
-                            span.school 来自[#{tInfo.authorSchool}]
+                            if tInfo.authorSchool
+                              span.school 来自[#{tInfo.authorSchool}]
                       div.card-content
                           h3.card-content-title= tInfo.title
                           p.card-content-text= tInfo.content

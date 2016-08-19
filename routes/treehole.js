@@ -238,7 +238,7 @@ router.post('/fav', function(req, res) {
 
 //  查看对话
 router.get('/comment/:id', function(req, res) {
-  var commentId = req.params.commentId;
+  var commentId = req.params.id;
   console.log("****************logging from /treeehole/comment/:id--commentId", commentId);
   Comment.find({_id: commentId}, function(err, c) {
     if (err) {
