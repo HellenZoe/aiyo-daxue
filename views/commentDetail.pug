@@ -1,0 +1,57 @@
+extends detaillayout
+
+block styles
+  link(rel="stylesheet" href="../../stylesheets/commentDetail.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.treehole-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 查看对话
+        
+      div.content.details-content
+        div.comment-content
+          div.content-block
+            div.tabs
+              div#tab-hot.tab.active
+                div.content-block
+                  div.card.facebook-card
+                    div.card-header.no-border
+                      div.facebook-avatar
+                        img(src="../../images/user-logo.png")
+                      div.card-info
+                        div.facebook-name 朱海浩
+                        div.facebook-date 07.13 17:30 来自[青岛大学]
+                        div.card-comment
+                          div.commnet-text 点个赞
+                          div.comment-icon
+                            span.icon
+                              i.iconfont-selfComment &#xe612;
+                              
+        div.comment-item 
+          span.name 张三：
+          span.replay 回复 
+          span.replay-object 某同学：
+          sapn.comment-text 都是套路 都是套路都是套路都是套路都是套路都是套路
+          sapn.comment-data 07.13 17:30
+          
+        div.comment-item 
+          span.name 张三：
+          span.replay 回复 
+          span.replay-object 某同学：
+          sapn.comment-text 都是套路套路都是套路都是套路都是套路
+          sapn.comment-data 07.13 17:30
+          
+        div.comment-item 
+          span.name 张三：
+          span.replay 回复 
+          span.replay-object 某同学：
+          sapn.comment-text 都是套路
+          sapn.comment-data 07.13 17:30
+                                                    
+block scripts
