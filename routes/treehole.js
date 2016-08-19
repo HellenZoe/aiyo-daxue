@@ -39,7 +39,7 @@ router.get('/', function(req, res) {
 })
 
 //  树洞详情页
-router.get('/details/:id', function(req, res) {
+router.get('/detail/:id', function(req, res) {
   var id = req.params.id;
   Treehole.find({_id: id}, function(err, doc) {
     console.log("************************logging from /detail/:id--treehole", doc);
