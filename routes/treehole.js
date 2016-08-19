@@ -50,6 +50,10 @@ router.get('/detail/:id', function(req, res) {
   })
 })
 
+//用于测试--胡博  树洞详情页
+// router.get('/detail', function(req, res) {
+//   res.render('treeholeDetails', {title: "详情"});
+// })
 
 // 发布树洞页
 router.get('/post', function(req, res) {
