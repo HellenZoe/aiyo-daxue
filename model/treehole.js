@@ -11,6 +11,7 @@ var treeholeSchema = Schema({
   authorSchool: String,
   time: { type: Date, default: Date.now},
   fav: {type: Number, default: 0},
+  favUserId: [String],
   comments: {type: Number, default: 0}
 })
 
