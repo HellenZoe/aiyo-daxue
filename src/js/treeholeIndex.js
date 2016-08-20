@@ -8,11 +8,13 @@ $('.card-content').on('click', function(e) {
 //  点赞
 $('.iconfont-nullEnjoy').on('click', function(e) {
   console.log("点赞");
-  var enjoyCount = $(this).parent().parent().children('#enjoy').children('.enjoy-count').text();
-  var treeholeId = $(this).parent().parent().parent().attr('data-tid');
+  var enjoyCount = $(this).parent().children('.enjoy-count');
+  var treehole = $(this).parent().parent().parent();
+  var parent = $(this).parent();
+  var that = $(this);
   var countInfo = {
-    fav: enjoyCount,
-    treeholeId: treeholeId,
+    fav: enjoyCount.text(),
+    treeholeId: treehole.attr('data-tid'),
     action: "up"
   }
 
@@ -36,10 +38,12 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
         $.hidePreloader();
         $.toast('点赞成功', 2000, "toast-success");
         //  点赞数加1
-        $('.enjoy-count').text(data.c);
-        $('.iconfont-nullEnjoy').removeClass('iconfont-nullEnjoy').addClass('iconfont-selfEnjoy');
-        $('.iconfont-selfEnjoy').html('&#xe611;');
-
+        enjoyCount.text(data.c);
+        that.remove();
+        var i = document.createElement('i');
+        i.className = 'iconfont-selfEnjoy';
+        i.innerHTML = "&#xe611;";
+        parent.append(i);
       }
     },
     error: function (data) {
@@ -55,11 +59,12 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
 //  取消点赞
 $('.iconfont-selfEnjoy').on('click', function(e) {
   console.log("取消点赞");
-  var enjoyCount = $(this).parent().parent().children('#enjoy').children('.enjoy-count').text();
-  var treeholeId = $(this).parent().parent().parent().attr('data-tid');
+  var enjoyCount = $(this).parent().children('.enjoy-count');
+  var treeholeId = $(this).parent().parent().parent();
+  var that = $(this);
   var countInfo = {
-    fav: enjoyCount,
-    treeholeId: treeholeId,
+    fav: enjoyCount.text();
+    treeholeId: treehole.attr('data-tid');
     action: "down"
   }
 
@@ -83,9 +88,13 @@ $('.iconfont-selfEnjoy').on('click', function(e) {
         $.hidePreloader();
         $.toast('取消点赞', 2000, "toast-success");
         //  点赞数加1
-        $('.enjoy-count').text(data.c);
-        $('.iconfont-selfEnjoy').removeClass('iconfont-selfEnjoy').addClass('iconfont-nullEnjoy');
-        $('.iconfont-nullEnjoy').html('&#xe614;');
+        enjoyCount.text(data.c);
+        that.remove();
+        var i = document.createElement('i');
+        i.className = 'iconfont-nullEnjoy';
+        i.innerHTML = "&#xe614;";
+        parent.append(i);
+
 
       }
     },
