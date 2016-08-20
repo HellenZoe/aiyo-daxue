@@ -35,7 +35,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
         $.toast('点赞成功', 2000, "toast-success");
         //  点赞数加1
         $('.enjoy-count').text(data.c);
-        $('.iconfont-nullEnjoy').removeClass('iconfont-nullEnjoy').addClass('iconfont-selfEnjoy').text('&#xe611;');
+        $('.iconfont-nullEnjoy').removeClass('iconfont-nullEnjoy').text('&#xe611;').addClass('iconfont-selfEnjoy');
 
       }
     },
