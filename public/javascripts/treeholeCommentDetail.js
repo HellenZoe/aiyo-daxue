@@ -4,7 +4,7 @@
 //   $('.details-content').css('bottom', "4rem");
 // })
 
-$('treehole-back').on('click', function(e) {
+$('.treehole-back').on('click', function(e) {
   e.preventDefault();
   var treeholeId = $('.facebook-card').attr('data-tid');
   location.href = "http://" + location.host + "/treehole/detail/" + treeholeId;
