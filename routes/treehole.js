@@ -285,14 +285,14 @@ router.get('/comment/:id', function(req, res) {
                   title: "查看对话",
                   comments: cs,
                   comment: c[0].toObject({getters: true, virtuals: true}),
-                  commentCount: t.comments
+                  commentCount: t[0].comments
                 })
               }else {
                 res.render("treeholeCommentDetail", {
                   title: "查看对话",
                   comments: null,
                   comment: c[0].toObject({getters: true, virtuals: true}),
-                  commentCount: t.comments
+                  commentCount: t[0].comments
                 })
               }
             }
