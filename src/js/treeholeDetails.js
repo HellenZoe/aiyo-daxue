@@ -18,7 +18,7 @@ $('.send').on('click', function(e) {
     authorAvatarUrl: crtUserAvatarUrl,
     treeholeId: treeholeId,
     commentCount: commentCount
-    }
+  }
 
   console.log(commentInfo);
   var url = "http://" + location.host + "/treehole/comment";

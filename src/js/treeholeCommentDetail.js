@@ -29,6 +29,7 @@ $('.send').on('click', function(e) {
     replyToContent: replyToContent
   }
 
+
   console.log(commentInfo);
   var url = "http://" + location.host + "/treehole/comment";
 
