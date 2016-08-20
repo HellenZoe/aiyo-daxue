@@ -35,7 +35,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
         $.toast('点赞成功', 2000, "toast-success");
         //  点赞数加1
         $('.enjoy-count').text(data.c);
-        $('iconfont-nullEnjoy').css('background-color', '#F57E7A');
+        $('.iconfont-nullEnjoy').css('background-color', '#F57E7A');
       }
     },
     error: function (data) {
