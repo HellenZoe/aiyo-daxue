@@ -4,7 +4,7 @@ block styles
   link(href="./stylesheets/treehole.css" rel='stylesheet')
 block content
   div.page-group
-    div.page.page-current
+    div.page.page-current#index
       header.bar.bar-nav.back-blue
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/")
           span.icon.icon-left
@@ -95,9 +95,13 @@ block content
                 div 这是学校
     
     
-    div#search-page
+    div.page#search-page
       //- 在这里写搜索页面的内容
-      p search      
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left(href="#")
+          span.icon.icon-left
+        h1.title.text-white 搜索
+
       
                 
             
