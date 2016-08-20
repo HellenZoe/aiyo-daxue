@@ -58,7 +58,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
 $('.iconfont-selfEnjoy').on('click', function(e) {
   console.log("取消点赞");
   var enjoyCount = $(this).parent().children('.enjoy-count');
-  var treeholeId = $(this).parent().parent().parent();
+  var treehole = $(this).parent().parent().parent();
   var parent  = $(this).parent();
   var that = $(this);
   var nullEnjoy = parent.children('.iconfont-nullEnjoy');
