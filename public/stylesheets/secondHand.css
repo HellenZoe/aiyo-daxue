@@ -1,50 +1,29 @@
-.bar .treehole-back {
+.bar .secondHand-back {
   color: #fff;
 }
-.treehole-content .category-tab .button.active {
-  color: #F57E7A;
-  border-color: #F57E7A;
-}
-.category-tab {
+.secondHand-content > .buttons-tab > .button {
   background-color: #fff;
-  position: fixed;
-  z-index: 100;
-  width: 100%;
-  overflow-x: scroll;
 }
-.category-tab .tab-controller {
-  white-space: nowrap;
-}
-.category-tab .tab-controller a {
-  color: #444;
-  display: inline-block;
-  box-sizing: content-box;
-  margin: .5rem;
-}
-.category-tab .tab-controller a.active {
-  color: #F57E7A;
-  border-bottom: 2px solid #F57E7A;
-}
-.treehole-content > .content-block {
-  margin: 2.4rem 0 0 0;
+.secondHand-content > .content-block {
+  margin: 0;
   padding: 0px;
 }
-.treehole-content > .content-block .tabs .content-block {
+.secondHand-content > .content-block .tabs .content-block {
   margin: 0rem;
   padding: 0px;
 }
-.treehole-searchbar {
+.secondHand-searchbar {
   background-color: #fff;
 }
-.treehole-searchbar .searchbar {
+.secondHand-searchbar .searchbar {
   background-color: #fff;
 }
-.treehole-searchbar .searchbar input#search {
+.secondHand-searchbar .searchbar input#search {
   background-color: #f5f5f5;
   border-radius: .5rem;
 }
 .facebook-card {
-  margin: .5rem 0px;
+  margin: .5rem 0px 0px 0px;
 }
 .facebook-card .facebook-avatar img {
   height: 2rem;
@@ -53,7 +32,7 @@
   border-radius: 50%;
 }
 .facebook-card .card-content {
-  padding: 0 .5rem .5rem .5rem;
+  padding: 0 .5rem;
 }
 .facebook-card .card-content .picsWrapper img {
   display: inline-block;
@@ -65,47 +44,73 @@
 .facebook-card .card-info .facebook-name,
 .facebook-card .card-info .facebook-date {
   margin-left: 0px;
-  color: #444;
 }
-.facebook-card .card-content-title {
-  font-weight: normal;
-  color: #444;
+.facebook-card .card-info .facebook-date span {
+  font-size: .55rem;
 }
-.facebook-card .card-content-title,
+.facebook-card .card-info .facebook-name {
+  color: #444;
+  font-size: .9rem;
+}
+.facebook-card .card-info .page-view {
+  float: right;
+  font-size: .55rem;
+  margin: .25rem 0;
+}
 .facebook-card .card-content-text {
-  margin: .3rem 0px;
+  font-size: .55rem;
+  margin-top: .2rem;
 }
-.iconfont-nullEnjoy,
-.iconfont-selfEnjoy {
-  color: #F57E7A;
+.title-category {
+  min-height: 1.3rem;
+}
+.content-title {
+  font-size: .75rem;
+  float: left;
+  margin: .14rem 0;
+}
+.category {
+  float: left;
+  font-size: .5rem;
+  margin: .2rem .3rem;
+  background-color: #13B7F5;
+  color: #fff;
+  padding: 0px .1rem;
+}
+.facebook-card > .card-footer {
+  background-color: #fff;
+}
+.card-footer:before {
+  background-color: #fff;
 }
 .card-footer {
   padding: 0px;
   min-height: 2rem;
 }
-.topic-card-footer {
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  background-color: #fff;
-}
-#comment {
+.position,
+.price {
   position: absolute;
-  top: .5rem;
+}
+.position {
+  left: .4rem;
+  font-size: .5rem;
+  height: 100%;
+}
+.position i {
+  position: absolute;
+  margin-top: .5rem;
+}
+.position span {
+  display: inline-block;
+  margin: .58rem .7rem;
+}
+.iconfont-position {
+  color: #13B7F5;
+}
+.price {
   right: .5rem;
-}
-#enjoy {
-  position: absolute;
-  top: .5rem;
-  right: 3rem;
-}
-.enjoy-count,
-.comment-count {
-  margin-left: .3rem;
+  top: .2rem;
   font-size: .9rem;
-  color: #999;
-}
-.index-color {
   color: #F57E7A;
 }
 @font-face {
@@ -139,47 +144,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 @font-face {
-  font-family: 'iconfont-selfEnjoy';
+  font-family: 'iconfont-position';
   src: url('iconfont.eot');
   /* IE9*/
-  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfEnjoy.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfEnjoy.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfEnjoy.svg#iconfont-selfEnjoy') format('svg');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-position.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-position.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-position.svg#iconfont-position') format('svg');
   /* iOS 4.1- */
 }
-.iconfont-selfEnjoy {
-  font-family: "iconfont-selfEnjoy" !important;
-  font-size: .8rem;
+.iconfont-position {
+  font-family: "iconfont-position" !important;
+  font-size: .75rem;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
 @font-face {
-  font-family: 'iconfont-nullEnjoy';
+  font-family: 'iconfont-selfShare';
   src: url('iconfont.eot');
   /* IE9*/
-  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-nullEnjoy.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-nullEnjoy.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-nullEnjoy.svg#iconfont-nullEnjoy') format('svg');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfShare.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfShare.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfShare.svg#iconfont-selfShare') format('svg');
   /* iOS 4.1- */
 }
-.iconfont-nullEnjoy {
-  font-family: "iconfont-nullEnjoy" !important;
-  font-size: .8rem;
+.iconfont-selfShare {
+  font-family: "iconfont-selfShare" !important;
+  font-size: 1rem;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-@font-face {
-  font-family: 'iconfont-selfComment';
-  src: url('iconfont.eot');
-  /* IE9*/
-  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfComment.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfComment.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfComment.svg#iconfont-selfComment') format('svg');
-  /* iOS 4.1- */
-}
-.iconfont-selfComment {
-  font-family: "iconfont-selfComment" !important;
-  font-size: .8rem;
-  font-style: normal;
-  color: #E3E3E3;
+  margin-right: 0.3rem;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
