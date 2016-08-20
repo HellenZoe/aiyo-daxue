@@ -7,6 +7,7 @@ $('.card-content').on('click', function(e) {
 
 //  点赞
 $('.iconfont-nullEnjoy').on('click', function(e) {
+  console.log("点赞");
   var enjoyCount = $(this).parent().parent().children('#enjoy').children('.enjoy-count').text();
   var treeholeId = $(this).parent().parent().parent().attr('data-tid');
   var countInfo = {
@@ -53,6 +54,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
 
 //  取消点赞
 $('.iconfont-selfEnjoy').on('click', function(e) {
+  console.log("取消点赞");
   var enjoyCount = $(this).parent().parent().children('#enjoy').children('.enjoy-count').text();
   var treeholeId = $(this).parent().parent().parent().attr('data-tid');
   var countInfo = {
@@ -79,7 +81,7 @@ $('.iconfont-selfEnjoy').on('click', function(e) {
         console.log("上传成功");
 
         $.hidePreloader();
-        $.toast('点赞成功', 2000, "toast-success");
+        $.toast('取消点赞', 2000, "toast-success");
         //  点赞数加1
         $('.enjoy-count').text(data.c);
         $('.iconfont-selfEnjoy').removeClass('iconfont-selfEnjoy').addClass('iconfont-nullEnjoy');
