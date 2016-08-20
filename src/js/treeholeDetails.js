@@ -36,7 +36,7 @@ $('.send').on('click', function(e) {
     success: function (data) {
       if (data.success) {
         console.log("上传成功");
-
+        $('.input-block').val("");
         $.hidePreloader();
         $.toast('评论成功', 2000, "toast-success");
         //  把新发布的评论更新上去  让用户有反馈  js不支持多行字符串  还是刷新一下好了
