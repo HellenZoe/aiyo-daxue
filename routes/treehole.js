@@ -268,24 +268,32 @@ router.get('/comment/:id', function(req, res) {
     if (err) {
       console.log(err);
     }else {
-      Comment.find({replyToId: commentId}, function(err, cs) {
+      Treehole.find({_id: c.treeholeId}, function(err, t) {
         if (err) {
           console.log(err);
         }else {
-          if (cs.length != 0) {
-            res.render("treeholeCommentDetail", {
-              title: "查看对话",
-              comments: cs,
-              comment: c[0].toObject({getters: true, virtuals: true}),
-            })
-          }else {
-            res.render("treeholeCommentDetail", {
-              title: "查看对话",
-              comments: null,
-              comment: c[0].toObject({getters: true, virtuals: true}),
+          Comment.find({replyToId: commentId}, function(err, cs) {
+            if (err) {
+              console.log(err);
+            }else {
+              if (cs.length != 0) {
+                res.render("treeholeCommentDetail", {
+                  title: "查看对话",
+                  comments: cs,
+                  comment: c[0].toObject({getters: true, virtuals: true}),
+                  commentCount: t.comments                  
+                })
+              }else {
+                res.render("treeholeCommentDetail", {
+                  title: "查看对话",
+                  comments: null,
+                  comment: c[0].toObject({getters: true, virtuals: true}),
+                  commentCount: t.comments
+                })
+              }
+            }
+          })
 
-            })
-          }
         }
       })
 

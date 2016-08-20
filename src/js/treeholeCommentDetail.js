@@ -20,7 +20,7 @@ $('.send').on('click', function(e) {
   var crtUserAvatarUrl = window.utils.getFromLocal('userInfo').avatarUrl;
   var treeholeId = $('.facebook-card').attr('data-tid');
 
-  var commentCount = $('.comment-count').text();
+  var commentCount = $('.facebook-card').attr('data-cCount');
 
   var commentInfo = {
     time: time,
