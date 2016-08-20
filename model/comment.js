@@ -9,7 +9,8 @@ var commentSchema = new Schema({
   authorSchool: String,
   content: String,
   replyToId: String,
-  replyToName: String,
+  replyToAuthorId: String,
+  replyToAuthorName: String,
   replyToContent: String,
   time: {type: Date, default: Date.now},
   type: String

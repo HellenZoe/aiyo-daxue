@@ -23,7 +23,7 @@ block content
             div.tabs
               div#tab-hot.tab.active
                 div.content-block
-                  div.card.facebook-card(data-tId= comment.treeholeId, data-cCount= commentCount)
+                  div.card.facebook-card(data-tId= comment.treeholeId, data-cCount= commentCount, data-mId= comment._id)
                     div.card-header.no-border
                       div.facebook-avatar
                         img(src= comment.authorAvatarUrl)

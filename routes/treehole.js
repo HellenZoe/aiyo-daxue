@@ -194,8 +194,9 @@ router.post('/comment', function(req, res) {
     authorAvatarUrl: req.body.authorAvatarUrl,
     treeholeId: req.body.treeholeId,
     replyToId: req.body.replyToId,
-    replyToName: req.body.replyToName,
     replyToContent: req.body.replyToContent,
+    replyToAuthorId: req.body.replyToAuthorId,
+    replyToAuthorName: req.body.replyToAuthorName,
     authorSchool: "",
     type: "treehole"
   }

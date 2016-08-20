@@ -13,8 +13,9 @@ $('.treehole-back').on('click', function(e) {
 $('.send').on('click', function(e) {
   var content = $('.input-block').val();
   var time = Date.now();
-  var replyToId = $('.card-info').attr('data-authorId');
-  var replyToName = $('.facebook-name').text();
+  var replyToId = $('.facebook-card').attr('data-mId');
+  var replyToAuthorId = $('.card-info').attr('data-authorId');
+  var replyToAuthorName = $('.facebook-name').text();
   var replyToContent = $('.card-comment').children('.comment-text').text();
   var crtUserName = window.utils.getFromLocal('userInfo').name;
   var crtUserAvatarUrl = window.utils.getFromLocal('userInfo').avatarUrl;
@@ -29,7 +30,8 @@ $('.send').on('click', function(e) {
     authorAvatarUrl: crtUserAvatarUrl,
     treeholeId: treeholeId,
     commentCount: commentCount,
-    replyToName: replyToName,
+    replyToAuthorName: replyToAuthorName,
+    replyToAuthorId: replyToAuthorId,
     replyToId: replyToId,
     replyToContent: replyToContent
   }
