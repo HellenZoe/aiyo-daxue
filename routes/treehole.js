@@ -219,19 +219,34 @@ router.post('/comment', function(req, res) {
 
 // 点赞
 router.post('/fav', function(req, res) {
+  var action = req.body.action;
   console.log("***************************logging from /treehole/comment--req.body", req.body);
   var favCount = parseInt(req.body.fav);
-      //  更新treehole的评论数量
-  Treehole.update({_id: req.body.treeholeId}, {fav: favCount + 1}, function(err, t) {
-    if (err) {
-      console.log(err);
-    }else {
-      res.json({
-        success: true,
-        c: favCount + 1
-      })
-    }
-  });
+  //  更新treehole的评论数量
+  if (action == "up") {
+    Treehole.update({_id: req.body.treeholeId}, {fav: favCount + 1}, function(err, t) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.json({
+          success: true,
+          c: favCount + 1
+        })
+      }
+    });
+  }else if(action == "down"){
+    Treehole.update({_id: req.body.treeholeId}, {fav: favCount - 1}, function(err, t) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.json({
+          success: true,
+          c: favCount - 1
+        })
+      }
+    });
+
+  }
 
 })
 

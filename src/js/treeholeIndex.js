@@ -7,11 +7,16 @@ $('.card-content').on('click', function(e) {
 
 //  点赞
 $('.iconfont-nullEnjoy').on('click', function(e) {
-  var enjoyCount = $(this).parent().parent().children('#enjoy').children('.enjoy-count').text();
-  var treeholeId = $(this).parent().parent().parent().attr('data-tid');
+  console.log("点赞");
+  var enjoyCount = $(this).parent().children('.enjoy-count');
+  var treehole = $(this).parent().parent().parent();
+  var parent = $(this).parent();
+  var that = $(this);
+  var selfEnjoy = parent.children('.iconfont-selfEnjoy');
   var countInfo = {
-    fav: enjoyCount,
-    treeholeId: treeholeId
+    fav: enjoyCount.text(),
+    treeholeId: treehole.attr('data-tid'),
+    action: "up"
   }
 
   var url = "http://" + location.host + "/treehole/fav";
@@ -31,11 +36,13 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
       if (data.success) {
         console.log("上传成功");
 
-        $.hidePreloader();
         $.toast('点赞成功', 2000, "toast-success");
         //  点赞数加1
-        $('.enjoy-count').text(data.c);
-        $('.iconfont-nullEnjoy').removeClass('iconfont-nullEnjoy').addClass('iconfont-selfEnjoy');
+        enjoyCount.text(data.c);
+        that.css('display', 'none');
+        selfEnjoy.css('display', 'inline');
+
+        $.hidePreloader();
       }
     },
     error: function (data) {
@@ -47,6 +54,64 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
 
 })
 
+
+//  取消点赞
+$('.iconfont-selfEnjoy').on('click', function(e) {
+  console.log("取消点赞");
+  var enjoyCount = $(this).parent().children('.enjoy-count');
+  var treehole = $(this).parent().parent().parent();
+  var parent  = $(this).parent();
+  var that = $(this);
+  var nullEnjoy = parent.children('.iconfont-nullEnjoy');
+  var countInfo = {
+    fav: enjoyCount.text(),
+    treeholeId: treehole.attr('data-tid'),
+    action: "down"
+  }
+
+  var url = "http://" + location.host + "/treehole/fav";
+
+  //  显示加载指示器
+  $.showPreloader();
+
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    dataType: "json",
+		contentType: "application/json",
+    data: JSON.stringify(countInfo),
+    processData: false,
+    success: function (data) {
+      if (data.success) {
+        console.log("上传成功");
+
+        $.toast('取消点赞', 2000, "toast-success");
+        //  点赞数加1
+        enjoyCount.text(data.c);
+        that.css('display', 'none');
+        nullEnjoy.css('display', 'inline');
+        
+        $.hidePreloader();
+      }
+    },
+    error: function (data) {
+        // showMessageFail("上传出错, 请重试");
+        console.log("上传失败");
+    }
+
+  });
+
+})
+
+
+//  点击评论图标跳转到评论页面
+$('#comment').on('click', function(e) {
+  e.preventDefault();
+  var treeholeId = $(this).parent().parent().attr('data-tid');
+  console.log(treeholeId);
+  location.href = "http://" + location.host + "/treehole/detail/" + treeholeId;
+})
 
 // 点击seach框跳转到search页面
 $('#search').on('focus', function(e) {
