@@ -2,6 +2,7 @@
 var allCard = $('.facebook-card');
 allCard.forEach(function(item, index) {
   var crtUserId = window.utils.getFromLocal('userInfo')._id;
+  item = $(item);
   var favId  = item.attr('data-favId');
   if (item.attr(favId.contains(crtUserId))) {
     item.children('.topic-card-footer').children('#enjoy').children('iconfont-nullEnjoy').css('display', 'none')
