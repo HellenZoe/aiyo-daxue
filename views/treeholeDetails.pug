@@ -78,7 +78,7 @@ block content
                               div.commnet-text= c.content
                               if c.replyToContent
                                 div.replay-text
-                                  span 回复#{c.replyToName}的评论：
+                                  span 回复#{c.replyToAuthorName}的评论：
                                   span= c.replyToContent
                               div.check-session
                                 a(href="#" data-commentId= c._id) 查看对话
