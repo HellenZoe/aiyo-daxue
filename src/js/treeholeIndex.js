@@ -64,7 +64,7 @@ $('.iconfont-selfEnjoy').on('click', function(e) {
   var that = $(this);
   var countInfo = {
     fav: enjoyCount.text(),
-    treeholeId: treehole.attr('data-tid')，
+    treeholeId: treehole.attr('data-tid'),
     action: "down"
   }
 
