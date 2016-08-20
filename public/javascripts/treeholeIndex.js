@@ -36,7 +36,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
         //  点赞数加1
         $('.enjoy-count').text(data.c);
         $('.iconfont-nullEnjoy').removeClass('iconfont-nullEnjoy').addClass('iconfont-selfEnjoy');
-        $('.iconfont-selfEnjoy').html('&#xe611;');
+        $('.iconfont-selfEnjoy').html('&#xe611;'); 
 
       }
     },
