@@ -12,6 +12,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
   var treehole = $(this).parent().parent().parent();
   var parent = $(this).parent();
   var that = $(this);
+  var selfEnjoy = parent.children('.iconfont-selfEnjoy');
   var countInfo = {
     fav: enjoyCount.text(),
     treeholeId: treehole.attr('data-tid'),
@@ -39,11 +40,8 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
         $.toast('点赞成功', 2000, "toast-success");
         //  点赞数加1
         enjoyCount.text(data.c);
-        that.remove();
-        var i = document.createElement('i');
-        i.className = 'iconfont-selfEnjoy';
-        i.innerHTML = "&#xe611;";
-        parent.append(i);
+        that.css('display', 'none');
+        selfEnjoy.css('display', 'inline');
       }
     },
     error: function (data) {
@@ -61,7 +59,9 @@ $('.iconfont-selfEnjoy').on('click', function(e) {
   console.log("取消点赞");
   var enjoyCount = $(this).parent().children('.enjoy-count');
   var treeholeId = $(this).parent().parent().parent();
+  var parent  = $(this).parent();
   var that = $(this);
+  var nullEnjoy = parent.children('.iconfont-nullEnjoy');
   var countInfo = {
     fav: enjoyCount.text(),
     treeholeId: treehole.attr('data-tid'),
@@ -89,13 +89,8 @@ $('.iconfont-selfEnjoy').on('click', function(e) {
         $.toast('取消点赞', 2000, "toast-success");
         //  点赞数加1
         enjoyCount.text(data.c);
-        that.remove();
-        var i = document.createElement('i');
-        i.className = 'iconfont-nullEnjoy';
-        i.innerHTML = "&#xe614;";
-        parent.append(i);
-
-
+        that.css('display', 'none');
+        nullEnjoy.css('display', 'inline');
       }
     },
     error: function (data) {
