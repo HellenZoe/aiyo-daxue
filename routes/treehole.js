@@ -269,9 +269,9 @@ router.get('/comment/:id', function(req, res) {
       console.log(err);
     }else {
       console.log("****************logging from /treeehole/comment/:id--comment", c);
-      var tId = c.treeholeId;
+      var tId = c[0].treeholeId;
       console.log("****************logging from /treeehole/comment/:id--comment", tId);
-      Treehole.find({_id: c.treeholeId}, function(err, t) {
+      Treehole.find({_id: tId}, function(err, t) {
         if (err) {
           console.log(err);
         }else {
