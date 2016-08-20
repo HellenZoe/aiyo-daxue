@@ -36,12 +36,13 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
       if (data.success) {
         console.log("上传成功");
 
-        $.hidePreloader();
         $.toast('点赞成功', 2000, "toast-success");
         //  点赞数加1
         enjoyCount.text(data.c);
         that.css('display', 'none');
         selfEnjoy.css('display', 'inline');
+
+        $.hidePreloader();
       }
     },
     error: function (data) {
@@ -85,12 +86,13 @@ $('.iconfont-selfEnjoy').on('click', function(e) {
       if (data.success) {
         console.log("上传成功");
 
-        $.hidePreloader();
         $.toast('取消点赞', 2000, "toast-success");
         //  点赞数加1
         enjoyCount.text(data.c);
         that.css('display', 'none');
         nullEnjoy.css('display', 'inline');
+        
+        $.hidePreloader();
       }
     },
     error: function (data) {
