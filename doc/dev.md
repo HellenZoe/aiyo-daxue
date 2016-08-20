@@ -26,3 +26,4 @@
 评论 (用于详情页面统计评论数量处)： iconfont-detailsComment &#xe615
 时钟 (用户搜索页)： iconfont-clock &#xe617
 删除 (用于搜索页): iconfont-delete &#xe618
+定位 iconfont-position &#xe619
