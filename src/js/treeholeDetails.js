@@ -5,7 +5,7 @@ autosize(document.querySelectorAll("textarea"));
 $('.send').on('click', function(e) {
   var content = $('.input-block').val();
   var time = Date.now();
-  var crtUserName = window.utils.getFromLocal('userInfo').userName;
+  var crtUserName = window.utils.getFromLocal('userInfo').name;
   var crtUserAvatarUrl = window.utils.getFromLocal('userInfo').avatarUrl;
   var treeholeId = location.pathname.split('/').pop();
 

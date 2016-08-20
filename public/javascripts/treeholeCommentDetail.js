@@ -4,6 +4,11 @@
 //   $('.details-content').css('bottom', "4rem");
 // })
 
+$('treehole-back').on('click', function(e) {
+  e.preventDefault();
+  var treeholeId = $('.facebook-card').attr('data-tid');
+  location.href = "http://" + location.host + "/treehole/detail/" + treeholeId;
+})
 //  点击发送按钮 通过ajax发送 然后刷新页面
 $('.send').on('click', function(e) {
   var content = $('.input-block').val();
@@ -11,7 +16,7 @@ $('.send').on('click', function(e) {
   var replyToId = $('.card-info').attr('data-authorId');
   var replyToName = $('.facebook-name').text();
   var replyToContent = $('.card-comment').children('.comment-text').text();
-  var crtUserName = window.utils.getFromLocal('userInfo').userName;
+  var crtUserName = window.utils.getFromLocal('userInfo').name;
   var crtUserAvatarUrl = window.utils.getFromLocal('userInfo').avatarUrl;
   var treeholeId = $('.facebook-card').attr('data-tid');
 

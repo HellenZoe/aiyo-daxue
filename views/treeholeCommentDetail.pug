@@ -7,7 +7,7 @@ block content
   div.page-group
     div.page.page-current#signup
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
+        a.button.button-link.button-nav.treehole-back.pull-left.external
           span.icon.icon-left.text-white
         a.button.button-link.button-nav.treehole-back.pull-right.external
           span.icon.text-white
@@ -34,7 +34,7 @@ block content
                           if comment.authorSchool
                             span 来自[#{comment.authorSchool}]
                         div.card-comment
-                          div.commnet-text= comment.content
+                          div.comment-text= comment.content
                           div.comment-icon
                             span.icon
                               i.iconfont-selfComment &#xe612;
