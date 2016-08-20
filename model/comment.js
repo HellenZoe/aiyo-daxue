@@ -3,6 +3,7 @@ var Schema = mongoose.Schema
 
 var commentSchema = new Schema({
   treeholeId: String,
+  authorId: String,
   authorName: String,
   authorAvatarUrl: String,
   authorSchool: String,

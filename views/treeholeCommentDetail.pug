@@ -1,7 +1,7 @@
 extends detaillayout
 
 block styles
-  link(rel="stylesheet" href="../../stylesheets/commentDetail.css")
+  link(rel="stylesheet" href="../../stylesheets/treeholeCommentDetail.css")
 
 block content
   div.page-group
@@ -13,6 +13,9 @@ block content
           span.icon.text-white
             i.iconfont-selfShare &#xe610;
         h1.title.text-white 查看对话
+      nav.input-comment
+        textarea.input-block(placeholder="点击输入你的评论 ") 
+        div.send 发送
         
       div.content.details-content
         div.comment-content
@@ -20,18 +23,18 @@ block content
             div.tabs
               div#tab-hot.tab.active
                 div.content-block
-                  div.card.facebook-card
+                  div.card.facebook-card(data-tId= comment.treeholeId)
                     div.card-header.no-border
                       div.facebook-avatar
                         img(src= comment.authorAvatarUrl)
-                      div.card-info
+                      div.card-info(data-authorId= comment.authorId)
                         div.facebook-name= comment.authorName
                         div.facebook-date
                           span= comment.date
                           if comment.authorSchool
-                            span= 来自[青岛大学]
+                            span= 来自[#{comment.authorSchool}]
                         div.card-comment
-                          div.commnet-text 点个赞
+                          div.commnet-text= comment.content
                           div.comment-icon
                             span.icon
                               i.iconfont-selfComment &#xe612;

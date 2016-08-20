@@ -189,6 +189,7 @@ router.post('/comment', function(req, res) {
   var cInfo = {
     content: req.body.content,
     time: req.body.time,
+    authorId: req.session.user._id,
     authorName: req.body.authorName,
     authorAvatarUrl: req.body.authorAvatarUrl,
     treeholeId: req.body.treeholeId,
