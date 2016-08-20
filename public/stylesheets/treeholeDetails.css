@@ -27,6 +27,9 @@
 .facebook-card .card-content {
   padding: 0.5rem;
 }
+.facebook-card .card-content img {
+  display: inline-block;
+}
 .facebook-card .card-info {
   margin-left: 2.5rem;
 }
