@@ -272,6 +272,7 @@ router.get('/comment/:id', function(req, res) {
         if (err) {
           console.log(err);
         }else {
+  console.log("****************logging from /treeehole/comment/:id--treehole commments", t.comments);
           Comment.find({replyToId: commentId}, function(err, cs) {
             if (err) {
               console.log(err);
@@ -281,7 +282,7 @@ router.get('/comment/:id', function(req, res) {
                   title: "查看对话",
                   comments: cs,
                   comment: c[0].toObject({getters: true, virtuals: true}),
-                  commentCount: t.comments                  
+                  commentCount: t.comments
                 })
               }else {
                 res.render("treeholeCommentDetail", {
