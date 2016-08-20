@@ -12,7 +12,7 @@ var Comment = require('../model/comment');
 router.get('/', function(req, res) {
 
   // console.log("*********************logging from /treehole--user************************", req.session.user);
-  // var crtUser = req.session.user;
+  var crtUser = req.session.user;
   var queryTreehole = Treehole.find({});
   queryTreehole.exec(function(err, ts) {
     if (err) {
@@ -26,7 +26,8 @@ router.get('/', function(req, res) {
           title: "树洞首页",
           treeholes: ts.map(function(item){
             return item.toObject({getters: true, virtuals: true});
-          })
+          }),
+          user: crtUser
         });
       }else {
         res.render("treeholeIndex", {
@@ -219,6 +220,7 @@ router.post('/comment', function(req, res) {
 
 // 点赞
 router.post('/fav', function(req, res) {
+  console.log("logging from /treehole/fav--req.session.user", req.session.user);
   var action = req.body.action;
   console.log("***************************logging from /treehole/comment--req.body", req.body);
   var favCount = parseInt(req.body.fav);
@@ -228,9 +230,15 @@ router.post('/fav', function(req, res) {
       if (err) {
         console.log(err);
       }else {
-        res.json({
-          success: true,
-          c: favCount + 1
+        Treehole.update({_id: req.body.treeholeId}, {$push: { "favUserId": req.session.user._id}}, function(err,raw) {
+          if (err) {
+            console.log(err);
+          }else {
+            res.json({
+              success: true,
+              c: favCount + 1
+            })
+          }
         })
       }
     });

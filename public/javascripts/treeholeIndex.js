@@ -1,3 +1,14 @@
+//  把用户已经点过赞的图标换成红色
+var allCard = $('.facebook-card');
+allCard.forEach(function(item, index) {
+  var crtUserId = window.utils.getFromLocal('userInfo')._id;
+  if (item.attr(data-favId.contains(crtUserId))) {
+    item.children('.topic-card-footer').children('#enjoy').children('iconfont-nullEnjoy').css('display', 'none')
+    item.children('.topic-card-footer').children('#enjoy').children('iconfont-selfEnjoy').css('display', 'inline')
+  }
+})
+
+
 //   点击图片的时候  跳转到相应的详情页去
 $('.card-content').on('click', function(e) {
   var cardId = $(this).parent().attr('data-tId');
@@ -91,7 +102,7 @@ $('.iconfont-selfEnjoy').on('click', function(e) {
         enjoyCount.text(data.c);
         that.css('display', 'none');
         nullEnjoy.css('display', 'inline');
-        
+
         $.hidePreloader();
       }
     },

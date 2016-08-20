@@ -35,11 +35,16 @@ module.exports = function(app) {
     newUser.save(function(err, user) {
       if (err) {
         console.log("save user error!");
+      }else {
+        // 将user存储到session 保持用户登陆
+        req.session.user = user;
+        console.log("*************************logging from /user*********************", req.session);
+        // res.redirect(redirectUrl);
+        res.json({
+          success: true,
+          userInfo: user
+        })
       }
-      // 将user存储到session 保持用户登陆
-      req.session.user = user;
-      console.log("*************************logging from /user*********************", req.session);
-      res.redirect(redirectUrl);
     })
 
 
