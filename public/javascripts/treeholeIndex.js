@@ -36,7 +36,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
         //  点赞数加1
         $('.enjoy-count').text(data.c);
         $('.iconfont-nullEnjoy').removeClass('iconfont-nullEnjoy').addClass('iconfont-selfEnjoy');
-        $('.iconfont-selfEnjoy').html('&#xe611;'); 
+        $('.iconfont-selfEnjoy').html('&#xe611;');
 
       }
     },
@@ -49,6 +49,13 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
 
 })
 
+//  点击评论图标跳转到评论页面
+$('#comment').on('click', function(e) {
+  e.preventDefault();
+  var treeholeId = $(this).parent().parent().attr('data-tid');
+  console.log(treeholeId);
+  location.href = "http://" + location.host + "/treehole/detail/" + treeholeId;
+})
 
 // 点击seach框跳转到search页面
 $('#search').on('focus', function(e) {
