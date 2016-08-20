@@ -28,7 +28,9 @@ block content
           a.searchbar-cancel 取消
           div.search-input
             label.icon.icon-search(for="search")
-            input#search(type="search", placeholder="搜索感兴趣的话题")             
+            input#search(type="search", placeholder="搜索感兴趣的话题")     
+          a.gotoSearch.link(href="#search-page")        
+          
       div.content.treehole-content
         div.buttons-tab
           a.tab-link.button.active(href="#tab-hot") 热门
@@ -92,6 +94,10 @@ block content
               div.content-block
                 div 这是学校
     
+    
+    div#search-page
+      //- 在这里写搜索页面的内容
+      p search      
       
                 
             

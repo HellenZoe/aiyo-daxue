@@ -5,6 +5,7 @@ $('.card-content').on('click', function(e) {
   location.href = "http://" + host + "/treehole/detail/" + cardId;
 })
 
+//  点赞
 $('.iconfont-nullEnjoy').on('click', function(e) {
   var enjoyCount = $(this).parent().parent().children('#enjoy').children('.enjoy-count').text();
   var treeholeId = $(this).parent().parent().parent().attr('data-tid');
@@ -34,6 +35,7 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
         $.toast('点赞成功', 2000, "toast-success");
         //  点赞数加1
         $('.enjoy-count').text(data.c);
+        $('iconfont-nullEnjoy').css('background-color', '#F57E7A');
       }
     },
     error: function (data) {
@@ -43,4 +45,10 @@ $('.iconfont-nullEnjoy').on('click', function(e) {
 
   });
 
+})
+
+
+// 点击seach框跳转到search页面
+$('#search').on('focus', function(e) {
+  $('.gotoSearch').trigger('click');
 })
