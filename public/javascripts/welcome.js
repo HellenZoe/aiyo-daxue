@@ -54,7 +54,8 @@ QC.api("get_user_info", paras)
 						// window.utils.saveToLocal("userInfo", data.userInfo);
 						alert(JSON.stringify(data.userInfo));
 						alert(window.localStorage);
-						window.localStorage.setItem("userInfo", data.userInfo);
+						window.localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
+						alert(window.localStorage["userInfo"]);
 						alert(window.localＳtorage.getItem("userInfo"));
 						console.log("save userInfo success", window.getFromLocal("userInfo"));
 					}
