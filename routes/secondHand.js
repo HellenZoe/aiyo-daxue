@@ -110,7 +110,16 @@ router.post('/new', upload.single('test'), function(req, res) {
           	});
           })
 
+<<<<<<< HEAD
         })
+=======
+//详情
+router.get('/detail', function(req, res) {
+  res.render('secondHandDetail', {
+    title: "详情"
+  })
+})
+>>>>>>> bd8006a6d1137b877e29a9d24d76b9b657dc673e
 
       }
     })

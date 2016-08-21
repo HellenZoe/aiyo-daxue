@@ -1,0 +1,71 @@
+extends servicelayout
+
+block styles
+  link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
+  link(rel="stylesheet" href="../stylesheets/secondHandDetail.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/secondHand")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.treehole-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 详情
+
+      div.content
+        div(class="swiper-container index-swiper-container" data-space-between="10")
+          div.swiper-wrapper
+            div.swiper-slide
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+            div.swiper-slide
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+            div.swiper-slide
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+          div.swiper-pagination
+            span.swiper-pagination-bullet
+            span.swiper-pagination-bullet
+            span.swiper-pagination-bullet
+            
+        div.card.facebook-card
+          div.card-content
+            div.title-category
+              span.content-title 收藏图书，低价出售
+              span.category 图书器材
+            div.card-content-text 收藏已久的图书，本人非常喜欢，我愿意分享快乐给大家
+          div.card-footer
+            div.icon.position
+              i.iconfont-position &#xe619;
+              span 武汉华中科技大学
+            div.price ￥180.00
+            
+        div.card.facebook-card
+          div.card-header.no-border
+            div.facebook-avatar
+                img(src="../../images/user-logo.png")
+            div.card-info
+              div
+                span.facebook-name 朱海浩
+                span.page-view 浏览次数：180
+              div.facebook-date
+                span 07-13 17:00 
+                span 来自[青岛大学]
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-qq &#xe621;
+            span.number 1234567912
+            a.connection-action(href="#") 勾搭
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-phone &#xe620;
+            span.number 1234567901
+            a.connection-action(href="#") 电话勾搭
+            a.connection-action(href="#") 短信勾搭
+            
+
+
+block scripts
+  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
+  script(src='javascripts/index.js', type='text/javascript')
