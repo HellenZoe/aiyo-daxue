@@ -34,7 +34,8 @@ $(function() {
   //   location.href = "http://" + host + "/treehole/detail/" + cardId;
   // })
 
-  var card = document.getElementsByClassName('card-content')[0];
+  // var card = document.getElementsByClassName('card-content')[0];
+  var card = document.getElementById("fuck");
   alert(card);
   card.addEventListener('click', function(e) {
     alert("clicked");
