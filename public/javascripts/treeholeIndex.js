@@ -3,8 +3,10 @@ $(function() {
 
   //  把用户已经点过赞的图标换成红色
   var allCard = $('.facebook-card');
-  alert(FastClick);
   allCard.forEach(function(item, index) {
+    alert(FastClick);
+    alert(window.utils);
+    alert(localStorage);
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
     item = $(item);
     var favId  = item.attr('data-favId');
@@ -15,7 +17,7 @@ $(function() {
     }
   })
 
-  alert(FastClick);
+
   //   点击图片的时候  跳转到相应的详情页去
   // $('.card-content').on('click', function(e) {
   //   var cardId = $(this).parent().attr('data-tId');
