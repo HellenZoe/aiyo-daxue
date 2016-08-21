@@ -27,3 +27,9 @@
 时钟 (用户搜索页)： iconfont-clock &#xe617
 删除 (用于搜索页): iconfont-delete &#xe618
 定位 iconfont-position &#xe619
+
+
+## 待解决问题
+
++  手机端click事件不响应　
++ 个人中心是展示自己发布过的树洞还是点赞过的树洞(也就是收藏过的)
