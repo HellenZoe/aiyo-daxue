@@ -49,7 +49,7 @@ block content
               div.content-block
                 if valuebles
                   each item in valuebles
-                    div.card.facebook-card
+                    div.card.facebook-card(data-vId= item._id)
                       div.card-header.no-border
                         div.facebook-avatar
                             img(src= item.authorAvatarUrl)
