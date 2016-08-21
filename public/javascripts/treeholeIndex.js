@@ -18,12 +18,11 @@ $(function() {
     // alert(crtUserId);
     item = $(item);
     var favId  = item.attr('data-favId');
-    alert(favId);
+    // alert(favId);
     if (window.utils.contains(favId, crtUserId)) {
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
     }
-    alert("yi");
   })
 
 
@@ -33,11 +32,11 @@ $(function() {
   //   var host = location.host;
   //   location.href = "http://" + host + "/treehole/detail/" + cardId;
   // })
-  alert("you");
+  // alert("you");
   // var card = document.getElementsByClassName('card-content')[0];
   var card = document.getElementById("fuck");
-  alert("fuck");
-  alert(card);
+  // alert("fuck");
+  // alert(card);
   card.addEventListener('click', function(e) {
     alert("clicked");
     var cardId = $(this).parent().attr('data-tId');
