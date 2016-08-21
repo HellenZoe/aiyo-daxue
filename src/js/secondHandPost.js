@@ -79,9 +79,8 @@ $(function() {
     //  提醒用户已经发布成功  然后回到树洞首页
     $.alert("现在返回主页", "发布成功", function() {
       var host = location.host;
-      console.log(location);
       console.log("http://" + host + "/secondHand");
-      location.href= "http://young-escarpment-36912.herokuapp.com/secondHand/post";
+      location.href= "http://" + host + "/secondHand";
       return;
     })
 
