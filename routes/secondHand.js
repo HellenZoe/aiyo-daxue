@@ -117,6 +117,13 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 })
 
+
+// 查看商品详情
+router.get('/detail/:id', function(req, res) {
+  res.render('secondHandDetail', {
+    title: "商品详情"
+  })
+})
 // 个人中心
 router.get('/self', function(req, res) {
   if (req.session.user) {
