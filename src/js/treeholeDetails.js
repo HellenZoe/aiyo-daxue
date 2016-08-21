@@ -11,8 +11,8 @@ $(function() {
   console.log(favId);
   if (window.utils.contains(favId,crtUserId)) {
     alert('hei');
-    item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
-    item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
+    card.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
+    card.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
   }
 
   // 用户点击发送按钮时   通过ajax发送信息
