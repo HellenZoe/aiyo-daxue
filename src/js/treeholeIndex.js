@@ -17,13 +17,13 @@ $(function() {
 
 
   //   点击图片的时候  跳转到相应的详情页去
-  $('.card-content').on('click', function(e) {
-    var cardId = $(this).parent().attr('data-tId');
-    var host = location.host;
-    location.href = "http://" + host + "/treehole/detail/" + cardId;
-  })
+  // $('.card-content').on('click', function(e) {
+  //   var cardId = $(this).parent().attr('data-tId');
+  //   var host = location.host;
+  //   location.href = "http://" + host + "/treehole/detail/" + cardId;
+  // })
 
-  var card = document.getElementsByClassName('.card-content')[0];
+  var card = document.getElementsByClassName('card-content')[0];
   card.addEventListener('click', function(e) {
     var cardId = $(this).parent().attr('data-tId');
     var host = location.host;
