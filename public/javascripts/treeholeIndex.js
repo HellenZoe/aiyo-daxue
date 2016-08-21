@@ -7,7 +7,9 @@ $(function() {
     // window.utils.saveToLocal("test", "hahaahh");
     // alert(window.utils.getFromLocal("test"));
     if (window.localStorage) {
-      window.utils.getFromLocal("userInfo");
+      if (window.utils) {
+        window.utils.getFromLocal("userInfo");
+      }
     }else {
       alert('you');
     }
