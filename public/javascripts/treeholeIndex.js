@@ -17,9 +17,7 @@ $(function() {
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
     // alert(crtUserId);
     item = $(item);
-    var favId  = item.attr('data-favId');
-    alert(favId);
-    alert(crtUserId);
+    var favId  = JSON.parse(item.attr('data-favId'));
     if (window.utils.contains(favId, crtUserId)) {
       alert("yeah");
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
