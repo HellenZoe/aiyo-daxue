@@ -52,7 +52,7 @@ block content
             span.icon.connection-icon
               i.iconfont-qq &#xe621;
             span.number= valueble.qq
-            a.connection-action(href= "tencent://message/?"+ valueble.qq + "=1101101101&Site=&Menu=yes") qq勾搭
+            a.connection-action(href= "tencent://message/?uin="+ valueble.qq + "&Site=&Menu=yes") qq勾搭
           div.connection-content
             span.icon.connection-icon
               i.iconfont-phone &#xe620;
@@ -64,4 +64,4 @@ block content
 
 block scripts
   script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
-  script(src='../../../javascripts/index.js', type='text/javascript')
+  script(src='javascripts/index.js', type='text/javascript')
