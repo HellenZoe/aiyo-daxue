@@ -18,12 +18,12 @@ block content
       div.content
         div(class="swiper-container index-swiper-container" data-space-between="10")
           div.swiper-wrapper
-            each url, index in valueble.picUrl
+            each url in valueble.picUrl
               div.swiper-slide
                 img(src= url)
           div.swiper-pagination
-            each url, index in valueble.picUrl
-            span.swiper-pagination-bullet
+            each url in valueble.picUrl
+              span.swiper-pagination-bullet
         div.card.facebook-card
           div.card-content
             div.title-category
