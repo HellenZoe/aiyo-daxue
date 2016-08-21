@@ -19,11 +19,11 @@ $(function() {
     item = $(item);
     var favId  = item.attr('data-favId');
     alert(favId);
-    if (favId.contains(crtUserId)) {
+    if (window.utils.contains(favId, crtUserId)) {
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
     }
-    alert('yi');
+    alert("yi");
   })
 
 
@@ -33,7 +33,7 @@ $(function() {
   //   var host = location.host;
   //   location.href = "http://" + host + "/treehole/detail/" + cardId;
   // })
-  alert('you');
+  alert("you");
   // var card = document.getElementsByClassName('card-content')[0];
   var card = document.getElementById("fuck");
   alert("fuck");

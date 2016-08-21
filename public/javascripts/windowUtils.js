@@ -10,6 +10,17 @@ var utils = {
 
   getFromLocal: function(name) {
     return JSON.parse(localStorage.getItem(name));
+  },
+
+  contains: function(o, s) {
+    var length = o.length;
+    while (length--) {
+      if (o[length] == s) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
 }
