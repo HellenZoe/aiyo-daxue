@@ -18,7 +18,8 @@ $(function() {
     // alert(crtUserId);
     item = $(item);
     var favId  = item.attr('data-favId');
-    // alert(favId);
+    alert(favId);
+    alert(crtUserId);
     if (window.utils.contains(favId, crtUserId)) {
       alert("yeah");
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
