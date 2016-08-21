@@ -4,8 +4,8 @@ $(function() {
   //  把用户已经点过赞的图标换成红色
   var allCard = $('.facebook-card');
   allCard.forEach(function(item, index) {
-    alert(FastClick);
-    alert(localStorage);
+    window.utils.saveToLocal("test", "hahaahh");
+    alert(window.utils.getFromLocal("test"));
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
     item = $(item);
     var favId  = item.attr('data-favId');
