@@ -15,10 +15,10 @@ $(function() {
     //   alert('you');
     // }
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
-    alert(crtUserId);
+    // alert(crtUserId);
     item = $(item);
     var favId  = item.attr('data-favId');
-    alert(favId);
+    // alert(favId);
     console.log(favId);
     if (favId.contains(crtUserId)) {
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
@@ -35,6 +35,7 @@ $(function() {
   // })
 
   var card = document.getElementsByClassName('card-content')[0];
+  alert(card);
   card.addEventListener('click', function(e) {
     alert("clicked");
     var cardId = $(this).parent().attr('data-tId');
