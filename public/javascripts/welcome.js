@@ -51,8 +51,8 @@ QC.api("get_user_info", paras)
       success: function (data) {
         if (data) {
 					if (window.utils) {
-						alert(window.utils);
 						window.utils.saveToLocal("userInfo", data.userInfo);
+						alert(window.utils.getFromLocal("userInfo"));
 						console.log("save userInfo success", window.getFromLocal("userInfo"));
 					}
 
