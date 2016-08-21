@@ -54,7 +54,7 @@ $(function() {
       $.toast("告诉过你只能选一个了哟");
       return;
     }else {
-      formInfo.category = category;
+      formInfo.category = category.attr('name');
     }
     var qq = $('.qq input').val();
     var tel = $('.tel input').val();

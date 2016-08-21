@@ -25,6 +25,7 @@ router.get('/post', function(req, res) {
 //  发布新的商品
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /secondHand/new--user***************", req.session.user);
+    console.log("*************logging from /secondHand/new--req.body***************", req.body);
     var imageData = JSON.parse(req.body['imageData']);
     var name = req.body['name'];
     var desc = req.body['desc'];
