@@ -14,7 +14,7 @@ $(function() {
     }
   })
 
-
+  alert(FastClick);
   //   点击图片的时候  跳转到相应的详情页去
   // $('.card-content').on('click', function(e) {
   //   var cardId = $(this).parent().attr('data-tId');
