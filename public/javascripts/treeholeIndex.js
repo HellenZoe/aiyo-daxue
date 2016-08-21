@@ -9,7 +9,7 @@ $(function() {
     if (window.localStorage) {
       if (window.utils) {
         alert('fuck');
-        window.utils.getFromLocal("userInfo");
+        alert(window.utils.getFromLocal("userInfo"));
       }
     }else {
       alert('you');

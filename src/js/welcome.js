@@ -52,12 +52,12 @@ QC.api("get_user_info", paras)
         if (data) {
 					if (window.utils) {
 						// window.utils.saveToLocal("userInfo", data.userInfo);
-						alert(JSON.stringify(data.userInfo));
+						// alert(JSON.stringify(data.userInfo));
 						// window.localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
 						// alert(window.localStorage.getItem("userInfo"));
 						// console.log("save userInfo success", window.getFromLocal("userInfo"));
 						window.utils.saveToLocal("userInfo", data.userInfo);
-						alert(window.utils.getFromLocal("userInfo"));
+						// alert(window.utils.getFromLocal("userInfo"));
 					}
 
           console.log("上传成功");
