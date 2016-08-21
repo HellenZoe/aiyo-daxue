@@ -1,3 +1,7 @@
+.successToast {
+  background-color: #F77A7A;
+  color: #fff;
+}
 .input-comment {
   min-height: 3rem;
   width: 100%;

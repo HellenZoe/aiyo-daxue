@@ -7,15 +7,19 @@ block content
   div.page-group
     div.page.page-current
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/secondHand")
           span.icon.icon-left.text-white
-        a.button.button-link.button-nav.pull-right.external.text-white.finishPost(href="/treehole") 完成
+        a.button.button-link.button-nav.pull-right.external.text-white 完成
         h1.title.text-white 发布树洞
       div.content
         div.post-valueble
           div.title
             h3 商品名称
             input.border-buttom
+            div#previewAllPic
+            span.icon
+              input#fileToUpload(type="file" name="fileToUpload")
+              i.iconfont-treeholePost &#xe605;
           div.desc
             h3 商品描述
             input.border-buttom
@@ -26,11 +30,35 @@ block content
             h3 交易地点
             input.border-buttom
           div.category
-            input#anonymous(type="checkbox")
+            input#checkbox(type="checkbox")
             label(for="anonymous")
-            span 匿名发布
+            span 交通工具
+            input#checkbox(type="checkbox")
+            label(for="anonymous")
+            span 运动健身
+            input#checkbox(type="checkbox")
+            label(for="anonymous")
+            span 电子产品
+            input#checkbox(type="checkbox")
+            label(for="anonymous")
+            span 电器
+            input#checkbox(type="checkbox")
+            label(for="anonymous")
+            span 丽人美妆
+            input#checkbox(type="checkbox")
+            label(for="anonymous")
+            span 衣物伞帽
+            input#checkbox(type="checkbox")
+            label(for="anonymous")
+            span 图书器材
+            input#checkbox(type="checkbox")
+            label(for="anonymous")
+            span 其他
+            
             
                         
               
               
 block scripts
+  script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/secondHandPost.js")
