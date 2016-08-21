@@ -1,9 +1,58 @@
 @content-back-color: #fafafa;
+@title-color: #444;
 
 .bar .button-link{
   color: #fff;
 }
 
+
+.page, .page-group{
+  background-color: @content-back-color
+}
+
+.border-bottom{
+  border-top: 0px;
+  background-color: #fafafa;
+  border-left: 0px;
+  border-right: 0px;
+  width: 100%;
+  font-size: .7rem;
+  padding: .2rem;
+  margin-bottom: .3rem;
+}
+
+.row{
+  margin-left: 0px;
+}
+.col-3{
+  width: 28%;
+  box-sizing: border-box;
+}
+// .col-5{
+//   width: 16%;
+//   box-sizing: border-box;
+// }
+
+.content{
+  background-color: @content-back-color;
+  padding: 0 .5rem;
+  .post-valueble{
+    // position: relative;
+    // top: -.5rem;
+    h3{
+      color: @title-color;
+      margin: 0px;
+      margin: .3rem 0;
+      font-weight: normal;
+      font-size: .9rem;
+    }
+    div.category{
+      span{
+        font-size: .7rem;
+      }
+    }
+  }
+}
 .successToast{
   background-color: #F77A7A;
   color: #fff;
@@ -51,28 +100,27 @@
 .category{
   float: right;
   margin-top: 1rem;
-  input#checkbox{
+  input{
     display: none;
   }
-  input#checkbox + label{
+  input + label{
     display: inline-block;
-    height: 1.2rem;
-    width: 1.2rem;
+    height: .9rem;
+    width: .9rem;
     border-radius: 50%;
     border: 1px solid #dedede;
     position: relative;
   }
-  input#checkbox:checked + label{
+  input:checked + label{
     border: none;
     background-color: #F77A7A;
   }
-  input#checkbox:checked + label:after{
+  input:checked + label:after{
     content: '\2714';
     font-size: 1rem;
     position: absolute;
     color: #fff;
-    top: -3px;
-    left: 2px;
+    top: -.4rem;
   }
   span{
     position: relative;

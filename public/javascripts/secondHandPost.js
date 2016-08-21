@@ -6,9 +6,14 @@ $(function() {
   // autosize(document.querySelectorAll("textarea"));
 
 
-  var allPic  = {
-    postText: "",
-    pics: []
+  var formInfo  = {
+    name: "",
+    desc: "",
+    price: "",
+    location: "",
+    qq: "",
+    tel: "",
+    pics: [],
   }
   var picCount = 0;
 
@@ -19,7 +24,16 @@ $(function() {
     return false;
   })
 
-
+  //  当用户点击分类的checkbox的时候  检测是否超过一个
+  var checkboxs = $('.category label');
+  checkboxs.on('click', function(e) {
+    console.log("clicked checkbox");
+    var num = $('.category input:checked').length;
+    if (length > 1) {
+      $.toast('只能选择一个分类', 2000);
+      e.preventDefault();
+    }
+  })
   //  点击右上角完成按钮时  先通过ajax提交， 然后再重定向到/treehole页面
 
   var finishButton = $('.finishPost');
@@ -31,13 +45,29 @@ $(function() {
     $.showPreloader();
 
     //  获取用户输入内容
-    var postText = $('.treehole-content > textarea').val();
-    console.log(postText);
-    allPic.postText = postText;
+    var name = $('.name > input').val();
+    var desc = $('.desc > input').val();
+    var price = $('.price > input').val();
+    var location = $('.location input').val();
+    var category = $('.category input:checked');
+    if (category.length > 1) {
+      $.toast("告诉过你只能选一个了哟")；
+      return;
+    }else {
+      formInfo.category = category;
+    }
+    var qq = $('.qq input').val();
+    var tel = $('.tel input').val();
+    formInfo.name = name;
+    formInfo.desc = desc;
+    formInfo.price = price;
+    formInfo.location = location;
+    formInfo.qq = qq;
+    formInfo.tel = tel;
 
     //  发送所有信息
-    sendFile(allPic);
-    // allPic.pics.forEach(function(item, index) {
+    sendFile(formInfo);
+    // formInfo.pics.forEach(function(item, index) {
     //   sendFile(item);
     //   console.log("上传 ", item);
     // })
@@ -59,8 +89,8 @@ $(function() {
   function bindDeleteAction(node) {
     $(node).on('click', function(e) {
       var index = $(this).parent('div').attr('data-index');
-      allPic.pics.pop(index);
-      console.log("delete", allPic.pics);
+      formInfo.pics.pop(index);
+      console.log("delete", formInfo.pics);
       $(this).parent('div').remove();
     })
 
@@ -127,7 +157,7 @@ $(function() {
   	var maxHeight = 100;
   	var image = new Image();
   	image.onload = function () {
-      // var previewContainer = document.getElementById("previewAllPic");
+      // var previewContainer = document.getElementById("previewformInfo");
       // var div = document.createElement('div');
       // div.appendChild(image);
       // previewContainer.appendChild(div);
@@ -182,13 +212,13 @@ $(function() {
     wrapper.appendChild(deleteIcon);
     wrapper.appendChild(canvas);
     wrapper.setAttribute('data-index', picCount);
-    var previewContainer = document.getElementById("previewAllPic");
+    var previewContainer = document.getElementById("previewformInfo");
     previewContainer.appendChild(wrapper);
 
 
     dataURL = canvas.toDataURL(fileType);
-    allPic.pics.push(dataURL);
-    console.log("new ", allPic.pics);
+    formInfo.pics.push(dataURL);
+    console.log("new ", formInfo.pics);
     picCount = picCount + 1;
   }
 
@@ -198,7 +228,13 @@ $(function() {
   	var formData = new FormData();
     console.log("post信息", info);
   	formData.append('imageData', JSON.stringify(info.pics));
-    formData.append('postText', info.postText);
+    formData.append('name', info.name);
+    formData.append('desc', info.desc);
+    formData.append('price', info.price);
+    formData.append('location', info.location);
+    formData.append('category', info.category);
+    formData.append('qq', info.qq);
+    formData.append('tel', info.tel);                   
     var url = "http://" + location.host + "/treehole/new"
   	$.ajax({
   		type: 'POST',
