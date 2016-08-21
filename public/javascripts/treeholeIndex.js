@@ -6,17 +6,19 @@ $(function() {
   allCard.forEach(function(item, index) {
     // window.utils.saveToLocal("test", "hahaahh");
     // alert(window.utils.getFromLocal("test"));
-    if (window.localStorage) {
-      if (window.utils) {
-        alert('fuck');
-        alert(window.utils.getFromLocal("userInfo"));
-      }
-    }else {
-      alert('you');
-    }
+    // if (window.localStorage) {
+    //   if (window.utils) {
+    //     alert('fuck');
+    //     alert(window.utils.getFromLocal("userInfo"));
+    //   }
+    // }else {
+    //   alert('you');
+    // }
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
+    alert(crtUserId);
     item = $(item);
     var favId  = item.attr('data-favId');
+    alert(favId);
     console.log(favId);
     if (favId.contains(crtUserId)) {
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
