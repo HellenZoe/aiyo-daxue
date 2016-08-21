@@ -8,6 +8,12 @@ module.exports = function(app) {
     res.render('index', {title: "首页", })
   })
 
+  app.get('/'. function(req, res) {
+    res.render('test', {
+      title: "测试"
+    })
+  })
+
   app.get('/signin', function(req, res) {
     res.render('signin', {
       title: "注册"
