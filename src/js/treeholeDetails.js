@@ -5,17 +5,15 @@ $(function() {
   autosize(document.querySelectorAll("textarea"));
 
   // 加上红心儿
-  var allCard = $('.facebook-card');
-  allCard.forEach(function(item, index) {
-    var crtUserId = window.utils.getFromLocal('userInfo')._id;
-    item = $(item);
-    var favId  = JSON.parse(item.attr('data-favId'));
-    console.log(favId);
-    if (window.utils.contains(favId,crtUserId)) {
-      item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
-      item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
-    }
-  })
+  var card = $('#treeholeCard');
+  var crtUserId = window.utils.getFromLocal('userInfo')._id;
+  var favId  = JSON.parse(card.attr('data-favId'));
+  console.log(favId);
+  if (window.utils.contains(favId,crtUserId)) {
+    alert('hei');
+    item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
+    item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
+  }
 
   // 用户点击发送按钮时   通过ajax发送信息
 
