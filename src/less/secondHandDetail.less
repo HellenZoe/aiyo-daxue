@@ -1,0 +1,220 @@
+@color-red: #F57E7A;
+@color-blue: #13B7F5;
+
+//  slider
+.index-swiper-container{
+  padding-bottom: .5rem;
+  .swiper-pagination{
+    bottom: .5rem;
+  }
+}
+
+.swiper-slide img{
+  width: 100%;
+}
+
+.index-img-wrapper img {
+  width: 2.5rem;
+  text-align: center;
+}
+
+
+
+
+
+.facebook-card{
+  margin:.5rem 0px 0px 0px;
+  .facebook-avatar img{
+    height: 2rem;
+  }
+  .facebook-avatar img{
+    border-radius: 50%;
+  }
+  .card-content{
+    padding: .5rem .5rem 0px .5rem;
+    .picsWrapper img{
+      display: inline-block;
+      margin-right: .2rem;
+    }
+  }
+  .card-info{
+    margin-left: 2.5rem;
+    .facebook-name, .facebook-date{
+      margin-left: 0px;
+    }
+
+    .facebook-date{
+      span{
+        font-size: .55rem;
+      }
+    }
+
+    .facebook-name{
+      color: #444;
+      font-size: .9rem;
+    }
+
+    .page-view{
+      float: right;
+      font-size: .55rem;
+      margin: .25rem 0;
+    }
+  }
+
+  .card-content-text{
+    font-size: .55rem;
+    margin-top: .2rem;
+  }
+
+}
+
+.title-category{
+  min-height: 1.3rem;
+}
+
+.content-title{
+  font-size: .75rem;
+  float: left;
+  margin: .14rem 0;
+}
+
+.category{
+  float: left;
+  font-size: .5rem;
+  margin: .3rem .3rem;
+  background-color: @color-blue;
+  color: #fff;
+  padding: 0px .1rem;
+}
+
+.facebook-card > .card-footer{
+  background-color: #fff;
+}
+
+.card-footer:before{
+  background-color: #fff;
+}
+
+.card-footer{
+  padding: 0px;
+  min-height: 2rem;
+}
+
+.position, .price{
+  position: absolute;
+}
+
+.position{
+  left: .4rem;
+  font-size: .5rem;
+  bottom: .3rem;
+  // i{
+  //   position: absolute;
+  //   margin-top: .5rem;
+  // }
+  span{
+    display: inline-block;
+    //margin: .58rem .7rem;
+  }
+}
+
+.iconfont-position{
+  color: @color-blue;
+}
+
+.price{
+  right: .5rem;
+  top: .55rem;
+  font-size: .9rem;
+  color: @color-red;
+}
+
+.connection-content{
+  padding: .2rem .5rem;
+}
+
+.connection-icon{
+  color: @color-blue;
+}
+
+.number{
+  margin-left: .2rem;
+}
+
+.connection-action{
+  margin-left: .6rem;
+  font-size: .5rem;
+  color: @color-blue;
+}
+
+//分享
+@font-face {font-family: 'iconfont-selfShare';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-selfShare.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-selfShare.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-selfShare.svg#iconfont-selfShare') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-selfShare{
+    font-family:"iconfont-selfShare" !important;
+    font-size:1rem;
+    font-style:normal;
+    margin-right: 0.3rem;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//位置icon
+@font-face {font-family: 'iconfont-position';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-position.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-position.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-position.svg#iconfont-position') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-position{
+    font-family:"iconfont-position" !important;
+    font-size:.75rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//手机联系
+@font-face {font-family: 'iconfont-phone';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-phone.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-phone.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-phone.svg#iconfont-phone') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-phone{
+    font-family:"iconfont-phone" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//QQ联系
+@font-face {font-family: 'iconfont-qq';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-qq.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-qq.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-qq.svg#iconfont-qq') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-qq{
+    font-family:"iconfont-qq" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
