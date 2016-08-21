@@ -9,9 +9,9 @@ $(function() {
   allCard.forEach(function(item, index) {
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
     item = $(item);
-    var favId  = item.attr('data-favId');
+    var favId  = JSON.parse(item.attr('data-favId'));
     console.log(favId);
-    if (favId.contains(crtUserId)) {
+    if (window.utils.contains(favId,crtUserId)) {
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
     }
