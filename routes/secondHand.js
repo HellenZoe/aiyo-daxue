@@ -123,7 +123,7 @@ router.get('/detail/:id', function(req, res) {
   Valueble.find({_id: req.params.id}, function(err, vs) {
     if (vs.length > 0) {
       console.log("***********************logging from /secondhand/detai/:id--view", vs);
-      Valueble.update({_id: req.params.id}, {$set: {view: vs.view + 1}}, function(err, row) {
+      Valueble.update({_id: req.params.id}, {$set: {view: vs[0].view + 1}}, function(err, row) {
         if (err) {
           console.log(err);
         }else {
