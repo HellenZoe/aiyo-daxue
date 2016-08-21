@@ -6,7 +6,7 @@ $(function() {
   allCard.forEach(function(item, index) {
     // window.utils.saveToLocal("test", "hahaahh");
     // alert(window.utils.getFromLocal("test"));
-    if (window.localStorage) {
+    if (window.utils) {
       alert('fuck');
     }else {
       alert('you');
