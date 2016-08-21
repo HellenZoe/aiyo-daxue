@@ -1,9 +1,9 @@
 $(function() {
   FastClick.attach(document.body);
 
-  alert(FastClick);
   //  把用户已经点过赞的图标换成红色
   var allCard = $('.facebook-card');
+  alert(FastClick);
   allCard.forEach(function(item, index) {
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
     item = $(item);
