@@ -129,14 +129,14 @@ router.get('/detail/:id', function(req, res) {
         }else {
           res.render("secondHandDetail.pug", {
             title: "商品详情",
-            valuebles: vs[0].toObject({getters: true, virtuals: true})
+            valueble: vs[0].toObject({getters: true, virtuals: true})
           })
         }
       })
     }else {
       res.render('secondHandDetail', {
         title: "商品详情",
-        valuebles: null
+        valueble: null
       })
     }
   })

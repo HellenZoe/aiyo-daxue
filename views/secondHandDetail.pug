@@ -18,48 +18,47 @@ block content
       div.content
         div(class="swiper-container index-swiper-container" data-space-between="10")
           div.swiper-wrapper
-            each url, index in valuebles.picUrl
+            each url, index in valueble.picUrl
               div.swiper-slide
                 img(src= url)
           div.swiper-pagination
-            each url, index in valuebles.picUrl
+            each url, index in valueble.picUrl
             span.swiper-pagination-bullet
-        each item, index in valuebles
-          div.card.facebook-card
-            div.card-content
-              div.title-category
-                span.content-title= item.name
-                span.category= item.category
-              div.card-content-text= item.desc
-            div.card-footer
-              div.icon.position
-                i.iconfont-position &#xe619;
-                span= item.location
-              div.price= item.price
-              
-          div.card.facebook-card
-            div.card-header.no-border
-              div.facebook-avatar
-                  img(src= item.authorAvatarUrl)
-              div.card-info
-                div
-                  span.facebook-name= item.authorName
-                  span.page-view 浏览次数：#{item.view}
-                div.facebook-date
-                  span= item.date
-                  if item.authorSchool
-                    span 来自[#{item.authorSchool}]
-            div.connection-content
-              span.icon.connection-icon
-                i.iconfont-qq &#xe621;
-              span.number= item.qq
-              a.connection-action(href= "tencent://message/?"+ item.qq + "=1101101101&Site=&Menu=yes") qq勾搭
-            div.connection-content
-              span.icon.connection-icon
-                i.iconfont-phone &#xe620;
-              span.number= item.tel
-              a.connection-action(href= "tel:" + item.tel) 电话勾搭
-              a.connection-action(href="sms:" + item.tel) 短信勾搭
+        div.card.facebook-card
+          div.card-content
+            div.title-category
+              span.content-title= valueble.name
+              span.category= valueble.category
+            div.card-content-text= valueble.desc
+          div.card-footer
+            div.icon.position
+              i.iconfont-position &#xe619;
+              span= valueble.location
+            div.price= valueble.price
+            
+        div.card.facebook-card
+          div.card-header.no-border
+            div.facebook-avatar
+                img(src= valueble.authorAvatarUrl)
+            div.card-info
+              div
+                span.facebook-name= valueble.authorName
+                span.page-view 浏览次数：#{valueble.view}
+              div.facebook-date
+                span= valueble.date
+                if valueble.authorSchool
+                  span 来自[#{valueble.authorSchool}]
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-qq &#xe621;
+            span.number= valueble.qq
+            a.connection-action(href= "tencent://message/?"+ valueble.qq + "=1101101101&Site=&Menu=yes") qq勾搭
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-phone &#xe620;
+            span.number= valueble.tel
+            a.connection-action(href= "tel:" + valueble.tel) 电话勾搭
+            a.connection-action(href="sms:" + valueble.tel) 短信勾搭
             
 
 
