@@ -19,11 +19,11 @@ $(function() {
     item = $(item);
     var favId  = item.attr('data-favId');
     // alert(favId);
-    console.log(favId);
     if (favId.contains(crtUserId)) {
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
     }
+    alert('yi');
   })
 
 
