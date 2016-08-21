@@ -20,6 +20,7 @@ $(function() {
     var favId  = item.attr('data-favId');
     // alert(favId);
     if (window.utils.contains(favId, crtUserId)) {
+      alert("yeah");
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
       item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
     }
@@ -38,7 +39,6 @@ $(function() {
   // alert("fuck");
   // alert(card);
   card.addEventListener('click', function(e) {
-    alert("clicked");
     var cardId = $(this).parent().attr('data-tId');
     var host = location.host;
     location.href = "http://" + host + "/treehole/detail/" + cardId;
