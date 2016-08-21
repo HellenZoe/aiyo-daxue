@@ -8,9 +8,7 @@ $(function() {
   var card = $('#treeholeCard');
   var crtUserId = window.utils.getFromLocal('userInfo')._id;
   var favId  = JSON.parse(card.attr('data-favId'));
-  console.log(favId);
   if (window.utils.contains(favId,crtUserId)) {
-    alert('hei');
     card.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
     card.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
   }
@@ -18,7 +16,6 @@ $(function() {
   // 用户点击发送按钮时   通过ajax发送信息
 
   $('.send').on('click', function(e) {
-    alert('yeah');
     var content = $('.input-block').val();
     var time = Date.now();
     var crtUserName = window.utils.getFromLocal('userInfo').name;

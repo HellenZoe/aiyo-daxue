@@ -97,16 +97,14 @@
 .comment-item {
   padding: .2rem .6rem;
   line-height: 1.3rem;
+  font-size: .6rem;
 }
 .comment-item .name {
   color: #F57E7A;
   margin-right: .3rem;
 }
-.comment-item .name,
-.comment-item .replay,
-.comment-item .replay-object,
 .comment-item .comment-text {
-  font-size: .65rem;
+  margin-left: .3rem;
 }
 .comment-item .comment-data {
   margin-left: .3rem;

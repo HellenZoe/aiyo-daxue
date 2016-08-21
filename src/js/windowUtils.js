@@ -15,8 +15,6 @@ var utils = {
   contains: function(o, s) {
     var length = o.length;
     while (length--) {
-      alert(o[length]);
-      alert(s);
       if (o[length] == s) {
         return true;
       }

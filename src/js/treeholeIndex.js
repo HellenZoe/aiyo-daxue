@@ -4,18 +4,7 @@ $(function() {
   //  把用户已经点过赞的图标换成红色
   var allCard = $('.facebook-card');
   allCard.forEach(function(item, index) {
-    // window.utils.saveToLocal("test", "hahaahh");
-    // alert(window.utils.getFromLocal("test"));
-    // if (window.localStorage) {
-    //   if (window.utils) {
-    //     alert('fuck');
-    //     alert(window.utils.getFromLocal("userInfo"));
-    //   }
-    // }else {
-    //   alert('you');
-    // }
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
-    // alert(crtUserId);
     item = $(item);
     var favId  = JSON.parse(item.attr('data-favId'));
     if (window.utils.contains(favId, crtUserId)) {

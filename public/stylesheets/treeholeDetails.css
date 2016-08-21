@@ -109,7 +109,7 @@
 }
 .card-comment {
   max-width: 80%;
-  font-size: 1rem;
+  font-size: .7rem;
   color: #444;
   margin-top: .8rem;
 }
@@ -129,7 +129,7 @@
   line-height: 1.4rem;
   border-radius: .4rem;
   font-weight: bold;
-  font-size: .9rem;
+  font-size: .7rem;
   color: #b7b9be;
 }
 .input-comment {
