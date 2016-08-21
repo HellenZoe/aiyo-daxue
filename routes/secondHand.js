@@ -19,17 +19,18 @@ router.get('/', function(req, res) {
         console.log("*******************logging from /secondHand--valueble transformed***************", qs.map(function(item) {
             return item.toObject({getters: true, virtuals: true});
         }));
-        res.render("treeholeIndex", {
-          title: "树洞首页",
+        res.render("secondHandIndex", {
+          title: "二手交易首页",
           valuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }),
           user: crtUser
         });
       }else {
-        res.render("treeholeIndex", {
-          title: "树洞首页",
-          valuebles: null
+        res.render("secondHandIndex", {
+          title: "二手交易首页",
+          valuebles: null,
+          user: crtUser
         });
       }
     }

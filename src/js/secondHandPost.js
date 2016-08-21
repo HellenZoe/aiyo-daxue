@@ -79,7 +79,8 @@ $(function() {
     //  提醒用户已经发布成功  然后回到树洞首页
     $.alert("现在返回主页", "发布成功", function() {
       var host = location.host;
-      location.href= "http://" + host  + "/treehole";
+      console.log("http://" + host + "/secondHand");
+      location.href= "http://" + host  + "/secondHand";
       return;
     })
 
