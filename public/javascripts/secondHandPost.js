@@ -51,7 +51,7 @@ $(function() {
     var location = $('.location input').val();
     var category = $('.category input:checked');
     if (category.length > 1) {
-      $.toast("告诉过你只能选一个了哟")；
+      $.toast("告诉过你只能选一个了哟");
       return;
     }else {
       formInfo.category = category;
