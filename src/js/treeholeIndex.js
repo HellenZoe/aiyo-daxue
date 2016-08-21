@@ -6,6 +6,11 @@ $(function() {
   allCard.forEach(function(item, index) {
     // window.utils.saveToLocal("test", "hahaahh");
     // alert(window.utils.getFromLocal("test"));
+    if (window.localStorage) {
+      alert('fuck');
+    }else {
+      alert('you');
+    }
     var crtUserId = window.utils.getFromLocal('userInfo')._id;
     item = $(item);
     var favId  = item.attr('data-favId');
