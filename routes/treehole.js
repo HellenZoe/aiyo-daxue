@@ -252,7 +252,7 @@ router.post('/fav', function(req, res) {
       if (err) {
         console.log(err);
       }else {
-        Treehole.update({_id: req.body.treeholeId}, {$pull: {"favUserId": req.body.user._id}}, function(err, raw) {
+        Treehole.update({_id: req.body.treeholeId}, {$pull: {"favUserId": req.session.user._id}}, function(err, raw) {
           if (err) {
             console.log(err);
           }else {
