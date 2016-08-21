@@ -231,10 +231,7 @@ router.post('/fav', function(req, res) {
   var favCount = parseInt(req.body.fav);
   //  更新treehole的评论数量
   if (action == "up") {
-    Treehole.update({_id: req.body.treeholeId}, {fav: favCount + 1}, function(err, t) {
-      if (err) {
-        console.log(err);
-      }else {
+    Treehole.update({_id: req.body.treeholeId}, {fav: favCount + 1, $push: { "favUserId": req.session.user._id}}, function(err, t) {
         Treehole.update({_id: req.body.treeholeId}, {$push: { "favUserId": req.session.user._id}}, function(err,raw) {
           if (err) {
             console.log(err);
@@ -245,13 +242,9 @@ router.post('/fav', function(req, res) {
             })
           }
         })
-      }
     });
   }else if(action == "down"){
-    Treehole.update({_id: req.body.treeholeId}, {fav: favCount - 1}, function(err, t) {
-      if (err) {
-        console.log(err);
-      }else {
+    Treehole.update({_id: req.body.treeholeId}, {fav: favCount - 1, $pull: {"favUserId": req.session.user._id}}, function(err, t) {
         Treehole.update({_id: req.body.treeholeId}, {$pull: {"favUserId": req.session.user._id}}, function(err, raw) {
           if (err) {
             console.log(err);
@@ -264,9 +257,7 @@ router.post('/fav', function(req, res) {
         })
       }
     });
-
   }
-
 })
 
 
