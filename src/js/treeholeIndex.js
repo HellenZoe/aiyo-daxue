@@ -1,12 +1,12 @@
 $(function() {
-  FastClick.attach(document.body);
+  // FastClick.attach(document.body);
 
   //  把用户已经点过赞的图标换成红色
   var allCard = $('.facebook-card');
   allCard.forEach(function(item, index) {
     // window.utils.saveToLocal("test", "hahaahh");
     // alert(window.utils.getFromLocal("test"));
-    if (window.utils) {
+    if (window.localStorage) {
       alert('fuck');
     }else {
       alert('you');
