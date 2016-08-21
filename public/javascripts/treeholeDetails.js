@@ -1,5 +1,5 @@
 $(function() {
-  FastClick.attach(document.body);
+  // FastClick.attach(document.body);
 
   //  textarea  换行
   autosize(document.querySelectorAll("textarea"));
@@ -20,6 +20,7 @@ $(function() {
   // 用户点击发送按钮时   通过ajax发送信息
 
   $('.send').on('click', function(e) {
+    alert('yeah');
     var content = $('.input-block').val();
     var time = Date.now();
     var crtUserName = window.utils.getFromLocal('userInfo').name;
