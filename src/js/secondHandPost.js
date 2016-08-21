@@ -234,8 +234,8 @@ $(function() {
     formData.append('location', info.location);
     formData.append('category', info.category);
     formData.append('qq', info.qq);
-    formData.append('tel', info.tel);                   
-    var url = "http://" + location.host + "/treehole/new"
+    formData.append('tel', info.tel);
+    var url = "http://" + location.host + "/secondHand/new"
   	$.ajax({
   		type: 'POST',
   		url: url,
