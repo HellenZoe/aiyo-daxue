@@ -15,7 +15,7 @@ var valuebleSchema = new Schema({
   authorName: String,
   authorSchool: String,
   authorAvatarUrl: String,
-
+  view: Number
 })
 
 valuebleSchema.virtual('date').get(function() {

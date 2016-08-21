@@ -208,7 +208,7 @@ $(function() {
   		contentType: false,
   		processData: false,
   		success: function (data) {
-  			if (data) {
+  			if (data.success) {
   				// showMessageSuccess("上传成功");
           console.log("上传成功");
   			}

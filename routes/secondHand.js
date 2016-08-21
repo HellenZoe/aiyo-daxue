@@ -9,8 +9,30 @@ var User = require('../model/user');
 var Valueble = require('../model/valuable');
 //   二手交易首页
 router.get('/', function(req, res) {
-  res.render('secondHandIndex', {
-    title: "二手交易"
+  var crtUser = req.session.user;
+  var queryValueble = Valueble.find({});
+  queryValueble.exec(function(err, qs) {
+    if (err) {
+      console.log(err);
+    }else {
+      if (qs.length != 0) {
+        console.log("*******************logging from /secondHand--valueble transformed***************", qs.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }));
+        res.render("treeholeIndex", {
+          title: "树洞首页",
+          valuebles: qs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }),
+          user: crtUser
+        });
+      }else {
+        res.render("treeholeIndex", {
+          title: "树洞首页",
+          valuebles: null
+        });
+      }
+    }
   })
 })
 
@@ -52,7 +74,8 @@ router.post('/new', upload.single('test'), function(req, res) {
             category: category,
             qq: qq,
             tel: tel,
-            time: time
+            time: time,
+            view: 0
         })
         console.log("logging from ******************logging from /valueble/new --valuebltosave", newValueble);
         newValueble.save(function(err, treehole) {
@@ -79,6 +102,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           		  console.log(err);
           		}else{
                 uploadToQiniu(tmpFilePath, "secondHand");
+                res.json({success: true})
                 console.log("success upload");
               }
           	});

@@ -47,78 +47,35 @@ block content
           div.tabs
             div#tab-index.tab.active
               div.content-block
-                  div.card.facebook-card
-                    div.card-header.no-border
-                      div.facebook-avatar
-                          img(src="../../images/user-logo.png")
-                      div.card-info
-                        div
-                          span.facebook-name 朱海浩
-                          span.page-view 浏览次数：180
-                        div.facebook-date
-                          span 07-13 17:00 
-                          span 来自[青岛大学]
-                    div.card-content
-                      div.picsWrapper
-                          img(src="../../images/book.jpg")
-                      div.title-category
-                        span.content-title 收藏图书，低价出售
-                        span.category 图书器材
-                      div.card-content-text 收藏已久的图书，本人非常喜欢，我愿意分享快乐给大家
-                    div.card-footer
-                      div.icon.position
-                        i.iconfont-position &#xe619;
-                        span 武汉华中科技大学
-                      div.price ￥180.00
-                      
-                  div.card.facebook-card
-                    div.card-header.no-border
-                      div.facebook-avatar
-                          img(src="../../images/user-logo.png")
-                      div.card-info
-                        div
-                          span.facebook-name 朱海浩
-                          span.page-view 浏览次数：180
-                        div.facebook-date
-                          span 07-13 17:00 
-                          span 来自[青岛大学]
-                    div.card-content
-                      div.picsWrapper
-                          img(src="../../images/book.jpg")
-                      div.title-category
-                        span.content-title 收藏图书，低价出售
-                        span.category 图书器材
-                      div.card-content-text 收藏已久的图书，本人非常喜欢，我愿意分享快乐给大家
-                    div.card-footer
-                      div.icon.position
-                        i.iconfont-position &#xe619;
-                        span 武汉华中科技大学
-                      div.price ￥180.00
-                      
-                  div.card.facebook-card
-                    div.card-header.no-border
-                      div.facebook-avatar
-                          img(src="../../images/user-logo.png")
-                      div.card-info
-                        div
-                          span.facebook-name 朱海浩
-                          span.page-view 浏览次数：180
-                        div.facebook-date
-                          span 07-13 17:00 
-                          span 来自[青岛大学]
-                    div.card-content
-                      div.picsWrapper
-                          img(src="../../images/book.jpg")
-                      div.title-category
-                        span.content-title 收藏图书，低价出售
-                        span.category 图书器材
-                      div.card-content-text 收藏已久的图书，本人非常喜欢，我愿意分享快乐给大家
-                    div.card-footer
-                      div.icon.position
-                        i.iconfont-position &#xe619;
-                        span 武汉华中科技大学
-                      div.price ￥180.00
- 
+                if valuebles
+                  each item in valuebles
+                    div.card.facebook-card
+                      div.card-header.no-border
+                        div.facebook-avatar
+                            img(src= item.authorAvatarUrl)
+                        div.card-info
+                          div
+                            span.facebook-name= item.authorName
+                            span.page-view 浏览次数： #{item.view}
+                          div.facebook-date
+                            span= item.date 
+                            if item.school
+                              span 来自[#{item.authorSchool}]
+                      div.card-content
+                        div.picsWrapper
+                          each url in item.picUrl
+                            img(src= url)
+                        div.title-category
+                          span.content-title= item.name
+                          span.category= item.category
+                        div.card-content-text= item.desc
+                      div.card-footer
+                        div.icon.position
+                          i.iconfont-position &#xe619;
+                          span= item.location
+                        div.price= item.price
+                else
+                  div 还没人发布商品  
             div#tab-trans.tab
               div.content-block
                 div 这里是交通工具

@@ -29,6 +29,7 @@ $(function() {
   checkboxs.on('click', function(e) {
     console.log("clicked checkbox");
     var num = $('.category input:checked').length;
+    console.log(num);
     if (length > 1) {
       $.toast('只能选择一个分类', 2000);
       e.preventDefault();
@@ -244,7 +245,7 @@ $(function() {
   		contentType: false,
   		processData: false,
   		success: function (data) {
-  			if (data) {
+  			if (data.sucess) {
   				// showMessageSuccess("上传成功");
           console.log("上传成功");
   			}

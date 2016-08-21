@@ -3,33 +3,30 @@ $(function() {
 
   //  把用户已经点过赞的图标换成红色
   var allCard = $('.facebook-card');
-  allCard.forEach(function(item, index) {
-    var crtUserId = window.utils.getFromLocal('userInfo')._id;
-    item = $(item);
-    var favId  = JSON.parse(item.attr('data-favId'));
-    if (window.utils.contains(favId, crtUserId)) {
-      item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
-      item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
-    }
-  })
+    if (allCard) {
+
+    allCard.forEach(function(item, index) {
+      var crtUserId = window.utils.getFromLocal('userInfo')._id;
+      item = $(item);
+      var favId  = JSON.parse(item.attr('data-favId'));
+      if (window.utils.contains(favId, crtUserId)) {
+        item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
+        item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
+      }
+    })
+  }
 
 
   //   点击图片的时候  跳转到相应的详情页去
-  // $('.card-content').on('click', function(e) {
-  //   var cardId = $(this).parent().attr('data-tId');
-  //   var host = location.host;
-  //   location.href = "http://" + host + "/treehole/detail/" + cardId;
-  // })
-  // alert("you");
-  // var card = document.getElementsByClassName('card-content')[0];
   var card = document.getElementById("fuck");
-  // alert("fuck");
-  // alert(card);
-  card.addEventListener('click', function(e) {
-    var cardId = $(this).parent().attr('data-tId');
-    var host = location.host;
-    location.href = "http://" + host + "/treehole/detail/" + cardId;
-  });
+  if (card) {
+
+    card.addEventListener('click', function(e) {
+      var cardId = $(this).parent().attr('data-tId');
+      var host = location.host;
+      location.href = "http://" + host + "/treehole/detail/" + cardId;
+    });
+  }
   //  点赞
   $('.iconfont-nullEnjoy').on('click', function(e) {
     console.log("点赞");
