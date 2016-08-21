@@ -25,6 +25,12 @@ router.get('/post', function(req, res) {
 
 //  二手交易
 
+//详情
+router.get('/detail', function(req, res) {
+  res.render('secondHandDetail', {
+    title: "详情"
+  })
+})
 
 router.get('/self', function(req, res) {
   if (req.session.user) {
