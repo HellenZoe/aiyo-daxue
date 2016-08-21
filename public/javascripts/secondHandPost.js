@@ -49,7 +49,7 @@ $(function() {
     var name = $('.name > input').val();
     var desc = $('.desc > input').val();
     var price = $('.price > input').val();
-    var location = $('.location input').val();
+    var address = $('.location input').val();
     var category = $('.category input:checked');
     if (category.length > 1) {
       $.toast("告诉过你只能选一个了哟");
@@ -62,7 +62,7 @@ $(function() {
     formInfo.name = name;
     formInfo.desc = desc;
     formInfo.price = price;
-    formInfo.location = location;
+    formInfo.location = address;
     formInfo.qq = qq;
     formInfo.tel = tel;
 
