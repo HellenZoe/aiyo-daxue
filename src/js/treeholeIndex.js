@@ -30,7 +30,6 @@ $(function() {
   // })
 
   var card = document.getElementsByClassName('card-content')[0];
-  alert(card)
   card.addEventListener('click', function(e) {
     alert("clicked");
     var cardId = $(this).parent().attr('data-tId');
