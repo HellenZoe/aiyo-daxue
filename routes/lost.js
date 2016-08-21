@@ -6,38 +6,15 @@ var multer= require('multer');
 var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
-var Valueble = require('../model/valuable');
-//   二手交易首页
+var goods = require('../model/goods');
+//   失物招领首页
 router.get('/', function(req, res) {
-  var crtUser = req.session.user;
-  var queryValueble = Valueble.find({});
-  queryValueble.exec(function(err, qs) {
-    if (err) {
-      console.log(err);
-    }else {
-      if (qs.length != 0) {
-        console.log("*******************logging from /secondHand--valueble transformed***************", qs.map(function(item) {
-            return item.toObject({getters: true, virtuals: true});
-        }));
-        res.render("secondHandIndex", {
-          title: "二手交易首页",
-          valuebles: qs.map(function(item){
-            return item.toObject({getters: true, virtuals: true});
-          }),
-          user: crtUser
-        });
-      }else {
-        res.render("secondHandIndex", {
-          title: "二手交易首页",
-          valuebles: null,
-          user: crtUser
-        });
-      }
-    }
-  })
+  res.render("lostIndex", {
+    title: "失物招领首页"
+  });
 })
 
-// 二手交易发布页面
+// 失物招领发布页面
 router.get('/post', function(req, res) {
   res.render('secondHandPost', {
     title: "发布"
@@ -45,7 +22,7 @@ router.get('/post', function(req, res) {
 })
 
 
-//  发布新的商品
+//  发布新的失物
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /secondHand/new--user***************", req.session.user);
     console.log("*************logging from /secondHand/new--req.body***************", req.body);
@@ -118,12 +95,13 @@ router.post('/new', upload.single('test'), function(req, res) {
 })
 
 
-// 查看商品详情
+// 查看失物详情
 router.get('/detail/:id', function(req, res) {
   res.render('secondHandDetail', {
     title: "商品详情"
   })
 })
+
 // 个人中心
 router.get('/self', function(req, res) {
   if (req.session.user) {

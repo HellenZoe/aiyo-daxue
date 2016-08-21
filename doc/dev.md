@@ -13,6 +13,9 @@
 ##  treehole 路由
 '/treehole/comment/:id'  查看对话页面   比如本地开发在浏览器输入http://localhost:3000/treehole/comment/1   即可访问
 
+##  失物招领路由
+
+'/lost'  首页路由
 
 ##  用到过的图标
 
