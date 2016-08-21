@@ -29,7 +29,7 @@ block content
           div.tag-right
         if treeholes
           each item in treeholes
-            div.topic-block(data-tId= item._id, data-favId= treehole.favUserId)
+            div.topic-block(data-tId= item._id, data-favId= item.favUserId)
               div.my-topic
                 img(src= item.picUrl[0])
                 div.topic-content
