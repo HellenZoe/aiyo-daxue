@@ -122,6 +122,7 @@ router.post('/new', upload.single('test'), function(req, res) {
 router.get('/detail/:id', function(req, res) {
   Valueble.find({_id: req.params.id}, function(err, vs) {
     if (vs.length > 0) {
+      console.log("***********************logging from /secondhand/detai/:id--view", vs.view);
       Valueble.update({_id: req.params.id}, {$set: {view: vs.view + 1}}, function(err, row) {
         if (err) {
           console.log(err);
