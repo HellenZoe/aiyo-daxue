@@ -52,7 +52,7 @@ QC.api("get_user_info", paras)
         if (data) {
 					if (window.utils) {
 						window.utils.saveToLocal("userInfo", data.userInfo);
-						alert(localstorage.getItem("userInfo"));
+						alert(localＳtorage.getItem("userInfo"));
 						console.log("save userInfo success", window.getFromLocal("userInfo"));
 					}
 
