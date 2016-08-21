@@ -18,3 +18,6 @@ var utils = {
 if (window) {
   window.utils = utils;
 }
+
+
+alert(window.utils);
