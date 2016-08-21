@@ -8,6 +8,7 @@ $(function() {
     // alert(window.utils.getFromLocal("test"));
     if (window.localStorage) {
       if (window.utils) {
+        alert('fuck');
         window.utils.getFromLocal("userInfo");
       }
     }else {
