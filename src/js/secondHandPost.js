@@ -30,7 +30,7 @@ $(function() {
     console.log("clicked checkbox");
     var num = $('.category input:checked').length;
     console.log(num);
-    if (length > 1) {
+    if (num >= 1) {
       $.toast('只能选择一个分类', 2000);
       e.preventDefault();
     }
