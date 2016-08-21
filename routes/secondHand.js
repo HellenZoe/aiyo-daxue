@@ -52,7 +52,7 @@ router.post('/new', upload.single('test'), function(req, res) {
     var imageData = JSON.parse(req.body['imageData']);
     var name = req.body['name'];
     var desc = req.body['desc'];
-    var price = req.body['price'];
+    var price = parseInt(req.body['price']);
     var location = req.body['location'];
     var category = req.body['category'];
     var qq = req.body['qq'];
