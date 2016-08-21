@@ -212,7 +212,7 @@ $(function() {
     wrapper.appendChild(deleteIcon);
     wrapper.appendChild(canvas);
     wrapper.setAttribute('data-index', picCount);
-    var previewContainer = document.getElementById("previewformInfo");
+    var previewContainer = document.getElementById("previewAllPic");
     previewContainer.appendChild(wrapper);
 
 
