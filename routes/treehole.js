@@ -252,9 +252,15 @@ router.post('/fav', function(req, res) {
       if (err) {
         console.log(err);
       }else {
-        res.json({
-          success: true,
-          c: favCount - 1
+        Treehole.update({_id: req.body.treeholeId}, {$pull: {"favUserId": req.body.user._id}}, function(err, raw) {
+          if (err) {
+            console.log(err);
+          }else {
+            res.json({
+              success: true,
+              c: favCount - 1
+            })
+          }
         })
       }
     });
