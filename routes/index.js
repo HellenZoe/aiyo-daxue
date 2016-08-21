@@ -8,7 +8,7 @@ module.exports = function(app) {
     res.render('index', {title: "首页", })
   })
 
-  app.get('/', function(req, res) {
+  app.get('/test', function(req, res) {
     res.render('test', {
       title: "测试"
     })
