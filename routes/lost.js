@@ -6,7 +6,7 @@ var multer= require('multer');
 var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
-var goods = require('../model/goods');
+var Goods = require('../model/goods');
 
 //   失物招领首页
 router.get('/', function(req, res) {
@@ -41,7 +41,7 @@ router.post('/new', upload.single('test'), function(req, res) {
       if (err) {
         console.log(err);
       }else {
-        var newValueble = new Valueble({
+        var newLost = new Goods({
             author: authorId,
             authorName: us[0].name,
             authorAvatarUrl: us[0].avatarUrl,
@@ -58,7 +58,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             view: 0
         })
         console.log("logging from ******************logging from /valueble/new --valuebltosave", newValueble);
-        newValueble.save(function(err, treehole) {
+        newLost.save(function(err, treehole) {
           if (err) {
             console.log("save treehole error");
           }
@@ -69,7 +69,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           	var dataBuffer = new Buffer(base64Data, 'base64');
             var picUrl = "http://obzokcbc0.bkt.clouddn.com/secondHand/" + time + "." + fileType;
             console.log("*****************logging from /secondHand/new--picUrl**************", picUrl);
-            Valueble.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+            newLost.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
                 console.log("保存secondHand url出错", err);
               }else {
@@ -107,7 +107,7 @@ router.get('/detail/:id', function(req, res) {
 router.get('/self', function(req, res) {
   if (req.session.user) {
     console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
-    Valueble.find({author: req.session.user._id}, function(err, vs) {
+    Goods.find({author: req.session.user._id}, function(err, gs) {
       if (err) {
         console.log("取出用户对应的商品出错出错", err);
       }else {
@@ -115,14 +115,14 @@ router.get('/self', function(req, res) {
         if (vs) {
           res.render("secondHandSelf", {
             title: "个人中心",
-            valuebles: vs,
+            goods: hs,
             user: req.session.user
           })
         }else {
           res.render("secondHandSelf", {
             title: "个人中心",
             user: req.session.user,
-            valuebles: null
+            goods: null
           })
         }
       }
@@ -131,7 +131,7 @@ router.get('/self', function(req, res) {
     res.render("secondHandSelf", {
       title: "个人中心",
       user: null,
-      treeholes: null
+      goods: null
     })
   }
 })
