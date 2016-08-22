@@ -23,7 +23,7 @@ $('.delete').on('click', function(e) {
   var that = this;
   var id = $(this).attr('data-tid');
   var info = {
-    tid: id
+    tId: id
   }
   $.showPreloader();
   var url = "http://" + location.host + "/treehole/del";

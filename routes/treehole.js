@@ -303,7 +303,7 @@ router.get('/comment/:id', function(req, res) {
 
 
 
-
+//   删除某个树洞
 router.post('/del', function(req, res) {
   var id = req.body.tId;
   console.log("*************************logging from treehole/del--req.body", req.body);
@@ -315,4 +315,6 @@ router.post('/del', function(req, res) {
       }
   })
 })
+
+
 module.exports = router;
