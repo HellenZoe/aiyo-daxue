@@ -150,9 +150,28 @@
   width: 100%;
   .item-content{
     display: inline-block;
+    margin-left: .3rem;
+    .item-header{
 
+    }
 
-
+    .item-desc{
+      margin: .3rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .item-footer{
+      .price{
+        float: left;
+      }
+      .actionSheet{
+        float: right;
+        span{
+          margin: 2rem;
+        }
+      }
+    }
   }
 }
 

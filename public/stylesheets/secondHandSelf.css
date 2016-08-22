@@ -71,6 +71,22 @@
 }
 .item-block .item-content {
   display: inline-block;
+  margin-left: .3rem;
+}
+.item-block .item-content .item-desc {
+  margin: .3rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.item-block .item-content .item-footer .price {
+  float: left;
+}
+.item-block .item-content .item-footer .actionSheet {
+  float: right;
+}
+.item-block .item-content .item-footer .actionSheet span {
+  margin: 2rem;
 }
 @font-face {
   font-family: 'iconfont-selfShare';
