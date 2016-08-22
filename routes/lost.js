@@ -104,37 +104,43 @@ router.get('/detail/:id', function(req, res) {
 })
 
 // 个人中心
-router.get('/self', function(req, res) {
-  if (req.session.user) {
-    console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
-    Valueble.find({author: req.session.user._id}, function(err, vs) {
-      if (err) {
-        console.log("取出用户对应的商品出错出错", err);
-      }else {
-        console.log("*******************logging from /secondHand/self--valuebles***************", vs);
-        if (vs) {
-          res.render("secondHandSelf", {
-            title: "个人中心",
-            valuebles: vs,
-            user: req.session.user
-          })
-        }else {
-          res.render("secondHandSelf", {
-            title: "个人中心",
-            user: req.session.user,
-            valuebles: null
-          })
-        }
-      }
-    })
-  }else {
-    res.render("secondHandSelf", {
-      title: "个人中心",
-      user: null,
-      treeholes: null
-    })
-  }
-})
+// router.get('/self', function(req, res) {
+//   if (req.session.user) {
+//     console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
+//     Valueble.find({author: req.session.user._id}, function(err, vs) {
+//       if (err) {
+//         console.log("取出用户对应的商品出错出错", err);
+//       }else {
+//         console.log("*******************logging from /secondHand/self--valuebles***************", vs);
+//         if (vs) {
+//           res.render("secondHandSelf", {
+//             title: "个人中心",
+//             valuebles: vs,
+//             user: req.session.user
+//           })
+//         }else {
+//           res.render("secondHandSelf", {
+//             title: "个人中心",
+//             user: req.session.user,
+//             valuebles: null
+//           })
+//         }
+//       }
+//     })
+//   }else {
+//     res.render("secondHandSelf", {
+//       title: "个人中心",
+//       user: null,
+//       treeholes: null
+//     })
+//   }
+// })
 
+//个人中心（胡博）
+router.get('/self', function(req, res) {
+      res.render("lostIndexSelf", {
+        title: "个人中心",
+      })
+})  
 
 module.exports = router;
