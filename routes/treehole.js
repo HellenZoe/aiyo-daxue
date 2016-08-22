@@ -306,6 +306,7 @@ router.get('/comment/:id', function(req, res) {
 
 router.post('/del', function(req, res) {
   var id = req.body.tId;
+  console.log("*************************logging from treehole/del--req.body", req.body);
   Treehole.remove({_id: id}, function(err, doc) {
       if (err) {
         console.log(err);
