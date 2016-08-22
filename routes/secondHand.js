@@ -175,4 +175,50 @@ router.get('/self', function(req, res) {
 })
 
 
+
+//  改变是商品状态
+router.post('/action', function(req, res) {
+  var vId = req.body.vId;
+  switch (req.body.type) {
+    case "del":
+      Valueble.remove({_id: vId}, function(err, v) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          })
+        }
+      })
+      break;
+    case "down":
+      Valueble.update({_id: vId}, {$set: {status: 1}}, function(err, row) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          })
+        }
+      })
+      break;
+    case "sold":
+      Valueble.update({_id: vId}, {$set: {status: 2}}, function(err, row) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true;
+          })
+        }
+      })
+      break;
+    case "edit":
+
+      break;
+
+    default:
+
+  }
+})
 module.exports = router;

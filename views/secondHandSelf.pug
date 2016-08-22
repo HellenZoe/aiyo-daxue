@@ -45,9 +45,9 @@ block content
                             div.item-footer
                               span.price= item.price
                               div.actionSheet
-                                a.edit 编辑
-                                a.down 下架
-                                a.sold 确认售出
+                                a.edit(data-vId= item._id) 编辑
+                                a.down(data-vId= item._id) 下架
+                                a.sold(data-vId= item._id) 确认售出
               div#tab-down.tab
                 div.content-block
                   if valuebles
@@ -63,8 +63,8 @@ block content
                             div.item-footer
                               span.price= item.price
                               div.actionSheet
-                                a.down 重新上架
-                                a.del 删除
+                                a.down(data-vId= item._id) 重新上架
+                                a.del(data-vId= item._id) 删除
               div#tab-sold.tab
                 div.content-block
                   if valuebles
@@ -80,7 +80,7 @@ block content
                             div.item-footer
                               span.price= item.price
                               div.actionSheet
-                                a.del  删除
+                                a.del(data-vId= item._id)  删除
       else
         div.content
           div.content-block
