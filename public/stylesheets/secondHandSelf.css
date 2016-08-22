@@ -54,68 +54,23 @@
 .self .self-info a {
   color: #F57E7A;
 }
-.topic-tag {
-  width: 100%;
+.content-block {
+  margin: 0px;
+  padding: 0px;
 }
-.topic-tag .tag-left,
-.topic-tag .tag-right,
-.topic-tag .tag-middle {
-  width: 33.33%;
-  float: left;
-  height: 2.3rem;
-}
-.topic-tag .tag-left,
-.topic-tag .tag-right {
-  border-bottom: 1px solid #e0e0e0;
-}
-.topic-tag .tag-middle {
-  border-bottom: 1px solid #F57E7A;
-}
-.topic-tag .tag-middle > h5 {
-  color: #F57E7A;
-  text-align: center;
-}
-.topic-block {
-  margin-top: 3rem;
-  width: 100%;
-}
-.topic-block .my-topic {
-  width: 96%;
-  margin: 0.5rem 2%;
-  border: 1px solid #e7e7e7;
-}
-.topic-block .my-topic img {
-  width: 4rem;
-  height: 4rem;
+.tab-selling,
+.tab-down,
+.tab-sold {
+  border: 1px solid #dedede;
+  display: block;
   margin: 0.4rem;
-  float: left;
+  padding: 0.3rem;
 }
-.topic-block .my-topic .topic-content {
-  height: 4rem;
-  margin: 0.4rem 0.4rem 0.4rem 0px;
+.item-block {
+  width: 100%;
 }
-.topic-block .my-topic .topic-content .content-title {
-  font-size: .8rem;
-  color: #444;
-}
-.topic-block .my-topic .topic-content .content-text {
-  font-size: .6rem;
-  color: #999;
-  margin: .2rem 0rem;
-}
-.topic-block .my-topic .topic-content .enjoy-count,
-.topic-block .my-topic .topic-content .comment-count {
-  font-size: .7rem;
-  color: #999;
-}
-.topic-block .my-topic .topic-content .enjoy-count {
-  margin-right: 1rem;
-}
-.topic-block .my-topic .topic-content .delete {
-  color: #F57E7A;
-  font-size: .6rem;
-  float: right;
-  padding-top: .22rem;
+.item-block .item-content {
+  display: inline-block;
 }
 @font-face {
   font-family: 'iconfont-selfShare';
