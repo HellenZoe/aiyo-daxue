@@ -54,6 +54,9 @@
 .self .self-info a {
   color: #F57E7A;
 }
+.valueble-content {
+  margin: 8rem;
+}
 .content-block {
   margin: 0px;
   padding: 0px;
@@ -62,7 +65,6 @@
 #tab-down,
 #tab-sold {
   border: 1px solid #dedede;
-  display: block;
   margin: 0.4rem;
   padding: 0.3rem;
 }
