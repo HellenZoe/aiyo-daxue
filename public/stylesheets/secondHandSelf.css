@@ -55,8 +55,11 @@
   color: #F57E7A;
 }
 .content-block {
-  margin: 5rem 0;
+  margin: 0px;
   padding: 0px;
+}
+.content-block .tabs {
+  margin-top: 5rem;
 }
 #tab-selling,
 #tab-down,
