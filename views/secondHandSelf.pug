@@ -22,63 +22,62 @@ block content
               div.facebook-sign-name 个性签名:
               a 编辑资料>
         
-        div.content
-          div.buttons-tab
-            a.tab-link.button.active(href="#tab-selling") 正在出售
-            a.tab-link.button(href="#tab-down") 已下架
-            a.tab-link.button(href="#tab-sold") 已完成
-          div.content-block
-            div.tabs
-              div#tab-selling.tab.active
-                div.content-block
-                  if valuebles
-                    each item in valuebles
-                      if item.status == 0  
-                        div.item-block
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                          div.item-content
-                            a.item-title= item.title
-                            span.item-category= item.category
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                span.edit 编辑
-                                span.down 下架
-                                span.sold 确认售出
-              div#tab-down.tab
-                div.content-block
-                  if valuebles
-                    each item in valuebles
-                      if item.status == 1  
-                        div.item-block
+        div.buttons-tab
+          a.tab-link.button.active(href="#tab-selling") 正在出售
+          a.tab-link.button(href="#tab-down") 已下架
+          a.tab-link.button(href="#tab-sold") 已完成
+        div.content-block
+          div.tabs
+            div#tab-selling.tab.active
+              div.content-block
+                if valuebles
+                  each item in valuebles
+                    if item.status == 0  
+                      div.item-block
+                        div.img-wrapper
                           img(src= item.picUrl[0])
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                span.down 重新上架
-                                span.del 删除
-              div#tab-sold.tab
-                div.content-block
-                  if valuebles
-                    each item in valuebles
-                      if item.status == 2  
-                        div.item-block
-                          img(src= item.picUrl[0])
-                          div.item-content
-                            a.item-title= item.title
+                        div.item-content
+                          a.item-title= item.title
+                          span.item-category= item.category
+                          div.item-desc= item.desc
+                          div.item-footer
+                            span.price= item.price
+                            div.actionSheet
+                              span.edit 编辑
+                              span.down 下架
+                              span.sold 确认售出
+            div#tab-down.tab
+              div.content-block
+                if valuebles
+                  each item in valuebles
+                    if item.status == 1  
+                      div.item-block
+                        img(src= item.picUrl[0])
+                        div.item-content
+                          div.item-header
+                            a.item-name= item.name
                             span.item-category= item.category
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                span.del  删除
+                          div.item-desc= item.desc
+                          div.item-footer
+                            span.price= item.price
+                            div.actionSheet
+                              span.down 重新上架
+                              span.del 删除
+            div#tab-sold.tab
+              div.content-block
+                if valuebles
+                  each item in valuebles
+                    if item.status == 2  
+                      div.item-block
+                        img(src= item.picUrl[0])
+                        div.item-content
+                          a.item-title= item.title
+                          span.item-category= item.category
+                          div.item-desc= item.desc
+                          div.item-footer
+                            span.price= item.price
+                            div.actionSheet
+                              span.del  删除
       else
         div.content
           div.content-block
