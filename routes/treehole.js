@@ -300,4 +300,18 @@ router.get('/comment/:id', function(req, res) {
     }
   })
 })
+
+
+
+
+router.post('/del', function(req, res) {
+  var id = req.body.tId;
+  Treehole.remove({_id: id}, function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.json({success: true})
+      }
+  })
+})
 module.exports = router;

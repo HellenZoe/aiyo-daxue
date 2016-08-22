@@ -7,6 +7,7 @@ var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
 var goods = require('../model/goods');
+
 //   失物招领首页
 router.get('/', function(req, res) {
   res.render("lostIndex", {
@@ -16,7 +17,7 @@ router.get('/', function(req, res) {
 
 // 失物招领发布页面
 router.get('/post', function(req, res) {
-  res.render('secondHandPost', {
+  res.render('lostPost', {
     title: "发布"
   })
 })
@@ -97,7 +98,7 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 // 查看失物详情
 router.get('/detail/:id', function(req, res) {
-  res.render('secondHandDetail', {
+  res.render('lostDetail', {
     title: "商品详情"
   })
 })
