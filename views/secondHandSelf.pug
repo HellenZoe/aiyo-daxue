@@ -45,7 +45,7 @@ block content
                               span.edit 编辑
                               span.down 下架
                               span.sold 确认售出
-            div#tab-selling.tab.active
+            div#tab-down.tab.active
               div.content-block
                 if valuebles
                   each item in valuebles
@@ -61,7 +61,7 @@ block content
                             div.actionSheet
                               span.down 重新上架
                               span.del 删除
-            div#tab-selling.tab.active
+            div#tab-sold.tab.active
               div.content-block
                 if valuebles
                   each item in valuebles
@@ -76,8 +76,6 @@ block content
                             span.price= item.price
                             div.actionSheet
                               span.del  删除
-        else
-          div 你还没有发布商品哦~~~
       else
         div.content
           div.content-block
