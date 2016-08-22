@@ -87,7 +87,8 @@
   color: #444;
 }
 .item-block .item-content .item-header .item-category {
-  background-color: blue;
+  background-color: #0894ec;
+  color: white;
   font-size: .6rem;
 }
 .item-block .item-content .item-desc {
@@ -115,7 +116,7 @@
 }
 .item-block .item-content .item-footer .actionSheet span {
   margin: .2rem;
-  color: blue;
+  color: #0894ec;
 }
 @font-face {
   font-family: 'iconfont-selfShare';
