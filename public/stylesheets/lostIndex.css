@@ -1,8 +1,11 @@
 .lost-page > .bar:after {
   height: 0px;
 }
+.index-color {
+  color: #88C32E;
+}
 .toast-success {
-  background-color: #F57E7A;
+  background-color: #88C32E;
   color: #fff;
 }
 .lost-tabs {
@@ -31,29 +34,33 @@
   position: absolute;
   top: 6.4rem;
 }
-.bar .secondHand-back {
+.bar .lostIndex-back {
   color: #fff;
 }
-.secondHand-content > .buttons-tab > .button {
+.lostIndex-content > .buttons-tab > .button {
   background-color: #fff;
 }
-.secondHand-content > .content-block {
+.lostIndex-content .buttons-tab .button.active {
+  color: #88C32E;
+  border-color: #88C32E;
+}
+.lostIndex-content > .content-block {
   margin: 0;
   padding: 0px;
 }
-.secondHand-content > .content-block .tabs .content-block {
+.lostIndex-content > .content-block .tabs .content-block {
   margin: 0rem;
   padding: 0px;
 }
-.secondHand-searchbar {
+.lostIndex-searchbar {
   position: absolute;
   top: 4.4rem;
   background-color: #fff;
 }
-.secondHand-searchbar .searchbar {
+.lostIndex-searchbar .searchbar {
   background-color: #fff;
 }
-.secondHand-searchbar .searchbar input#search {
+.lostIndex-searchbar .searchbar input#search {
   background-color: #f5f5f5;
   border-radius: .5rem;
 }
@@ -108,7 +115,7 @@
   float: left;
   font-size: .5rem;
   margin: .2rem .3rem;
-  background-color: #13B7F5;
+  background-color: #88C32E;
   color: #fff;
   padding: 0px .1rem;
 }
@@ -141,13 +148,7 @@
   margin: .58rem .7rem;
 }
 .iconfont-position {
-  color: #13B7F5;
-}
-.price {
-  right: .5rem;
-  top: .2rem;
-  font-size: .9rem;
-  color: #F57E7A;
+  color: #88C32E;
 }
 @font-face {
   font-family: 'iconfont-treeHoleTabsBar';

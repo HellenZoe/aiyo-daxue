@@ -1,5 +1,4 @@
-@color-red: #F57E7A;
-@color-blue: #13B7F5;
+@self-green: #88C32E;
 
 
 .lost-page > .bar{
@@ -8,8 +7,12 @@
   }
 }
 
+.index-color{
+  color: @self-green;
+}
+
 .toast-success{
-  background-color: @color-red;
+  background-color: @self-green;
   color: #fff;
 }
 
@@ -45,17 +48,20 @@
 }
 
 //  但会图标为白色
-.bar .secondHand-back{
+.bar .lostIndex-back{
   color: #fff;
 }
 
-.secondHand-content > .buttons-tab > .button{
+.lostIndex-content > .buttons-tab > .button{
   background-color: #fff;
 }
 
+.lostIndex-content .buttons-tab .button.active{
+    color: @self-green;
+    border-color: @self-green;
+}
 
-
-.secondHand-content > .content-block{
+.lostIndex-content > .content-block{
   margin: 0;
   padding: 0px;
   .tabs .content-block{
@@ -64,7 +70,7 @@
   }
 }
 
-.secondHand-searchbar{
+.lostIndex-searchbar{
   position: absolute;
   top: 4.4rem;
   background-color: #fff;
@@ -138,7 +144,7 @@
   float: left;
   font-size: .5rem;
   margin: .2rem .3rem;
-  background-color: @color-blue;
+  background-color: @self-green;
   color: #fff;
   padding: 0px .1rem;
 }
@@ -176,15 +182,9 @@
 }
 
 .iconfont-position{
-  color: @color-blue;
+  color: @self-green;
 }
 
-.price{
-  right: .5rem;
-  top: .2rem;
-  font-size: .9rem;
-  color: @color-red;
-}
 
 
 
