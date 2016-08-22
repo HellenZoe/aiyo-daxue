@@ -75,11 +75,18 @@
   float: left;
 }
 .item-block .item-content {
-  float: left;
   display: inline-block;
   margin-left: .3rem;
 }
+.item-block .item-content .item-header .item-name {
+  font-size: .8rem;
+  color: #444;
+}
+.item-block .item-content .item-header .item-category {
+  background-color: blue;
+}
 .item-block .item-content .item-desc {
+  font-size: .6rem;
   margin: .3rem 0;
   overflow: hidden;
   white-space: nowrap;
