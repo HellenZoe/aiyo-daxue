@@ -83,7 +83,7 @@
   margin-left: 4.3rem;
 }
 .item-block .item-content .item-header .item-name {
-  font-size: .７rem;
+  font-size: .7rem;
   color: #444;
 }
 .item-block .item-content .item-header .item-category {
@@ -94,11 +94,11 @@
 }
 .item-block .item-content .item-desc {
   font-size: .6rem;
-  margin: .3rem 0;
-  height: 2rem;
+  height: 1.6rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-bottom: 1.3rem;
 }
 .item-block .item-content .item-footer {
   position: relative;
@@ -107,16 +107,16 @@
 .item-block .item-content .item-footer .price {
   position: absolute;
   left: 0rem;
-  bottom: 0rem;
+  bottom: -0.2rem;
   color: red;
 }
 .item-block .item-content .item-footer .actionSheet {
   position: absolute;
   right: .5rem;
-  bottom: 0rem;
+  bottom: -0.2rem;
 }
-.item-block .item-content .item-footer .actionSheet span {
-  margin: .2rem;
+.item-block .item-content .item-footer .actionSheet a {
+  margin: .3rem;
   color: #0894ec;
 }
 @font-face {
