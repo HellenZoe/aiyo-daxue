@@ -54,12 +54,12 @@
 .self .self-info a {
   color: #F57E7A;
 }
+.buttons-tab {
+  margin-top: 5rem;
+}
 .content-block {
   margin: 0px;
   padding: 0px;
-}
-.content-block .tabs {
-  margin-top: 5rem;
 }
 #tab-selling,
 #tab-down,
