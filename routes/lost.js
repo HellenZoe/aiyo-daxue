@@ -138,7 +138,6 @@ router.get('/detail/:id', function(req, res) {
 
 //个人中心（胡博）
 router.get('/self', function(req, res) {
-<<<<<<< HEAD
   if (req.session.user) {
     console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
     Goods.find({author: req.session.user._id}, function(err, gs) {
