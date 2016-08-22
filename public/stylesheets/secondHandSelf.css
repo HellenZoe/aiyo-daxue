@@ -54,11 +54,8 @@
 .self .self-info a {
   color: #F57E7A;
 }
-.content {
-  top: 8rem;
-}
 .content-block {
-  margin: 0px;
+  margin: 5rem 0;
   padding: 0px;
 }
 #tab-selling,
@@ -84,6 +81,7 @@
 }
 .item-block .item-content .item-header .item-category {
   background-color: blue;
+  font-size: .6rem;
 }
 .item-block .item-content .item-desc {
   font-size: .6rem;
@@ -92,14 +90,19 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.item-block .item-content .item-footer {
+  font-size: .6rem;
+}
 .item-block .item-content .item-footer .price {
   float: left;
+  color: red;
 }
 .item-block .item-content .item-footer .actionSheet {
   float: right;
 }
 .item-block .item-content .item-footer .actionSheet span {
   margin: .2rem;
+  color: blue;
 }
 @font-face {
   font-family: 'iconfont-selfShare';
