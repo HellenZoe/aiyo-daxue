@@ -1,0 +1,103 @@
+extends layout
+
+block styles
+  link(href="./stylesheets/lostIndex.css" rel='stylesheet')
+
+block content
+  div.page-group
+    div.page.page-current.lost-page
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.secondHand-back.pull-left.external(href="/")
+          span.icon.icon-left
+        a.button.button-link.button-nav.secondHand-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 失物招领
+      div.lost-tabs
+        div.lost
+          span.active
+            a(href="#") 失物
+        div.found
+          span
+            a(href="#") 招领
+      nav.bar.bar-tab
+        a.tab-item.external(href="/lostIndex")
+          span.icon.index-color
+            i.iconfont-indexTabBar &#xe601;
+          span.tab-label 主页
+        a.tab-item.external(href="/lostIndex/post")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe603;
+          span.tab-label 发布
+        a.tab-item.external(href="/lostIndex/self")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe604;
+          span.tab-label 个人中心
+          
+      div.bar.secondHand-searchbar
+        div.searchbar
+          a.searchbar-cancel 取消
+          div.search-input
+            label.icon.icon-search(for="search")
+            input#search(type="search", placeholder="搜索感兴趣的话题")
+      
+      div.secondHand-content.lostIndex-content
+        div.buttons-tab
+          a.tab-link.button.active(href="#tab-index") 首页
+          a.tab-link.button(href="#tab-trans") 交通工具
+          a.tab-link.button(href="#tab-sport") 运动健身
+          a.tab-link.button(href="#tab-ele") 电子产品
+          a.tab-link.button(href="#tab-eleEqui") 电器
+          a.tab-link.button(href="#tab-beauty") 丽人美妆
+          a.tab-link.button(href="#tab-other") 其他
+          a.tab-link.button(href="#tab-eleEqui") 电器
+        div.content-block
+          div.tabs
+            div#tab-index.tab.active
+              div.content-block
+                    div.card.facebook-card
+                      div.card-header.no-border
+                        div.facebook-avatar
+                            img(src="../../images/user-logo.png")
+                        div.card-info
+                          div
+                            span.facebook-name 朱海浩
+                            span.page-view 浏览次数： 188
+                          div.facebook-date
+                            span 2016-8-22
+                            span 来自[青岛大学]
+                      div.card-content
+                        div.picsWrapper
+                          img(src="../../images/book.jpg")
+                        div.title-category
+                          span.content-title 寻找书籍
+                          span.category 图书器材
+                        div.card-content-text 有谁看见一套书，一共10本。有谁看见一套书，一共10本。
+                      div.card-footer
+                        div.icon.position
+                          i.iconfont-position &#xe619;
+                          span 青岛大学
+
+            div#tab-trans.tab
+              div.content-block
+                div 这里是交通工具
+            div#tab-sport.tab
+              div.content-block
+                div 这是运动健身
+            div#tab-ele.tab
+              div.content-block
+                div 这是电子产品
+            div#tab-eleEqui.tab
+              div.content-block
+                div 这是电器
+            div#tab-beauty.tab
+              div.content-block
+                div 这是丽人美妆
+            div#tab-other.tab
+              div.content-block
+                div 这是其他
+
+
+
+block scripts
+  script(src="./javascripts/secondHandIndex.js")
