@@ -69,7 +69,11 @@
 .item-block {
   width: 100%;
 }
+.item-block img-wrapper {
+  float: left;
+}
 .item-block .item-content {
+  float: left;
   display: inline-block;
   margin-left: .3rem;
 }
@@ -86,7 +90,7 @@
   float: right;
 }
 .item-block .item-content .item-footer .actionSheet span {
-  margin: 2rem;
+  margin: .2rem;
 }
 @font-face {
   font-family: 'iconfont-selfShare';

@@ -35,7 +35,8 @@ block content
                     each item in valuebles
                       if item.status == 0  
                         div.item-block
-                          img(src= item.picUrl[0])
+                          div.img-wrapper
+                            img(src= item.picUrl[0])
                           div.item-content
                             a.item-title= item.title
                             span.item-category= item.category
