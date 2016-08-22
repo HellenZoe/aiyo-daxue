@@ -67,6 +67,7 @@
   border: 1px solid #dedede;
   margin: 0.4rem;
   padding: 0.3rem;
+  height: 4.5rem;
 }
 .item-block {
   width: 100%;
@@ -75,8 +76,7 @@
   float: left;
 }
 .item-block .item-content {
-  display: inline-block;
-  margin-left: .3rem;
+  margin-left: 5.3rem;
 }
 .item-block .item-content .item-header .item-name {
   font-size: .8rem;
