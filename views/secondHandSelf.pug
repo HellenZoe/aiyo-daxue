@@ -21,22 +21,61 @@ block content
               div.facebook-name= user.name
               div.facebook-sign-name 个性签名:
               a 编辑资料>
-
-        div.topic-tag
-          div.tag-left
-            h5 正在出售
-          div.tag-middle
-            h5 已下架
-          div.tag-right
-            h5 已完成
-        if valuebles
-          each item in valuebles
-            div.topic-block
-              div.my-topic
-                img(src= item.picUrl[0])
-                div.topic-content
-                  a.content-title= item.title
-                  div.content-text= item.content
+      
+        div.buttons-tab
+          a.tab-link.button.active(href="#tab-selling") 正在出售
+          a.tab-link.button(href="#tab-down") 已下架
+          a.tab-link.button(href="#tab-sold") 已完成
+        div.content-block
+          div.tabs
+            div#tab-selling.tab.active
+              div.content-block
+                if valuebles
+                  each item in valuebles
+                    if item.status == 0  
+                      div.item-block
+                        img(src= item.picUrl[0])
+                        div.item-content
+                          a.item-title== item.title
+                          span.item-category= item.category
+                          div.item-desc= item.desc
+                          div.item-footer
+                            span.price= item.price
+                            div.actionSheet
+                              span.edit 编辑
+                              span.down 下架
+                              span.sold 确认售出
+            div#tab-selling.tab.active
+              div.content-block
+                if valuebles
+                  each item in valuebles
+                    if item.status == 1  
+                      div.item-block
+                        img(src= item.picUrl[0])
+                        div.item-content
+                          a.item-title== item.title
+                          span.item-category= item.category
+                          div.item-desc= item.desc
+                          div.item-footer
+                            span.price= item.price
+                            div.actionSheet
+                              span.down 重新上架
+                              span.del 删除
+            div#tab-selling.tab.active
+              div.content-block
+                if valuebles
+                  each item in valuebles
+                    if item.status == 2  
+                      div.item-block
+                        img(src= item.picUrl[0])
+                        div.item-content
+                          a.item-title== item.title
+                          span.item-category= item.category
+                          div.item-desc= item.desc
+                          div.item-footer
+                            span.price= item.price
+                            div.actionSheet
+                              span.del  删除
         else
           div 你还没有发布商品哦~~~
       else
