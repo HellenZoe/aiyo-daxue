@@ -169,18 +169,20 @@
     .item-desc{
       font-size: .6rem;
       margin: .3rem 0;
+      height: 2.5rem;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
     .item-footer{
+      position: relative;
       font-size: .6rem;
       .price{
-        float: left;
+        position: absolute;
+
         color: red;
       }
       .actionSheet{
-        float: right;
         span{
           margin: .2rem;
           color: blue;
