@@ -208,7 +208,7 @@ router.post('/action', function(req, res) {
           console.log(err);
         }else {
           res.json({
-            success: true;
+            success: true
           })
         }
       })
