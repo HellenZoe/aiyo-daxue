@@ -1,0 +1,52 @@
+extends servicelayout
+
+block styles
+  link(rel="stylesheet" href="../stylesheets/lostIndexSelf.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.pull-left.external(href="/treehole")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 个人中心
+
+      div.self
+        div
+          img(src="../../images/user-logo.png")
+          div.self-info
+            div.facebook-name 朱海浩
+            div.facebook-sign-name 个性签名:我咋这么帅，我自己都被迷住啦
+            a 编辑资料>
+
+      div.lostIndex-content
+        div.buttons-tab
+          a.tab-link.button.active(href="#") 失物
+          a.tab-link.button(href="#") 招领
+        
+      div.topic-block
+        div.my-topic
+          img(src="../../images/book.jpg")
+          div.topic-content
+            a.content-title 找女票
+            span.category 图书器材
+            div.content-text 听说中国女排个个都是超模，我去看看有没有我的菜
+            div
+              span.tour 已巡回
+              span.found 已找到
+
+        div.my-topic
+          img(src="../../images/book.jpg")
+          div.topic-content
+            a.content-title 找女票
+            span.category 图书器材
+            div.content-text 听说中国女排个个都是超模，我去看看有没有我的菜
+            div
+              span.tour 已巡回
+              span.found 已找到
+
+
+block scripts
