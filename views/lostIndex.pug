@@ -36,10 +36,11 @@ block content
           
       div.bar.lostIndex-searchbar
         div.searchbar
-          a.searchbar-cancel 取消
+          //a.searchbar-cancel 取消
           div.search-input
             label.icon.icon-search(for="search")
             input#search(type="search", placeholder="搜索感兴趣的话题")
+          a.gotoSearch.link(href="#search-page") 
       
       div.lostIndex-content
         div.buttons-tab
@@ -97,7 +98,17 @@ block content
               div.content-block
                 div 这是其他
 
+    div.page#search-page
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.pull-left(href="#index")
+          span.icon.icon-left
+        h1.title.text-white 失物招领
+      //- 在这里写搜索页面的内容    
+      div.bar.bar-header-secondary.lostIndex-searchbar
+        div.searchbar
+          div.search-input
+            label.icon.icon-search(for="search")
+            input#search-action(type="search", placeholder="搜索感兴趣的话题")
 
 
 block scripts
-  script(src="./javascripts/secondHandIndex.js")

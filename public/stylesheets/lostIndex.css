@@ -60,7 +60,8 @@
 .lostIndex-searchbar .searchbar {
   background-color: #fff;
 }
-.lostIndex-searchbar .searchbar input#search {
+.lostIndex-searchbar .searchbar input#search,
+.lostIndex-searchbar .searchbar input#search-action {
   background-color: #f5f5f5;
   border-radius: .5rem;
 }

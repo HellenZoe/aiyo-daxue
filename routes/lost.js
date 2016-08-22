@@ -141,6 +141,7 @@ router.get('/self', function(req, res) {
       res.render("lostIndexSelf", {
         title: "个人中心",
       })
-})  
+})
+
 
 module.exports = router;
