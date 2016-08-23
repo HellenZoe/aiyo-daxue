@@ -3,7 +3,7 @@ if (window.utils) {
 }
 
 //  删除
-$('del').on('click', function(e) {
+$('.del').on('click', function(e) {
   e.preventDefault();
   var vId = $(this).attr('data-favId');
   var info = {
@@ -40,7 +40,7 @@ $('del').on('click', function(e) {
 })
 
 // 下架
-$('down').on('click', function(e) {
+$('.down').on('click', function(e) {
   e.preventDefault();
   var vId = $(this).attr('data-favId');
   var info = {
@@ -77,7 +77,7 @@ $('down').on('click', function(e) {
 })
 
 // 确认售出
-$('sold').on('click', function(e) {
+$('.sold').on('click', function(e) {
   e.preventDefault();
   var vId = $(this).attr('data-favId');
   var info = {
@@ -114,7 +114,7 @@ $('sold').on('click', function(e) {
 })
 
 // 编辑
-$('edit').on('click', function(e) {
+$('.edit').on('click', function(e) {
   e.preventDefault();
   var vId = $(this).attr('data-favId');
   var info = {
