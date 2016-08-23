@@ -12,23 +12,23 @@ block content
         a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
         h1.title.text-white 发布树洞
       div.content
-        div.post-valueble(data-vId= vId)
+        div.post-valueble(data-vId= valueble._id)
           div.name
             h3 商品名称
-            input.border-bottom(type="text" name="name" placeholder="请填写商品名称")
+            input.border-bottom(type="text" name="name" placeholder="请填写商品名称" value= valueble.name)
             div#previewAllPic
             span.icon
               input#fileToUpload(type="file" name="fileToUpload")
               i.iconfont-treeholePost &#xe605;
           div.desc
             h3 商品描述
-            input.border-bottom(placeholder="请填写商品用途 新旧程度")
+            input.border-bottom(placeholder="请填写商品用途 新旧程度" value= valueble.desc)
           div.price
             h3 商品价格
-            input.border-bottom(placeholder="单位元")
+            input.border-bottom(placeholder="单位元" value= valueble.price)
           div.location
             h3 交易地点
-            input.border-bottom(placeholder="请填写交易地点p")
+            input.border-bottom(placeholder="请填写交易地点" value= valueble.location)
           div.category
             h3 选择分类
             div.row
@@ -66,10 +66,10 @@ block content
                 span 其他
           div.qq
             h3 qq号
-            input.border-bottom(placeholder="请填写qq号")
+            input.border-bottom(placeholder="请填写qq号" value= valueble.qq)
           div.tel
             h3 电话号
-            input.border-bottom(placeholder="请填写手机号")
+            input.border-bottom(placeholder="请填写手机号" value= valueble.tel)
           
             
                         
