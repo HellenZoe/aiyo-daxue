@@ -21,7 +21,7 @@ var goodsSchema = new Schema({
 })
 
 
-valuebleSchema.virtual('category_ch').get(function() {
+goodsSchema.virtual('category_ch').get(function() {
   switch (this.category) {
     case "other":
       return "其他"
@@ -52,7 +52,8 @@ valuebleSchema.virtual('category_ch').get(function() {
 
   }
 })
-valuebleSchema.virtual('date').get(function() {
+
+goodsSchema.virtual('date').get(function() {
   var d = new Date();
   d.setTime(this.time);
   var month = d.getMonth() + 1;
