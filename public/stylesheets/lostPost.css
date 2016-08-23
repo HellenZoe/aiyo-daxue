@@ -73,16 +73,16 @@
   display: none;
 }
 .category,
-type {
+.type {
   float: right;
   margin-top: 1rem;
 }
 .category input,
-type input {
+.type input {
   display: none;
 }
 .category input + label,
-type input + label {
+.type input + label {
   display: inline-block;
   height: .9rem;
   width: .9rem;
@@ -91,12 +91,12 @@ type input + label {
   position: relative;
 }
 .category input:checked + label,
-type input:checked + label {
+.type input:checked + label {
   border: none;
   background-color: #F77A7A;
 }
 .category input:checked + label:after,
-type input:checked + label:after {
+.type input:checked + label:after {
   content: '\2714';
   font-size: 1rem;
   position: absolute;
@@ -104,7 +104,7 @@ type input:checked + label:after {
   top: -0.4rem;
 }
 .category span,
-type span {
+.type span {
   position: relative;
   top: -0.3rem;
   margin-left: .4rem;
