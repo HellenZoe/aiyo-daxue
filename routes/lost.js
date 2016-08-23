@@ -54,7 +54,6 @@ router.post('/new', upload.single('test'), function(req, res) {
             qq: qq,
             tel: tel,
             time: time,
-            price: price,
             view: 0,
             type: type
         })

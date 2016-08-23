@@ -16,7 +16,6 @@ var goodsSchema = new Schema({
   authorName: String,
   authorSchool: String,
   authorAvatarUrl: String,
-  price: Number,
   view: Number
 })
 
