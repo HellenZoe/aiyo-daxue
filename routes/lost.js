@@ -167,7 +167,7 @@ router.get('/self', function(req, res) {
       if (err) {
         console.log("取出用户对应的商品出错出错", err);
       }else {
-        console.log("*******************logging from /secondHand/self--valuebles***************", vs);
+        console.log("*******************logging from /secondHand/self--valuebles***************", gs);
         if (vs) {
           res.render("lostSelf", {
             title: "个人中心",
