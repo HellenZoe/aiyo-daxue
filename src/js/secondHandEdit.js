@@ -238,7 +238,7 @@ $(function() {
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
     formData.append('vId', info.vId);
-    var url = "http://" + location.host + "/secondHand/edit"
+    var url = "http://" + location.host + "/secondHand/edit";
   	$.ajax({
   		type: 'POST',
   		url: url,

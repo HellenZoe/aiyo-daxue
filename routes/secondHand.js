@@ -137,7 +137,7 @@ router.get('/edit/:id', function(req, res) {
 })
 
 //  更新信息
-router.post('/edit', function(req, res) {
+router.post('/edit',  upload.single('test'), function(req, res) {
   console.log(req.body);
   var vId = req.body['vId'];
   var imageData = JSON.parse(req.body['imageData']);
