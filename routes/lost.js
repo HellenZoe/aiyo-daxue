@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
         console.log("*******************logging from /lost--goods transformed***************",gs.map(function(item) {
             return item.toObject({getters: true, virtuals: true});
         }));
-        res.render("secondHandIndex", {
+        res.render("lostIndex", {
           title: "二手交易首页",
           goods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
@@ -28,7 +28,7 @@ router.get('/', function(req, res) {
           user: crtUser
         });
       }else {
-        res.render("secondHandIndex", {
+        res.render("lostIndex", {
           title: "二手交易首页",
           goods: null,
           user: crtUser
@@ -169,13 +169,13 @@ router.get('/self', function(req, res) {
       }else {
         console.log("*******************logging from /secondHand/self--valuebles***************", vs);
         if (vs) {
-          res.render("secondHandSelf", {
+          res.render("lostSelf", {
             title: "个人中心",
             goods: hs,
             user: req.session.user
           })
         }else {
-          res.render("secondHandSelf", {
+          res.render("lostSelf", {
             title: "个人中心",
             user: req.session.user,
             goods: null
@@ -184,7 +184,7 @@ router.get('/self', function(req, res) {
       }
     })
   }else {
-    res.render("secondHandSelf", {
+    res.render("lostSelf", {
       title: "个人中心",
       user: null,
       goods: null
