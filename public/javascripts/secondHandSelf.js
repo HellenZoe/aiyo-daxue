@@ -24,7 +24,7 @@ $('.del').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('删除成功', 2000, "toast-success");
+        $.toast('操作成功', 2000, "toast-success");
 
         //  点赞数加1
         $.hidePreloader();
@@ -61,7 +61,7 @@ $('.down').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('删除成功', 2000, "toast-success");
+        $.toast('操作成功', 2000, "toast-success");
 
         //  点赞数加1
         $.hidePreloader();
@@ -98,7 +98,7 @@ $('.sold').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('删除成功', 2000, "toast-success");
+        $.toast('操作成功', 2000, "toast-success");
 
         //  点赞数加1
         $.hidePreloader();

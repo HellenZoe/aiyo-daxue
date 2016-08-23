@@ -178,6 +178,7 @@ router.get('/self', function(req, res) {
 
 //  改变是商品状态
 router.post('/action', function(req, res) {
+  console.log("***************************logging from /secondHand/action--req.body*****", req.body);
   var vId = req.body.vId;
   switch (req.body.type) {
     case "del":
@@ -192,6 +193,7 @@ router.post('/action', function(req, res) {
       })
       break;
     case "down":
+      console.log("in down");
       Valueble.update({_id: vId}, {$set: {status: 1}}, function(err, row) {
         if (err) {
           console.log(err);
