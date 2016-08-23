@@ -45,7 +45,7 @@ router.get('/post', function(req, res) {
   })
 })
 
-router.get('/action', function(req, res) {
+router.post('/action', function(req, res) {
   var lId = req.body.lId;
   switch (req.body.type) {
     case "found":
