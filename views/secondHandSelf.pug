@@ -54,7 +54,8 @@ block content
                     each item in valuebles
                       if item.status == 1  
                         div.item-block
-                          img(src= item.picUrl[0])
+                          div.img-wrapper                          
+                            img(src= item.picUrl[0])
                           div.item-content
                             div.item-header
                               a.item-name= item.name
@@ -63,7 +64,7 @@ block content
                             div.item-footer
                               span.price= item.price
                               div.actionSheet
-                                a.down(data-vId= item._id) 重新上架
+                                a.up(data-vId= item._id) 重新上架
                                 a.del(data-vId= item._id) 删除
               div#tab-sold.tab
                 div.content-block
@@ -71,7 +72,8 @@ block content
                     each item in valuebles
                       if item.status == 2  
                         div.item-block
-                          img(src= item.picUrl[0])
+                          div.img-wrapper                          
+                            img(src= item.picUrl[0])
                           div.item-content
                             div.item-header                            
                               a.item-name= item.name

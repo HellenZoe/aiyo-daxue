@@ -204,6 +204,18 @@ router.post('/action', function(req, res) {
         }
       })
       break;
+    case "down":
+      console.log("in up");
+      Valueble.update({_id: vId}, {$set: {status: 0}}, function(err, row) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          })
+        }
+      })
+      break;
     case "sold":
       Valueble.update({_id: vId}, {$set: {status: 2}}, function(err, row) {
         if (err) {
