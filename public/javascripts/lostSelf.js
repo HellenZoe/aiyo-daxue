@@ -7,7 +7,7 @@ $('.found').on('click', function(e) {
   }
   var that = this;
   $.showPreloader();
-  var url = "http://" + location.host + "/secondHand/action";
+  var url = "http://" + location.host + "/lost/action";
   $.ajax({
     type: "POST",
     url: url,

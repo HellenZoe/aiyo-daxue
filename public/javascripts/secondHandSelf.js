@@ -12,7 +12,7 @@ $('.del').on('click', function(e) {
   };
   var that = this;
   $.showPreloader();
-  var url = "http://" + location.host + "/lost/action";
+  var url = "http://" + location.host + "/secondHand/action";
   $.ajax({
     type: "POST",
     url: url,
