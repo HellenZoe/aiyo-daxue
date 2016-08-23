@@ -122,13 +122,15 @@ router.post('/new', upload.single('test'), function(req, res) {
 //  编辑已经发布过的商品
 router.get('/edit/:id', function(req, res) {
   var vId = req.params.id;
+  console.log("*****************logging from /edit/:id--id", vId);
   Valueble.find({_id: vId}, function(err, v) {
     if (err) {
       console.log(err);
     }else {
+      console.log("logging from  /edit/:id--valueble", v);
       res.render("secondHandEdit", {
         title: "编辑",
-        valueble: v 
+        valueble: v
       })
     }
   })
