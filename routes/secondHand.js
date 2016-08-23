@@ -204,7 +204,7 @@ router.post('/action', function(req, res) {
         }
       })
       break;
-    case "down":
+    case "up":
       console.log("in up");
       Valueble.update({_id: vId}, {$set: {status: 0}}, function(err, row) {
         if (err) {
