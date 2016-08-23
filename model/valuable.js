@@ -19,6 +19,37 @@ var valuebleSchema = new Schema({
   view: Number
 })
 
+valuebleSchema.virtual('category_ch').get(function() {
+  switch (this.category) {
+    case "other":
+      return "其他"
+      break;
+    case "transport":
+      return "交通工具"
+      break;
+    case "sport":
+      return "运动健身"
+      break;
+    case "ele":
+      return "电子产品"
+      break;
+    case "ins":
+      return "电器"
+      break;
+    case "beauty":
+      return "其他"
+      break;
+    case "cloth":
+      return "衣物伞帽"
+      break;
+    case "book":
+      return "图书器材"
+      break;
+
+    default:
+
+  }
+})
 valuebleSchema.virtual('date').get(function() {
   var d = new Date();
   d.setTime(this.time);
