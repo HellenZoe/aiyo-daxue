@@ -139,8 +139,25 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 // 查看失物详情
 router.get('/detail/:id', function(req, res) {
-  res.render('lostDetail', {
-    title: "商品详情"
+  Goods.find({_id: req.params.id}, function(err, gs) {
+    if (gs.length > 0) {
+      console.log("***********************logging from /secondhand/detai/:id--view", gs);
+      Goods.update({_id: req.params.id}, {$set: {view: gs[0].view + 1}}, function(err, row) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.render("secondHandDetail.pug", {
+            title: "详情",
+            good: gs[0].toObject({getters: true, virtuals: true})
+          })
+        }
+      })
+    }else {
+      res.render('secondHandDetail', {
+        title: "详情",
+        good: null
+      })
+    }
   })
 })
 
@@ -148,15 +165,15 @@ router.get('/detail/:id', function(req, res) {
 // router.get('/self', function(req, res) {
 //   if (req.session.user) {
 //     console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
-//     Valueble.find({author: req.session.user._id}, function(err, vs) {
+//     Valueble.find({author: req.session.user._id}, function(err, gs) {
 //       if (err) {
 //         console.log("取出用户对应的商品出错出错", err);
 //       }else {
-//         console.log("*******************logging from /secondHand/self--valuebles***************", vs);
-//         if (vs) {
+//         console.log("*******************logging from /secondHand/self--valuebles***************", gs);
+//         if (gs) {
 //           res.render("secondHandSelf", {
 //             title: "个人中心",
-//             valuebles: vs,
+//             valuebles: gs,
 //             user: req.session.user
 //           })
 //         }else {

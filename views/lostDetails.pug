@@ -1,0 +1,66 @@
+extends detaillayout
+
+block styles
+  link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
+  link(rel="stylesheet" href="../../stylesheets/secondHandDetail.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/secondHand")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.treehole-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 详情
+
+      div.content
+        div(class="swiper-container index-swiper-container" data-space-between="10")
+          div.swiper-wrapper
+            each url in good.picUrl
+              div.swiper-slide
+                img(src= url)
+          div.swiper-pagination
+            each url in good.picUrl
+              span.swiper-pagination-bullet
+        div.card.facebook-card
+          div.card-content
+            div.title-category
+              span.content-title= good.name
+              span.category= good.category_ch
+            div.card-content-text= good.desc
+          div.card-footer
+            div.icon.position
+              i.iconfont-position &#xe619;
+              span= good.location
+
+        div.card.facebook-card
+          div.card-header.no-border
+            div.facebook-avatar
+                img(src= good.authorAvatarUrl)
+            div.card-info
+              div
+                span.facebook-name= good.authorName
+                span.page-view 浏览次数：#{good.view}
+              div.facebook-date
+                span= good.date
+                if good.authorSchool
+                  span 来自[#{good.authorSchool}]
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-qq &#xe621;
+            span.number= good.qq
+            a.connection-action(href= "tencent://message/?uin="+ good.qq + "&Site=&Menu=yes") qq勾搭
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-phone &#xe620;
+            span.number= good.tel
+            a.connection-action(href= "tel:" + good.tel) 电话勾搭
+            a.connection-action(href="sms:" + good.tel) 短信勾搭
+
+
+
+block scripts
+  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
+  script(src='../../javascripts/index.js', type='text/javascript')
