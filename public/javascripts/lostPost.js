@@ -117,8 +117,8 @@ $(function() {
     //  提醒用户已经发布成功  然后回到树洞首页
     $.alert("现在返回主页", "发布成功", function() {
       var host = location.host;
-      console.log("http://" + host + "/secondHand");
-      location.href= "http://" + host + "/secondHand";
+      console.log("http://" + host + "/lost");
+      location.href= "http://" + host + "/lost";
       return;
     })
 
@@ -274,7 +274,8 @@ $(function() {
     formData.append('category', info.category);
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
-    var url = "http://" + location.host + "/secondHand/new"
+    formData.apppend('type', info.type);
+    var url = "http://" + location.host + "/lost/new"
   	$.ajax({
   		type: 'POST',
   		url: url,

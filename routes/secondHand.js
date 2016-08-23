@@ -168,7 +168,8 @@ router.post('/edit',  upload.single('test'), function(req, res) {
           tel: tel,
           time: time,
           price: price,
-          view: 0
+          view: 0,
+          picUrl: []
       };
       console.log("logging from ******************logging from /valueble/edit --valuebltosave", newValueble);
       Valueble.update({_id: vId}, newValueble, function(err, v) {

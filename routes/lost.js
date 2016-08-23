@@ -31,7 +31,6 @@ router.post('/new', upload.single('test'), function(req, res) {
     var type = req.body['type'];
     var name = req.body['name'];
     var desc = req.body['desc'];
-    var price = req.body['price'];
     var location = req.body['location'];
     var category = req.body['category'];
     var qq = req.body['qq'];
@@ -56,7 +55,8 @@ router.post('/new', upload.single('test'), function(req, res) {
             tel: tel,
             time: time,
             price: price,
-            view: 0
+            view: 0,
+            type: type
         })
         console.log("logging from ******************logging from /lost/new --losttosave", newLost);
         newLost.save(function(err, l) {
