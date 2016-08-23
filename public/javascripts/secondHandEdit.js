@@ -48,11 +48,34 @@ $(function() {
 
     //  获取用户输入内容
     var name = $('.name > input').val();
+    if (!name) {
+      $.hidePreloader();
+      $.toast("还没有写名称哟～");
+      return;
+    }
     var desc = $('.desc > input').val();
+    if (!desc) {
+      $.hidePreloader();
+      $.toast("还没有写描述哟～");
+      return;
+    }
     var price = $('.price > input').val();
+    if (!price) {
+      $.hidePreloader();
+      $.toast("还没有写价格哟～");
+      return;
+    }
     var address = $('.location input').val();
-    var category = $('.category input:checked');
-    if (category.length > 1) {
+    if (!address) {
+      $.hidePreloader();
+      $.toast("还没有写地址哟～");
+      return;
+    }
+    var category = $('.category input:checked'
+    if (category.length == 0) {
+      $.hidePreloader();
+      $.toast("还没有选分类哟");
+    }else if (category.length > 1) {
       $.hidePreloader();
       $.toast("只能选一个哦~~");
       return;
@@ -60,7 +83,17 @@ $(function() {
       formInfo.category = category.attr('name');
     }
     var qq = $('.qq input').val();
+    if (!qq) {
+      $.hidePreloader();
+      $.toast("还没有写qq哟～");
+      return;
+    }
     var tel = $('.tel input').val();
+    if (!tel) {
+      $.hidePreloader();
+      $.toast("还没有写电话哟～");
+      return;      
+    }
     formInfo.name = name;
     formInfo.desc = desc;
     formInfo.price = price;
