@@ -72,8 +72,7 @@
   overflow: hidden;
   display: none;
 }
-.category,
-.type {
+.category {
   float: right;
   margin-top: 1rem;
 }
