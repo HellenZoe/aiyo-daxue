@@ -10,9 +10,32 @@ var Goods = require('../model/goods');
 
 //   失物招领首页
 router.get('/', function(req, res) {
-  res.render("lostIndex", {
-    title: "失物招领首页"
-  });
+  var crtUser = req.session.user;
+  var queryGoods = Goods.find({});
+  queryGoods.exec(function(err, gs) {
+    if (err) {
+      console.log(err);
+    }else {
+      if (gs.length != 0) {
+        console.log("*******************logging from /lost--goods transformed***************",gs.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }));
+        res.render("secondHandIndex", {
+          title: "二手交易首页",
+          goods: gs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }),
+          user: crtUser
+        });
+      }else {
+        res.render("secondHandIndex", {
+          title: "二手交易首页",
+          goods: null,
+          user: crtUser
+        });
+      }
+    }
+  })
 })
 
 // 失物招领发布页面

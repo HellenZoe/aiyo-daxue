@@ -56,29 +56,34 @@ block content
           div.tabs
             div#tab-index.tab.active
               div.content-block
+                if goods
+                  each item in goods
                     div.card.facebook-card
                       div.card-header.no-border
                         div.facebook-avatar
-                            img(src="../../images/user-logo.png")
+                            img(src= item.authorAvatarUrl)
                         div.card-info
                           div
-                            span.facebook-name 朱海浩
-                            span.page-view 浏览次数： 188
+                            span.facebook-name= item.authorName
+                            span.page-view 浏览次数： #{item.view}
                           div.facebook-date
-                            span 2016-8-22
-                            span 来自[青岛大学]
+                            span= item.date
+                            if item.school
+                              span 来自[#{item.authorSchool}]
                       div.card-content
                         div.picsWrapper
-                          img(src="../../images/book.jpg")
+                          each url in item.picUrl
+                            img(src= url)
                         div.title-category
-                          span.content-title 寻找书籍
-                          span.category 图书器材
-                        div.card-content-text 有谁看见一套书，一共10本。有谁看见一套书，一共10本。
+                          span.content-title= item.name
+                          span.category= item.category
+                        div.card-content-text= item.desc
                       div.card-footer
                         div.icon.position
                           i.iconfont-position &#xe619;
-                          span 青岛大学
-
+                          span= item.location
+                else
+                  div 什么都咩有
             div#tab-trans.tab
               div.content-block
                 div 这里是交通工具
