@@ -110,7 +110,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           	var dataBuffer = new Buffer(base64Data, 'base64');
             var picUrl = "http://obzokcbc0.bkt.clouddn.com/secondHand/" + time + "." + fileType;
             console.log("*****************logging from /lost/new--picUrl**************", picUrl);
-            newLost.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+            Goods.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
                 console.log("保存lost url出错", err);
               }else {
