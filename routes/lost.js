@@ -91,10 +91,10 @@ router.post('/new', upload.single('test'), function(req, res) {
             var fileType = item.split(';')[0].split('/')[1];
           	var dataBuffer = new Buffer(base64Data, 'base64');
             var picUrl = "http://obzokcbc0.bkt.clouddn.com/secondHand/" + time + "." + fileType;
-            console.log("*****************logging from /secondHand/new--picUrl**************", picUrl);
+            console.log("*****************logging from /lost/new--picUrl**************", picUrl);
             newLost.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
-                console.log("保存secondHand url出错", err);
+                console.log("保存lost url出错", err);
               }else {
                 console.log(raw);
               }
@@ -162,13 +162,13 @@ router.get('/detail/:id', function(req, res) {
 //个人中心（胡博）
 router.get('/self', function(req, res) {
   if (req.session.user) {
-    console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
+    console.log("*************************log from /lost/self--req.session.user**********************", req.session.user);
     Goods.find({author: req.session.user._id}, function(err, gs) {
       if (err) {
         console.log("取出用户对应的商品出错出错", err);
       }else {
-        console.log("*******************logging from /secondHand/self--valuebles***************", gs);
-        if (vs) {
+        console.log("*******************logging from /lost/self--goods***************", gs);
+        if (gs) {
           res.render("lostSelf", {
             title: "个人中心",
             goods: gs.map(function(item){

@@ -17,6 +17,10 @@
 
 '/lost'  首页路由
 
+## 去约路由
+'/play'  去约首页  '/play/post'  发布   '/play/self'  个人中心
+'/fun'   趣玩路由  '/fun/post'  发布   '/fun/self'  个人中心
+
 ##  用到过的图标
 
 + iconfont-indexTabBar   课表   &#xe600 切换学校  &#xe602
