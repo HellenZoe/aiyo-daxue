@@ -70,7 +70,7 @@ $(function() {
       $.toast("还没有写地址哟～");
       return;
     }
-    var category = $('.category input:checked'
+    var category = $('.category input:checked')
     if (category.length == 0) {
       $.hidePreloader();
       $.toast("还没有选分类哟");

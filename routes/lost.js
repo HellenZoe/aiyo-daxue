@@ -25,9 +25,10 @@ router.get('/post', function(req, res) {
 
 //  发布新的失物
 router.post('/new', upload.single('test'), function(req, res) {
-    console.log("*************logging from /secondHand/new--user***************", req.session.user);
-    console.log("*************logging from /secondHand/new--req.body***************", req.body);
+    console.log("*************logging from /lost/new--user***************", req.session.user);
+    console.log("*************logging from /lost/new--req.body***************", req.body);
     var imageData = JSON.parse(req.body['imageData']);
+    var type = req.body['type'];
     var name = req.body['name'];
     var desc = req.body['desc'];
     var price = req.body['price'];
@@ -57,12 +58,12 @@ router.post('/new', upload.single('test'), function(req, res) {
             price: price,
             view: 0
         })
-        console.log("logging from ******************logging from /valueble/new --valuebltosave", newValueble);
-        newLost.save(function(err, treehole) {
+        console.log("logging from ******************logging from /lost/new --losttosave", newLost);
+        newLost.save(function(err, l) {
           if (err) {
             console.log("save treehole error");
           }
-          console.log("*******************logging from /treehole/new--treehole", treehole);
+          console.log("*******************logging from /lost/new--lost", l);
           imageData.forEach(function(item, index) {
             var base64Data = item.split(',')[1];
             var fileType = item.split(';')[0].split('/')[1];
@@ -81,7 +82,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           		if(err){
           		  console.log(err);
           		}else{
-                uploadToQiniu(tmpFilePath, "secondHand");
+                uploadToQiniu(tmpFilePath, "lost");
                 res.json({success: true})
                 console.log("success upload");
               }

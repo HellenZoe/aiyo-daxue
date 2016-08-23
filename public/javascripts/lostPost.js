@@ -14,6 +14,7 @@ $(function() {
     qq: "",
     tel: "",
     pics: [],
+    type: ""
   }
   var picCount = 0;
 
@@ -46,6 +47,17 @@ $(function() {
     $.showPreloader();
 
     //  获取用户输入内容
+    var type = $('.type input:checked')
+    if (type.length == 0) {
+      $.hidePreloader();
+      $.toast("还没有选类型哟");
+    }else if (type.length > 1) {
+      $.hidePreloader();
+      $.toast("只能选一个类型哦");
+      return;
+    }else {
+      formInfo.type = type.attr('name');
+    }
     var name = $('.name > input').val();
     if (!name) {
       $.hidePreloader();
