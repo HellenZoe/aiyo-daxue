@@ -52,6 +52,7 @@ $(function() {
     var address = $('.location input').val();
     var category = $('.category input:checked');
     if (category.length > 1) {
+      $.hidePreloader();
       $.toast("只能选一个哦~~");
       return;
     }else {
