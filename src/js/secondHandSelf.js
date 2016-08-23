@@ -156,6 +156,5 @@ $('.sold').on('click', function(e) {
 $('.edit').on('click', function(e) {
   e.preventDefault();
   var vId = $(this).attr('data-vid');
-  var url = "http://" + location.host + "/secondHand/edit/" + vId;
-
+  location.href = "http://" + location.host + "/secondHand/edit/" + vId;
 })
