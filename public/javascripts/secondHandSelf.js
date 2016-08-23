@@ -5,7 +5,7 @@ if (window.utils) {
 //  删除
 $('.del').on('click', function(e) {
   e.preventDefault();
-  var vId = $(this).attr('data-favId');
+  var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
     type: "del"
@@ -42,7 +42,7 @@ $('.del').on('click', function(e) {
 // 下架
 $('.down').on('click', function(e) {
   e.preventDefault();
-  var vId = $(this).attr('data-favId');
+  var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
     type: "down"
@@ -79,7 +79,7 @@ $('.down').on('click', function(e) {
 // 确认售出
 $('.sold').on('click', function(e) {
   e.preventDefault();
-  var vId = $(this).attr('data-favId');
+  var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
     type: "sold"
@@ -116,7 +116,7 @@ $('.sold').on('click', function(e) {
 // 编辑
 $('.edit').on('click', function(e) {
   e.preventDefault();
-  var vId = $(this).attr('data-favId');
+  var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
     type: "edit"
