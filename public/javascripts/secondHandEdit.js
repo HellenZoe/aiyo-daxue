@@ -239,6 +239,7 @@ $(function() {
     formData.append('category', info.category);
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
+    formData.append('vId', info.vId);
     var url = "http://" + location.host + "/secondHand/edit"
   	$.ajax({
   		type: 'POST',

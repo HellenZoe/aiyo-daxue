@@ -169,12 +169,12 @@ router.post('/edit', function(req, res) {
           price: price,
           view: 0
       };
-      console.log("logging from ******************logging from /valueble/new --valuebltosave", newValueble);
+      console.log("logging from ******************logging from /valueble/edit --valuebltosave", newValueble);
       Valueble.update({_id: vId}, newValueble, function(err, v) {
         if (err) {
           console.log("save treehole error");
         }
-        console.log("*******************logging from /treehole/new--valueble", v);
+        console.log("*******************logging from /treehole/edit--valueble", v);
         imageData.forEach(function(item, index) {
           var base64Data = item.split(',')[1];
           var fileType = item.split(';')[0].split('/')[1];
