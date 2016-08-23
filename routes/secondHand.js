@@ -153,7 +153,9 @@ router.get('/self', function(req, res) {
         if (vs) {
           res.render("secondHandSelf", {
             title: "个人中心",
-            valuebles: vs,
+            valuebles: vs.map(function(item, index) {
+              return item.toObject({getters: true, virtuals: true});              
+            }),
             user: req.session.user
           })
         }else {

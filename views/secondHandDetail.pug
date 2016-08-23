@@ -28,14 +28,14 @@ block content
           div.card-content
             div.title-category
               span.content-title= valueble.name
-              span.category= valueble.category
+              span.category= valueble.category_ch
             div.card-content-text= valueble.desc
           div.card-footer
             div.icon.position
               i.iconfont-position &#xe619;
               span= valueble.location
             div.price= valueble.price
-            
+
         div.card.facebook-card
           div.card-header.no-border
             div.facebook-avatar
@@ -59,9 +59,9 @@ block content
             span.number= valueble.tel
             a.connection-action(href= "tel:" + valueble.tel) 电话勾搭
             a.connection-action(href="sms:" + valueble.tel) 短信勾搭
-            
+
 
 
 block scripts
   script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
-  script(src='javascripts/index.js', type='text/javascript')
+  script(src='../../javascripts/index.js', type='text/javascript')
