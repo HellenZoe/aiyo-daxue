@@ -1,79 +1,62 @@
 extends servicelayout
 
 block styles
-  link(rel="stylesheet" href="../stylesheets/secondHandSelf.css")
+  link(rel="stylesheet" href="../stylesheets/lostIndexSelf.css")
 
 block content
   div.page-group
     div.page.page-current#signup
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/secondHand")
+        a.button.button-link.button-nav.pull-left.external(href="/treehole")
           span.icon.icon-left.text-white
-        a.button.button-link.button-nav.treehole-back.pull-right.external
+        a.button.button-link.button-nav.pull-right.external
           span.icon.text-white
             i.iconfont-selfShare &#xe610;
         h1.title.text-white 个人中心
-      if user
+      
+      if user  
         div.self
           div
             img(src= user.avatarUrl)
             div.self-info
               div.facebook-name= user.name
-              div.facebook-sign-name 个性签名:
+              div.facebook-sign-name 个性签名:我咋这么帅，我自己都被迷住啦
               a 编辑资料>
 
-        div.content.valueble-content
+        div.lostIndex-content
           div.buttons-tab
-            a.tab-link.button.active(href="#tab-thing")  物
-            a.tab-link.button(href="#tab-person") 招领
-          div.content-block
-            div.tabs
-              div#tab-thing.tab.active
-                div.content-block
-                  if goods
-                    each item in goods
-                      if item.type == "thing"
-                        div.item-block
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category_ch
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                a.edit(data-vId= item._id) 编辑
-                                a.down(data-vId= item._id) 下架
-                                a.sold(data-vId= item._id) 确认售出
-              div#tab-person.tab
-                div.content-block
-                  if goods
-                    each item in goods
-                      if item.type == "person"
-                        div.item-block
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category_ch
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                a.up(data-vId= item._id) 重新上架
-                                a.del(data-vId= item._id) 删除
-      else
-        div.content
-          div.content-block
-            div.hint
-              div.message 你还没有登陆
-              div.actionRow
-                div.signup
-                  a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
+            a.tab-link.button.active(href="#thing") 失物
+            a.tab-link.button(href="#thing") 招领
+        div.topic-block
+          div.tab.active#thing
+            if goods
+              each item in goods
+                if item.type == "thing"
+                  div.my-topic
+                    each url in item.picUrl
+                      img(src= url)
+                    div.topic-content
+                      a.content-title= item.name
+                      span.category= item.category_ch
+                      div.content-text= item.desc
+                      div
+                        a.tour 已巡回
+                        a.found 已找到
+
+          div.tab.active#person
+            if goods
+              each item in goods
+                if item.type == "person"
+                  div.my-topic
+                    each url in item.picUrl
+                      img(src= url)
+                    div.topic-content
+                      a.content-title= item.name
+                      span.category= item.category_ch
+                      div.content-text= item.desc
+                      div
+                        a.tour 已巡回
+                        a.found 已找到
+
 
 block scripts
-  script(src="../javascripts/windowUtils.js")
-  script(src="../javascripts/secondHandSelf.js")

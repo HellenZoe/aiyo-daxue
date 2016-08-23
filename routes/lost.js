@@ -171,7 +171,9 @@ router.get('/self', function(req, res) {
         if (vs) {
           res.render("lostSelf", {
             title: "个人中心",
-            goods: hs,
+            goods: gs.map(function(item){
+              return item.toObject({getters: true, virtuals: true});
+            }),
             user: req.session.user
           })
         }else {
