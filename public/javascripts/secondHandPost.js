@@ -25,16 +25,16 @@ $(function() {
   })
 
   //  当用户点击分类的checkbox的时候  检测是否超过一个
-  var checkboxs = $('.category label');
-  checkboxs.on('click', function(e) {
-    console.log("clicked checkbox");
-    var num = $('.category input:checked').length;
-    console.log(num);
-    if (num >= 1) {
-      $.toast('只能选择一个分类', 2000, 'toast-success');
-      e.preventDefault();
-    }
-  })
+  // var checkboxs = $('.category label');
+  // checkboxs.on('click', function(e) {
+  //   console.log("clicked checkbox");
+  //   var num = $('.category input:checked').length;
+  //   console.log(num);
+  //   if (num >= 1) {
+  //     $.toast('只能选择一个分类', 2000, 'toast-success');
+  //     e.preventDefault();
+  //   }
+  // })
   //  点击右上角完成按钮时  先通过ajax提交， 然后再重定向到/treehole页面
 
   var finishButton = $('.finishPost');
@@ -52,7 +52,7 @@ $(function() {
     var address = $('.location input').val();
     var category = $('.category input:checked');
     if (category.length > 1) {
-      $.toast("告诉过你只能选一个了哟");
+      $.toast("只能选一个哦~~");
       return;
     }else {
       formInfo.category = category.attr('name');
