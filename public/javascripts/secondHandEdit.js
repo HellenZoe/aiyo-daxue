@@ -14,7 +14,7 @@ $(function() {
     qq: "",
     tel: "",
     pics: [],
-    vId: $('post-valueble').attr("data-vId")
+    vId: $('.post-valueble').attr("data-vId")
   }
   var picCount = 0;
 
@@ -67,7 +67,6 @@ $(function() {
     formInfo.location = address;
     formInfo.qq = qq;
     formInfo.tel = tel;
-
     //  发送所有信息
     sendFile(formInfo);
     // formInfo.pics.forEach(function(item, index) {
@@ -79,9 +78,8 @@ $(function() {
     $.hidePreloader();
 
     //  提醒用户已经发布成功  然后回到树洞首页
-    $.alert("现在返回主页", "发布成功", function() {
+    $.alert("现在返回主页", "编辑成功", function() {
       var host = location.host;
-      console.log("http://" + host + "/secondHand");
       location.href= "http://" + host + "/secondHand";
       return;
     })
