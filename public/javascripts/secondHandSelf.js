@@ -156,35 +156,6 @@ $('.sold').on('click', function(e) {
 $('.edit').on('click', function(e) {
   e.preventDefault();
   var vId = $(this).attr('data-vid');
-  var info = {
-    vId: vId,
-    type: "edit"
-  };
-  var that = this;
-  $.showPreloader();
-  var url = "http://" + location.host + "/secondHand/action";
-  $.ajax({
-    type: "POST",
-    url: url,
-    dataType: "json",
-		contentType: "application/json",
-    data: JSON.stringify(info),
-    processData: false,
-    success: function (data) {
-      if (data.success) {
-        $.hidePreloader();
-        $(that).parent().parent().parent().parent().remove();
-        $.toast('删除成功', 2000, "toast-success");
-
-        //  点赞数加1
-        $.hidePreloader();
-      }
-    },
-    error: function (data) {
-        // showMessageFail("上传出错, 请重试");
-        console.log("上传失败");
-    }
-
-  });
+  var url = "http://" + location.host + "/secondHand/edit/" + vId;
 
 })
