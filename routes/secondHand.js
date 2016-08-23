@@ -130,7 +130,7 @@ router.get('/edit/:id', function(req, res) {
       console.log("logging from  /edit/:id--valueble", v);
       res.render("secondHandEdit", {
         title: "编辑",
-        valueble: v
+        valueble: v[0]
       })
     }
   })
