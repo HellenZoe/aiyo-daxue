@@ -9,7 +9,6 @@ $(function() {
   var formInfo  = {
     name: "",
     desc: "",
-    price: "",
     location: "",
     qq: "",
     tel: "",
@@ -70,12 +69,6 @@ $(function() {
       $.toast("还没有写描述哟～");
       return;
     }
-    var price = $('.price > input').val();
-    if (!price) {
-      $.hidePreloader();
-      $.toast("还没有写价格哟～");
-      return;
-    }
     var address = $('.location input').val();
     if (!address) {
       $.hidePreloader();
@@ -107,7 +100,6 @@ $(function() {
     }
     formInfo.name = name;
     formInfo.desc = desc;
-    formInfo.price = price;
     formInfo.location = address;
     formInfo.qq = qq;
     formInfo.tel = tel;
@@ -278,7 +270,6 @@ $(function() {
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('name', info.name);
     formData.append('desc', info.desc);
-    formData.append('price', info.price);
     formData.append('location', info.location);
     formData.append('category', info.category);
     formData.append('qq', info.qq);
