@@ -58,7 +58,7 @@ block content
               div.content-block
                 if goods
                   each item in goods
-                    div.card.facebook-card
+                    div.card.facebook-card(data-lId= item._id)
                       div.card-header.no-border
                         div.facebook-avatar
                             img(src= item.authorAvatarUrl)
@@ -117,3 +117,4 @@ block content
 
 
 block scripts
+  script(src="./javascripts/lostIndex.js")  
