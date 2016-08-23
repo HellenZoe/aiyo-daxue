@@ -12,7 +12,7 @@ $('.del').on('click', function(e) {
   };
   var that = this;
   $.showPreloader();
-  var url = "http://" + location.host + "/secondHand/action";
+  var url = "http://" + location.host + "/lost/action";
   $.ajax({
     type: "POST",
     url: url,
@@ -26,7 +26,7 @@ $('.del').on('click', function(e) {
         $(that).parent().parent().parent().parent().remove();
         $.toast('操作成功', 2000, "toast-success");
 
-        //  点赞数加1
+        //  隐藏加载
         $.hidePreloader();
       }
     },

@@ -1,5 +1,6 @@
 .buttons-tab .button.active {
   color: #88C32E;
+  border-color: #88C32E;
 }
 .page,
 .page-group {

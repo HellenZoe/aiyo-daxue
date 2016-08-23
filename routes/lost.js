@@ -45,6 +45,24 @@ router.get('/post', function(req, res) {
   })
 })
 
+router.get('/action', function(req, res) {
+  var lId = req.body.lId;
+  switch (req.body.type) {
+    case "found":
+      Goods.remove({_id: lId}, function(err, l) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+    default:
+
+  }
+})
 
 //  发布新的失物
 router.post('/new', upload.single('test'), function(req, res) {
