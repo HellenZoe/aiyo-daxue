@@ -274,7 +274,7 @@ $(function() {
     formData.append('category', info.category);
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
-    formData.apppend('type', info.type);
+    formData.append('type', info.type);
     var url = "http://" + location.host + "/lost/new"
   	$.ajax({
   		type: 'POST',
