@@ -2,6 +2,9 @@ var treehole = require('./treehole');
 var secondHand = require('./secondHand');
 var User = require("../model/user");
 var lost = require('./lost');
+var play = require('./play');
+var fun = require('./fun');
+
 
 module.exports = function(app) {
   app.get('/', function(req, res) {
@@ -58,4 +61,6 @@ module.exports = function(app) {
   app.use('/treehole', treehole);
   app.use('/secondHand',  secondHand);
   app.use('/lost', lost);
+  app.use('/play', play);
+  app.use('/fun', fun);
 }
