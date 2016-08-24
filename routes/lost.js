@@ -146,14 +146,14 @@ router.get('/detail/:id', function(req, res) {
         if (err) {
           console.log(err);
         }else {
-          res.render("secondHandDetail.pug", {
+          res.render("lostDetail", {
             title: "详情",
             good: gs[0].toObject({getters: true, virtuals: true})
           })
         }
       })
     }else {
-      res.render('secondHandDetail', {
+      res.render('lostDetail', {
         title: "详情",
         good: null
       })
