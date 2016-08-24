@@ -53,7 +53,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             var base64Data = item.split(',')[1];
             var fileType = item.split(';')[0].split('/')[1];
           	var dataBuffer = new Buffer(base64Data, 'base64');
-            var picUrl = "http://obzokcbc0.bkt.clouddn.com/fun/" + time + "." + bfileType;
+            var picUrl = "http://obzokcbc0.bkt.clouddn.com/fun/" + time + "." + fileType;
             console.log("*****************logging from /fun/new--picUrl**************", picUrl);
             Fun.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
