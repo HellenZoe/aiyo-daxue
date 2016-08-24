@@ -58,7 +58,7 @@ router.post('/new', upload.single('test'), function(req, res) {
     var address = req.body['address'];
     var qq = req.body['qq'];
     var tel = req.body['tel'];
-    var price = req.body['price'];
+    var price = parseInt(req.body['price']);
     var authorId = req.session.user._id;
     var time = Date.now();
     User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
@@ -93,7 +93,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           	var dataBuffer = new Buffer(base64Data, 'base64');
             var picUrl = "http://obzokcbc0.bkt.clouddn.com/play/" + time + "." + fileType;
             console.log("*****************logging from /play/new--picUrl**************", picUrl);
-            newPlay.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+            Play.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
                 console.log("保存secondHand url出错", err);
               }else {
