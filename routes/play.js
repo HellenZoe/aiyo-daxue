@@ -159,9 +159,28 @@ router.post('/action', function(req, res) {
 
 //个人中心
 router.get('/self', function(req, res) {
-  res.render('playSelf', {
-    title: "个人中心"
-  })
+  if (req.session.user) {
+    console.log("*************************log from /play/self--req.session.user**********************", req.session.user);
+    Play.find({author: req.session.user._id}, function(err, ps) {
+      if (err) {
+        console.log("取出用户对应的树洞出错", err);
+      }else {
+        console.log("*******************logging from /play/self--plays***************", ps);
+        res.render("funSelf", {
+          title: "个人中心",
+          plays: fs.length == 0 ? null : ps,
+          user: req.session.user
+        })
+
+      }
+    })
+  }else {
+    res.render("funSelf", {
+      title: "个人中心",
+      user: null,
+      plays: null,
+    })
+  }
 })
 
 
