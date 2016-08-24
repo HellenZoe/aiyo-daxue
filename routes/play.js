@@ -136,7 +136,7 @@ router.get('/detail/:id', function(req, res) {
 //   }
 // })
 
-//个人中心（胡博）
+//个人中心
 router.get('/self', function(req, res) {
   res.render('playSelf', {
     title: "个人中心"

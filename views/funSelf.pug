@@ -7,7 +7,7 @@ block content
   div.page-group
     div.page.page-current#signup
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/lost")
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/fun")
           span.icon.icon-left.text-white
         a.button.button-link.button-nav.treehole-back.pull-right.external
           span.icon.text-white
@@ -37,11 +37,11 @@ block content
                           img(src= item.picUrl[0])
                         div.item-content
                           div.item-header
-                            a.item-name= item.name
+                            a.item-name= item.title
                           div.item-desc= item.content
                           div.item-footer
                             div.actionSheet
-                              a.found(data-lId= item._id) 删除
+                              a.del-wanto(data-fId= item._id) 删除
               div#tab-share.tab
                 div.content-block
                   if funs
@@ -55,7 +55,7 @@ block content
                           div.item-desc= item.content
                           div.item-footer
                             div.actionSheet
-                              a.found(data-lId= item._id) 删除
+                              a.del-(data-fId= item._id) 删除
       else
         div.content
           div.content-block

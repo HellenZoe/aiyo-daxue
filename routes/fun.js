@@ -7,6 +7,9 @@ var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
 var Fun = require('../model/fun');
+var utils = require('../utils/severUtil');
+
+
 //   趣玩首页
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
@@ -104,13 +107,49 @@ router.post('/new', upload.single('test'), function(req, res) {
 })
 
 
+//  操作
+router.post('/action', function(req, res) {
+  console.log("*******************logging from /fun/action--req.body", req.body);
+  var fId = req.body.fId;
+  switch (req.body.type) {
+    case "del-share":
+      Fun.remove({_id: fId}, function(err, l) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+    case "del-wanto":
+      Fun.update({_id: fId}, {$pull: {"wantUserId": req.session.user._id}}, function(err, l) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+
+    default:
+
+  }
+})
+
+
 // 查看趣玩详情
 router.get('/detail/:id', function(req, res) {
   Fun.find({_id: req.params.id}, function(err, fs) {
-      console.log("***********************logging from /secondhand/detai/:id--view", gs);
+      console.log("***********************logging from /secondhand/detai/:id--view", fs);
       res.render("funDetail", {
         title: "详情",
-        fun: fs[0].toObject({getters: true, virtuals: true})
+        fun: fs[0].toObject({getters: true, virtuals: true}),
+        notYet: utils.contains(fs[0].wantUserId, req.session.user._id) ? false : true
+
       })
 
 
@@ -168,7 +207,7 @@ router.post('/follow', function(req, res) {
 //   }
 // })
 
-//个人中心（胡博）
+//个人中心
 router.get('/self', function(req, res) {
   if (req.session.user) {
     console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);

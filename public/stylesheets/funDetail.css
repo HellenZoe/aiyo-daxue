@@ -1,0 +1,20 @@
+.facebook-card {
+  margin: 0px;
+}
+.facebook-card .card-content {
+  padding: .5rem;
+}
+.facebook-card .card-content .card-title {
+  font-size: .9rem;
+}
+.facebook-card .card-footer {
+  position: relative;
+}
+.facebook-card .card-footer .wantTo {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+}
+.funIndex-back .icon {
+  color: white;
+}
