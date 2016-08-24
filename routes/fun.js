@@ -156,7 +156,7 @@ router.get('/self', function(req, res) {
         Fun.find({wantUserId: req.session.user._id}, function(err, ws) {
           res.render("funSelf", {
             title: "个人中心",
-            funs: fs.length == 0 ? null : ws,
+            funs: fs.length == 0 ? null : fs,
             wantToFuns: ws.length  == 0 ? null : ws,
             user: req.session.user
           })
