@@ -55,63 +55,15 @@ block content
           div.tabs
             div#tab-index.tab.active
               div.content-block
-                  div.item-block
-                    div.img-wrapper
-                      img(src="../../images/book.jpg")
-                    div.item-content
-                      div.item-header
-                        a.item-name 私家菜园
-                      div.item-desc 想要吃美食，只能排队
-                      
-                  div.item-block
-                    div.img-wrapper
-                      img(src="../../images/book.jpg")
-                    div.item-content
-                      div.item-header
-                        a.item-name 私家菜园
-                      div.item-desc 想要吃美食，只能排队
-                  
-                  div.item-block
-                    div.img-wrapper
-                      img(src="../../images/book.jpg")
-                    div.item-content
-                      div.item-header
-                        a.item-name 私家菜园
-                      div.item-desc 想要吃美食，只能排队
-                  
-                  div.item-block
-                    div.img-wrapper
-                      img(src="../../images/book.jpg")
-                    div.item-content
-                      div.item-header
-                        a.item-name 私家菜园
-                      div.item-desc 想要吃美食，只能排队
-                      
-                  div.item-block
-                    div.img-wrapper
-                      img(src="../../images/book.jpg")
-                    div.item-content
-                      div.item-header
-                        a.item-name 私家菜园
-                      div.item-desc 想要吃美食，只能排队
-                  
-                  
-                  div.item-block
-                    div.img-wrapper
-                      img(src="../../images/book.jpg")
-                    div.item-content
-                      div.item-header
-                        a.item-name 私家菜园
-                      div.item-desc 想要吃美食，只能排队
-                      
-                      
-                  div.item-block
-                    div.img-wrapper
-                      img(src="../../images/book.jpg")
-                    div.item-content
-                      div.item-header
-                        a.item-name 私家菜园
-                      div.item-desc 想要吃美食，只能排队
+                if funs
+                  each item in funs
+                    div.item-block(data-fId=  item._id)
+                      div.img-wrapper
+                        img(src= item.picUrl[0])
+                      div.item-content
+                        div.item-header
+                          a.item-name= item.title
+                        div.item-desc= item.content
 
             div#tab-food.tab
               div.content-block

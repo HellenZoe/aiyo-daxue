@@ -9,8 +9,30 @@ var User = require('../model/user');
 var Fun = require('../model/fun');
 //   趣玩首页
 router.get('/', function(req, res) {
-  res.render("funIndex", {
-    title: "去约"
+  var crtUser = req.session.user;
+  var queryFun = Fun.find({});
+  queryFun.exec(function(err, fs) {
+    if (err) {
+      console.log(err);
+    }else {
+      if (fs.length != 0) {
+        console.log("*******************logging from /fun--funTransformed***************", fs.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }));
+        res.render("funIndex", {
+          title: "趣玩首页",
+          funs: fs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }),
+          user: crtUser
+        });
+      }else {
+        res.render("funIndex", {
+          title: "趣玩首页",
+          funs: null
+        });
+      }
+    }
   })
 })
 
@@ -68,6 +90,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           		  console.log(err);
           		}else{
                 uploadToQiniu(tmpFilePath, "fun");
+                res.json({success: true})
                 console.log("success upload");
               }
           	});
@@ -123,9 +146,32 @@ router.get('/detail/:id', function(req, res) {
 
 //个人中心（胡博）
 router.get('/self', function(req, res) {
-  res.render('funSelf', {
-    title: "个人中心"
-  })
+  if (req.session.user) {
+    console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);
+    Fun.find({author: req.session.user._id}, function(err, fs) {
+      if (err) {
+        console.log("取出用户对应的树洞出错", err);
+      }else {
+        console.log("*******************logging from /fun/self--funs***************", fs);
+        Fun.find({wantUserId: req.session.user._id}, function(err, ws) {
+          res.render("funself", {
+            title: "个人中心",
+            funs: fs.length == 0 ? null : ws,
+            wantToFuns: ws.length  == 0 ? null : ws,
+            user: req.session.user
+          })
+        })
+
+      }
+    })
+  }else {
+    res.render("funSelf", {
+      title: "个人中心",
+      user: null,
+      funs: null,
+      wantToFuns: null,
+    })
+  }
 })
 
 

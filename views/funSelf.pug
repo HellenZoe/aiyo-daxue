@@ -1,0 +1,70 @@
+extends servicelayout
+
+block styles
+  link(rel="stylesheet" href="../stylesheets/lostSelf.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/lost")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.treehole-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 个人中心
+      if user
+        div.self
+          div
+            img(src= user.avatarUrl)
+            div.self-info
+              div.facebook-name= user.name
+              div.facebook-sign-name 个性签名:
+              a 编辑资料>
+
+        div.content.valueble-content
+          div.buttons-tab
+            a.tab-link.button.active(href="#tab-want") 我想去
+            a.tab-link.button(href="#tab-share") 我的分享
+          div.content-block
+            div.tabs
+              div#tab-want.tab.active
+                div.content-block
+                  if wantToFuns
+                    each item in wantToFuns
+                      div.item-block
+                        div.img-wrapper
+                          img(src= item.picUrl[0])
+                        div.item-content
+                          div.item-header
+                            a.item-name= item.name
+                          div.item-desc= item.content
+                          div.item-footer
+                            div.actionSheet
+                              a.found(data-lId= item._id) 删除
+              div#tab-share.tab
+                div.content-block
+                  if funs
+                    each item in funs
+                      div.item-block
+                        div.img-wrapper
+                          img(src= item.picUrl[0])
+                        div.item-content
+                          div.item-header
+                            a.item-name= item.name
+                          div.item-desc= item.content
+                          div.item-footer
+                            div.actionSheet
+                              a.found(data-lId= item._id) 删除
+      else
+        div.content
+          div.content-block
+            div.hint
+              div.message 你还没有登陆
+              div.actionRow
+                div.signup
+                  a.button-link.button.button-fill.button-success.external(href="/signin")  去注册
+
+block scripts
+  script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/funSelf.js")
