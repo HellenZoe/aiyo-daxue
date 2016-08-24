@@ -4,7 +4,7 @@ var User = require("../model/user");
 var lost = require('./lost');
 var play = require('./play');
 var fun = require('./fun');
-
+var trade = require('./trade');
 
 module.exports = function(app) {
   app.get('/', function(req, res) {
@@ -63,4 +63,7 @@ module.exports = function(app) {
   app.use('/lost', lost);
   app.use('/play', play);
   app.use('/fun', fun);
+  app.use('/trade', trade);  
+
+
 }
