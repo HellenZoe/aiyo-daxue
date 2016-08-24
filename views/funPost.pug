@@ -1,7 +1,7 @@
 extends servicelayout
 
 block styles
-  link(rel="stylesheet" href="../stylesheets/treeholePost.css")
+  link(rel="stylesheet" href="../stylesheets/funPost.css")
 block content
   div.page-group
     div.page.page-current
@@ -9,7 +9,7 @@ block content
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
           span.icon.icon-left.text-white
         a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
-        h1.title.text-white 发布树洞
+        h1.title.text-white 发布趣玩
       div.content
         div.post-treehole
           div.fun-title
@@ -20,10 +20,10 @@ block content
             span.icon
               input#fileToUpload(type="file" name="fileToUpload")
               i.iconfont-treeholePost &#xe605;
-          div.if-anonymous
-            input#anonymous(type="checkbox")
-            label(for="anonymous")
-            span 匿名发布
+          //- div.if-anonymous
+          //-   input#anonymous(type="checkbox")
+          //-   label(for="anonymous")
+          //-   span 匿名发布
 block scripts
   script(src="../javascripts/autosize.min.js")
   script(src="../javascripts/windowUtils.js")
