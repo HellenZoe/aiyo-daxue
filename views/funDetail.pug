@@ -19,14 +19,15 @@ block content
         if fun
           div.card.facebook-card
             div.card-header.no-border
-              div.facebook-avatar= fun.authorAvatarUrl
+              div.facebook-avatar
+                img(src= fun.authorAvatarUrl)
               div.facebook-name= fun.authorName
               div.facebook-date= fun.date
             div.card-content
               div.card-title= fun.title
-              div.content= fun.content
+              div.content-main= fun.content
             div.card-footer.no-border
-              div.button.button-fill(data-fId= fun._id)  我想去
+              div.button.wantTo.button-fill(data-fId= fun._id)  我想去
               
               
               

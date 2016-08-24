@@ -1,0 +1,11 @@
+.facebook-card {
+  padding: 0px;
+}
+.facebook-card .card-footer {
+  position: relative;
+}
+.facebook-card .card-footer .wantTo {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+}
