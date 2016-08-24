@@ -103,6 +103,27 @@ router.get('/detail/:id', function(req, res) {
   })
 })
 
+//  操作
+router.post('/action', function(req, res) {
+  var pId = req.body.pId;
+  switch (req.body.type) {
+    case "del":
+      Play.remove({_id: pId}, function(err, p) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+    default:
+
+  }
+})
+
+
 // 个人中心
 // router.get('/self', function(req, res) {
 //   if (req.session.user) {

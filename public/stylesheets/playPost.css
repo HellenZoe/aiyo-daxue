@@ -72,16 +72,12 @@
   overflow: hidden;
   display: none;
 }
-.category,
 .type {
-  float: right;
   margin-top: 1rem;
 }
-.category input,
 .type input {
   display: none;
 }
-.category input + label,
 .type input + label {
   display: inline-block;
   height: .9rem;
@@ -90,12 +86,10 @@
   border: 1px solid #dedede;
   position: relative;
 }
-.category input:checked + label,
 .type input:checked + label {
   border: none;
   background-color: #F77A7A;
 }
-.category input:checked + label:after,
 .type input:checked + label:after {
   content: '\2714';
   font-size: 1rem;
@@ -103,7 +97,6 @@
   color: #fff;
   top: -0.4rem;
 }
-.category span,
 .type span {
   position: relative;
   top: -0.3rem;

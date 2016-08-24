@@ -45,6 +45,8 @@ router.get('/post', function(req, res) {
   })
 })
 
+
+//  操作
 router.post('/action', function(req, res) {
   var lId = req.body.lId;
   switch (req.body.type) {
