@@ -1,1 +1,131 @@
-div 商圈
+extends layout
+
+block styles
+  link(href="./stylesheets/tradeIndex.css" rel='stylesheet')
+
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.tradeIndex-back.pull-left.external(href="/")
+          span.icon.icon-left
+        a.button.button-link.button-nav.tradeIndex-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 呆萌学姐
+      nav.bar.bar-tab
+        a.tab-item.external(href="/tradeIndex")
+          span.icon.index-color
+            i.iconfont-indexTabBar &#xe601;
+          span.tab-label 主页
+        a.tab-item.external(href="/tradeIndex/post")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe603;
+          span.tab-label 发布
+        a.tab-item.external(href="/tradeIndex/self")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe604;
+          span.tab-label 个人中心
+      div.bar.bar-header-secondary.tradeIndex-searchbar
+        div.searchbar
+          a.searchbar-cancel 取消
+          div.search-input
+            label.icon.icon-search(for="search")
+            input#search(type="search", placeholder="搜索感兴趣的话题")  
+                       
+      div.content.tradeIndex-content
+        div.buttons-tab
+          a.tab-link.button(href="#category-modal") 
+            span 分类&nbsp;
+            sapn.icon
+              i.iconfont-dropDown &#xe626; 
+          span.halving-line
+          a.tab-link.button(href="#tab-distance") 
+            span 距离&nbsp;
+            sapn.icon
+              i.iconfont-dropDown &#xe626; 
+          span.halving-line
+          a.tab-link.button(href="#tab-popular") 
+            span 热度&nbsp;
+            sapn.icon
+              i.iconfont-dropDown &#xe626; 
+        div.content-block
+          div.tabs
+            div#tab-category.tab.active
+              div.content-block
+                div.item-block
+                  div.img-wrapper
+                    img(src="../../images/book.jpg")
+                  div.item-content
+                    div.item-header
+                      a.item-name 私家菜园
+                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
+                    div.item-footer
+                      span.icon
+                        i.iconfont-position &#xe619; 
+                      span.address 地址武汉市华中科技大学
+                      div.actionSheet
+                        span.distance 1.2km
+                        
+                div.item-block
+                  div.img-wrapper
+                    img(src="../../images/book.jpg")
+                  div.item-content
+                    div.item-header
+                      a.item-name 私家菜园
+                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
+                    div.item-footer
+                      span.icon
+                        i.iconfont-position &#xe619; 
+                      span.address 地址武汉市华中科技大学
+                      div.actionSheet
+                        span.sold 1.2km
+                        
+                div.item-block
+                  div.img-wrapper
+                    img(src="../../images/book.jpg")
+                  div.item-content
+                    div.item-header
+                      a.item-name 私家菜园
+                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
+                    div.item-footer
+                      span.icon
+                        i.iconfont-position &#xe619; 
+                      span.address 地址武汉市华中科技大学
+                      div.actionSheet
+                        span.sold 1.2km
+
+
+                div.item-block
+                          div.img-wrapper
+                            img(src="../../images/book.jpg")
+                          div.item-content
+                            div.item-header
+                              a.item-name 私家菜园
+                            div.item-desc 使用支付宝，马云妈妈请大家吃饭
+                            div.item-footer
+                              span.icon
+                                i.iconfont-position &#xe619; 
+                              span.address 地址武汉市华中科技大学
+                              div.actionSheet
+                                span.sold 1.2km
+                                
+                div.item-block
+                                  div.img-wrapper
+                                    img(src="../../images/book.jpg")
+                                  div.item-content
+                                    div.item-header
+                                      a.item-name 私家菜园
+                                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
+                                    div.item-footer
+                                      span.icon
+                                        i.iconfont-position &#xe619; 
+                                      span.address 地址武汉市华中科技大学
+                                      div.actionSheet
+                                        span.sold 1.2km
+          
+        
+
+  
+  
+block scripts
