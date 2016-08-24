@@ -106,10 +106,34 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 // 查看趣玩详情
 router.get('/detail/:id', function(req, res) {
-  res.render('funDetail', {
-    title: "商品详情"
+  Fun.find({_id: req.params.id}, function(err, fs) {
+      console.log("***********************logging from /secondhand/detai/:id--view", gs);
+      res.render("funDetail", {
+        title: "详情",
+        fun: fs[0].toObject({getters: true, virtuals: true})
+      })
+
+
   })
 })
+
+
+//  我想去
+router.post('/follow', function(req, res) {
+  var id = req.session.user._id;
+  var fId = req.body.fId;
+  Fun.update({_id: fId}, {$push: {wantUserId: id}, function(err, row) {
+    if (err) {
+      console.log(err);
+    }else {
+      res.json({
+        success: true
+      })
+    }
+  })
+})
+
+
 
 // 个人中心
 // router.get('/self', function(req, res) {

@@ -8,9 +8,27 @@ block content
   div.page-group
     div.page.page-current
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.funIndex-back.pull-left.external(href="/")
+        a.button.button-link.button-nav.funIndex-back.pull-left.external(href="/fun")
           span.icon.icon-left
         a.button.button-link.button-nav.funIndex-back.pull-right.external
           span.icon.text-white
             i.iconfont-selfShare &#xe610;
-        h1.title.text-white 詳情
+        h1.title.text-white 详情
+
+      div.content
+        if fun
+          div.card.facebook-card
+            div.card-header.no-border
+              div.facebook-avatar= fun.authorAvatarUrl
+              div.facebook-name= fun.authorName
+              div.facebook-date= fun.date
+            div.card-content
+              div.card-title= fun.title
+              div.content= item.content
+            div.card-footer.no-border
+              div.button.button-fill(data-fId= item._id)  我想去
+              
+              
+              
+block scripts
+  script(src='../../javascripts/funDetail.js', type='text/javascript')
