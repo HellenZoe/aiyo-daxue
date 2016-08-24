@@ -141,7 +141,7 @@ router.post('/action', function(req, res) {
 // 查看趣玩详情
 router.get('/detail/:id', function(req, res) {
   Fun.find({_id: req.params.id}, function(err, fs) {
-      console.log("***********************logging from /secondhand/detai/:id--view", gs);
+      console.log("***********************logging from /secondhand/detai/:id--view", fs);
       res.render("funDetail", {
         title: "详情",
         fun: fs[0].toObject({getters: true, virtuals: true})
