@@ -26,8 +26,9 @@ block content
             div.card-content
               div.card-title= fun.title
               div.content-main= fun.content
-            div.card-footer.no-border
-              div.button.wantTo.button-fill(data-fId= fun._id)  我想去
+            if notYet
+              div.card-footer.no-border
+                div.button.wantTo.button-fill(data-fId= fun._id)  我想去
               
               
               
