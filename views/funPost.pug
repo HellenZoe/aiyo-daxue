@@ -1,0 +1,31 @@
+extends servicelayout
+
+block styles
+  link(rel="stylesheet" href="../stylesheets/treeholePost.css")
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/treehole")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
+        h1.title.text-white 发布树洞
+      div.content
+        div.post-treehole
+          div.fun-title
+            input(type='text', name='title' placeholder="添加标题")
+          div.treehole-content
+            textarea
+            div#previewAllPic
+            span.icon
+              input#fileToUpload(type="file" name="fileToUpload")
+              i.iconfont-treeholePost &#xe605;
+          div.if-anonymous
+            input#anonymous(type="checkbox")
+            label(for="anonymous")
+            span 匿名发布
+block scripts
+  script(src="../javascripts/autosize.min.js")
+  script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/funPost.js")
+  
