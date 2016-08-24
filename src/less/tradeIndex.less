@@ -1,0 +1,201 @@
+@color-red: #F57E7A;
+@color-blue: #13B7F5;
+
+
+.toast-success{
+  background-color: @color-red;
+  color: #fff;
+}
+
+//  但会图标为白色
+.bar .tradeIndex-back{
+  color: #fff;
+}
+
+.tradeIndex-content > .buttons-tab > .button{
+  background-color: #fff;
+  font-size: .7rem;
+}
+
+.tradeIndex-content .buttons-tab .button.active{
+    color: #5f646e;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.halving-line{
+  border-right: 1px solid #e7e7e7;
+}
+
+.tradeIndex-content > .content-block{
+  margin: 0;
+  padding: 0px;
+  .tabs .content-block{
+    margin: 0rem;
+    padding: 0px;
+  }
+}
+
+.tradeIndex-searchbar{
+  background-color: #fff;
+  .searchbar{
+    background-color: #fff;
+    input#search{
+      background-color: #f5f5f5;
+      border-radius: .5rem;
+    }
+  }
+}
+
+.item-block{
+  width: 100%;
+  padding: .4rem;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: #fff;
+  .img-wrapper{
+    img{
+      height: 4rem;
+      width: 4rem;
+    }
+    float: left;
+  }
+  .item-content{
+    margin-left: 4.3rem;
+    .item-header{
+      .item-name{
+        font-size: .7rem;
+        color: #444;
+      }
+      .item-category{
+        background-color: #0894ec;
+        color: white;
+        font-size: .6rem;
+        margin-left: .4rem;
+      }
+    }
+
+    .item-desc{
+      font-size: .6rem;
+      height: 2.6rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-bottom: 1.２rem;
+    }
+    .item-footer{
+      position: relative;
+      font-size: .6rem;
+      .icon{
+        position: absolute;
+        left: 0rem;
+        bottom: -.4rem;
+        color: red;
+      }
+      .address{
+        position: absolute;
+        left: 1rem;
+        bottom: -.3rem;
+      }
+      .actionSheet{
+        position: absolute;
+        right: .5rem;
+        bottom: -.3rem;
+      }
+    }
+  }
+}
+
+.modal-block{
+  background-color: rgba(29, 29, 29, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+//   底部工具栏icon-text
+@font-face {font-family: 'iconfont-treeHoleTabsBar';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-treeHoleTabsBar.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-treeHoleTabsBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-treeHoleTabsBar.svg#iconfont-treeHoleTabsBar') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-treeHoleTabsBar{
+    font-family:"iconfont-treeHoleTabsBar" !important;
+    font-size:1.2rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// 因为主页的图标是和首页一样的, 所以这里也声明一下
+@font-face {font-family: 'iconfont-indexTabBar';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-indexTabBar.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-indexTabBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-indexTabBar.svg#iconfont-indexTabBar') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-indexTabBar{
+    font-family:"iconfont-indexTabBar" !important;
+    font-size:1.3rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//位置icon
+@font-face {font-family: 'iconfont-position';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-position.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-position.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-position.svg#iconfont-position') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-position{
+    font-family:"iconfont-position" !important;
+    font-size:.75rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//分享icon
+@font-face {font-family: 'iconfont-selfShare';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-selfShare.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-selfShare.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-selfShare.svg#iconfont-selfShare') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-selfShare{
+    font-family:"iconfont-selfShare" !important;
+    font-size:1rem;
+    font-style:normal;
+    margin-right: 0.3rem;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//下拉
+@font-face {font-family: 'iconfont-dropDown';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont-dropDown.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont-dropDown.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont-dropDown.svg#iconfont-dropDown') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont-dropDown{
+    font-family:"iconfont-dropDown" !important;
+    font-size:.5rem;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
