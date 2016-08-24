@@ -9,7 +9,7 @@ $(function() {
   var formInfo  = {
     name: "",
     desc: "",
-    location: "",
+    address: "",
     price: "",
     qq: "",
     tel: "",
@@ -87,12 +87,20 @@ $(function() {
       $.toast("还没有写电话哟～");
       return;
     }
+    var price = $('.price input').val();
+    if (!tel) {
+      $.hidePreloader();
+      $.toast("还没有写价格哟～");
+      return;
+    }
+
     formInfo.type = type.attr('name');
     formInfo.name = name;
     formInfo.desc = desc;
     formInfo.address = address;
     formInfo.qq = qq;
     formInfo.tel = tel;
+    formInfo.price = price;
 
     //  发送所有信息
     sendFile(formInfo);
@@ -264,6 +272,7 @@ $(function() {
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
     formData.append('type', info.type);
+    formData.append('price', info.prie);
     var url = "http://" + location.host + "/play/new"
   	$.ajax({
   		type: 'POST',

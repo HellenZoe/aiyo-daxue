@@ -63,7 +63,7 @@ module.exports = function(app) {
   app.use('/lost', lost);
   app.use('/play', play);
   app.use('/fun', fun);
-  app.use('/trade', trade);  
+  app.use('/trade', trade);
 
 
 }
