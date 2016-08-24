@@ -7,6 +7,7 @@ var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
 var Goods = require('../model/goods');
+var Play = require('../model/play');
 
 //   去约首页
 router.get('/', function(req, res) {
@@ -25,23 +26,23 @@ router.get('/post', function(req, res) {
 
 //  发布新的去约
 router.post('/new', upload.single('test'), function(req, res) {
-    console.log("*************logging from /lost/new--user***************", req.session.user);
-    console.log("*************logging from /lost/new--req.body***************", req.body);
+    console.log("*************logging from /play/new--user***************", req.session.user);
+    console.log("*************logging from /play/new--req.body***************", req.body);
     var imageData = JSON.parse(req.body['imageData']);
     var type = req.body['type'];
     var name = req.body['name'];
     var desc = req.body['desc'];
-    var location = req.body['location'];
-    var category = req.body['category'];
+    var address = req.body['address'];
     var qq = req.body['qq'];
     var tel = req.body['tel'];
+    var price = req.body['price'];
     var authorId = req.session.user._id;
     var time = Date.now();
     User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
       if (err) {
         console.log(err);
       }else {
-        var newLost = new Goods({
+        var newPlay = new Play({
             author: authorId,
             authorName: us[0].name,
             authorAvatarUrl: us[0].avatarUrl,
@@ -50,15 +51,14 @@ router.post('/new', upload.single('test'), function(req, res) {
             desc: desc,
             status: 0,
             location: location,
-            category: category,
             qq: qq,
             tel: tel,
             time: time,
-            view: 0,
-            type: type
+            type: type,
+            price: price
         })
-        console.log("logging from ******************logging from /lost/new --losttosave", newLost);
-        newLost.save(function(err, l) {
+        console.log("logging from ******************logging from /lost/new --losttosave", newPlay);
+        newPlay.save(function(err, l) {
           if (err) {
             console.log("save treehole error");
           }
@@ -69,7 +69,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           	var dataBuffer = new Buffer(base64Data, 'base64');
             var picUrl = "http://obzokcbc0.bkt.clouddn.com/secondHand/" + time + "." + fileType;
             console.log("*****************logging from /secondHand/new--picUrl**************", picUrl);
-            newLost.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+            newPlay.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
                 console.log("保存secondHand url出错", err);
               }else {

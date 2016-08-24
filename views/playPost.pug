@@ -1,1 +1,55 @@
-div post
+extends servicelayout
+
+block styles
+  link(href="../stylesheets/playPost.css" rel="stylesheet")
+    
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/play")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
+        h1.title.text-white 发布
+      div.content
+        div.post-valueble
+          div.type
+            h3 类型
+            div
+              input#checkbox_t(type="checkbox" name="thing")
+              label(for="checkbox_w")
+              span 我想要
+            div
+              input#checkbox_p(type="checkbox" name="person")
+              label(for="checkbox_c")
+              span 我能行
+          div.name
+            h3 描述
+            input.border-bottom(type="text" name="name" placeholder="说说你想做什么")
+            div#previewAllPic
+            span.icon
+              input#fileToUpload(type="file" name="fileToUpload")
+              i.iconfont-treeholePost &#xe605;
+          div.desc
+            h3 简介
+            input.border-bottom(placeholder="简单说一说具体内容")
+          div.address
+            h3 地点
+            input.border-bottom(placeholder="请填写地点")
+          div.price
+            h3 价格
+            input.border-bottom(placeholder="请填写价格")
+          div.qq
+            h3 qq号
+            input.border-bottom(placeholder="请填写qq号")
+          div.tel
+            h3 电话号
+            input.border-bottom(placeholder="请填写手机号")
+          
+            
+                        
+              
+              
+block scripts
+  script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/playPost.js")
