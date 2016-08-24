@@ -36,8 +36,10 @@
 定位 iconfont-position &#xe619
 QQ头像 iconfont-qq &#xe621
 手机（用于手机联系方式） iconfont-phone &#xe620
-
-
+物品（用于失物招领的搜索页） iconfont-lostGoods &#xe622
+失主 （用于失物招领的搜索页）iconfont-loser &#xe623
+房屋 （用于去约首页）iconfont-shop &#xe624
+树 （用于去约首页）iconfont-shop &#xe625
 ## 待解决问题
 
 + 点击链接跳到qq对话框

@@ -1,0 +1,137 @@
+extends layout
+
+block styles
+  link(href="./stylesheets/funIndex.css" rel='stylesheet')
+  link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
+
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.funIndex-back.pull-left.external(href="/")
+          span.icon.icon-left
+        a.button.button-link.button-nav.funIndex-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 趣玩
+    
+      nav.bar.bar-tab
+        a.tab-item.external(href="/fun")
+          span.icon.index-color
+            i.iconfont-indexTabBar &#xe601;
+          span.tab-label 主页
+        a.tab-item.external(href="/fun/post")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe603;
+          span.tab-label 发布
+        a.tab-item.external(href="/fun/self")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe604;
+          span.tab-label 个人中心
+          
+      
+      div.content.funIndex-content
+        div(class="swiper-container" data-space-between="10")
+          div.swiper-wrapper
+            div.swiper-slide
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+            div.swiper-slide
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+            div.swiper-slide
+              img(src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg")
+          div.swiper-pagination
+            span.swiper-pagination-bullet
+            span.swiper-pagination-bullet
+            span.swiper-pagination-bullet
+        div.buttons-tab
+          a.tab-link.button.active(href="#tab-index") 首页
+          a.tab-link.button(href="#tab-food") 美食
+          a.tab-link.button(href="#tab-travel") 周边游
+          a.tab-link.button(href="#tab-fun") 休闲娱乐
+          a.tab-link.button(href="#tab-beauty") 丽人美妆
+          a.tab-link.button(href="#tab-sport") 运动健身
+          a.tab-link.button(href="#tab-other") 其他
+        div.content-block
+          div.tabs
+            div#tab-index.tab.active
+              div.content-block
+                  div.item-block
+                    div.img-wrapper
+                      img(src="../../images/book.jpg")
+                    div.item-content
+                      div.item-header
+                        a.item-name 私家菜园
+                      div.item-desc 想要吃美食，只能排队
+                      
+                  div.item-block
+                    div.img-wrapper
+                      img(src="../../images/book.jpg")
+                    div.item-content
+                      div.item-header
+                        a.item-name 私家菜园
+                      div.item-desc 想要吃美食，只能排队
+                  
+                  div.item-block
+                    div.img-wrapper
+                      img(src="../../images/book.jpg")
+                    div.item-content
+                      div.item-header
+                        a.item-name 私家菜园
+                      div.item-desc 想要吃美食，只能排队
+                  
+                  div.item-block
+                    div.img-wrapper
+                      img(src="../../images/book.jpg")
+                    div.item-content
+                      div.item-header
+                        a.item-name 私家菜园
+                      div.item-desc 想要吃美食，只能排队
+                      
+                  div.item-block
+                    div.img-wrapper
+                      img(src="../../images/book.jpg")
+                    div.item-content
+                      div.item-header
+                        a.item-name 私家菜园
+                      div.item-desc 想要吃美食，只能排队
+                  
+                  
+                  div.item-block
+                    div.img-wrapper
+                      img(src="../../images/book.jpg")
+                    div.item-content
+                      div.item-header
+                        a.item-name 私家菜园
+                      div.item-desc 想要吃美食，只能排队
+                      
+                      
+                  div.item-block
+                    div.img-wrapper
+                      img(src="../../images/book.jpg")
+                    div.item-content
+                      div.item-header
+                        a.item-name 私家菜园
+                      div.item-desc 想要吃美食，只能排队
+
+            div#tab-food.tab
+              div.content-block
+                div 这里是美食
+            div#tab-travel.tab
+              div.content-block
+                div 这是周边游
+            div#tab-fun.tab
+              div.content-block
+                div 这是休闲娱乐
+            div#tab-beauty.tab
+              div.content-block
+                div 这是丽人美妆
+            div#tab-sport.tab
+              div.content-block
+                div 这是运动健身
+            div#tab-other.tab
+              div.content-block
+                div 这是其他
+
+
+block scripts
+  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')

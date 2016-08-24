@@ -1,1 +1,81 @@
-div index
+extends layout
+
+block styles
+  link(href="./stylesheets/playIndex.css" rel='stylesheet')
+  link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
+
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.playIndex-back.pull-left.external(href="/")
+          span.icon.icon-left
+        a.button.button-link.button-nav.playIndex-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 去约
+    
+      nav.bar.bar-tab
+        a.tab-item.external(href="/fun")
+          span.icon.index-color
+            i.iconfont-indexTabBar &#xe601;
+          span.tab-label.index-color 主页
+        a.tab-item.external(href="/fun/post")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe603;
+          span.tab-label 发布
+        a.tab-item.external(href="/fun/self")
+          span.icon
+            i.iconfont-treeHoleTabsBar &#xe604;
+          span.tab-label 个人中心
+
+      div.bar.bar-header-secondary.playIndex-searchbar
+        div.searchbar
+          a.searchbar-cancel 取消
+          div.search-input
+            label.icon.icon-search(for="search")
+            input#search(type="search", placeholder="搜索感兴趣的话题")     
+          a.gotoSearch.link(href="#search-page")
+      
+      div.tabs-content
+        div.shop-tab 
+          span.icon
+            i.iconfont-shop &#xe624;
+            span.shop-name  解忧杂货铺
+        div.school-tab 
+          span.icon
+            i.iconfont-tree &#xe625;
+            span.school-house  校园万事屋
+      
+      div.content.playIndex-content
+        div.activity-card
+          div.card-content
+            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
+            div.img-desc
+              span 校园情话200期
+              span.price ￥10
+          div.card-footer 一花一世界
+        div.activity-card
+          div.card-content
+            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
+            div.img-desc
+              span 校园情话200期
+              span.price ￥10
+          div.card-footer 一花一世界
+        div.activity-card
+          div.card-content
+            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
+            div.img-desc
+              span 校园情话200期
+              span.price ￥10
+          div.card-footer 一花一世界
+        div.activity-card
+          div.card-content
+            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
+            div.img-desc
+              span 校园情话200期
+              span.price ￥10
+          div.card-footer 一花一世界
+          
+
+block scripts

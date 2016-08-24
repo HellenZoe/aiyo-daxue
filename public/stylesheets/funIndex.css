@@ -1,0 +1,110 @@
+.funIndex-content > .swiper-container {
+  padding-bottom: 0px;
+}
+.swiper-slide img {
+  width: 100%;
+}
+.index-color {
+  color: #2690F7;
+}
+.toast-success {
+  background-color: #2690F7;
+  color: #fff;
+}
+.bar .funIndex-back {
+  color: #fff;
+}
+.funIndex-content > .buttons-tab > .button {
+  background-color: #fff;
+}
+.funIndex-content .buttons-tab .button.active {
+  color: #2690F7;
+  border-color: #2690F7;
+}
+.content-head,
+.buttons-tab {
+  width: 100%;
+  z-index: 100;
+}
+.funIndex-content > .content-block {
+  margin: 0;
+  padding: 0px;
+}
+.funIndex-content > .content-block .tabs .content-block {
+  margin: 0rem;
+  padding: 0px;
+}
+.item-block {
+  width: 100%;
+  padding: .4rem;
+  background-color: #fff;
+  border-bottom: 1px solid #dedede;
+}
+.item-block .img-wrapper {
+  float: left;
+}
+.item-block .img-wrapper img {
+  height: 4rem;
+  width: 4rem;
+}
+.item-block .item-content {
+  margin-left: 4.3rem;
+}
+.item-block .item-content .item-header .item-name {
+  font-size: .7rem;
+  color: #444;
+}
+.item-block .item-content .item-desc {
+  font-size: .6rem;
+  height: 2.6rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 1.２rem;
+}
+@font-face {
+  font-family: 'iconfont-treeHoleTabsBar';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-treeHoleTabsBar.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-treeHoleTabsBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-treeHoleTabsBar.svg#iconfont-treeHoleTabsBar') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-treeHoleTabsBar {
+  font-family: "iconfont-treeHoleTabsBar" !important;
+  font-size: 1.2rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'iconfont-indexTabBar';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-indexTabBar.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-indexTabBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-indexTabBar.svg#iconfont-indexTabBar') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-indexTabBar {
+  font-family: "iconfont-indexTabBar" !important;
+  font-size: 1.3rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'iconfont-selfShare';
+  src: url('iconfont.eot');
+  /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfShare.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfShare.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfShare.svg#iconfont-selfShare') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont-selfShare {
+  font-family: "iconfont-selfShare" !important;
+  font-size: 1rem;
+  font-style: normal;
+  margin-right: 0.3rem;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
