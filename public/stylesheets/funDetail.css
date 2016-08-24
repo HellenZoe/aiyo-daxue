@@ -1,5 +1,8 @@
 .facebook-card {
-  padding: 0px;
+  margin: 0px;
+}
+.facebook-card .card-content {
+  padding: .5rem;
 }
 .facebook-card .card-footer {
   position: relative;
@@ -8,4 +11,7 @@
   position: absolute;
   top: .5rem;
   right: .5rem;
+}
+.funIndex-back .icon {
+  color: white;
 }
