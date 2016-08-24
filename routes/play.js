@@ -50,7 +50,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             name: name,
             desc: desc,
             status: 0,
-            location: location,
+            address: address,
             qq: qq,
             tel: tel,
             time: time,
@@ -67,8 +67,8 @@ router.post('/new', upload.single('test'), function(req, res) {
             var base64Data = item.split(',')[1];
             var fileType = item.split(';')[0].split('/')[1];
           	var dataBuffer = new Buffer(base64Data, 'base64');
-            var picUrl = "http://obzokcbc0.bkt.clouddn.com/secondHand/" + time + "." + fileType;
-            console.log("*****************logging from /secondHand/new--picUrl**************", picUrl);
+            var picUrl = "http://obzokcbc0.bkt.clouddn.com/play/" + time + "." + fileType;
+            console.log("*****************logging from /play/new--picUrl**************", picUrl);
             newPlay.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
                 console.log("保存secondHand url出错", err);
@@ -81,7 +81,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           		if(err){
           		  console.log(err);
           		}else{
-                uploadToQiniu(tmpFilePath, "lost");
+                uploadToQiniu(tmpFilePath, "play");
                 res.json({success: true})
                 console.log("success upload");
               }
