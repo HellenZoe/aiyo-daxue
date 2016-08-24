@@ -148,7 +148,7 @@ router.get('/detail/:id', function(req, res) {
       res.render("funDetail", {
         title: "详情",
         fun: fs[0].toObject({getters: true, virtuals: true}),
-        notYet: utils.contains(fs[0].wantUserId, req.session.user._id) ? false : true;
+        notYet: utils.contains(fs[0].wantUserId, req.session.user._id) ? false : true
 
       })
 
