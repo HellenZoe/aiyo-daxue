@@ -2,7 +2,7 @@ extends detaillayout
 
 block styles
   link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
-  link(rel="stylesheet" href="../../stylesheets/secondHandDetail.css")
+  link(rel="stylesheet" href="../../stylesheets/playDetail.css")
 
 block content
   div.page-group
@@ -33,12 +33,13 @@ block content
           div.card-footer
             div.icon.position
               i.iconfont-position &#xe619;
-              span= play.address
+              span 地址#{play.address}
             div.view
               span 浏览次数#{play.view}
 
         div.desc
-          div.card-content-text= play.desc          
+            i.iconfont-playDetail &#xe640;
+            span= play.desc          
         div.card.facebook-card
           div.card-header.no-border
             div.facebook-avatar
