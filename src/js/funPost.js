@@ -35,7 +35,7 @@ $(function() {
     var postText = $('.treehole-content > textarea').val();
     var postTitle  = $('.fun-title input').val();
     allPic.postText = postText;
-    allpic.postTitle = postTitle;
+    allPic.postTitle = postTitle;
 
     //  发送所有信息
     sendFile(allPic);
