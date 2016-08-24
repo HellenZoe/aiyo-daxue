@@ -81,12 +81,12 @@ router.post('/new', upload.single('test'), function(req, res) {
             price: price,
             view: 0
         })
-        console.log("logging from ******************logging from /lost/new --losttosave", newPlay);
-        newPlay.save(function(err, l) {
+        console.log("logging from ******************logging from /play/new --newPlaytosave", newPlay);
+        newPlay.save(function(err, p) {
           if (err) {
             console.log("save treehole error");
           }
-          console.log("*******************logging from /lost/new--lost", l);
+          console.log("*******************logging from /play/new--lost", p);
           imageData.forEach(function(item, index) {
             var base64Data = item.split(',')[1];
             var fileType = item.split(';')[0].split('/')[1];
