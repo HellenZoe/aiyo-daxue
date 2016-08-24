@@ -6,7 +6,7 @@ var multer= require('multer');
 var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
-var Fun = require('../model/fun')
+var Fun = require('../model/fun');
 //   趣玩首页
 router.get('/', function(req, res) {
   res.render("funIndex", {
@@ -22,7 +22,7 @@ router.get('/post', function(req, res) {
 })
 
 
-//  发布新的去约
+//  发布新的趣玩
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /fun/new--user***************", req.session.user);
     var imageData = JSON.parse(req.body['imageData']);
@@ -43,10 +43,10 @@ router.post('/new', upload.single('test'), function(req, res) {
             title: title,
             time: time
         })
-        console.log("logging from ******************logging from /treehole/new --treeholeToSave", newTreehole);
+        console.log("logging from ******************logging from /fun/new --funToSave", newFun);
         newFun.save(function(err, fun) {
           if (err) {
-            console.log("save treehole error");
+            console.log("save fun error");
           }
           console.log("*******************logging from /fun/new--fun", fun);
           imageData.forEach(function(item, index) {
@@ -57,7 +57,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             console.log("*****************logging from /fun/new--picUrl**************", picUrl);
             Fun.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
-                console.log("保存treehole url出错", err);
+                console.log("保存fun url出错", err);
               }else {
                 console.log(raw);
               }
@@ -116,7 +116,7 @@ router.get('/detail/:id', function(req, res) {
 //     res.render("secondHandSelf", {
 //       title: "个人中心",
 //       user: null,
-//       treeholes: null
+//       funs: null
 //     })
 //   }
 // })
