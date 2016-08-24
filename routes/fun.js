@@ -154,7 +154,7 @@ router.get('/self', function(req, res) {
       }else {
         console.log("*******************logging from /fun/self--funs***************", fs);
         Fun.find({wantUserId: req.session.user._id}, function(err, ws) {
-          res.render("funself", {
+          res.render("funSelf", {
             title: "个人中心",
             funs: fs.length == 0 ? null : ws,
             wantToFuns: ws.length  == 0 ? null : ws,
