@@ -28,5 +28,5 @@ playSchema.virtual('date').get(function() {
   return month + "-" + day + "  " + hour + ":" + minute;
 })
 
-var Play = mongoose.model('Valueble', playSchema);
+var Play = mongoose.model('Play', playSchema);
 module.exports =  Play;

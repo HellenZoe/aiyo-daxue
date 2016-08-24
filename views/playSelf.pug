@@ -24,13 +24,13 @@ block content
 
         div.content.valueble-content
           div.buttons-tab
-            a.tab-link.button.active(href="#tab-want") 我的去约
+            a.tab-link.button.active(href="#tab-play") 我的去约
           div.content-block
             div.tabs
-              div#tab-want.tab.active
+              div#tab-play.tab.active
                 div.content-block
-                  if wantToFuns
-                    each item in wantToFuns
+                  if plays
+                    each item in plays
                       div.item-block
                         div.img-wrapper
                           img(src= item.picUrl[0])
@@ -40,21 +40,7 @@ block content
                           div.item-desc= item.content
                           div.item-footer
                             div.actionSheet
-                              a.del-wanto(data-fId= item._id) 删除
-              div#tab-share.tab
-                div.content-block
-                  if funs
-                    each item in funs
-                      div.item-block
-                        div.img-wrapper
-                          img(src= item.picUrl[0])
-                        div.item-content
-                          div.item-header
-                            a.item-name= item.title
-                          div.item-desc= item.content
-                          div.item-footer
-                            div.actionSheet
-                              a.del-(data-fId= item._id) 删除
+                              a.del(data-fId= item._id) 删除
       else
         div.content
           div.content-block
