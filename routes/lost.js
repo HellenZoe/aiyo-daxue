@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
             return item.toObject({getters: true, virtuals: true});
         }));
         res.render("lostIndex", {
-          title: "二手交易首页",
+          title: "失物招领首页",
           goods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }),
@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
         });
       }else {
         res.render("lostIndex", {
-          title: "二手交易首页",
+          title: "失物招领首页",
           goods: null,
           user: crtUser
         });
