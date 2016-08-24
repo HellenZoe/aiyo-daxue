@@ -50,7 +50,7 @@ $(function() {
     //  提醒用户已经发布成功  然后回到树洞首页
     $.alert("现在返回主页", "发布成功", function() {
       var host = location.host;
-      location.href= "http://" + host  + "/treehole";
+      location.href= "http://" + host  + "/fun";
       return;
     })
 
@@ -202,7 +202,7 @@ $(function() {
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('postTitle', info.postTitle);
     formData.append('postText', info.postText);
-    var url = "http://" + location.host + "/treehole/new"
+    var url = "http://" + location.host + "/fun/new"
   	$.ajax({
   		type: 'POST',
   		url: url,
