@@ -1,7 +1,7 @@
 //  删除自己想去的
 $('.del-wanto').on('click', function(e) {
   e.preventDefault();
-  var fId = $(this).attr('data-fId');
+  var fId = $(this).attr('data-fid');
   var info = {
     fId: fId,
     type: "del-wanto"
@@ -40,7 +40,7 @@ $('.del-wanto').on('click', function(e) {
 //  删除自己分享的
 $('.del-share').on('click', function(e) {
   e.preventDefault();
-  var fId = $(this).attr('data-fId');
+  var fId = $(this).attr('data-fid');
   var info = {
     fId: fId,
     type: "del-share"

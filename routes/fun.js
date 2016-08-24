@@ -106,10 +106,11 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 //  操作
 router.post('/action', function(req, res) {
+  console.log("*******************logging from /fun/action--req.body", req.body);
   var fId = req.body.fId;
   switch (req.body.type) {
     case "del-share":
-      Fun.remove({_id: lId}, function(err, l) {
+      Fun.remove({_id: fId}, function(err, l) {
         if (err) {
           console.log(err);
         }else {
@@ -120,7 +121,7 @@ router.post('/action', function(req, res) {
       })
       break;
     case "del-wanto":
-      Fun.update({_id: lId}, {$pull: {"wantUserId": req.session.user._id}}, function(err, l) {
+      Fun.update({_id: fId}, {$pull: {"wantUserId": req.session.user._id}}, function(err, l) {
         if (err) {
           console.log(err);
         }else {
