@@ -41,7 +41,7 @@ block content
                           div.item-desc= item.content
                           div.item-footer
                             div.actionSheet
-                              a.found(data-lId= item._id) 删除
+                              a.del-wanto(data-fId= item._id) 删除
               div#tab-share.tab
                 div.content-block
                   if funs
@@ -55,7 +55,7 @@ block content
                           div.item-desc= item.content
                           div.item-footer
                             div.actionSheet
-                              a.found(data-lId= item._id) 删除
+                              a.del-share(data-fId= item._id) 删除
       else
         div.content
           div.content-block

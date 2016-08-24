@@ -104,6 +104,39 @@ router.post('/new', upload.single('test'), function(req, res) {
 })
 
 
+//  操作
+router.post('/action', function(req, res) {
+  var fId = req.body.fId;
+  switch (req.body.type) {
+    case "del-share":
+      Fun.remove({_id: lId}, function(err, l) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+    case "del-wanto":
+      Fun.update({_id: lId}, {$pull: {"wantUserId": req.session.user._id}}, function(err, l) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+
+    default:
+
+  }
+})
+
+
 // 查看趣玩详情
 router.get('/detail/:id', function(req, res) {
   Fun.find({_id: req.params.id}, function(err, fs) {
@@ -168,7 +201,7 @@ router.post('/follow', function(req, res) {
 //   }
 // })
 
-//个人中心（胡博）
+//个人中心
 router.get('/self', function(req, res) {
   if (req.session.user) {
     console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);
