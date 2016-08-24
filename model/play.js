@@ -1,7 +1,7 @@
 var mongoose =require('mongoose');
 var Schema = mongoose.Schema
 
-var valuebleSchema = new Schema({
+var playSchema = new Schema({
   name: String,
   desc: String,
   picUrl: [ String ],
@@ -17,7 +17,7 @@ var valuebleSchema = new Schema({
   price: Number
 })
 
-valuebleSchema.virtual('date').get(function() {
+playSchema.virtual('date').get(function() {
   var d = new Date();
   d.setTime(this.time);
   var month = d.getMonth() + 1;
@@ -28,5 +28,5 @@ valuebleSchema.virtual('date').get(function() {
   return month + "-" + day + "  " + hour + ":" + minute;
 })
 
-var Valueble = mongoose.model('Valueble', valuebleSchema);
+var Valueble = mongoose.model('Valueble', playSchema);
 module.exports =  Valueble;
