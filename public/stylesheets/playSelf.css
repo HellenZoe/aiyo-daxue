@@ -61,6 +61,10 @@
 .buttons-tab {
   margin-top: 5rem;
 }
+.buttons-tab .play {
+  width: 30%;
+  margin: 0 auto;
+}
 .content-block {
   margin: 0px;
   padding: 0px;
