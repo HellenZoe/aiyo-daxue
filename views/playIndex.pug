@@ -48,34 +48,15 @@ block content
             span.school-house  校园万事屋
 
       div.content.playIndex-content
-        div.activity-card
-          div.card-content
-            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
-            div.img-desc
-              span 校园情话200期
-              span.price ￥10
-          div.card-footer 一花一世界
-        div.activity-card
-          div.card-content
-            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
-            div.img-desc
-              span 校园情话200期
-              span.price ￥10
-          div.card-footer 一花一世界
-        div.activity-card
-          div.card-content
-            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
-            div.img-desc
-              span 校园情话200期
-              span.price ￥10
-          div.card-footer 一花一世界
-        div.activity-card
-          div.card-content
-            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
-            div.img-desc
-              span 校园情话200期
-              span.price ￥10
-          div.card-footer 一花一世界
-
+        if plays
+          each item in plays
+            div.activity-card(data-pId= item._id)
+              div.card-content
+                img(src= item.picUrl[0])
+                div.img-desc
+                  span= item.name
+                  span.price= item.price
+              div.card-footer= item.desc
 
 block scripts
+  script(src="./javascripts/playIndex.js")     

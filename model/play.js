@@ -14,7 +14,8 @@ var playSchema = new Schema({
   authorName: String,
   authorSchool: String,
   authorAvatarUrl: String,
-  price: Number
+  price: Number,
+  view: Number
 })
 
 playSchema.virtual('date').get(function() {

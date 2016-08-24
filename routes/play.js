@@ -11,8 +11,31 @@ var Play = require('../model/play');
 
 //   去约首页
 router.get('/', function(req, res) {
-  res.render("playIndex", {
-    title: "去约"
+  var crtUser = req.session.user;
+  var queryPlay = Play.find({});
+  queryPlay.exec(function(err,ps) {
+    if (err) {
+      console.log(err);
+    }else {
+      if (ps.length != 0) {
+        console.log("*******************logging from /play--playTransformed***************", ps.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }));
+        res.render("playIndex", {
+          title: "去约首页",
+          plays: ps.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }),
+          user: crtUser
+        });
+    }else {
+        res.render("playIndex", {
+          title: "趣玩首页",
+          plays: null,
+          user: crtUser
+        });
+      }
+    }
   })
 })
 
@@ -55,7 +78,8 @@ router.post('/new', upload.single('test'), function(req, res) {
             tel: tel,
             time: time,
             type: type,
-            price: price
+            price: price,
+            view: 0
         })
         console.log("logging from ******************logging from /lost/new --losttosave", newPlay);
         newPlay.save(function(err, l) {
@@ -98,8 +122,25 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 // 查看去约详情
 router.get('/detail/:id', function(req, res) {
-  res.render('playDetail', {
-    title: "商品详情"
+  Play.find({_id: req.params.id}, function(err, ps) {
+    if (ps.length > 0) {
+      console.log("***********************logging from /play/detai/:id--view", ps);
+      Play.update({_id: req.params.id}, {$set: {view: ps[0].view + 1}}, function(err, row) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.render("playDetail", {
+            title: "详情",
+            play: ps[0].toObject({getters: true, virtuals: true})
+          })
+        }
+      })
+    }else {
+      res.render('playDetail', {
+        title: "详情",
+        play: null
+      })
+    }
   })
 })
 
@@ -166,7 +207,7 @@ router.get('/self', function(req, res) {
         console.log("取出用户对应的树洞出错", err);
       }else {
         console.log("*******************logging from /play/self--plays***************", ps);
-        res.render("funSelf", {
+        res.render("playSelf", {
           title: "个人中心",
           plays: fs.length == 0 ? null : ps,
           user: req.session.user
@@ -175,7 +216,7 @@ router.get('/self', function(req, res) {
       }
     })
   }else {
-    res.render("funSelf", {
+    res.render("playSelf", {
       title: "个人中心",
       user: null,
       plays: null,
