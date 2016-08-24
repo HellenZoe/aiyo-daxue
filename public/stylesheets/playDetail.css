@@ -16,6 +16,14 @@ div.desc {
   background-color: #fff;
   color: #444;
   font-size: .8rem;
+  padding: .1rem .5rem;
+  margin-top: .5rem;
+}
+div.desc i {
+  color: #F97C06;
+}
+div.desc span {
+  margin-left: .5rem;
 }
 .facebook-card {
   margin: .5rem 0px 0px 0px;
@@ -79,7 +87,7 @@ div.desc {
   background-color: #fff;
 }
 .card-footer {
-  padding: 0px;
+  padding: .5rem;
 }
 .position,
 .price {
