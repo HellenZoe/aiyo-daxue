@@ -122,7 +122,7 @@ router.get('/detail/:id', function(req, res) {
 router.post('/follow', function(req, res) {
   var id = req.session.user._id;
   var fId = req.body.fId;
-  Fun.update({_id: fId}, {$push: {wantUserId: id}, function(err, row) {
+  Fun.update({_id: fId}, {$push: {wantUserId: id}}, function(err, row) {
     if (err) {
       console.log(err);
     }else {
