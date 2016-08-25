@@ -43,14 +43,14 @@ router.get('/post', function(req, res) {
   })
 })
 
-router.get('/newSeller', function(req, res) {
+router.get('/postSeller', function(req, res) {
   res.render('postSeller', {
     title: "发布"
   })
 })
 
 
-router.get('/newSingleton', function(req, res) {
+router.get('/postSingleton', function(req, res) {
   res.render('postSingleton', {
     title: "发布"
   })
@@ -118,7 +118,7 @@ router.post('/newSeller', upload.single('test'), function(req, res) {
 })
 
 // 录入商品信息
-router.post('/newSeller', upload.single('test'), function(req, res) {
+router.post('/newSingleton', upload.single('test'), function(req, res) {
     console.log("*************logging from /trade/newSingleton--user***************", req.session.user);
     console.log("*************logging from /trade/newSingleton--req.body***************", req.body);
     var imageData = JSON.parse(req.body['imageData']);
