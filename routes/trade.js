@@ -11,8 +11,28 @@ var Singleton = require('../model/singleton');
 
 //   商圈首页
 router.get('/', function(req, res) {
-  res.render('tradeIndex', {
-    title: "商圈首页"
+  var querySeller = Seller.find({});
+  querySeller.exec(function(err,ss) {
+    if (err) {
+      console.log(err);
+    }else {
+      if (ss.length != 0) {
+        console.log("*******************logging from /trade--sellerTransformed***************", ss.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }));
+        res.render("tradeIndex", {
+          title: "商圈首页",
+          sellers: ss.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }),
+        });
+    }else {
+        res.render("tradeIndex", {
+          title: "商圈首页",
+          ssellers: null
+        });
+      }
+    }
   })
 })
 
@@ -95,6 +115,26 @@ router.get('/detail/:id', function(req, res) {
 
 
   })
+})
+
+//  操作
+router.post('/action', function(req, res) {
+  var sId = req.body.sId;
+  switch (req.body.type) {
+  case "cancel":
+      Seller.update({_id:sId}, {$pull: { collectUserId: req.session.user._id}}, function(err, s) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+    default:
+
+  }
 })
 
 
