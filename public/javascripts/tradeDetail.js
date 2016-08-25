@@ -19,7 +19,6 @@ $('.action-collect').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $.toast('操作成功', 2000, "toast-success");
-p
         //  隐藏加载
         $.hidePreloader();
       }

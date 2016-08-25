@@ -188,7 +188,7 @@ router.post('/action', function(req, res) {
 router.get('/self', function(req, res) {
   if (req.session.user) {
     console.log("*************************log from /trade/self--req.session.user**********************", req.session.user);
-    Seller.find({favUserId : req.session.user._id}, function(err, ss) {
+    Seller.find({collectUserId : req.session.user._id}, function(err, ss) {
       if (err) {
         console.log("取出用户对应的商家出错", err);
       }else {
