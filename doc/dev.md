@@ -55,6 +55,7 @@ QQ头像 iconfont-qq &#xe621
 + 点击链接跳到qq对话框
 + 多标签不能滑动问题
 + button-link  是通过ajax下载  带有切换动画  但是会出现js文件缺少的问题  考虑手动触发链接
++ ajax success回调函数不执行
 
 ##  未完成
 
