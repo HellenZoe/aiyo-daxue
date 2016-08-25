@@ -129,7 +129,7 @@ router.post('/newSingleton', upload.single('test'), function(req, res) {
     var newSingleton = new Singleton({
         name: name,
         price: price,
-        time: time,
+        sellerId: sellerId
     })
     console.log("logging from ******************logging from /trade/newSingleton --singletontosave", newSingleton);
     newSingleton.save(function(err, s) {
@@ -137,13 +137,6 @@ router.post('/newSingleton', upload.single('test'), function(req, res) {
         console.log("save treehole error");
       }
       console.log("*******************logging from /trade/newSingleton", s);
-      //  将商品id信息添加到商家
-      Singleton.update({_id: s._id}, {$push: { sellerId: sellerId}}, function(err) {
-        if (err) {
-          console.log(err);
-        }
-
-      })
       imageData.forEach(function(item, index) {
         var base64Data = item.split(',')[1];
         var fileType = item.split(';')[0].split('/')[1];

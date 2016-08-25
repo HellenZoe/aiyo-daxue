@@ -6,7 +6,7 @@ var singletonSchema = new Schema({
   price: String,
   picUrl: [String],
   time: {type: Date, default: Date.now},
-  sellerId: [ String ]
+  sellerId: String
 })
 
 var Singleton = mongoose.model('Singleton', singletonSchema);
