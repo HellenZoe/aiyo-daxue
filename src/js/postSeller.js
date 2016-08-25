@@ -284,6 +284,7 @@ $(function() {
   			if (data.sucess) {
   				// showMessageSuccess("上传成功");
           console.log("上传成功");
+          console.log(data.sellerId);
           window.utils.saveToLocal('sellerId', data.sellerId);
   			}
   		},
