@@ -12,7 +12,8 @@ var sellerSchema = new Schema({
   tel: String,
   qq: String,
   collectUserId: [ String ],
-  view: Number
+  view: Number,
+  time: {type: Date, default: Date.now}
 })
 
 sellerSchema.virtual('category_ch').get(function() {
