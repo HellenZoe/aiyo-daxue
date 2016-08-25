@@ -9,7 +9,7 @@ $(function() {
   var formInfo  = {
     name: "",
     desc: "",
-    address "",
+    address: "",
     qq: "",
     tel: "",
     pics: [],
