@@ -43,14 +43,14 @@ router.get('/post', function(req, res) {
   })
 })
 
-router.get('/post-seller', function(req, res) {
+router.get('/newSeller', function(req, res) {
   res.render('postSeller', {
     title: "发布"
   })
 })
 
 
-router.get('/post-singleton', function(req, res) {
+router.get('/newSingleton', function(req, res) {
   res.render('postSingleton', {
     title: "发布"
   })
