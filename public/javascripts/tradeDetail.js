@@ -7,7 +7,7 @@ $('.action-collect').on('click', function(e) {
   }
   var that = this;
   $.showPreloader();
-  var url = "http://" + location.host + "/play/action";
+  var url = "http://" + location.host + "/trade/action";
   $.ajax({
     type: "POST",
     url: url,
