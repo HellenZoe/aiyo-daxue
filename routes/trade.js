@@ -80,10 +80,7 @@ router.post('/new', upload.single('test'), function(req, res) {
       	});
       })
 
-        })
-
-      }
-
+    })
 })
 
 
