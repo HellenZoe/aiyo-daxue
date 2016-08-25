@@ -1,3 +1,6 @@
+.color-blue {
+  color: #13B7F5;
+}
 .index-swiper-container {
   padding-bottom: .5rem;
 }
@@ -96,7 +99,7 @@ div.desc span {
 }
 .collect {
   position: absolute;
-  buttom: .5rem;
+  bottom: .5rem;
   right: .5rem;
 }
 .advertisement {

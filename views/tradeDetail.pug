@@ -13,17 +13,17 @@ block content
         a.button.button-link.button-nav.treehole-back.pull-right.external.collect(data-sId= seller._id) 收藏
         h1.title.text-white 详情
       nav.bar.bar-tab
-        a.tab-item.external(href="/trade")
-          span.icon.index-color
-            i.iconfont-tel &#xe620;
-          span.tab-label 电话勾搭
-        a.tab-item.external(href="/trade/post")
+        a.tab-item.external(href="tel:" + seller.tel)
           span.icon
-            i.iconfont-selfComment &#xe612;
+            i.iconfont-phone.color-blue &#xe620;
+          span.tab-label 电话勾搭
+        a.tab-item.external(href="sms:" + seller.tel)
+          span.icon
+            i.iconfont-selfComment.color-blue &#xe612;
           span.tab-label 短信勾搭
         a.tab-item.external(href="/trade/self")
           span.icon
-            i.iconfont-qq &#xe621;
+            i.iconfont-qq.color-blue &#xe621;
           span.tab-label qq勾搭
       
       div.content
@@ -42,7 +42,7 @@ block content
               span.category= seller.category_ch
             div.icon.collect
               i.iconfont-selfEnjoy &#xe611;              
-              span.collect 收藏人数: #{seller.collectUserId.length}
+              span 收藏人数: #{seller.collectUserId.length}
           div.card-footer
             div.icon.position
               i.iconfont-position &#xe619;
