@@ -1,6 +1,11 @@
 .bar .button-link {
   color: #fff;
 }
+.post-seller,
+.post-singleton {
+  margin: 1em auto;
+  width: 4rem;
+}
 .page,
 .page-group {
   background-color: #fafafa;

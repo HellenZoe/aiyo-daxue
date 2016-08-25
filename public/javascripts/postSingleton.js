@@ -223,7 +223,7 @@ $(function() {
     formData.append('name', info.name);
     formData.append('price', info.price);
     formData.append('sellerId', window.utils.getFromLocal('sellerId'));
-    var url = "http://" + location.host + "/trade/newSingleton";
+    var url = "http://" + location.host + "/trade/newSingleton"
   	$.ajax({
   		type: 'POST',
   		url: url,
