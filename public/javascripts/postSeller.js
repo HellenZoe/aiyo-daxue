@@ -109,7 +109,6 @@ $(function() {
 
     // 发送完请求之后隐藏
     $.hidePreloader();
-
     //  提醒用户已经发布成功  然后回到树洞首页
     $.alert("现在返回主页", "发布成功", function() {
       var host = location.host;
@@ -284,7 +283,7 @@ $(function() {
   			if (data.sucess) {
   				// showMessageSuccess("上传成功");
           console.log("上传成功");
-          console.log(data.sellerId);
+          alert(data.sellerId);
           window.utils.saveToLocal('sellerId', data.sellerId);
   			}
   		},
