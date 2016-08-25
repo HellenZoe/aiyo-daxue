@@ -66,6 +66,7 @@ router.post('/new', upload.single('test'), function(req, res) {
         category: category,
         qq: qq,
         tel: tel,
+
         time: time,
         view: 0
     })
@@ -132,6 +133,18 @@ router.post('/action', function(req, res) {
         }
       })
       break;
+  case "collect":
+      Seller.update({_id:sId}, {$push: { collectUserId: req.session.user._id}}, function(err, s) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+
     default:
 
   }
@@ -173,9 +186,28 @@ router.post('/action', function(req, res) {
 
 //个人中心
 router.get('/self', function(req, res) {
-  res.render('tradeSelf', {
-    title: "个人中心"
-  })
+  if (req.session.user) {
+    console.log("*************************log from /trade/self--req.session.user**********************", req.session.user);
+    Seller.find({favUserId : req.sessionf.user._id}, function(err, ss) {
+      if (err) {
+        console.log("取出用户对应的商家出错", err);
+      }else {
+        console.log("*******************logging from /trade/self--sellers***************", ss);
+        res.render("tradeSelf", {
+          title: "个人中心",
+          sellers: fs.length == 0 ? null : ss
+          user: req.session.user
+        })
+
+      }
+    })
+  }else {
+    res.render("playSelf", {
+      title: "个人中心",
+      user: null,
+      sellers: null,
+    })
+  }
 
 })
 

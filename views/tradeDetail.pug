@@ -10,9 +10,8 @@ block content
       header.bar.bar-nav.back-blue
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/play")
           span.icon.icon-left.text-white
-        a.button.button-link.button-nav.treehole-back.pull-right.external
-          span.icon.text-white
-            i.iconfont-selfShare &#xe610;
+        a.button.button-link.button-nav.treehole-back.pull-right.external.collect(data-sId= seller._id)
+          收藏
         h1.title.text-white 详情
 
       div.content
@@ -35,7 +34,7 @@ block content
           div.card-footer
             div.icon.position
               i.iconfont-position &#xe619;
-              span 地址#{play.address}
+              span 地址#{seller.address}
 
         div.advertisement
             span= seller.advertisement       
@@ -68,3 +67,4 @@ block content
 block scripts
   script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
   script(src='../../javascripts/index.js', type='text/javascript')
+  script(src='../../javascripts/tradeDetail.js')
