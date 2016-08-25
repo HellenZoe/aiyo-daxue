@@ -280,9 +280,9 @@ $(function() {
   		contentType: false,
   		processData: false,
   		success: function (data) {
+        console.log("fuck");
   			if (data.sucess) {
   				// showMessageSuccess("上传成功");
-          console.log("上传成功");
           alert(data.sellerId);
           window.utils.saveToLocal('sellerId', data.sellerId);
   			}
