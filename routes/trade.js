@@ -54,7 +54,7 @@ router.post('/new', upload.single('test'), function(req, res) {
       if (err) {
         console.log("save treehole error");
       }
-      console.log("*******************logging from /treehole/new--valueble", v);
+      console.log("*******************logging from /trade/new--valueble", s);
       imageData.forEach(function(item, index) {
         var base64Data = item.split(',')[1];
         var fileType = item.split(';')[0].split('/')[1];
@@ -86,11 +86,11 @@ router.post('/new', upload.single('test'), function(req, res) {
 
 // 查看商家详情
 router.get('/detail/:id', function(req, res) {
-  Fun.find({_id: req.params.id}, function(err, fs) {
-      console.log("***********************logging from /secondhand/detai/:id--view", gs);
-      res.render("funDetail", {
+  Seller.find({_id: req.params.id}, function(err, ss) {
+      console.log("***********************logging from /secondhand/detai/:id--view", ss);
+      res.render("tradeDetail", {
         title: "详情",
-        fun: fs[0].toObject({getters: true, virtuals: true})
+        seller: ss[0].toObject({getters: true, virtuals: true})
       })
 
 

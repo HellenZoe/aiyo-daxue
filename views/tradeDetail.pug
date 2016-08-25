@@ -1,0 +1,70 @@
+extends detaillayout
+
+block styles
+  link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
+  link(rel="stylesheet" href="../../stylesheets/tradeDetail.css")
+
+block content
+  div.page-group
+    div.page.page-current#signup
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/play")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.treehole-back.pull-right.external
+          span.icon.text-white
+            i.iconfont-selfShare &#xe610;
+        h1.title.text-white 详情
+
+      div.content
+        div(class="swiper-container index-swiper-container" data-space-between="10")
+          div.swiper-wrapper
+            each url in seller.picUrl
+              div.swiper-slide
+                img(src= url)
+          div.swiper-pagination
+            each url in seller.picUrl
+              span.swiper-pagination-bullet
+        div.card.facebook-card
+          div.card-content
+            div.title-category
+              span.content-title= seller.name
+              span.category= seller.category_ch
+            div.icon.position
+              i.iconfont-fav &#xe619;              
+              span.collect 收藏人数: #{seller.collectUserId.length}
+          div.card-footer
+            div.icon.position
+              i.iconfont-position &#xe619;
+              span 地址#{play.address}
+
+        div.advertisement
+            span= seller.advertisement       
+        div.card.facebook-card
+          //- div.card-header.no-border
+          //-   div.facebook-avatar
+          //-       img(src= play.authorAvatarUrl)
+          //-   div.card-info
+          //-     div
+          //-       span.facebook-name= play.authorName
+          //-       span.page-view 浏览次数：#{play.view}
+          //-     div.facebook-date
+          //-       span= play.date
+          //-       if play.authorSchool
+          //-         span 来自[#{play.authorSchool}]
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-qq &#xe621;
+            span.number= play.qq
+            a.connection-action(href= "tencent://message/?uin="+ play.qq + "&Site=&Menu=yes") qq勾搭
+          div.connection-content
+            span.icon.connection-icon
+              i.iconfont-phone &#xe620;
+            span.number= play.tel
+            a.connection-action(href= "tel:" + play.tel) 电话勾搭
+            a.connection-action(href="sms:" + play.tel) 短信勾搭
+
+
+
+block scripts
+  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
+  script(src='../../javascripts/index.js', type='text/javascript')

@@ -12,7 +12,7 @@ block content
         a.button.button-link.button-nav.tradeIndex-back.pull-right.external
           span.icon.text-white
             i.iconfont-selfShare &#xe610;
-        h1.title.text-white 呆萌学姐
+        h1.title.text-white 商圈
       nav.bar.bar-tab
         a.tab-item.external(href="/trade")
           span.icon.index-color
@@ -53,79 +53,20 @@ block content
           div.tabs
             div#tab-category.tab.active
               div.content-block
-                div.item-block
-                  div.img-wrapper
-                    img(src="../../images/book.jpg")
-                  div.item-content
-                    div.item-header
-                      a.item-name 私家菜园
-                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
-                    div.item-footer
-                      span.icon
-                        i.iconfont-position &#xe619; 
-                      span.address 地址武汉市华中科技大学
-                      div.actionSheet
-                        span.distance 1.2km
-                        
-                div.item-block
-                  div.img-wrapper
-                    img(src="../../images/book.jpg")
-                  div.item-content
-                    div.item-header
-                      a.item-name 私家菜园
-                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
-                    div.item-footer
-                      span.icon
-                        i.iconfont-position &#xe619; 
-                      span.address 地址武汉市华中科技大学
-                      div.actionSheet
-                        span.sold 1.2km
-                        
-                div.item-block
-                  div.img-wrapper
-                    img(src="../../images/book.jpg")
-                  div.item-content
-                    div.item-header
-                      a.item-name 私家菜园
-                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
-                    div.item-footer
-                      span.icon
-                        i.iconfont-position &#xe619; 
-                      span.address 地址武汉市华中科技大学
-                      div.actionSheet
-                        span.sold 1.2km
-
-
-                div.item-block
-                          div.img-wrapper
-                            img(src="../../images/book.jpg")
-                          div.item-content
-                            div.item-header
-                              a.item-name 私家菜园
-                            div.item-desc 使用支付宝，马云妈妈请大家吃饭
-                            div.item-footer
-                              span.icon
-                                i.iconfont-position &#xe619; 
-                              span.address 地址武汉市华中科技大学
-                              div.actionSheet
-                                span.sold 1.2km
-                                
-                div.item-block
-                                  div.img-wrapper
-                                    img(src="../../images/book.jpg")
-                                  div.item-content
-                                    div.item-header
-                                      a.item-name 私家菜园
-                                    div.item-desc 使用支付宝，马云妈妈请大家吃饭
-                                    div.item-footer
-                                      span.icon
-                                        i.iconfont-position &#xe619; 
-                                      span.address 地址武汉市华中科技大学
-                                      div.actionSheet
-                                        span.sold 1.2km
-          
-        
-
-  
-  
+                if sellers
+                  each item in sellers
+                    div.item-block(data-sId= item._id)
+                      div.img-wrapper
+                        img(src= item.picUrl[0])
+                      div.item-content
+                        div.item-header
+                          a.item-name= item.name
+                        div.item-desc= item.desc
+                        div.item-footer
+                          span.icon
+                            i.iconfont-position &#xe619; 
+                          span.address= item.address
+                          div.actionSheet
+                            //- span.distance=
 block scripts
+  script(src="./javascripts/tradeIndex.js")
