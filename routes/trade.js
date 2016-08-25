@@ -38,14 +38,27 @@ router.get('/', function(req, res) {
 
 // 商品发布页面
 router.get('/post', function(req, res) {
-  res.render('tradePost', {
+  res.render('selectPost', {
+    title: "发布"
+  })
+})
+
+router.get('/post-seller', function(req, res) {
+  res.render('postSeller', {
     title: "发布"
   })
 })
 
 
-//  发布新的商品
-router.post('/new', upload.single('test'), function(req, res) {
+router.get('/post-singleton', function(req, res) {
+  res.render('postSingleton', {
+    title: "发布"
+  })
+})
+
+
+//  新的商家信息录入
+router.post('/newSeller', upload.single('test'), function(req, res) {
     console.log("*************logging from /trade/new--user***************", req.session.user);
     console.log("*************logging from /trade/new--req.body***************", req.body);
     var imageData = JSON.parse(req.body['imageData']);
@@ -95,7 +108,62 @@ router.post('/new', upload.single('test'), function(req, res) {
       		  console.log(err);
       		}else{
             uploadToQiniu(tmpFilePath, "trade");
-            res.json({success: true})
+            res.json({success: true, sellerId: s._id})
+            console.log("success upload");
+          }
+      	});
+      })
+
+    })
+})
+
+// 录入商品信息
+router.post('/newSeller', upload.single('test'), function(req, res) {
+    console.log("*************logging from /trade/newSingleton--user***************", req.session.user);
+    console.log("*************logging from /trade/newSingleton--req.body***************", req.body);
+    var imageData = JSON.parse(req.body['imageData']);
+    var name = req.body['name'];
+    var price = parseInt(req.body['price']);
+    var sellerId = req.body['sellerId'];
+    var time = Date.now();
+    var newSingleton = new Singleton({
+        name: name,
+        price: price,
+        time: time,
+    })
+    console.log("logging from ******************logging from /trade/newSingleton --singletontosave", newSingleton);
+    newSingleton.save(function(err, s) {
+      if (err) {
+        console.log("save treehole error");
+      }
+      console.log("*******************logging from /trade/newSingleton", s);
+      //  将商品id信息添加到商家
+      Singleton.update({_id: s._id}, {$push: { sellerId: sellerId}}, function(err) {
+        if (err) {
+          console.log(err);
+        }
+
+      })
+      imageData.forEach(function(item, index) {
+        var base64Data = item.split(',')[1];
+        var fileType = item.split(';')[0].split('/')[1];
+      	var dataBuffer = new Buffer(base64Data, 'base64');
+        var picUrl = "http://obzokcbc0.bkt.clouddn.com/trade/" + time + "." + fileType;
+        console.log("*****************logging from /trae/new--picUrl**************", picUrl);
+        Seller.update({_id: s._id}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+          if (err) {
+            console.log("保存seller url出错", err);
+          }else {
+            console.log(raw);
+          }
+        });
+        var tmpFilePath = "./upload/tmp/" + time + "." + fileType;
+      	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
+      		if(err){
+      		  console.log(err);
+      		}else{
+            uploadToQiniu(tmpFilePath, "trade");
+            res.json({success: true, sellerId: s._id})
             console.log("success upload");
           }
       	});
@@ -109,9 +177,17 @@ router.post('/new', upload.single('test'), function(req, res) {
 router.get('/detail/:id', function(req, res) {
   Seller.find({_id: req.params.id}, function(err, ss) {
       console.log("***********************logging from /secondhand/detai/:id--view", ss);
-      res.render("tradeDetail", {
-        title: "详情",
-        seller: ss[0].toObject({getters: true, virtuals: true})
+      Singleton.find({sellerId: req.params.id}, function(err, st) {
+          if (err) {
+            console.log(err);
+          }else {
+      console.log("***********************logging from /secondhand/detai/:id--singletons", st);
+            res.render("tradeDetail", {
+              title: "详情",
+              seller: ss[0].toObject({getters: true, virtuals: true}),
+              singletons: st
+            })
+          }
       })
 
 

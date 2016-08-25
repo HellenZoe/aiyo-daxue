@@ -1,0 +1,33 @@
+extends servicelayout
+
+block styles
+  link(href="../stylesheets/tradePost.css" rel="stylesheet")
+    
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/trade")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
+        h1.title.text-white 发布
+      div.content
+        div.post-valueble
+          div.name
+            h3 商品名称
+            input.border-bottom(type="text" name="name" placeholder="请填写商品名称")
+            div#previewAllPic
+            span.icon
+              input#fileToUpload(type="file" name="fileToUpload")
+              i.iconfont-treeholePost &#xe605;
+          div.price
+            h3 商品价格
+            input.border-bottom(placeholder="请填写商品价格")
+          
+            
+                        
+              
+              
+block scripts
+  script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/postSingleton.js")

@@ -8,13 +8,8 @@ $(function() {
 
   var formInfo  = {
     name: "",
-    desc: "",
-    address: "",
-    qq: "",
-    tel: "",
+    price: "",
     pics: [],
-    category: "",
-    advertisement: ""
   }
   var picCount = 0;
 
@@ -53,53 +48,14 @@ $(function() {
       $.toast("还没有写名称哟～");
       return;
     }
-    var desc = $('.desc > input').val();
-    if (!desc) {
+    var price = $('.price > input').val();
+    if (!price) {
       $.hidePreloader();
-      $.toast("还没有写描述哟～");
-      return;
-    }
-    var address = $('.address input').val();
-    if (!address) {
-      $.hidePreloader();
-      $.toast("还没有写地址哟～");
-      return;
-    }
-    var category = $('.category input:checked')
-    if (category.length == 0) {
-      $.hidePreloader();
-      $.toast("还没有选分类哟");
-    }else if (category.length > 1) {
-      $.hidePreloader();
-      $.toast("只能选一个哦~~");
-      return;
-    }
-
-    var qq = $('.qq input').val();
-    if (!qq) {
-      $.hidePreloader();
-      $.toast("还没有写qq哟～");
-      return;
-    }
-    var tel = $('.tel input').val();
-    if (!tel) {
-      $.hidePreloader();
-      $.toast("还没有写电话哟～");
-      return;
-    }
-    var advertisement = $('.advertisement input').val();
-    if (!advertisement) {
-      $.hidePreloader();
-      $.toast("还没有填写广告哟～");
+      $.toast("还没有填写价格哦～");
       return;
     }
     formInfo.name = name;
-    formInfo.desc = desc;
-    formInfo.address = address;
-    formInfo.qq = qq;
-    formInfo.tel = tel;
-    formInfo.advertisement = advertisement;
-    formInfo.category = category.attr('name');
+    formInfo.price = price
     //  发送所有信息
     sendFile(formInfo);
     // formInfo.pics.forEach(function(item, index) {
@@ -265,14 +221,9 @@ $(function() {
     console.log("post信息", info);
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('name', info.name);
-    formData.append('desc', info.desc);
-    formData.append('address', info.address);
-    formData.append('category', info.category);
-    formData.append('qq', info.qq);
-    formData.append('tel', info.tel);
-    formData.append('advertisement', info.advertisement);
-
-    var url = "http://" + location.host + "/trade/new"
+    formData.append('price', info.price);
+    formData.append('sellerId', window.utils.getFromLocal('sellerId'));
+    var url = "http://" + location.host + "/trade/newSingleton";
   	$.ajax({
   		type: 'POST',
   		url: url,
