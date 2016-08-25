@@ -195,7 +195,7 @@ router.get('/self', function(req, res) {
         console.log("*******************logging from /trade/self--sellers***************", ss);
         res.render("tradeSelf", {
           title: "个人中心",
-          sellers: fs.length == 0 ? null : ss
+          sellers: fs.length == 0 ? null : ss,
           user: req.session.user
         })
 
