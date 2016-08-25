@@ -1,7 +1,7 @@
 $.init();
 
 if (!window.utils.getFromLocal('userInfo')) {
-  $.alert("登陆之后才能浏览", function() {
+  $.alert("登陆之后才能浏览", "没有登陆", function() {
     location.href = "http://" + location.host + "/signin";
   });
 }
