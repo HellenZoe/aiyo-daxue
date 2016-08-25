@@ -29,8 +29,13 @@ QC.api("get_user_info", paras)
     var userName = s.data.nickname;
     var avatarUrl = s.data.figureurl_qq_1;
     var gender = s.data.gender;
+		var redirectUrl = "";
 		// 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
-    var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
+		if (window.utils.getFromLocal('crt-service') == '/') {
+			redirectUrl = "/";
+		}else {
+	    var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
+		}
     var userInfo = {
       userName: userName,
       avatarUrl: avatarUrl,
