@@ -58,6 +58,11 @@ block content
             div
               span 已经有账号?
               a.link.underline(href="#login") 登陆
+          div.actionRow
+            div 或者qq登陆
+          div.actionRow
+            div
+              span#qqLogin
     div.page#login
       header.bar.bar-nav.back-blue
         a.button.button-link.button-nav.treehole-back.pull-left(href="#signup")
@@ -87,11 +92,6 @@ block content
             div
               span 还没有账号?
               a.link.underline(href="#signup") 注册
-          div.actionRow
-            div 或者
-          div.actionRow
-            div
-              span#qqLogin
 block scripts
   script(type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101345948" data-redirecturi="http://young-escarpment-36912.herokuapp.com/welcome" charset="utf-8")
   script(type="text/javascript" src="./javascripts/signin.js")
