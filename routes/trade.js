@@ -6,7 +6,9 @@ var multer= require('multer');
 var upload = multer();
 var uploadToQiniu = require("../utils/uploadImage");
 var User = require('../model/user');
-var Fun = require('../model/fun');
+var Seller = require('../model/seller');
+var Singleton = require('../model/singleton');
+
 //   商圈首页
 router.get('/', function(req, res) {
   res.render('tradeIndex', {
@@ -24,60 +26,63 @@ router.get('/post', function(req, res) {
 
 //  发布新的商品
 router.post('/new', upload.single('test'), function(req, res) {
-    console.log("*************logging from /fun/new--user***************", req.session.user);
+    console.log("*************logging from /trade/new--user***************", req.session.user);
+    console.log("*************logging from /trade/new--req.body***************", req.body);
     var imageData = JSON.parse(req.body['imageData']);
-    var title = req.body['postTitle'];
-    var content = req.body['postText'];
+    var name = req.body['name'];
+    var desc = req.body['desc'];
+    var address = req.body['address'];
+    var category = req.body['category'];
+    var qq = req.body['qq'];
+    var tel = req.body['tel'];
+    var advertisement = req.body['advertisement'];
     var authorId = req.session.user._id;
     var time = Date.now();
-    User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
+    var newSeller = new Seller({
+        name: name,
+        desc: desc,
+        status: 0,
+        address: address,
+        category: category,
+        qq: qq,
+        tel: tel,
+        time: time,
+        view: 0
+    })
+    console.log("logging from ******************logging from /trade/new --Sellertosave", newSeller);
+    newSeller.save(function(err, s) {
       if (err) {
-        console.log(err);
-      }else {
-        var newFun = new Fun({
-            author: authorId,
-            authorName: us[0].name,
-            authorAvatarUrl: us[0].avatarUrl,
-            authorSchool: us[0].school,
-            content: content,
-            title: title,
-            time: time
-        })
-        console.log("logging from ******************logging from /fun/new --funToSave", newFun);
-        newFun.save(function(err, fun) {
+        console.log("save treehole error");
+      }
+      console.log("*******************logging from /treehole/new--valueble", v);
+      imageData.forEach(function(item, index) {
+        var base64Data = item.split(',')[1];
+        var fileType = item.split(';')[0].split('/')[1];
+      	var dataBuffer = new Buffer(base64Data, 'base64');
+        var picUrl = "http://obzokcbc0.bkt.clouddn.com/trade/" + time + "." + fileType;
+        console.log("*****************logging from /trae/new--picUrl**************", picUrl);
+        Seller.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
           if (err) {
-            console.log("save fun error");
+            console.log("保存seller url出错", err);
+          }else {
+            console.log(raw);
           }
-          console.log("*******************logging from /fun/new--fun", fun);
-          imageData.forEach(function(item, index) {
-            var base64Data = item.split(',')[1];
-            var fileType = item.split(';')[0].split('/')[1];
-          	var dataBuffer = new Buffer(base64Data, 'base64');
-            var picUrl = "http://obzokcbc0.bkt.clouddn.com/fun/" + time + "." + fileType;
-            console.log("*****************logging from /fun/new--picUrl**************", picUrl);
-            Fun.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
-              if (err) {
-                console.log("保存fun url出错", err);
-              }else {
-                console.log(raw);
-              }
-            });
-            var tmpFilePath = "./upload/tmp/" + time + "." + fileType;
-          	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
-          		if(err){
-          		  console.log(err);
-          		}else{
-                uploadToQiniu(tmpFilePath, "fun");
-                res.json({success: true})
-                console.log("success upload");
-              }
-          	});
-          })
+        });
+        var tmpFilePath = "./upload/tmp/" + time + "." + fileType;
+      	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
+      		if(err){
+      		  console.log(err);
+      		}else{
+            uploadToQiniu(tmpFilePath, "trade");
+            res.json({success: true})
+            console.log("success upload");
+          }
+      	});
+      })
 
         })
 
       }
-    })
 
 })
 

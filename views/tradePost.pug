@@ -1,1 +1,80 @@
-div   商圈发布
+extends servicelayout
+
+block styles
+  link(href="../stylesheets/tradePost.css" rel="stylesheet")
+    
+block content
+  div.page-group
+    div.page.page-current
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/trade")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
+        h1.title.text-white 发布
+      div.content
+        div.post-valueble
+          div.name
+            h3 商家名称
+            input.border-bottom(type="text" name="name" placeholder="请填写店铺名称")
+            div#previewAllPic
+            span.icon
+              input#fileToUpload(type="file" name="fileToUpload")
+              i.iconfont-treeholePost &#xe605;
+          div.desc
+            h3 商家描述
+            input.border-bottom(placeholder="请对店铺进行描述")
+          div.address
+            h3 地点
+            input.border-bottom(placeholder="请填写店铺地址")
+          div.category
+            h3 选择分类
+            div.row
+              div.col-3
+                input#checkbox01(type="checkbox" name="food")
+                label(for="checkbox01")
+                span 美食
+              div.col-3           
+                input#checkbox02(type="checkbox" name="movie")
+                label(for="checkbox02")
+                span 电影
+              div.col-3               
+                input#checkbox03(type="checkbox" name="hotel")
+                label(for="checkbox03")
+                span 酒店
+              div.col-left              
+                input#checkbox04(type="checkbox" name="fun")
+                label(for="checkbox04")
+                span 休闲娱乐
+              div.col-3                
+                input#checkbox05(type="checkbox" name="beauty")
+                label(for="checkbox05")
+                span 丽人美妆
+              div.col-3                                
+                input#checkbox06(type="checkbox" name="book")
+                label(for="checkbox06")
+                span 图书教材
+              div.col-3                                
+                input#checkbox07(type="checkbox" name="sport")
+                label(for="checkbox07")
+                span 运动健身
+              div                                
+                input#checkbox08(type="checkbox" name="other")
+                label(for="checkbox08")
+                span 其他
+          div.qq
+            h3 qq号
+            input.border-bottom(placeholder="请填写qq号")
+          div.tel
+            h3 电话号
+            input.border-bottom(placeholder="请填写手机号")
+          div.advertisement
+            h3 商家广告
+            input.border-bottom(placeholder="发布广告对店铺进行宣传")              
+          
+            
+                        
+              
+              
+block scripts
+  script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/tradePost.js")
