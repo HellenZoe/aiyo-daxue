@@ -1,4 +1,4 @@
-$('.collect').on('click', function(e) {
+$('.action-collect').on('click', function(e) {
   e.preventDefault();
   var sId = $(this).attr('data-sId');
   var info = {
@@ -19,7 +19,7 @@ $('.collect').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $.toast('操作成功', 2000, "toast-success");
-
+p
         //  隐藏加载
         $.hidePreloader();
       }
