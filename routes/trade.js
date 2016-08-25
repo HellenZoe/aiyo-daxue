@@ -66,7 +66,7 @@ router.post('/new', upload.single('test'), function(req, res) {
         category: category,
         qq: qq,
         tel: tel,
-
+        advertisement: advertisement,
         time: time,
         view: 0
     })
@@ -202,7 +202,7 @@ router.get('/self', function(req, res) {
       }
     })
   }else {
-    res.render("playSelf", {
+    res.render("tradeSelf", {
       title: "个人中心",
       user: null,
       sellers: null,
