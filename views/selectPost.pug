@@ -1,13 +1,19 @@
 extends servicelayout
 
 block styles
-  //- link(href="../stylesheets/selectPost.css" rel="stylesheet")
+  link(href="../stylesheets/tradePost.css" rel="stylesheet")
     
 block content
   div.page-group
     div.page.page-current#select-type
-      a.button.button-fill(href="/trade/post-seller")
-      a.button.button-fill(href="/trade/post-singleton")        
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/trade")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
+        h1.title.text-white 发布
+      div.content      
+        a.button.button-fill(href="/trade/post-seller")  添加商家
+        a.button.button-fill(href="/trade/post-singleton")  添加商品
             
                         
               
