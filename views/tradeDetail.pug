@@ -37,30 +37,6 @@ block content
 
         div.advertisement
             span= seller.advertisement       
-        div.card.facebook-card
-          //- div.card-header.no-border
-          //-   div.facebook-avatar
-          //-       img(src= play.authorAvatarUrl)
-          //-   div.card-info
-          //-     div
-          //-       span.facebook-name= play.authorName
-          //-       span.page-view 浏览次数：#{play.view}
-          //-     div.facebook-date
-          //-       span= play.date
-          //-       if play.authorSchool
-          //-         span 来自[#{play.authorSchool}]
-          div.connection-content
-            span.icon.connection-icon
-              i.iconfont-qq &#xe621;
-            span.number= play.qq
-            a.connection-action(href= "tencent://message/?uin="+ play.qq + "&Site=&Menu=yes") qq勾搭
-          div.connection-content
-            span.icon.connection-icon
-              i.iconfont-phone &#xe620;
-            span.number= play.tel
-            a.connection-action(href= "tel:" + play.tel) 电话勾搭
-            a.connection-action(href="sms:" + play.tel) 短信勾搭
-
 
 
 block scripts
