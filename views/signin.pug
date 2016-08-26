@@ -11,7 +11,7 @@ block content
           span.icon.icon-left.text-white
         h1.title.text-white 注册
       div.content
-        div.list-block
+        //- div.list-block
           ul
             li
               div.item-content
@@ -51,15 +51,15 @@ block content
                     input(type="password" placeholder="输入密码")
                       
         div.content-block
+          //- div.actionRow
+          //-   div.submit
+          //-     a.button.button-fill.button-success(href="#") 提交
+          //- div.actionRow
+          //-   div
+          //-     span 已经有账号?
+          //-     a.link.underline(href="#login") 登陆
           div.actionRow
-            div.submit
-              a.button.button-fill.button-success(href="#") 提交
-          div.actionRow
-            div
-              span 已经有账号?
-              a.link.underline(href="#login") 登陆
-          div.actionRow
-            div 或者qq登陆
+            div qq一键登陆
           div.actionRow
             div
               span#qqLogin
