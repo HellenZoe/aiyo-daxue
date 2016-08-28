@@ -143,7 +143,7 @@ router.post('/newSingleton', upload.single('test'), function(req, res) {
       	var dataBuffer = new Buffer(base64Data, 'base64');
         var picUrl = "http://obzokcbc0.bkt.clouddn.com/trade/" + time + "." + fileType;
         console.log("*****************logging from /trae/new--picUrl**************", picUrl);
-        Seller.update({_id: s._id}, {$push: {"picUrl": picUrl}}, function(err, raw) {
+        Singleton.update({_id: s._id}, {$push: {"picUrl": picUrl}}, function(err, raw) {
           if (err) {
             console.log("保存seller url出错", err);
           }else {
