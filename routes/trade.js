@@ -156,7 +156,6 @@ router.post('/newSingleton', upload.single('test'), function(req, res) {
       		  console.log(err);
       		}else{
             uploadToQiniu(tmpFilePath, "trade");
-            res.json({success: true, sellerId: s._id})
             console.log("success upload");
           }
       	});
@@ -170,6 +169,7 @@ router.post('/newSingleton', upload.single('test'), function(req, res) {
 router.get('/detail/:id', function(req, res) {
   Seller.find({_id: req.params.id}, function(err, ss) {
       console.log("***********************logging from /secondhand/detai/:id--view", ss);
+      console.log("***********************logging from /secondhand/detai/:id--id", req.params.id);
       Singleton.find({sellerId: req.params.id}, function(err, st) {
           if (err) {
             console.log(err);
