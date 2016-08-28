@@ -155,6 +155,11 @@ div.desc span {
   padding: .5rem;
   margin-top: .5rem;
 }
+.singletons h3 {
+  margin: 0rem;
+  font-size: .8rem;
+  color: #444;
+}
 @font-face {
   font-family: 'iconfont-selfShare';
   src: url('iconfont.eot');
