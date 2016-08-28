@@ -159,6 +159,13 @@ div.desc span {
   margin: 0rem;
   font-size: .8rem;
   color: #444;
+  font-weight: normal;
+}
+.singletons .facebook-card .facebook-avatar {
+  border-radius: 0px;
+}
+.singletons .facebook-card .singleton-price {
+  color: #13b7f5;
 }
 @font-face {
   font-family: 'iconfont-selfShare';
