@@ -174,7 +174,7 @@ router.get('/detail/:id', function(req, res) {
           if (err) {
             console.log(err);
           }else {
-      console.log("***********************logging from /secondhand/detai/:id--singletons", st);
+            console.log("***********************logging from /secondhand/detai/:id--singletons", st);
             res.render("tradeDetail", {
               title: "详情",
               seller: ss[0].toObject({getters: true, virtuals: true}),

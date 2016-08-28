@@ -150,6 +150,11 @@ div.desc span {
   font-size: .5rem;
   color: #13B7F5;
 }
+.singletons {
+  background-color: #fff;
+  padding: .5rem;
+  margin-top: .5rem;
+}
 @font-face {
   font-family: 'iconfont-selfShare';
   src: url('iconfont.eot');

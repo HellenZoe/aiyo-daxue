@@ -50,8 +50,15 @@ block content
 
         div.advertisement
             span= seller.advertisement       
-
-
+        if singletons
+          div.singletons
+            each item in singletons
+              div.card.facebook-card
+                div.card-header.no-border
+                  div.facebook-avatar                
+                    img(src= item.picUrl[0])
+                  div.facebook-name.name= item.name
+                  div.facebook-date.price= item.price
 block scripts
   script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
   script(src='../../javascripts/index.js', type='text/javascript')
