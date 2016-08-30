@@ -37,6 +37,13 @@ app.use(session({
  //设置静态目录
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next) {
+  var url  = req.originalUrl;
+  if (url != "/signin" && !req.session.user) {
+    return res.redirect('/signin');
+  }
+  next();
+})
 // 设置路由
 var routes = require('./routes/index');
 routes(app);

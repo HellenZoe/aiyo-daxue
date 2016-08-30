@@ -18,11 +18,19 @@ $(function() {
 
 
   //   点击图片的时候  跳转到相应的详情页去
-$("#fuck").on("click", function(e) {
+var fucks = $("#click");
+fucks.each(function(index, el) {
+  el.on('click', function(e) {
       var cardId = $(this).parent().attr('data-tId');
       var host = location.host;
       location.href = "http://" + host + "/treehole/detail/" + cardId;
-})
+  })
+});
+// $("#fuck").on("click", function(e) {
+//       var cardId = $(this).parent().attr('data-tId');
+//       var host = location.host;
+//       location.href = "http://" + host + "/treehole/detail/" + cardId;
+// })
   // var card = document.getElementById("fuck");
   // if (card) {
   //
