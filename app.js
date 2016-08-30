@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
   var url  = req.originalUrl;
-  if (url != "/signin" && !req.session.user) {
+  if (url != "/signin" && url != "/" && !req.session.user) {
     return res.redirect('/signin');
   }
   next();
