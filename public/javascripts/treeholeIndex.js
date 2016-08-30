@@ -18,15 +18,20 @@ $(function() {
 
 
   //   点击图片的时候  跳转到相应的详情页去
-  var card = document.getElementById("fuck");
-  if (card) {
-
-    card.addEventListener('click', function(e) {
+$("#fuck").on("click", function(e) {
       var cardId = $(this).parent().attr('data-tId');
       var host = location.host;
       location.href = "http://" + host + "/treehole/detail/" + cardId;
-    });
-  }
+})
+  // var card = document.getElementById("fuck");
+  // if (card) {
+  //
+  //   card.addEventListener('click', function(e) {
+  //     var cardId = $(this).parent().attr('data-tId');
+  //     var host = location.host;
+  //     location.href = "http://" + host + "/treehole/detail/" + cardId;
+  //   });
+  // }
   //  点赞
   $('.iconfont-nullEnjoy').on('click', function(e) {
     console.log("点赞");
