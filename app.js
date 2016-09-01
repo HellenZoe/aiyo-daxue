@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 var multer = require("multer");
 var session = require("express-session");
 var mongoStore = require("connect-mongo/es5")(session);
+var createHandler = require('github-webhook-handler')
+var handler = createHandler({ path: '/push', secret: 'aiyodaxue' })
+
 
 var app = express();
 
@@ -34,8 +37,25 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
 }))
+
+//  添加webhook 中间件
+app.use(handler(req, res, function(err) {
+  if (err) {
+    res.send('no such location');
+  }
+}))
+
+handler.on('push', function (event) {
+  console.log('Received a push event for %s to %s',
+    event.payload.repository.name,
+    event.payload.ref);
+
+  run_cmd('sh', ['./bin/deploy-dev.sh'], function(text){ console.log(text) });
+})
  //设置静态目录
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 // app.use(function(req, res, next) {
 //   var url  = req.originalUrl;
