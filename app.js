@@ -41,7 +41,8 @@ app.use(session({
 //  添加webhook 中间件
 app.use(handler(req, res, function(err) {
   if (err) {
-    res.send('no such location');
+    res.statusCode=404;
+    res.end('no such location');
   }
 }))
 

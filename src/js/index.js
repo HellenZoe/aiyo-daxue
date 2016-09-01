@@ -1,3 +1,10 @@
+$(function() {
+  $(".swiper-container").swiper({
+    autoplay: 2000,
+    spaceBetween: 15
+  })
+})
+
 $.init();
 
 if (!window.utils.getFromLocal('userInfo')) {
@@ -6,9 +13,3 @@ if (!window.utils.getFromLocal('userInfo')) {
     location.href = "http://" + location.host + "/signin";
   });
 }
-$(function() {
-  $(".swiper-container").swiper({
-    autoplay: 2000,
-    spaceBetween: 15
-  })
-})
