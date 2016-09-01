@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "MONGO_URI=mongodb://liadbiz:shanzi@ds040089.mlab.com:40089/aiyo nodemon ./bin/www",
+    "prod": "MONGO_URI=mongodb://liadbiz:shanzi@ds040089.mlab.com:40089/aiyo forever start ./bin/www",
     "clean": "gulp clean",
     "dev": "gulp clean && gulp watch",
     "build": "gulp build"
@@ -33,6 +34,7 @@
     "multer": "^1.2.0",
     "pug": "^2.0.0-beta5",
     "qiniu": "^6.1.11",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "forever": "~0.15.2"
   }
 }
