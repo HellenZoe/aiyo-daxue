@@ -69,8 +69,7 @@ QQ头像 iconfont-qq &#xe621
 
 + 自动化部署脚本  结合github的webhook
 + 生产环境把nodemon换成forever
-+ 用nginx做代理
-+
+
 ##  注意事项
 
 如果出现前台get不到数据的情况， 检查后台取出的数据是否是一个？如果是一个 记住取出的数据永远是一个数组
