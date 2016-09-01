@@ -45,8 +45,8 @@ app.use(function(req,res) {
       res.statusCode=404;
       res.end('no such location');
     }
-  }))
-}
+  })
+})
 
 handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
