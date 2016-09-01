@@ -39,12 +39,14 @@ app.use(session({
 }))
 
 //  添加webhook 中间件
-app.use(handler(req, res, function(err) {
-  if (err) {
-    res.statusCode=404;
-    res.end('no such location');
-  }
-}))
+app.use(function(req,res) {
+  handler(req, res, function(err) {
+    if (err) {
+      res.statusCode=404;
+      res.end('no such location');
+    }
+  }))
+}
 
 handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
