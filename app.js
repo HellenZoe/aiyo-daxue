@@ -52,7 +52,7 @@ handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref);
-
+  console.log("in here");
   util.run_cmd('sh', ['./bin/deploy-dev.sh'], function(text){ console.log(text) });
 })
  //设置静态目录
