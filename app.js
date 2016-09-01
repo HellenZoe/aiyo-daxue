@@ -9,7 +9,7 @@ var session = require("express-session");
 var mongoStore = require("connect-mongo")(session);
 var createHandler = require('github-webhook-handler')
 var handler = createHandler({ path: '/push', secret: 'aiyodaxue' })
-
+var util = require('./utils/severUtil');
 
 var app = express();
 
@@ -50,7 +50,7 @@ handler.on('push', function (event) {
     event.payload.repository.name,
     event.payload.ref);
 
-  run_cmd('sh', ['./bin/deploy-dev.sh'], function(text){ console.log(text) });
+  util.run_cmd('sh', ['./bin/deploy-dev.sh'], function(text){ console.log(text) });
 })
  //设置静态目录
 app.use(express.static(path.join(__dirname, 'public')));
