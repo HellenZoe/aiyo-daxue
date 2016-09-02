@@ -8,15 +8,14 @@ function run_cmd(cmd, args, callback) {
   var child = spawn(cmd, args);
   var resp = "";
   var error = "";
-  child.stdout.on('data', function(buffer) { resp += buffer.toString(); console.log(buffer);});
-  child.stderr.on('data', function(buffer) { error += buffer.toString(); console.log(buffer);});
+  child.stdout.on('data', function(buffer) { resp += buffer.toString(); console.log(buffer.toString());});
+  child.stderr.on('data', function(buffer) { error += buffer.toString(); console.log(buffer.toString());});
 
   child.on('close', function(code) {
     if (code !== 0) {
       console.log("run deploy-dev script faild with code ", code);
     }
   })
-  console.log("fuck you ");
 }
 
 http.createServer(function (req, res) {
