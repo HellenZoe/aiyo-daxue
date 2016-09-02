@@ -7,9 +7,10 @@ var bodyParser = require('body-parser');
 var multer = require("multer");
 var session = require("express-session");
 var mongoStore = require("connect-mongo/es5")(session);
-var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/push', secret: 'aiyodaxue' })
-var util = require('./utils/severUtil');
+//   生产环境自动化部署
+// var createHandler = require('github-webhook-handler')
+// var handler = createHandler({ path: '/push', secret: 'aiyodaxue' })
+// var util = require('./utils/severUtil');
 
 var app = express();
 
@@ -39,27 +40,27 @@ app.use(session({
 }))
 
 //  添加webhook 中间件
-app.use(function(req,res) {
-  handler(req, res, function(err) {
-    if (err) {
-      res.statusCode=404;
-      res.end('no such location');
-    }
-  })
-})
+// app.use(function(req,res) {
+//   handler(req, res, function(err) {
+//     if (err) {
+//       res.statusCode=404;
+//       res.end('no such location');
+//     }
+//   })
+// })
 
-handler.on('push', function (event) {
-  console.log('Received a push event for %s to %s',
-    event.payload.repository.name,
-    event.payload.ref);
-  console.log("in here");
-  util.run_cmd('sh', ['./bin/deploy-dev.sh'], function(text){ console.log(text) });
-})
+// handler.on('push', function (event) {
+//   console.log('Received a push event for %s to %s',
+//     event.payload.repository.name,
+//     event.payload.ref);
+//   console.log("in here");
+//   util.run_cmd('sh', ['./bin/deploy-dev.sh'], function(text){ console.log(text) });
+// })
  //设置静态目录
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+//  登陆拦截
 // app.use(function(req, res, next) {
 //   var url  = req.originalUrl;
 //   if (url != "/signin" && url != "/" && url != "/welcome" && !req.session.user) {
