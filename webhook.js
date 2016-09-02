@@ -8,7 +8,6 @@ function run_cmd(cmd, args, callback) {
   var child = spawn(cmd, args);
   var resp = "";
   var error = "";
-  console.log("run cmd");
   child.stdout.on('data', function(buffer) { resp += buffer.toString(); console.log(buffer);});
   child.stderr.on('data', function(buffer) { error += buffer.toString(); console.log(buffer);});
 
@@ -17,6 +16,7 @@ function run_cmd(cmd, args, callback) {
   child.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
   });
+  console.log("run cmd");
 }
 
 http.createServer(function (req, res) {
