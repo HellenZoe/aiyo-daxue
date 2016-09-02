@@ -1,3 +1,5 @@
+$.init();
+
 $(function() {
   $(".swiper-container").swiper({
     autoplay: 2000,
@@ -5,7 +7,6 @@ $(function() {
   })
 })
 
-$.init();
 
 if (!window.utils.getFromLocal('userInfo')) {
   $.alert("登陆之后才能浏览", "没有登陆", function() {
