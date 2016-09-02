@@ -6,13 +6,10 @@
 #
 # echo "Start deployment"
 # cd $WEB_PATH
-echo "pulling source code..."
-# git reset --hard origin/master
-# git clean -f
-
-# 拉取最新版本s
+LOG_FILE="/var/log/nodejs/aiyo/blog_deploy.log"
+date >> "$LOG_FILE"
+echo "Start deployment" >>"$LOG_FILE"
+cd ~/app/aiyodaxue
+echo "pulling source code..." >> "$LOG_FILE"
 git pull
-# git checkout master
-# echo "changing permissions..."
-# chown -R $WEB_USER:$WEB_USERGROUP $WEB_PATH
-echo "Finished."
+echo "Finished." >>"$LOG_FILE"
