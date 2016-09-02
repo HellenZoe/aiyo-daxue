@@ -9,8 +9,8 @@ function run_cmd(cmd, args, callback) {
   var resp = "";
   var error = "";
   console.log("run cmd");
-  child.stdout.on('data', function(buffer) { resp += buffer.toString(); });
-  child.stderr.on('data', function(buffer) { error += buffer.toString(); });
+  child.stdout.on('data', function(buffer) { resp += buffer.toString(); console.log(buffer);});
+  child.stderr.on('data', function(buffer) { error += buffer.toString(); console.log(buffer);});
   child.stdout.on('end', function() { callback ("work well", resp) });
   child.stderr.on('end', function() { callback ("work faild", error) });
 }
@@ -31,5 +31,5 @@ handler.on('push', function (event) {
     event.payload.ref);
   run_cmd('sh', ['./bin/deploy.sh'], function(hint, text){
   console.log(hint + "-->");
-  console.log(text);});
+  console.log(text + "-->");});
 })
