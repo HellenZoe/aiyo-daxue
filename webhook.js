@@ -11,9 +11,12 @@ function run_cmd(cmd, args, callback) {
   console.log("run cmd");
   child.stdout.on('data', function(buffer) { resp += buffer.toString(); console.log(buffer);});
   child.stderr.on('data', function(buffer) { error += buffer.toString(); console.log(buffer);});
-  
+
   child.stdout.on('end', function() { callback ("work well", resp) });
   child.stderr.on('end', function() { callback ("work faild", error) });
+  child.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+  });
 }
 
 http.createServer(function (req, res) {
@@ -30,7 +33,7 @@ handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref);
-  run_cmd('sh', ['./bin/deploy.sh'], function(hint, text){
+  run_cmd('sh', ['./bin/deploy-dev.sh'], function(hint, text){
   console.log(hint + "-->");
   console.log(text + "-->");});
 })
