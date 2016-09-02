@@ -11,9 +11,9 @@ function run_cmd(cmd, args, callback) {
   child.stdout.on('data', function(buffer) { resp += buffer.toString(); console.log(buffer);});
   child.stderr.on('data', function(buffer) { error += buffer.toString(); console.log(buffer);});
 
-  child.on('close', function(data) {
+  child.on('close', function(code) {
     if (code !== 0) {
-      console.log(`run deploy-dev script faild with code ${code}`);
+      console.log("run deploy-dev script faild with code ", code);
     }
   })
   console.log("fuck you pm2");
