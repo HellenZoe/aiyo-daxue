@@ -13,7 +13,6 @@ function run_cmd(cmd, args, callback) {
 
   child.stdout.on('end', function() { callback ("work well", resp) });
   child.stderr.on('end', function() { callback ("work faild", error) });
-  console.log("run cmd");
 }
 
 http.createServer(function (req, res) {
