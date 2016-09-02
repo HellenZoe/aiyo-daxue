@@ -16,6 +16,7 @@ function run_cmd(cmd, args, callback) {
       console.log(`run deploy-dev script faild with code ${code}`);
     }
   })
+  console.log("fuck");
 }
 
 http.createServer(function (req, res) {
