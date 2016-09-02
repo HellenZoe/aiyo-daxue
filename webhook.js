@@ -13,9 +13,6 @@ function run_cmd(cmd, args, callback) {
 
   child.stdout.on('end', function() { callback ("work well", resp) });
   child.stderr.on('end', function() { callback ("work faild", error) });
-  child.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
-  });
   console.log("run cmd");
 }
 
