@@ -11,8 +11,11 @@ function run_cmd(cmd, args, callback) {
   child.stdout.on('data', function(buffer) { resp += buffer.toString(); console.log(buffer);});
   child.stderr.on('data', function(buffer) { error += buffer.toString(); console.log(buffer);});
 
-  child.stdout.on('end', function() { callback ("work well", resp) });
-  child.stderr.on('end', function() { callback ("work faild", error) });
+  child.on('close', function(data) {
+    if (code !== 0) {
+      console.log(`run deploy-dev script faild with code ${code}`);
+    }
+  })
 }
 
 http.createServer(function (req, res) {
