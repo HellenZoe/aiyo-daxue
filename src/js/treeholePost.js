@@ -8,6 +8,7 @@ $(function() {
 
   var allPic  = {
     postText: "",
+    name: "",
     pics: []
   }
   var picCount = 0;
@@ -34,6 +35,10 @@ $(function() {
     var postText = $('.treehole-content > textarea').val();
     console.log(postText);
     allPic.postText = postText;
+
+    var name = $('.name input').val();
+    console.log(name);
+    allPic.name = name;
 
     //  发送所有信息
     sendFile(allPic);
@@ -199,6 +204,7 @@ $(function() {
     console.log("post信息", info);
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('postText', info.postText);
+    formData.append('name', info.name);
     var url = "http://" + location.host + "/treehole/new"
   	$.ajax({
   		type: 'POST',

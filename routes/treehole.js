@@ -129,6 +129,7 @@ router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /treehole/new--user***************", req.session.user);
     var imageData = JSON.parse(req.body['imageData']);
     var content = req.body['postText'];
+    var title = req.body['name'];
     var authorId = req.session.user._id;
     var time = Date.now();
     User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
@@ -141,7 +142,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             authorAvatarUrl: us[0].avatarUrl,
             authorSchool: us[0].school,
             content: content,
-            title: "测试",
+            title: title,
             time: time
         })
         console.log("logging from ******************logging from /treehole/new --treeholeToSave", newTreehole);
