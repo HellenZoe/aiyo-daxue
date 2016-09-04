@@ -24,6 +24,9 @@ var connection = dbConnect.connect();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//  设置后台资源目录
+app.use('/admin', express.static('admin'));
+
 //  设置中间件
 app.use(logger('dev'));
 // app.use(multer({dest: "../public/uploads/"}));
