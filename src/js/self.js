@@ -84,6 +84,7 @@ $(function() {
     		success: function (data) {
     			if (data.sucess) {
     				// showMessageSuccess("上传成功");
+            $.hidePreloader();
             console.log("上传成功");
             console.log(data.userInfo);
     			}
