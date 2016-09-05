@@ -13,8 +13,9 @@ $('.admin-login').on('click', function(e) {
   $.ajax({
     type: 'POST',
     contentType: "application/json",
-    dataType: "JSON",
+    dataType: "json",
     url: url,
+    data: JSON.stringify(loginInfo),
     success: function(data) {
       if (data.success) {
         location.href="index.html"

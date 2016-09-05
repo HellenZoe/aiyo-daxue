@@ -47,6 +47,7 @@ module.exports = function(app) {
 
   //  登陆信息校验
   app.post('/admin/login', function(req, res) {
+    console.log("************logging from /admin/login*********--req.body", req.body);
     var name = req.body.name;
     var password = req.body.password;
 
