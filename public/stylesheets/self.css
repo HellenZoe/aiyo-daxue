@@ -1,6 +1,9 @@
 .bar .button-link {
   color: #fff;
 }
+.user-info h3 {
+  color: #444;
+}
 .page,
 .page-group {
   background-color: #fafafa;

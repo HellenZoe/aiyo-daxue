@@ -9,7 +9,7 @@ $(function() {
     department: ""
   }
 
-  $('.finishButton').on('click', function(e) {
+  $('.finishPost').on('click', function(e) {
 
     //  阻止默认点击事件
     e.preventDefault();
