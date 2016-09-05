@@ -82,7 +82,7 @@ $(function() {
   			contentType: "application/json",
     		processData: false,
     		success: function (data) {
-    			if (data.sucess) {
+    			if (data.success) {
     				// showMessageSuccess("上传成功");
             $.hidePreloader();
             console.log("上传成功");
