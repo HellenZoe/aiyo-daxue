@@ -33,7 +33,6 @@ module.exports = function(app) {
   })
 
 
-  app.post('/admin/login')
   //  个人中心页面
   app.get('/self', function(req, res) {
     res.render('self', {
@@ -41,6 +40,10 @@ module.exports = function(app) {
     })
   })
 
+
+  app.get('/admin', function(req, res) {
+    res.sendFile('login.html');
+  })
 
   app.post('/admin/login', function(req, res) {
     var name = req.body.name;
