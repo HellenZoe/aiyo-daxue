@@ -37,7 +37,7 @@ module.exports = function(app) {
     })
   })
 
-  app.post('self', function(req, res) {
+  app.post('/self', function(req, res) {
     var name = req.body.name;
     var gender = req.body.gender;
     var tel = req.body.tel;
@@ -58,7 +58,7 @@ module.exports = function(app) {
 
         res.json({
           success: true,
-          userInfo: u   
+          userInfo: u
         })
       }
     })
