@@ -1,0 +1,44 @@
+extends layout
+
+block styles
+  meta(property="qc:admins" content="23522060656755331205564536112605273510063757")
+  link(rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css")
+  link(href='stylesheets/index.css' rel='stylesheet')
+block content
+  div.page-group
+    div(class="page page-current")
+      header(class="bar bar-nav back-blue")
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/")
+          span.icon.icon-left.text-white
+        a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
+        h1.title.text-white 个人信息
+      
+      div.content
+        div.user-info
+          div.name
+            h3 姓名
+            input.border-bottom(placeholder="填写姓名")
+          div.gender
+            h3 性别
+            input.border-bottom(placeholder="填写性别")
+          div.tel
+            h3 电话
+            input.border-bottom(placeholder="填写电话")
+          div.qq
+            h3 qq
+            input.border-bottom(placeholder="填写qq")
+          div.学校
+            h3 school
+            input.border-bottom(placeholder="填写学校")
+          div.department
+            h3 宿舍地址
+            input.border-bottom(placeholder="填写宿舍地址")
+              
+              
+
+            
+            
+block scripts
+  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
+  script(src='javascripts/windowUtils.js', type='text/javascript')
+  script(src='javascripts/self.js', type='text/javascript')

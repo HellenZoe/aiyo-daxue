@@ -30,6 +30,12 @@ module.exports = function(app) {
     })
   })
 
+
+  app.get('/self', function(req, res) {
+    res.render('self', {
+      title: "个人信息"
+    })
+  })
   app.post('/user', function(req, res) {
     var userName = req.body.userName;
     var avatarUrl = req.body.avatarUrl;
