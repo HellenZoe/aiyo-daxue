@@ -66,6 +66,7 @@ module.exports = function(app) {
       if (err) {
         console.log(err);
       }else {
+
         u.name  = name;
         u.gender = gender;
         u.tel = tel;
@@ -73,9 +74,16 @@ module.exports = function(app) {
         u.school = school;
         u.department = department;
 
-        res.json({
-          success: true,
-          userInfo: u
+        u.save(function(err, doc) {
+          if (err) {
+            console.log(err);
+          }else {
+            console.log("*********logging from /self*****user", doc);
+            res.json({
+              success: true,
+              userInfo: doc
+            })
+          }
         })
       }
     })
