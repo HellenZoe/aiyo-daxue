@@ -55,6 +55,10 @@ module.exports = function(app) {
         res.json({
           success: true
         })
+    }else {
+      res.json({
+        success: false
+      })
     }
   })
 
