@@ -45,6 +45,7 @@ module.exports = function(app) {
   //   res.sendFile('login.html');
   // })
 
+  //  登陆信息校验
   app.post('/admin/login', function(req, res) {
     var name = req.body.name;
     var password = req.body.password;
@@ -55,6 +56,8 @@ module.exports = function(app) {
         })
     }
   })
+
+
   //  个人中心信息完善
   app.post('/self', function(req, res) {
     var name = req.body.name;
