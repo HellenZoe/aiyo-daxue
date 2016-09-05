@@ -7,6 +7,7 @@ var fun = require('./fun');
 var trade = require('./trade');
 
 module.exports = function(app) {
+  //  首页
   app.get('/', function(req, res) {
     res.render('index', {title: "首页", })
   })
@@ -17,13 +18,14 @@ module.exports = function(app) {
     })
   })
 
+  //  登陆页面
   app.get('/signin', function(req, res) {
     res.render('signin', {
       title: "注册"
     })
   })
 
-
+  //  登陆成功页面
   app.get('/welcome', function(req, res) {
     res.render('welcome', {
       title: "成功注册",
@@ -31,12 +33,26 @@ module.exports = function(app) {
   })
 
 
+  app.post('/admin/login')
+  //  个人中心页面
   app.get('/self', function(req, res) {
     res.render('self', {
       title: "个人信息"
     })
   })
 
+
+  app.post('/admin/login', function(req, res) {
+    var name = req.body.name;
+    var password = req.body.password;
+
+    if (name == "heiheihei" && password == "hahaha") {
+        res.json({
+          success: true
+        })
+    }
+  })
+  //  个人中心信息完善
   app.post('/self', function(req, res) {
     var name = req.body.name;
     var gender = req.body.gender;
@@ -64,6 +80,8 @@ module.exports = function(app) {
       }
     })
   })
+
+  //  新增用户
   app.post('/user', function(req, res) {
     var userName = req.body.userName;
     var avatarUrl = req.body.avatarUrl;
@@ -92,6 +110,8 @@ module.exports = function(app) {
 
 
   })
+
+
   app.use('/treehole', treehole);
   app.use('/secondHand',  secondHand);
   app.use('/lost', lost);
