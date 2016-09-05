@@ -29,35 +29,35 @@ $(function() {
     var gender = $('.gender > input').val();
     if (!gender) {
       $.hidePreloader();
-      $.toast("还没有填写名称哦~");
+      $.toast("还没有填写性別哦~");
       return;
     }
 
     var tel = $('.gender > input').val();
-    if (!gender) {
+    if (!tel) {
       $.hidePreloader();
-      $.toast("还没有填写名称哦~");
+      $.toast("还没有填写电话哦~");
       return;
     }
 
     var qq = $('.qq > input').val();
     if (!qq) {
       $.hidePreloader();
-      $.toast("还没有填写名称哦~");
+      $.toast("还没有填写qq哦~");
       return;
     }
 
     var school = $('.school > input').val();
     if (!school) {
       $.hidePreloader();
-      $.toast("还没有填写名称哦~");
+      $.toast("还没有填写学校哦~");
       return;
     }
 
     var department = $('.department > input').val();
     if (!department) {
       $.hidePreloader();
-      $.toast("还没有填写名称哦~");
+      $.toast("还没有填写宿舍地址哦~");
       return;
     }
 
