@@ -72,7 +72,7 @@ $(function() {
     //  发送用户信息
     sendInfo(userInfo);
 
-    function sendFile(info) {
+    function sendInfo(info) {
       var url = "http://" + location.host + "/self"
     	$.ajax({
     		type: 'POST',
