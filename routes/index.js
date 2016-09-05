@@ -41,9 +41,9 @@ module.exports = function(app) {
   })
 
 
-  app.get('/admin', function(req, res) {
-    res.sendFile('login.html');
-  })
+  // app.get('/admin', function(req, res) {
+  //   res.sendFile('login.html');
+  // })
 
   app.post('/admin/login', function(req, res) {
     var name = req.body.name;
