@@ -32,7 +32,7 @@ $(function() {
       $.toast("还没有填写名称哦~");
       return;
     }
-z
+
     var tel = $('.gender > input').val();
     if (!gender) {
       $.hidePreloader();
