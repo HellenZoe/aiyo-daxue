@@ -62,28 +62,19 @@ module.exports = function(app) {
     var department = req.body.department;
     console.log("*********logging from /self*****req.body", req.body);
     console.log("*********logging from /self*****req.session.user", req.session.user);
-    User.find({_id: req.session.user._id}, function(err, u) {
+    User.update({_id: req.session.user._id}, {
+      name: name,
+      gender: gender,
+      tel: tel,
+      qq: qq,
+      school: school,
+      department: department
+    }, function(err, u) {
       if (err) {
         console.log(err);
       }else {
-
-        u.name  = name;
-        u.gender = gender;
-        u.tel = tel;
-        u.qq  = qq;
-        u.school = school;
-        u.department = department;
-
-        u.save(function(err, doc) {
-          if (err) {
-            console.log(err);
-          }else {
-            console.log("*********logging from /self*****user", doc);
-            res.json({
-              success: true,
-              userInfo: doc
-            })
-          }
+        res.json({
+          success: true,
         })
       }
     })
