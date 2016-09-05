@@ -42,10 +42,10 @@ module.exports = function(app) {
     var gender = req.body.gender;
     var tel = req.body.tel;
     var qq = req.body.qq;
-    var shcool = req.body.school;
+    var school = req.body.school;
     var department = req.body.department;
     console.log("*********logging from /self*****req.body", req.body);
-    console.log("*********logging from /self*****req.session.user", req.session.user);    
+    console.log("*********logging from /self*****req.session.user", req.session.user);
     User.find({_id: req.session.user._id}, function(err, u) {
       if (err) {
         console.log(err);
