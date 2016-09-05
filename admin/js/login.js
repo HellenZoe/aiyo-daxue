@@ -12,7 +12,7 @@ $('.admin-login').on('click', function(e) {
   var url = "http://" + location.host + "/admin/login"
   $.ajax({
     type: 'POST',
-    contentType: "JSON",
+    contentType: "application/json",
     dataType: "JSON",
     url: url,
     success: function(data) {
