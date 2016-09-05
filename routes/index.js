@@ -36,6 +36,33 @@ module.exports = function(app) {
       title: "个人信息"
     })
   })
+
+  app.post('self', function(req, res) {
+    var name = req.body.name;
+    var gender = req.body.gender;
+    var tel = req.body.tel;
+    var qq = req.body.qq;
+    var shcool = req.body.school;
+    var department = req.body.department;
+
+    User.find({_id: req.session.user._id}, function(err, u) {
+      if (err) {
+        console.log(err);
+      }else {
+        u.name  = name;
+        u.gender = gender;
+        u.tel = tel;
+        u.qq  = qq;
+        u.school = school;
+        u.department = department;
+
+        res.json({
+          success: true,
+          userInfo: u   
+        })
+      }
+    })
+  })
   app.post('/user', function(req, res) {
     var userName = req.body.userName;
     var avatarUrl = req.body.avatarUrl;
