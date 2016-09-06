@@ -1,6 +1,7 @@
 var treehole = require('./treehole');
 var secondHand = require('./secondHand');
 var User = require("../model/user");
+var Seller = require("../model/seller");
 var lost = require('./lost');
 var play = require('./play');
 var fun = require('./fun');
@@ -61,6 +62,21 @@ module.exports = function(app) {
       })
     }
   })
+
+  //  后台审核  获取当前数据
+  app.get('/admin/verify/trade', function(req, res) {
+    Seller.find({}, function(err, doc) {
+      var draw =  parseInt(req.query.draw);
+      var info = {
+        "draw": draw,
+        "recordsTotal": doc.length,
+        "recordsFiltered": doc.length,
+        "data": doc
+      }
+      res.json(info);
+    })
+  })
+
 
 
   //  个人中心信息完善
