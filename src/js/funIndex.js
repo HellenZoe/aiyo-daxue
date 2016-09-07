@@ -7,7 +7,7 @@ $('.item-block').on('click', function(e) {
 var imgs = $('.no-img');
 imgs.each(function(item, index) {
   var i = $(item);
-  if (!i.attr(src)) {
+  if (!i.attr('src')) {
     i.parent().children('no-img').css('display', 'inline-block');
   }
 })
