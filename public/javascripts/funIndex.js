@@ -5,7 +5,7 @@ $('.item-block').on('click', function(e) {
 })
 
 var imgs = $('.img-wrapper img');
-imgs.each(function(item, index) {
+imgs.each(function(index, item) {
   console.log(item, index);
   var i = $(item);
   console.log(i);
