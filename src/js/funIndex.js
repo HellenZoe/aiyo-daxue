@@ -4,7 +4,7 @@ $('.item-block').on('click', function(e) {
   location.href = "http://" + host + "/fun/detail/" + fId;
 })
 
-var imgs = $('.no-img');
+var imgs = $('.img-wrapper img');
 imgs.each(function(item, index) {
   var i = $(item);
   if (!i.attr('src')) {
