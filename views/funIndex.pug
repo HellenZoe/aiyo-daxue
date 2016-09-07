@@ -14,7 +14,7 @@ block content
           span.icon.text-white
             i.iconfont-selfShare &#xe610;
         h1.title.text-white 趣玩
-    
+
       nav.bar.bar-tab
         a.tab-item.external(href="/fun")
           span.icon.index-color
@@ -28,8 +28,8 @@ block content
           span.icon
             i.iconfont-treeHoleTabsBar &#xe604;
           span.tab-label 个人中心
-          
-      
+
+
       div.content.funIndex-content
         div(class="swiper-container" data-space-between="10")
           div.swiper-wrapper
@@ -60,6 +60,7 @@ block content
                     div.item-block(data-fId=  item._id)
                       div.img-wrapper
                         img(src= item.picUrl[0])
+                        span.no-img 没有图片
                       div.item-content
                         div.item-header
                           a.item-name= item.title
@@ -86,5 +87,5 @@ block content
 
 
 block scripts
-  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8') 
-  script(src="./javascripts/funIndex.js")     
+  script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
+  script(src="./javascripts/funIndex.js")

@@ -41,7 +41,14 @@
   border-bottom: 1px solid #dedede;
 }
 .item-block .img-wrapper {
+  text-align: center;
+  line-height: 4rem;
   float: left;
+}
+.item-block .img-wrapper .no-img {
+  color: #666;
+  font-size: .7rem;
+  display: none;
 }
 .item-block .img-wrapper img {
   height: 4rem;
