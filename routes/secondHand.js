@@ -220,7 +220,7 @@ router.get('/detail/:id', function(req, res) {
         if (err) {
           console.log(err);
         }else {
-          res.render("secondHandDetail.pug", {
+          res.render("secondHandDetail", {
             title: "商品详情",
             valueble: vs[0].toObject({getters: true, virtuals: true})
           })
