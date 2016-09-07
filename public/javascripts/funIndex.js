@@ -6,9 +6,7 @@ $('.item-block').on('click', function(e) {
 
 var imgs = $('.img-wrapper img');
 imgs.each(function(index, item) {
-  console.log(item, index);
   var i = $(item);
-  console.log(i);
   if (!i.attr('src')) {
     i.parent().children('.no-img').css('display', 'block');
   }
