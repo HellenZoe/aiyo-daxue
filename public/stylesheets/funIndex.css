@@ -43,12 +43,17 @@
 .item-block .img-wrapper {
   text-align: center;
   line-height: 4rem;
+  position: relative;
   float: left;
 }
 .item-block .img-wrapper .no-img {
   color: #666;
   font-size: .7rem;
-  display: none;
+  position: absolute;
+  display: block;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-60%);
 }
 .item-block .img-wrapper img {
   height: 4rem;
