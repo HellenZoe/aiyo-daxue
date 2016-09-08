@@ -42,6 +42,8 @@ body {
 }
 .playIndex-content {
   margin-top: 2.5rem;
+}
+.bar-header-secondary ~ .content {
   top: 2.2rem;
 }
 .activity-card {
