@@ -6,13 +6,13 @@ block styles
 block content
   div.page-group
     div.page.page-current#signup
-      header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/secondHand")
-          span.icon.icon-left.text-white
-        a.button.button-link.button-nav.treehole-back.pull-right.external
-          span.icon.text-white
-            i.iconfont-selfShare &#xe610;
-        h1.title.text-white 个人中心
+      // header.bar.bar-nav.back-blue
+      //   a.button.button-link.button-nav.treehole-back.pull-left.external(href="/secondHand")
+      //     span.icon.icon-left.text-white
+      //   a.button.button-link.button-nav.treehole-back.pull-right.external
+      //     span.icon.text-white
+      //       i.iconfont-selfShare &#xe610;
+      //   h1.title.text-white 个人中心
       if user
         div.self
           div
@@ -21,7 +21,7 @@ block content
               div.facebook-name= user.name
               div.facebook-sign-name 个性签名:
               a 编辑资料>
-        
+
         div.content.valueble-content
           div.buttons-tab
             a.tab-link.button.active(href="#tab-selling") 正在出售
@@ -33,7 +33,7 @@ block content
                 div.content-block
                   if valuebles
                     each item in valuebles
-                      if item.status == 0  
+                      if item.status == 0
                         div.item-block
                           div.img-wrapper
                             img(src= item.picUrl[0])
@@ -52,9 +52,9 @@ block content
                 div.content-block
                   if valuebles
                     each item in valuebles
-                      if item.status == 1  
+                      if item.status == 1
                         div.item-block
-                          div.img-wrapper                          
+                          div.img-wrapper
                             img(src= item.picUrl[0])
                           div.item-content
                             div.item-header
@@ -70,12 +70,12 @@ block content
                 div.content-block
                   if valuebles
                     each item in valuebles
-                      if item.status == 2  
+                      if item.status == 2
                         div.item-block
-                          div.img-wrapper                          
+                          div.img-wrapper
                             img(src= item.picUrl[0])
                           div.item-content
-                            div.item-header                            
+                            div.item-header
                               a.item-name= item.name
                               span.item-category= item.category_ch
                             div.item-desc= item.desc
