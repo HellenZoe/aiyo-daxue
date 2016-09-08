@@ -1,8 +1,8 @@
 $(function() {
 
   var userInfo = {
-    name: "",
-    gender: "",
+    // name: "",
+    // gender: "",
     tel: "",
     qq: "",
     school: "",
@@ -18,20 +18,20 @@ $(function() {
     $.showPreloader();
 
     //  获取用户输入内容
-    var name = $('.name > input').val();
-    if (!name) {
-      $.hidePreloader();
-      $.toast("还没有填写名称哦~");
-      return;
-    }
-
-
-    var gender = $('.gender > input').val();
-    if (!gender) {
-      $.hidePreloader();
-      $.toast("还没有填写性別哦~");
-      return;
-    }
+    // var name = $('.name > input').val();
+    // if (!name) {
+    //   $.hidePreloader();
+    //   $.toast("还没有填写名称哦~");
+    //   return;
+    // }
+    //
+    //
+    // var gender = $('.gender > input').val();
+    // if (!gender) {
+    //   $.hidePreloader();
+    //   $.toast("还没有填写性別哦~");
+    //   return;
+    // }
 
     var tel = $('.gender > input').val();
     if (!tel) {
@@ -62,8 +62,8 @@ $(function() {
     }
 
 
-    userInfo.name  = name;
-    userInfo.gender  = gender;
+    // userInfo.name  = name;
+    // userInfo.gender  = gender;
     userInfo.tel  = tel;
     userInfo.qq  = qq;
     userInfo.school  = school;
@@ -96,5 +96,41 @@ $(function() {
     }
 
 
+  })
+
+
+  $('.school input').on('click', function(e) {
+    //  阻止默认事件
+    e.preventDefault();
+
+    $.showPreloader();
+
+    var url = "http://" + location.host + "/school";
+
+    $.ajax({
+    		type: 'GET',
+    		url: url,
+        dataType: "json",
+  			contentType: "application/json",
+    		processData: false,
+    		success: function (data) {
+    			if (data.success) {
+            $.hidePreloader();
+
+            var list = document.createElement('ul');
+            data.data.forEach(function(index, item) {
+              var li = document.createElement('li');
+              li.innerHTML = item;
+              ul.appendChild(li);
+            })
+
+            var container = document.getElementById("selectSchool");
+            container.appendChild(ul);
+    			}
+    		},
+    		error: function (data) {
+    				// showMessageFail("上传出错, 请重试");
+    		}
+    })
   })
 })

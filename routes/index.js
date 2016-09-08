@@ -6,6 +6,8 @@ var lost = require('./lost');
 var play = require('./play');
 var fun = require('./fun');
 var trade = require('./trade');
+var schoolList = require('./data/school');
+
 
 module.exports = function(app) {
   //  首页
@@ -81,8 +83,8 @@ module.exports = function(app) {
 
   //  个人中心信息完善
   app.post('/self', function(req, res) {
-    var name = req.body.name;
-    var gender = req.body.gender;
+    // var name = req.body.name;
+    // var gender = req.body.gender;
     var tel = req.body.tel;
     var qq = req.body.qq;
     var school = req.body.school;
@@ -90,8 +92,8 @@ module.exports = function(app) {
     console.log("*********logging from /self*****req.body", req.body);
     console.log("*********logging from /self*****req.session.user", req.session.user);
     User.update({_id: req.session.user._id}, {
-      name: name,
-      gender: gender,
+      // name: name,
+      // gender: gender,
       tel: tel,
       qq: qq,
       school: school,
@@ -136,6 +138,15 @@ module.exports = function(app) {
 
 
   })
+
+  // 返回学校信息
+  app.get('school', function(req, res) {
+    res.json({
+      data: schoolList,
+      success: true
+    })
+  })
+
 
 
   app.use('/treehole', treehole);
