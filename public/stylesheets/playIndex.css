@@ -21,7 +21,6 @@ body {
 .tabs-content {
   position: fixed;
   width: 100%;
-  top: 4.4rem;
 }
 .tabs-content .shop-tab,
 .tabs-content .school-tab {
