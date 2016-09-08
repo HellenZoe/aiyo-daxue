@@ -6,3 +6,6 @@ echo "Start deployment" >> "$LOG_FILE"
 echo "pulling source code..." >> "$LOG_FILE"
 git pull
 echo "Finished." >> "$LOG_FILE"
+echo "restart service..."
+pm2 restart www
+echo "restart service done"
