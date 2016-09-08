@@ -6,7 +6,7 @@
     "start": "MONGO_URI=mongodb://liadbiz:shanzi@ds040089.mlab.com:40089/aiyo nodemon ./bin/www",
     "prod": "MONGO_URI=mongodb://liadbiz:shanzi@ds040089.mlab.com:40089/aiyo forever start ./bin/www",
     "deploy": "pm2 start ./bin/www",
-    "webhook": "MONGO_URI=mongodb://liadbiz:shanzi@ds040089.mlab.com:40089/aiyo pm2 start ./webhook.js",
+    "webhook": "pm2 start ./webhook.js",
     "clean": "gulp clean",
     "dev": "gulp clean && gulp watch",
     "build": "gulp build"
