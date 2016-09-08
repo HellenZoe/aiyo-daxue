@@ -10,7 +10,7 @@ var trade = require('./trade');
 module.exports = function(app) {
   //  首页
   app.get('/', function(req, res) {
-    res.render('index', {title: "首页", })
+    res.render('index', {title: "哎哟大学", })
   })
 
   app.get('/test', function(req, res) {
