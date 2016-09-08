@@ -7,3 +7,22 @@
 .text-white {
   color: #fff;
 }
+.bar-header-secondary {
+  top: 0px;
+}
+.bar-header-secondary ~ .content {
+  top: 2.2rem;
+}
+.message {
+  text-align: center;
+  height: 3rem;
+  line-height: 3rem;
+  border-radius: 1rem;
+  width: 100%;
+  border: 1px solid rgba(240, 168, 24, 0.8);
+  color: #f0a818;
+  font-size: .8rem;
+  background-color: transparent;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
