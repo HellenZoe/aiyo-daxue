@@ -10,7 +10,7 @@ allCard.forEach(function(item, index) {
   item = $(item);
   var favId  = item.attr('data-favId');
   console.log(favId);
-  if (favId.contains(crtUserId)) {
+  if (window.utils.contains(favId, crtUserId)) {
     item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
     item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
   }
