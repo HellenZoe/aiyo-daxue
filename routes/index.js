@@ -6,7 +6,7 @@ var lost = require('./lost');
 var play = require('./play');
 var fun = require('./fun');
 var trade = require('./trade');
-var schoolList = require('./data/school');
+var schoolList = require('../data/school');
 
 
 module.exports = function(app) {
