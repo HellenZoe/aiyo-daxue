@@ -118,10 +118,9 @@ $(function() {
             $.hidePreloader();
 
             var list = document.createElement('ul');
-            data.data.forEach(function(index, item) {
-              console.log(index, item);
+            data.data.forEach(function(item, index) {
               var li = document.createElement('li');
-              li.innerHTML = index;
+              li.innerHTML = item.name;
               list.appendChild(li);
             })
 
