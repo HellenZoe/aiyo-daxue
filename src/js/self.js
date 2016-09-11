@@ -97,6 +97,7 @@ $(function() {
             nowUserInfo.department = info.department;
             window.utils.saveToLocal('userInfo', nowUserInfo);
             console.log("上传成功");
+            location.href="http://" + location.host + "/";
     			}
     		},
     		error: function (data) {
