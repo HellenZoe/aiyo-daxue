@@ -124,9 +124,10 @@ $(function() {
 
               //  添加点击事件
               $(li).on('click', function(e) {
-                var schoolName = $(this).innerHTML;
-                $('.school input').val(schoolName);
+                console.log($(this));
+                var schoolName = $(this).html();
                 console.log(schoolName);
+                $('.school input').val(schoolName);
                 //  返回编辑页面
                 $('.backEdit').trigger('click');
 
