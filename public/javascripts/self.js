@@ -121,11 +121,11 @@ $(function() {
             data.data.forEach(function(index, item) {
               var li = document.createElement('li');
               li.innerHTML = item;
-              ul.appendChild(li);
+              list.appendChild(li);
             })
 
             var container = document.getElementById("selectSchool");
-            container.appendChild(ul);
+            container.appendChild(list);
     			}
     		},
     		error: function (data) {
