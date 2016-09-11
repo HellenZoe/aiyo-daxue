@@ -119,8 +119,9 @@ $(function() {
 
             var list = document.createElement('ul');
             data.data.forEach(function(index, item) {
+              console.log(index, item);
               var li = document.createElement('li');
-              li.innerHTML = item;
+              li.innerHTML = index;
               list.appendChild(li);
             })
 
