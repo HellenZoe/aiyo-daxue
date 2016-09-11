@@ -124,7 +124,7 @@ $(function() {
               list.appendChild(li);
             })
 
-            var container = document.getElementById("selectSchool");
+            var container = document.getElementById("schoolListContainer");
             container.appendChild(list);
     			}
     		},
