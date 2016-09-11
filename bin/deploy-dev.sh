@@ -7,5 +7,5 @@ echo "pulling source code..." >> "$LOG_FILE"
 git pull
 echo "Finished." >> "$LOG_FILE"
 echo "restart service..."
-pm2 reload all
+# pm2 reload all
 echo "restart service done"
