@@ -31,7 +31,7 @@ $(function() {
     //   return;
     // }
 
-    var tel = $('.tel > input').val();
+    var tel = $('.tel  input').val();
     if (!tel) {
       $.toast("还没有填写电话哦~");
       return;
@@ -40,7 +40,7 @@ $(function() {
       return;
     }
 
-    var qq = $('.qq > input').val();
+    var qq = $('.qq  input').val();
     if (!qq) {
       $.toast("还没有填写qq哦~");
       return;
@@ -49,16 +49,18 @@ $(function() {
       return;
     }
 
-    var school = $('.school > input').val();
+    var school = $('.school  input').val();
     if (!school) {
       $.toast("还没有填写学校哦~");
       return;
     }
 
-    var department = $('.department > input').val();
+    var department = $('.department  input').val();
     if (!department) {
       $.toast("还没有填写宿舍地址哦~");
       return;
+    }else if (!^[\u4e00-\u9fa5],{0,10}$.test(department) ) {
+      $.toast("十个字以内就好啦~")
     }
 
 
