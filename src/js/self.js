@@ -60,7 +60,7 @@ $(function() {
       $.toast("还没有填写宿舍地址哦~");
       return;
     }else if (!/^[\u4e00-\u9fa5|0-9]{0,10}$/.test(department) ) {
-      $.toast("十个字以内就好啦~")；
+      $.toast("十个字以内就好啦~");
       return;
     }
 
@@ -90,12 +90,12 @@ $(function() {
     			if (data.success) {
     				// showMessageSuccess("上传成功");
             $.hidePreloader();
-            var nowUserInfo = window.utils.getFromLocal('userinfo');
+            var nowUserInfo = window.utils.getFromLocal('userInfo');
             nowUserInfo.qq = info.qq;
             nowUserInfo.tel = info.tel;
             nowUserInfo.school = info.school;
             nowUserInfo.department = info.department;
-            window.utils.saveToLocal('userinfo', nowUserInfo);
+            window.utils.saveToLocal('userInfo', nowUserInfo);
             console.log("上传成功");
     			}
     		},
