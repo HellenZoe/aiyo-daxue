@@ -13,7 +13,7 @@ imgWrappers.forEach(function(item, index) {
     var images = $(this).children('img');
     images.forEach(function(item, index) {
       console.log($(item));
-      urls.push($(item).attr('href'))
+      urls.push($(item).attr('src'))
     })
     console.log(urls);
     var myPhotoBrowserStandalone = new $.photoBrowser({
