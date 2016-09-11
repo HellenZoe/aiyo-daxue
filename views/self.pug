@@ -21,22 +21,26 @@ block content
           //-   h3 性别
           //-   input.border-bottom(placeholder="填写性别")
           div.tel
+            - var tel  = userInfo.tel
             h3 电话
-            input.border-bottom(placeholder="填写电话")
+            input.border-bottom(placeholder="填写电话" value=tel)
           div.qq
+            - var qq = userInfo.qq
             h3 qq
-            input.border-bottom(placeholder="填写qq")
+            input.border-bottom(placeholder="填写qq" value=qq)
           div.school
+            - var school = userInfo.school
             h3 学校
             a(href="#selectSchool")
-              input.border-bottom(placeholder="填写学校")
+              input.border-bottom(placeholder="填写学校" value=school)
           div.department
+            - var department = userInfo.department
             h3 宿舍地址
-            input.border-bottom(placeholder="填写宿舍地址")
+            input.border-bottom(placeholder="填写宿舍地址" value=department)
     
     div.page#selectSchool
       header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.pull-left.external(href="#editInfo")
+        a.button.button-link.button-nav.pull-left.external.backEdit(href="#editInfo")
           span.icon.icon-left.text-white
         h1.title.text-white  树洞
       

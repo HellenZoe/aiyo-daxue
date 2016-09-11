@@ -38,8 +38,15 @@ module.exports = function(app) {
 
   //  个人中心页面
   app.get('/self', function(req, res) {
-    res.render('self', {
-      title: "个人信息"
+    User.find({_id: req.session.user._id}, function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.render('self', {
+          title: "个人信息",
+          userInfo: doc
+        })
+      }
     })
   })
 
