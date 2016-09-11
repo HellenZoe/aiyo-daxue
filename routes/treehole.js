@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
   // console.log("*********************logging from /treehole--user************************", req.session.user);
   var crtUser = req.session.user;
   var queryTreehole = Treehole.find({});
-  queryTreehole.exec(function(err, ts) {
+  queryTreehole.sort({'_time': -1}).exec(function(err, ts) {
     if (err) {
       console.log(err);
     }else {
