@@ -17,7 +17,7 @@ imgWrappers.forEach(function(item, index) {
     })
     console.log(urls);
     var myPhotoBrowserStandalone = $.photoBrowser({
-      photo: urls
+      photos: urls
     })
 
     // 打开图片浏览器
