@@ -14,8 +14,6 @@ $(function() {
     //  阻止默认点击事件
     e.preventDefault();
 
-    //  显示进度图标
-    $.showPreloader();
 
     //  获取用户输入内容
     // var name = $('.name > input').val();
@@ -35,28 +33,30 @@ $(function() {
 
     var tel = $('.gender > input').val();
     if (!tel) {
-      $.hidePreloader();
       $.toast("还没有填写电话哦~");
+      return;
+    }else if (!/^\d{11}$/) {
+      $.toast("电话格式错误~");
       return;
     }
 
     var qq = $('.qq > input').val();
     if (!qq) {
-      $.hidePreloader();
       $.toast("还没有填写qq哦~");
+      return;
+    }else if (!/^\d{4, 11}$/) {
+      $.toast("qq格式错误~");
       return;
     }
 
     var school = $('.school > input').val();
     if (!school) {
-      $.hidePreloader();
       $.toast("还没有填写学校哦~");
       return;
     }
 
     var department = $('.department > input').val();
     if (!department) {
-      $.hidePreloader();
       $.toast("还没有填写宿舍地址哦~");
       return;
     }
@@ -69,6 +69,8 @@ $(function() {
     userInfo.school  = school;
     userInfo.department  = department;
 
+    //  显示进度图标
+    $.showPreloader();
     //  发送用户信息
     sendInfo(userInfo);
 

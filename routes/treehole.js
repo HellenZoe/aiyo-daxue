@@ -30,7 +30,11 @@ router.get('/', function(req, res) {
           schoolTreeholes: ts.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
-            return item.authorSchool == req.session.user.school;
+            console.log(req.session.uset.school, item.authorSchool);
+            if (school) {
+              return item.authorSchool == req.session.user.school;
+            }
+            return false;
           }),
           user: crtUser
         });
