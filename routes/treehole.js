@@ -22,6 +22,15 @@ router.get('/', function(req, res) {
         console.log("*******************logging from /treehole--treeeholesTransformed***************", ts.map(function(item) {
             return item.toObject({getters: true, virtuals: true});
         }));
+        console.log(req.session.user.school, item.authorSchool);
+        console.log("+++++++++++++++", ts.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }).filter(function(item, index) {
+            if (req.session.user.school) {
+              return item.authorSchool == req.session.user.school;
+            }
+            return false;
+          }));
         res.render("treeholeIndex", {
           title: "树洞首页",
           allTreeholes: ts.map(function(item){
