@@ -123,7 +123,7 @@ $(function() {
               li.innerHTML = item.name;
 
               //  添加点击事件
-              li.addEventListener('click', function(e) {
+              $(li).on('click', function(e) {
                 var schoolName = $(this).innerHTML;
                 $('.school input').val(schoolName);
                 console.log(schoolName);
