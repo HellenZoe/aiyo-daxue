@@ -3,3 +3,5 @@ var schoolList = [
   {id: 1, name: "武汉大学"},
   {id: 2, name: "武汉理工大学"}
 ]
+
+module.exports = schoolList
