@@ -59,7 +59,7 @@ $(function() {
     if (!department) {
       $.toast("还没有填写宿舍地址哦~");
       return;
-    }else if (!/^[\u4e00-\u9fa5],{0,10}$/.test(department) ) {
+    }else if (!/^[\u4e00-\u9fa5|0-9]{0,10}$/.test(department) ) {
       $.toast("十个字以内就好啦~")；
       return;
     }
