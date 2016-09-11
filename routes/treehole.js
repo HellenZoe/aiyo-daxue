@@ -22,10 +22,10 @@ router.get('/', function(req, res) {
         console.log("*******************logging from /treehole--treeeholesTransformed***************", ts.map(function(item) {
             return item.toObject({getters: true, virtuals: true});
         }));
-        console.log(req.session.user.school, item.authorSchool);
         console.log("+++++++++++++++", ts.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
+            console.log(req.session.user.school, item.authorSchool);
             if (req.session.user.school) {
               return item.authorSchool == req.session.user.school;
             }
