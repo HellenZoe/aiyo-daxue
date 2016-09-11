@@ -103,6 +103,8 @@ $(function() {
     //  阻止默认事件
     e.preventDefault();
 
+    //  清除
+    $('#schoolListContainer ul').remove();
     $.showPreloader();
 
     var url = "http://" + location.host + "/school";
