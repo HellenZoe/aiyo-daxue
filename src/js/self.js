@@ -140,11 +140,13 @@ $(function() {
 // 用户点击任何一个学校的item，就返回信息编辑页面， 并且自动填充选择字段
 var schoolList = $('#schoolListContainer li');
 schoolList.forEach(function(item, index) {
+  console.log(item, index);
   var school = $(item);
   school.on('click', function(e) {
     e.preventDefault();
 
     var schoolName = $(this).html();
+    console.log(schoolName);
     $('.school input').val(schoolName);
 
     //  返回编辑页面
