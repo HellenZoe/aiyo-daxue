@@ -21,22 +21,22 @@ block content
           //-   h3 性别
           //-   input.border-bottom(placeholder="填写性别")
           div.tel
-            - var tel  = userInfo.tel
+            //- - var tel  = userInfo.tel
             h3 电话
-            input.border-bottom(placeholder="填写电话" value=tel)
+            input.border-bottom(placeholder="填写电话" value=#{userInfo.tel})
           div.qq
-            - var qq = userInfo.qq
+            //- - var qq = userInfo.qq
             h3 qq
-            input.border-bottom(placeholder="填写qq" value=qq)
+            input.border-bottom(placeholder="填写qq" )
           div.school
-            - var school = userInfo.school
+            //- - var school = userInfo.school
             h3 学校
             a(href="#selectSchool")
-              input.border-bottom(placeholder="填写学校" value=school)
+              input.border-bottom(placeholder="填写学校" )
           div.department
-            - var department = userInfo.department
+            //- - var department = userInfo.department
             h3 宿舍地址
-            input.border-bottom(placeholder="填写宿舍地址" value=department)
+            input.border-bottom(placeholder="填写宿舍地址" )
     
     div.page#selectSchool
       header.bar.bar-nav.back-blue

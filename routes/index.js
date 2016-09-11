@@ -42,6 +42,7 @@ module.exports = function(app) {
       if (err) {
         console.log(err);
       }else {
+        console.log("*************logging from /self************userinfo", doc);
         res.render('self', {
           title: "个人信息",
           userInfo: doc
