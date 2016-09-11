@@ -12,7 +12,7 @@ var Goods = require('../model/goods');
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
   var queryGoods = Goods.find({});
-  queryGoods.exec(function(err, gs) {
+  queryGoods.sort([['_id', -1]]).exec(function(err, gs) {
     if (err) {
       console.log(err);
     }else {
@@ -25,6 +25,21 @@ router.get('/', function(req, res) {
           goods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }),
+          transGoods: gs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }).filter(function(item, index) {
+            return item.category == "transport";
+          });
+          sportGoods: gs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }).filter(function(item, index) {
+            return item.category == "sport"
+          });
+          eleGoods: gs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }).filter(function(item, index) {
+            return item.category == "ele"
+          });
           user: crtUser
         });
       }else {
