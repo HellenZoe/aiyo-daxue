@@ -31,7 +31,7 @@ $(function() {
     //   return;
     // }
 
-    var tel = $('.gender > input').val();
+    var tel = $('.tel > input').val();
     if (!tel) {
       $.toast("还没有填写电话哦~");
       return;
