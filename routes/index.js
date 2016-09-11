@@ -140,7 +140,7 @@ module.exports = function(app) {
   })
 
   // 返回学校信息
-  app.get('school', function(req, res) {
+  app.get('/school', function(req, res) {
     res.json({
       data: schoolList,
       success: true
