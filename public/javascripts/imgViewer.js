@@ -16,7 +16,7 @@ imgWrappers.forEach(function(item, index) {
       urls.push($(item).attr('src'))
     })
     console.log(urls);
-    var myPhotoBrowserStandalone = new $.photoBrowser({
+    var myPhotoBrowserStandalone = $.photoBrowser({
       photo: urls
     })
 
