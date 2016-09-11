@@ -24,8 +24,13 @@ router.get('/', function(req, res) {
         }));
         res.render("treeholeIndex", {
           title: "树洞首页",
-          treeholes: ts.map(function(item){
+          allTreeholes: ts.map(function(item){
             return item.toObject({getters: true, virtuals: true});
+          }),
+          schoolTreeholes: ts.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }).filter(function(item, index) {
+            return item.authorSchool == req.session.user.school;
           }),
           user: crtUser
         });
