@@ -180,18 +180,18 @@ router.post('/new', upload.single('test'), function(req, res) {
               if (err) {
                 console.log("保存treehole url出错", err);
               }else {
+                var tmpFilePath = "./upload/tmp/" + time + "-" + index + "." + fileType;
+              	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
+              		if(err){
+              		  console.log(err);
+              		}else{
+                    uploadToQiniu(tmpFilePath, "treehole");
+                    console.log("success upload");
+                  }
+              	});
                 console.log(raw);
               }
             });
-            var tmpFilePath = "./upload/tmp/" + time + "." + fileType;
-          	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
-          		if(err){
-          		  console.log(err);
-          		}else{
-                uploadToQiniu(tmpFilePath, "treehole");
-                console.log("success upload");
-              }
-          	});
           })
 
         })
