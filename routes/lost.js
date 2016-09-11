@@ -29,17 +29,17 @@ router.get('/', function(req, res) {
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "transport";
-          });
+          }),
           sportGoods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "sport"
-          });
+          }),
           eleGoods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "ele"
-          });
+          }),
           user: crtUser
         });
       }else {
