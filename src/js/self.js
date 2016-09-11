@@ -126,6 +126,7 @@ $(function() {
               li.addEventListener('click', function(e) {
                 var schoolName = $(this).innerHTML;
                 $('.school input').val(schoolName);
+                console.log(schoolName);
                 //  返回编辑页面
                 $('.backEdit').trigger('click');
 
