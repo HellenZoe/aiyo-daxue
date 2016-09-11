@@ -8,6 +8,11 @@ imgWrappers.forEach(function(item, index) {
     //  默认事件
     e.preventDefault();
 
+    //  清楚之前的图片浏览器
+
+    $('.photo-browser').remove();
+
+    
     //  拿到图片链接
     var urls = [];
     var images = $(this).children('img');
@@ -22,5 +27,11 @@ imgWrappers.forEach(function(item, index) {
 
     // 打开图片浏览器
     myPhotoBrowserStandalone.open();
+
+    // myPhotoBrowserStandalone.attachEvents(true);
+    // if (myPhotoBrowserStandalone.params.type === 'standalone') {
+    //   pb.container.removeClass('photo-browser-in').addClass('photo-browser-out').transitionEnd(function () {
+    //   pb.container.removeClass('photo-browser-in').addClass('photo-browser-out').animationEnd(function () { pb.container.remove(); });
+    // }
   })
 })
