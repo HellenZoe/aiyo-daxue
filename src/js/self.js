@@ -44,7 +44,7 @@ $(function() {
     if (!qq) {
       $.toast("还没有填写qq哦~");
       return;
-    }else if (!/^\d{4, 11}$/.test('qq')) {
+    }else if (!/^\d{4, 11}$/.test(qq)) {
       $.toast("qq格式错误~");
       return;
     }
