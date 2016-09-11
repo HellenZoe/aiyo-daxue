@@ -41,7 +41,7 @@ block content
             div#tab-hot.tab.active
               div.content-block            
                 if allTreeholes
-                  each treehole, index in treeholes
+                  each treehole, index in allTreeholes
                     div.card.facebook-card(data-tId= treehole._id, data-favId= treehole.favUserId)
                       div.card-header.no-border
                         div.facebook-avatar
@@ -95,7 +95,7 @@ block content
                           i.iconfont-nullEnjoy &#xe614;
                           span.enjoy-count= treehole.fav
                 else
-                  div 还没有人发布树洞  
+                  div 附近没有人发布树洞 
 
             div#tab-school.tab
               div.content-block
@@ -125,7 +125,7 @@ block content
                           i.iconfont-nullEnjoy &#xe614;
                           span.enjoy-count= treehole.fav
                 else
-                  div 还没有人发布树洞  
+                  div 没有同学校的树洞
 
     
     
