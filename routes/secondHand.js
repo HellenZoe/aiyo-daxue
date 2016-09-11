@@ -24,17 +24,17 @@ router.get('/', function(req, res) {
           valuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }),
-          valuebles: qs.map(function(item){
+          transValuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "transport";
           }),
-          valuebles: qs.map(function(item){
+          sportValuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
-          })filter(function(item, index) {
+          }).filter(function(item, index) {
             return item.category == "sport";
           }),
-          valuebles: qs.map(function(item){
+          eleValuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "ele";
