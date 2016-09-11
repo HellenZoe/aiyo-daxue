@@ -35,7 +35,7 @@ $(function() {
     if (!tel) {
       $.toast("还没有填写电话哦~");
       return;
-    }else if (!/^\d{11}$/) {
+    }else if (!/^\d{11}$/.test(tel)) {
       $.toast("电话格式错误~");
       return;
     }
@@ -44,7 +44,7 @@ $(function() {
     if (!qq) {
       $.toast("还没有填写qq哦~");
       return;
-    }else if (!/^\d{4, 11}$/) {
+    }else if (!/^\d{4, 11}$/.test('qq')) {
       $.toast("qq格式错误~");
       return;
     }
