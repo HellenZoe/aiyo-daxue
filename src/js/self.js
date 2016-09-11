@@ -35,7 +35,7 @@ $(function() {
     if (!tel) {
       $.toast("还没有填写电话哦~");
       return;
-    }else if (!/^\d{11}$/.test(tel)) {
+    }else if (!/^1[3|4|5|7|8]\d{9}$/.test(tel)) {
       $.toast("电话格式错误~");
       return;
     }
@@ -59,7 +59,7 @@ $(function() {
     if (!department) {
       $.toast("还没有填写宿舍地址哦~");
       return;
-    }else if (!^[\u4e00-\u9fa5],{0,10}$.test(department) ) {
+    }else if (!/^[\u4e00-\u9fa5],{0,10}$/.test(department) ) {
       $.toast("十个字以内就好啦~")
     }
 
