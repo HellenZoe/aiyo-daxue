@@ -26,3 +26,6 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+.photo-browser-slide img {
+  width: 100%;
+}
