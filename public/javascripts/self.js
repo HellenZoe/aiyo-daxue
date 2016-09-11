@@ -132,6 +132,7 @@ $(function() {
                 $('.school input').val(schoolName);
                 //  返回编辑页面
                 $('.backEdit').trigger('click');
+                console.log('fuck');
 
               })
               list.appendChild(li);
