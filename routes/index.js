@@ -100,7 +100,7 @@ module.exports = function(app) {
     var department = req.body.department;
     console.log("*********logging from /self*****req.body", req.body);
     console.log("*********logging from /self*****req.session.user", req.session.user);
-    User.update({_id: req.session.user._id}, {
+    User.findByIdAndUpdate({_id: req.session.user._id}, {
       // name: name,
       // gender: gender,
       tel: tel,
@@ -111,8 +111,10 @@ module.exports = function(app) {
       if (err) {
         console.log(err);
       }else {
+        req.session.user = u;
         res.json({
-          success: true
+          success: true,
+          newUserInfo: u
         })
       }
     })

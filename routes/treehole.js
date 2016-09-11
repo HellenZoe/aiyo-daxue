@@ -26,7 +26,7 @@ router.get('/', function(req, res) {
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             console.log(req.session.user.school, item.authorSchool);
-            if (req.session.user.school) {
+            if (req.session.user.school && item.authorSchool) {
               return item.authorSchool == req.session.user.school;
             }
             return false;
