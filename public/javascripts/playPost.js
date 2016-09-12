@@ -50,22 +50,22 @@ $(function() {
     var type = $('.type input:checked')
     if (type.length == 0) {
       $.hidePreloader();
-      $.toast("还没有选类型哟");
+      $.toast("还没有选类型哟~");
       return;
     }else if (type.length > 1) {
       $.hidePreloader();
-      $.toast("只能选一个类型哦");
+      $.toast("只能选一个类型哦~");
       return;
 
     }
     var name = $('.name > input').val();
     if (!name) {
       $.hidePreloader();
-      $.toast("还没有写标题哟");
+      $.toast("还没有写标题哟~");
       return;
     }else if (!/^[\u4e00-\u9fa5|0-9]{0,14}$/.test(name)) {
       $.hidePreloader();
-      $.toast("14个字以内就好啦~");
+      $.toast("标题超过字数了亲~");
       return;
     }
 
@@ -98,7 +98,7 @@ $(function() {
       return;
     }else if (!/^\d{0,4}$/.test(price)) {
       $.hidePreloader();
-      $.toast("再贵就买不起啦");
+      $.toast("再贵就买不起啦~");
       return;
     }
 
