@@ -362,7 +362,7 @@ router.post('/search', function(req, res) {
       })
     }else {
       res.json({
-        success: false,
+        success: true,
         ts: null
       })
     }
