@@ -19,7 +19,7 @@ block content
         if ts
           ul
             each item in ts
-              li(data-tId= item._id)  item.title
+              li(data-tId= item._id)= item.title
 
 block scripts
   script(src="../javascripts/windowUtils.js")
