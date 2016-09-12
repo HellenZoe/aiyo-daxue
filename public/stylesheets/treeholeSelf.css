@@ -55,9 +55,13 @@
   color: #F57E7A;
 }
 .content-block {
-  overflow: auto;
   margin: 0px;
   padding: 0px;
+  position: absolute;
+  top: 7.8rem;
+  bottom: 0rem;
+  overflow: auto;
+  width: 100%;
 }
 .topic-tag {
   width: 100%;
