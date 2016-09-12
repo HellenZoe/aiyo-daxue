@@ -59,6 +59,8 @@
 .facebook-card .card-content .picsWrapper img {
   display: inline-block;
   margin-right: .2rem;
+  width: 5rem;
+  max-height: 5rem;
 }
 .facebook-card .card-info {
   margin-left: 2.5rem;
