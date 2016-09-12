@@ -60,37 +60,63 @@ $(function() {
     var name = $('.name > input').val();
     if (!name) {
       $.hidePreloader();
-      $.toast("还没有写名称哟～");
+      $.toast("还没有写标题哟");
+      return;
+    }else if (!/^[\u4e00-\u9fa5|0-9]{0,14}$/.test(name)) {
+      $.toast("14个字以内就好啦~");
       return;
     }
-    var desc = $('.desc > input').val();
+
+
+    var desc = $('.desc > textarea').val();
     if (!desc) {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
       return;
+    }else if (!/^[\u4e00-\u9fa5|0-9]{0,140}$/.test(desc)) {
+      $.toast("描述超过字数了亲~");
+      return;
     }
+
+
+
     var address = $('.address input').val();
     if (!address) {
       $.hidePreloader();
       $.toast("还没有写地址哟～");
       return;
     }
+
+
+
     var qq = $('.qq input').val();
     if (!qq) {
       $.hidePreloader();
       $.toast("还没有写qq哟～");
       return;
+    }else if (!/^\d{4,11}$/.test(qq)) {
+      $.toast("qq格式错误~");
+      return;
     }
+
     var tel = $('.tel input').val();
     if (!tel) {
       $.hidePreloader();
       $.toast("还没有写电话哟～");
       return;
+    }else if (!/^1[3|4|5|7|8]\d{9}$/.test(tel)) {
+      $.toast("电话格式错误~");
+      return;
     }
+
+
     var price = $('.price input').val();
-    if (!tel) {
+    if (!price) {
       $.hidePreloader();
       $.toast("还没有写价格哟～");
+      return;
+    }else if (!/^\d{0,4}$/.test(price)) {
+      $.toast("再贵就买不起啦");
       return;
     }
 
