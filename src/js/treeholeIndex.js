@@ -22,7 +22,7 @@ var fucks = $("#fuck");
 fucks.each(function(index, el) {
   var t = $(el);
   console.log(index, el);
-  el.on('click', function(e) {
+  t.on('click', function(e) {
       var cardId = $(this).parent().attr('data-tId');
       var host = location.host;
       location.href = "http://" + host + "/treehole/detail/" + cardId;
