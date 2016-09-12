@@ -63,6 +63,10 @@
   top: -0.6rem;
   right: -0.6rem;
 }
+#previewAllPic div canvas {
+  width: 5rem;
+  max-height: 5rem;
+}
 #previewAllPic img {
   max-width: 2rem;
   z-index: 10000;
@@ -77,7 +81,10 @@ textarea {
   border: none;
   resize: none;
   width: 100%;
-  max-height: 8rem;
+  max-height: 10rem;
+  padding: .3rem;
+  font-size: .7rem;
+  min-height: 5rem;
 }
 .type {
   margin-top: 1rem;
