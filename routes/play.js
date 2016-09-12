@@ -41,9 +41,19 @@ router.get('/', function(req, res) {
 
 // 去约发布页面
 router.get('/post', function(req, res) {
-  res.render('playPost', {
-    title: "发布"
-  })
+    console.log("*************logging from /self************res.session.user", req.session.user);
+    User.find({_id: req.session.user._id}, function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else {
+        console.log("*************logging from /self************userinfo", doc[0]);
+        res.render('playPost', {
+          title: "发布",
+          userInfo: doc[0]
+        })
+      }
+    })
+
 })
 
 

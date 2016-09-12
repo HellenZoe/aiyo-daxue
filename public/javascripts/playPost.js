@@ -51,6 +51,7 @@ $(function() {
     if (type.length == 0) {
       $.hidePreloader();
       $.toast("还没有选类型哟");
+      return;
     }else if (type.length > 1) {
       $.hidePreloader();
       $.toast("只能选一个类型哦");
@@ -74,6 +75,7 @@ $(function() {
       $.toast("还没有写描述哟～");
       return;
     }else if (!/^[\u4e00-\u9fa5|0-9]{0,140}$/.test(desc)) {
+      console.log(desc);
       $.toast("描述超过字数了亲~");
       return;
     }
