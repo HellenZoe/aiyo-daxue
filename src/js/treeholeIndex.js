@@ -151,11 +151,21 @@ fucks.forEach(function(item, index) {
   })
 
   // 点击seach框跳转到search页面
-  $('#search').on('click', function(e) {
-    //  组织input的聚焦事件
-    e.preventDefault();
+  $('#search').on('keydown', function(e) {
+    var searchKey = $(this).val();
+    if (e.keyCode == 13 && $(this).val()) {
 
-    $('.gotoSearch').trigger('click');
+      var url = "http://" + location.host + "/treehole/search";
+      $.ajax({
+        type: "GET",
+        url: url,
+        dataType: "json",
+    		contentType: "application/json",
+        data: JSON.stringify({key: searchKey}),
+        processData: false
+      })
+    }
+
   })
 
 
@@ -211,4 +221,6 @@ fucks.forEach(function(item, index) {
       })
     }
   })
+
+
 });

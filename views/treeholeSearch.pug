@@ -1,0 +1,26 @@
+extends layout
+
+block styles
+  link(href="./stylesheets/treehole.css" rel='stylesheet')
+block content
+  div.page-group
+    div.page#search-page
+      header.bar.bar-nav.back-blue
+        a.button.button-link.button-nav.treehole-back.pull-left(href="#index")
+          span.icon.icon-left
+        h1.title.text-white 搜索
+      div.bar.bar-header-secondary.treehole-searchbar#treehole-searchbar-search
+        div.searchbar
+          div.search-input
+            label.icon.icon-search(for="search")
+            input#search-action(type="search", placeholder="搜索感兴趣的话题")
+
+      div.content-block#treeholeListContainer
+        if ts
+          ul
+            each item in ts
+              li(data-tId= ts._id)
+
+block scripts
+  script(src="./javascripts/windowUtils.js")
+  script(src="./javascripts/treeholeSearch.js")
