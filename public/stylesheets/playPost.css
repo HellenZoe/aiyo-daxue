@@ -72,6 +72,13 @@
   overflow: hidden;
   display: none;
 }
+textarea {
+  -webkit-appearance: none;
+  border: none;
+  resize: none;
+  width: 100%;
+  max-height: 8rem;
+}
 .type {
   margin-top: 1rem;
 }

@@ -18,33 +18,33 @@ block content
             div
               input#checkbox_w(type="checkbox" name="want")
               label(for="checkbox_w")
-              span 我想要
+              span 我可以
             div
               input#checkbox_c(type="checkbox" name="can")
               label(for="checkbox_c")
-              span 我能行
+              span 我需要
           div.name
-            h3 描述
-            input.border-bottom(type="text" name="name" placeholder="说说你想做什么")
+            h3 标题
+            input.border-bottom(type="text" name="name" placeholder="侃侃你需要什么/提供什么(25字)")
             div#previewAllPic
             span.icon
               input#fileToUpload(type="file" name="fileToUpload")
               i.iconfont-treeholePost &#xe605;
           div.desc
             h3 简介
-            input.border-bottom(placeholder="简单说一说具体内容")
+            textarea(placeholder="让时间，技能，只是产权交换，变现吧(140字)")
           div.address
             h3 地点
-            input.border-bottom(placeholder="请填写地点")
+            input.border-bottom(placeholder="填个地点才好约~")
           div.price
             h3 价格
-            input.border-bottom(placeholder="请填写价格")
+            input.border-bottom(placeholder="就是如此赤裸裸～免费写0")
           div.qq
             h3 qq号
-            input.border-bottom(placeholder="请填写qq号")
+            input.border-bottom(placeholder="一切成就约")
           div.tel
             h3 电话号
-            input.border-bottom(placeholder="请填写手机号")
+            input.border-bottom(placeholder="一切造就约")
           
             
                         
@@ -52,4 +52,5 @@ block content
               
 block scripts
   script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/autosize.min.js")    
   script(src="../javascripts/playPost.js")
