@@ -165,15 +165,18 @@ router.post('/new', upload.single('test'), function(req, res) {
     var authorId = req.session.user._id;
     var ifAnonymous = req.body['ifAnonymous'];
     var time = Date.now();
-    User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
+    User.find({_id: authorId}, "name school avatarUrl gender", function(err, us) {
       if (err) {
         console.log(err);
       }else {
+        var baseUrl = "http://obzokcbc0.bkt.clouddn.com/logo";
+        var gender = us[0].gender ? us[0].gender : "男";
+        var logoUrl = ( gender == "男" ) ? (baseUrl + "/logo01.png") : (baseUrl + "/logo02.png");
         var newTreehole = new Treehole({
             author: authorId,
             authorName: ifAnonymous ? "匿名小马甲" : us[0].name,
-            authorAvatarUrl: us[0].avatarUrl,
-            authorSchool: us[0].school,
+            authorAvatarUrl: logoUrl,
+            authorSchool: "哈佛",
             content: content,
             title: title,
             time: time
