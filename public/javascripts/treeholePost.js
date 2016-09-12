@@ -9,6 +9,7 @@ $(function() {
   var allPic  = {
     postText: "",
     name: "",
+    ifAnonymous: false,
     pics: []
   }
   var picCount = 0;
@@ -32,20 +33,22 @@ $(function() {
     $.showPreloader();
 
     //  获取用户输入内容
+
+    //  树洞内容
     var postText = $('.treehole-content > textarea').val();
     console.log(postText);
     allPic.postText = postText;
 
+    // 姓名
     var name = $('.name input').val();
     console.log(name);
     allPic.name = name;
 
+    //  是否匿名
+    allPic.ifAnonymous = $(".input[type='checkbox']").is(':checked');
+
     //  发送所有信息
     sendFile(allPic);
-    // allPic.pics.forEach(function(item, index) {
-    //   sendFile(item);
-    //   console.log("上传 ", item);
-    // })
 
     // 发送完请求之后隐藏
     $.hidePreloader();
@@ -247,6 +250,7 @@ canvas.forEach(function(item, index) {
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('postText', info.postText);
     formData.append('name', info.name);
+    formData.append('ifAnonymous', info.ifAnonymous);
     var url = "http://" + location.host + "/treehole/new"
   	$.ajax({
   		type: 'POST',

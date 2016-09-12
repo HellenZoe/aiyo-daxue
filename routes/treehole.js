@@ -163,6 +163,7 @@ router.post('/new', upload.single('test'), function(req, res) {
     var content = req.body['postText'];
     var title = req.body['name'];
     var authorId = req.session.user._id;
+    var ifAnonymous = req.body['ifAnonymous'];
     var time = Date.now();
     User.find({_id: authorId}, "name school avatarUrl", function(err, us) {
       if (err) {
@@ -170,7 +171,7 @@ router.post('/new', upload.single('test'), function(req, res) {
       }else {
         var newTreehole = new Treehole({
             author: authorId,
-            authorName: us[0].name,
+            authorName: ifAnonymous ? "匿名小马甲" : us[0].name,
             authorAvatarUrl: us[0].avatarUrl,
             authorSchool: us[0].school,
             content: content,
