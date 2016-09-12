@@ -19,7 +19,7 @@ block content
         if ts
           ul
             each item in ts
-              a(href= "http://s-289167.abc188.com/treehole/detail/" + item._id)
+              a.link.external(href= "http://s-289167.abc188.com/treehole/detail/" + item._id)
                 li(data-tId= item._id)= item.title
 
 block scripts
