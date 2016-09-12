@@ -128,8 +128,8 @@ $(function() {
 
   // 处理文件
   function processFile(dataURL, fileType) {
-  	var maxWidth = 100;
-  	var maxHeight = 100;
+  	var maxWidth = 400;
+  	var maxHeight = 400;
   	var image = new Image();
   	image.onload = function () {
       // var previewContainer = document.getElementById("previewAllPic");
