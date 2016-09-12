@@ -19,9 +19,9 @@ $(function() {
 
   //   点击图片的时候  跳转到相应的详情页去
 var fucks = $("#fuck");
-fucks.each(function(index, el) {
-  var t = $(el);
-  console.log(index, el);
+fucks.forEach(function(item, index) {
+  console.log(item, index);
+  var t = $(item);
   t.on('click', function(e) {
       var cardId = $(this).parent().attr('data-tId');
       var host = location.host;
