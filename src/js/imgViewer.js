@@ -1,10 +1,10 @@
-var imgWrappers = $('.picsWrapper');
+var allImages = $('.picsWrapper img');
 imgWrappers.forEach(function(item, index) {
   console.log(item, index);
 
   //  给每个图片容器都绑定一个点击大图预览事件
-  var wrapper = $(item);
-  wrapper.on('click', function(e) {
+  var img = $(item);
+  img.on('click', function(e) {
     //  默认事件
     e.preventDefault();
 
@@ -15,7 +15,7 @@ imgWrappers.forEach(function(item, index) {
 
     //  拿到图片链接
     var urls = [];
-    var images = $(this).children('img');
+    var images = $(this).parent().children('img');
     images.forEach(function(item, index) {
       console.log($(item));
       urls.push($(item).attr('src'))
