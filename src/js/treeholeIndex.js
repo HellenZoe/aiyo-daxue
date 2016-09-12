@@ -189,6 +189,7 @@ fucks.forEach(function(item, index) {
             //  隐藏
             $.hidePreloader();
           }else {
+            $.hidePreloader();
             $.toast("没有搜索到相关树洞~");
           }
         }
