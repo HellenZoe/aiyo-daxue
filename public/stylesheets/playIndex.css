@@ -21,6 +21,7 @@ body {
 .tabs-content {
   position: fixed;
   width: 100%;
+  top: 2.2rem;
 }
 .tabs-content .shop-tab,
 .tabs-content .school-tab {
@@ -41,10 +42,7 @@ body {
   border-right: 1px solid #f5f5f5;
 }
 .playIndex-content {
-  margin-top: 2.5rem;
-}
-.bar-header-secondary ~ .content {
-  top: 0px;
+  top: 4.5rem;
 }
 .activity-card {
   margin-top: 0.5rem;
