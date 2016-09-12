@@ -41,7 +41,12 @@ router.get('/', function(req, res) {
           }).filter(function(item, index) {
             console.log(req.session.user.school, item.authorSchool);
             if (req.session.user.school) {
-              return item.authorSchool == req.session.user.school;
+              if (item.authorSchool == req.session.user.school) {
+                  console.log("***********logging schoolTreeholes item", item);
+                  return true;
+              }else {
+                return false;
+              }
             }
             return false;
           }),

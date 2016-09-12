@@ -83,6 +83,9 @@
 .facebook-card .card-content-title,
 .facebook-card .card-content-text {
   margin: .3rem 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .iconfont-nullEnjoy,
 .iconfont-selfEnjoy {
