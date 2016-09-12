@@ -170,6 +170,10 @@
   background-color: #fff;
   padding-left: 0rem;
 }
+#treeholeListContainer ul a {
+  color: #6d6d72;
+  text-decoration: none;
+}
 #treeholeListContainer ul li {
   line-height: 2rem;
   padding-left: 1rem;
