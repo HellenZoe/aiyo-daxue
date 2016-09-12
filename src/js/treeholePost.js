@@ -200,13 +200,13 @@ $(function() {
 
 
 // 大图预览
-var imgWrappers = $('.picsWrapper');
-imgWrappers.forEach(function(item, index) {
+var canvas = $('.picsWrapper canvas');
+canvas.forEach(function(item, index) {
   console.log(item, index);
 
   //  给每个图片容器都绑定一个点击大图预览事件
-  var wrapper = $(item);
-  wrapper.on('click', function(e) {
+  var c = $(item);
+  c.on('click', function(e) {
     //  默认事件
     e.preventDefault();
 
@@ -217,8 +217,7 @@ imgWrappers.forEach(function(item, index) {
 
     //  拿到图片链接
     var urls = [];
-    var images = $(this).children('canvas');
-    images.forEach(function(item, index) {
+    canvas.forEach(function(item, index) {
       urls.push(item.toDataURL());
     })
     console.log(urls);
