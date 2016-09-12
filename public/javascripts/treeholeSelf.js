@@ -6,9 +6,10 @@ if (window.utils) {
 //  如果自己给自己点赞了 也是显示红心
 var allCard = $('.topic-block');
 allCard.forEach(function(item, index) {
-  var crtUserId = window.utils.getFromLocal('userInfo')._id;
   item = $(item);
+  var crtUserId = window.utils.getFromLocal('userInfo')._id;
   var favId  = item.attr('data-favId');
+  var tId = item.attr('data-tid');
   console.log(favId);
   if (window.utils.contains(favId, crtUserId)) {
     item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
@@ -16,7 +17,7 @@ allCard.forEach(function(item, index) {
   }
 
   item.on('click', function(e) {
-    location.href="http://" + location.host + "/treehole/detail/" + favId;
+    location.href="http://" + location.host + "/treehole/detail/" + tId;
   })
 })
 
