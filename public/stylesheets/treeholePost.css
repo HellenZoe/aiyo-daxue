@@ -45,8 +45,6 @@
   display: inline-block;
   display: flex;
   justify-content: center;
-  height: 5rem;
-  width: 5rem;
   float: left;
   margin-right: .5rem;
   padding: .2rem;
@@ -56,6 +54,9 @@
   position: absolute;
   top: -0.6rem;
   right: -0.6rem;
+}
+.content .post-treehole .treehole-content #previewAllPic div canvas {
+  width: 5rem;
 }
 .content .post-treehole .treehole-content #previewAllPic img {
   max-width: 2rem;

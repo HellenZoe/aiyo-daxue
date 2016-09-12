@@ -128,8 +128,8 @@ $(function() {
 
   // 处理文件
   function processFile(dataURL, fileType) {
-  	var maxWidth = 400;
-  	var maxHeight = 400;
+  	// var maxWidth = 400;
+  	// var maxHeight = 400;
   	var image = new Image();
   	image.onload = function () {
       // var previewContainer = document.getElementById("previewAllPic");
@@ -138,34 +138,34 @@ $(function() {
       // previewContainer.appendChild(div);
   		var width = image.width;
   		var height = image.height;
-      console.log(width,  "--", height);
-  		var shouldResize = (width > maxWidth) || (height > maxHeight);
-
+      // console.log(width,  "--", height);
+  		// var shouldResize = (width > maxWidth) || (height > maxHeight);
+      //
       var canvas = document.createElement("canvas");
-
-  		if (!shouldResize) {
-        var ctx =  canvas.getContext("2d");
-        ctx.drawImage(this, 0, 0, width, height);
-        addCanvasToPreview(canvas, fileType);
-  			return;
-  		}
-
-
-  		var newWidth;
-  		var newHeight;
-
-  		if (width > height) {
-  			newHeight = height * (maxWidth / width);
-  			newWidth = maxWidth;
-  		} else {
-        newWidth = width * (maxHeight / height);
-  			newHeight = maxHeight;
-  		}
-  		canvas.width = newWidth;
-  		canvas.height = newHeight;
+      //
+  		// if (!shouldResize) {
+      //   var ctx =  canvas.getContext("2d");
+      //   ctx.drawImage(this, 0, 0, width, height);
+      //   addCanvasToPreview(canvas, fileType);
+  		// 	return;
+  		// }
+      //
+      //
+  		// var newWidth;
+  		// var newHeight;
+      //
+  		// if (width > height) {
+  		// 	newHeight = height * (maxWidth / width);
+  		// 	newWidth = maxWidth;
+  		// } else {
+      //   newWidth = width * (maxHeight / height);
+  		// 	newHeight = maxHeight;
+  		// }
+  		canvas.width = width;
+  		canvas.height = height;
 
   		var context = canvas.getContext('2d');
-  		context.drawImage(this, 0, 0, newWidth, newHeight);
+  		context.drawImage(this, 0, 0, width, height);
       addCanvasToPreview(canvas, fileType);
   	};
 
