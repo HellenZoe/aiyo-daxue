@@ -120,7 +120,7 @@ $(function() {
       $.toast("还没有写电话哟～");
       return;
     }else if (!/^1[3|4|5|7|8]\d{9}$/.test(tel)) {
-      $.toast("qq格式错误~");
+      $.hidePreloader();
       $.toast("电话格式错误~");
       return;
     }
