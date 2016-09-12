@@ -355,7 +355,7 @@ router.post('/del', function(req, res) {
 
 
 // 搜索 返回搜索页面
-router.post('/search', function(req, res) {
+router.get('/search', function(req, res) {
   Treehole.find({title: new RegExp(req.body.key)}, "title _id", function(err, t) {
     if (t.length > 0) {
       res.render("treeholeSearch", {
