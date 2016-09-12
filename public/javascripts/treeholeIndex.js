@@ -155,15 +155,7 @@ fucks.forEach(function(item, index) {
     var searchKey = $(this).val();
     if (e.keyCode == 13 && $(this).val()) {
 
-      var url = "http://" + location.host + "/treehole/search";
-      $.ajax({
-        type: "GET",
-        url: url,
-        dataType: "json",
-    		contentType: "application/json",
-        data: JSON.stringify({key: searchKey}),
-        processData: false
-      })
+      var url = "http://" + location.host + "/treehole/search?" + searchKey;
     }
 
   })
