@@ -138,7 +138,7 @@ $(function() {
       // previewContainer.appendChild(div);
   		var width = image.width;
   		var height = image.height;
-      // console.log(width + "ahahh" + height);
+      console.log(width,  "--", height);
   		var shouldResize = (width > maxWidth) || (height > maxHeight);
 
       var canvas = document.createElement("canvas");
