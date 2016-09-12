@@ -56,6 +56,8 @@
 }
 .content-block {
   overflow: auto;
+  margin: 0px;
+  padding: 0px;
 }
 .topic-tag {
   width: 100%;
