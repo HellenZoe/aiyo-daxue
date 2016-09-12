@@ -26,6 +26,7 @@ imgWrappers.forEach(function(item, index) {
       type: "popup"
     })
 
+    e.stopPropagation();
     // 打开图片浏览器
     myPhotoBrowserPopup.open();
 
