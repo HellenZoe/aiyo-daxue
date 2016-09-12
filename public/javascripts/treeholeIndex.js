@@ -18,7 +18,7 @@ $(function() {
 
 
   //   点击图片的时候  跳转到相应的详情页去
-var fucks = $("#fuck");
+var fucks = $(".fuck-content");
 fucks.forEach(function(item, index) {
   console.log(item, index);
   var t = $(item);
