@@ -1,7 +1,7 @@
-extends layout
+extends searchlayout
 
 block styles
-  link(href="./stylesheets/treehole.css" rel='stylesheet')
+  link(href="../stylesheets/treehole.css" rel='stylesheet')
 block content
   div.page-group
     div.page#search-page
@@ -22,5 +22,5 @@ block content
               li(data-tId= ts._id)
 
 block scripts
-  script(src="./javascripts/windowUtils.js")
-  script(src="./javascripts/treeholeSearch.js")
+  script(src="../javascripts/windowUtils.js")
+  script(src="../javascripts/treeholeSearch.js")
