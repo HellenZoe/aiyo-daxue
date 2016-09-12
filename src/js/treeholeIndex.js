@@ -155,7 +155,8 @@ fucks.forEach(function(item, index) {
     var searchKey = $(this).val();
     if (e.keyCode == 13 && $(this).val()) {
 
-      var url = "http://" + location.host + "/treehole/search?" + searchKey;
+      location.href = "http://" + location.host + "/treehole/search?key=" + searchKey;
+
     }
 
   })
