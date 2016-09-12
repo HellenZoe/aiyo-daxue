@@ -353,5 +353,19 @@ router.post('/del', function(req, res) {
   })
 })
 
-
+router.post('/search', function(req, res) {
+  Treehole.find({title: new RegExp(req.body.key)}, "title _id", function(err, t) {
+    if (t.length > 0) {
+      res.json({
+        success: true,
+        ts: t
+      })
+    }else {
+      res.json({
+        success: false,
+        ts: null
+      })
+    }
+  })
+})
 module.exports = router;
