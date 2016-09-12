@@ -40,13 +40,13 @@ router.get('/', function(req, res) {
           schoolTreeholes: ts.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
-            User.find({_id: item.author}, {school}, function(err, school) {
+            User.find({_id: item.author}, function(err, u) {
               if (err) {
                 console.log(err);
               }else {
                 console.log(req.session.user.school, item.authorSchool);
                 if (req.session.user.school) {
-                  if (school== req.session.user.school) {
+                  if (u[0].school== req.session.user.school) {
                       console.log("***********logging schoolTreeholes item", item);
                       return true;
                   }else {
