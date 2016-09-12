@@ -180,7 +180,7 @@ $(function() {
 
   function addCanvasToPreview(canvas, fileType) {
     var wrapper = document.createElement("div");
-    wrapper.className = "picWrapper";
+    wrapper.className = "picsWrapper";
     var deleteIcon = document.createElement("i");
     deleteIcon.className = "iconfont-postDelete";
     deleteIcon.innerHTML = "&#xe607;"
