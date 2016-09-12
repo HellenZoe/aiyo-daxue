@@ -163,11 +163,12 @@
 }
 #treeholeListContainer ul {
   list-style: none;
-  padding-left: .5rem;
+  background-color: #fff;
 }
 #treeholeListContainer ul li {
   line-height: 2rem;
-  border-bottom: 1px solid #dedede;
+  padding-left: 1rem;
+  border-top: 1px solid #dedede;
 }
 @font-face {
   font-family: 'iconfont-treeHoleTabsBar';

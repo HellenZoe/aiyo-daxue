@@ -175,6 +175,9 @@ fucks.forEach(function(item, index) {
         if (data.success) {
           console.log("上传成功");
           if (data.ts) {
+
+            //  先清楚上一次添加的
+            $('#treeholeListContainer ul').remove();
             //  添加搜索到的信息
             var list = document.createElement('ul');
             data.ts.forEach(function(item, index) {
