@@ -20,7 +20,7 @@ block content
             div.self-info
               div.facebook-name= user.name
               div.facebook-sign-name 个性签名:
-              a 编辑资料>
+              a.external(href="/self") 编辑资料>
 
         div.topic-tag
           div.tag-left
@@ -36,7 +36,7 @@ block content
                   div.topic-content
                     a.content-title= item.title
                     div.content-text= item.content
-                    div
+                    div.treehole-action
                       span.icon
                         i.iconfont-selfEnjoy &#xe611;
                       span.enjoy-count= item.fav
