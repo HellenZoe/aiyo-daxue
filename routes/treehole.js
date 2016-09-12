@@ -31,7 +31,24 @@ router.get('/', function(req, res) {
         //     }
         //     return false;
         //   }));
-
+        console.log(ts.map(function(item) {
+            return item.toObject({getters: true, virtuals: true});
+        }).filter(function(item, index) {
+            var flag = false;
+            User.find({_id: item.author}, function(err, u) {
+              if (err) {
+                console.log(err);
+              }else {
+                if (req.session.user.school && u[0].school) {
+                  if (u[0].school== req.session.user.school) {
+                      console.log("***********logging schoolTreeholes item", item);
+                      flag = true;
+                  }
+                }
+              }
+            })
+            return flag;
+        }););
         res.render("treeholeIndex", {
           title: "树洞首页",
           allTreeholes: ts.map(function(item){
