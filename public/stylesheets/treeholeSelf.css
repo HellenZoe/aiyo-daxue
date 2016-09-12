@@ -116,7 +116,7 @@
 }
 .topic-block .my-topic .topic-content .treehole-action {
   position: absolute;
-  bottom: 0rem;
+  bottom: -0.3rem;
   width: 100%;
   padding-left: 4.8rem;
 }

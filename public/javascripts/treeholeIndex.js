@@ -151,9 +151,12 @@ fucks.forEach(function(item, index) {
   })
 
   // 点击seach框跳转到search页面
-  // $('#search').on('focus', function(e) {
-  //   $('.gotoSearch').trigger('click');
-  // })
+  $('#search').on('focus', function(e) {
+    //  组织input的聚焦事件
+    e.preventDefault();
+
+    $('.gotoSearch').trigger('click');
+  })
 
 
   // 用户按下enter
