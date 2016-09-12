@@ -163,7 +163,7 @@ fucks.forEach(function(item, index) {
       // 显示缓冲
       $.showPreloader();
 
-      var url = "http://" + location.host + "/search";
+      var url = "http://" + location.host + "/treehole/search";
       $.ajax({
       type: "POST",
       url: url,
