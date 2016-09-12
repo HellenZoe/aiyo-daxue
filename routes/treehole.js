@@ -47,6 +47,7 @@ router.get('/', function(req, res) {
                 }
               }
             })
+            console.log(flag);
             return flag;
         }));
         res.render("treeholeIndex", {
