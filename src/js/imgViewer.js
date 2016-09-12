@@ -1,5 +1,5 @@
 var allImages = $('.picsWrapper img');
-imgWrappers.forEach(function(item, index) {
+allImages.forEach(function(item, index) {
   console.log(item, index);
 
   //  给每个图片容器都绑定一个点击大图预览事件
