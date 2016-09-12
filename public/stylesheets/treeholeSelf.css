@@ -103,21 +103,23 @@
   height: 4rem;
   margin: 0.4rem 0.4rem 0.4rem 0px;
   position: relative;
-  padding-left: 4.8rem;
 }
 .topic-block .my-topic .topic-content .content-title {
   font-size: .8rem;
   color: #444;
+  padding-left: 4.8rem;
 }
 .topic-block .my-topic .topic-content .content-text {
   font-size: .6rem;
   color: #999;
   margin: .2rem 0rem;
+  padding-left: 4.8rem;
 }
 .topic-block .my-topic .topic-content .treehole-action {
   position: absolute;
   bottom: 0rem;
   width: 100%;
+  padding-left: 4.8rem;
 }
 .topic-block .my-topic .topic-content .enjoy-count,
 .topic-block .my-topic .topic-content .comment-count {
@@ -132,6 +134,8 @@
   font-size: .6rem;
   float: right;
   padding-top: .22rem;
+  position: absolute;
+  right: 1rem;
 }
 @font-face {
   font-family: 'iconfont-selfShare';

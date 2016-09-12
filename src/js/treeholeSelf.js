@@ -14,9 +14,13 @@ allCard.forEach(function(item, index) {
     item.children('.topic-card-footer').children('#enjoy').children('.iconfont-nullEnjoy').css('display', 'none')
     item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
   }
+
+  item.on('click', function(e) {
+    location.href="http://" + location.host + "/treehole/detail/" + favId;
+  })
 })
 
-
+//  删除树洞
 $('.delete').on('click', function(e) {
   //  阻止a标签的默认事件
   e.preventDefault();
@@ -49,5 +53,6 @@ $('.delete').on('click', function(e) {
 
   });
 
+  //  点击到详情
 
 })
