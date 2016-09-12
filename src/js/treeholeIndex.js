@@ -184,6 +184,10 @@ fucks.forEach(function(item, index) {
                 var li = document.createElement('li');
                 li.innerHTML = item.title;
                 li.setAttribute('data-tId', item._id);
+                $(li).on('click', function(e) {
+                  var tid = $(this).attr("data-tid");
+                  location.href = "http://" + location.host + "/treehole/detail/" + tid;
+                })
                 list.appendChild(li);
             })
 
