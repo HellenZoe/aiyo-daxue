@@ -12,7 +12,7 @@ imgWrappers.forEach(function(item, index) {
 
     $('.photo-browser').remove();
 
-    
+
     //  拿到图片链接
     var urls = [];
     var images = $(this).children('img');
@@ -21,12 +21,13 @@ imgWrappers.forEach(function(item, index) {
       urls.push($(item).attr('src'))
     })
     console.log(urls);
-    var myPhotoBrowserStandalone = $.photoBrowser({
-      photos: urls
+    var myPhotoBrowserPopup = $.photoBrowser({
+      photos: urls,
+      type: "popup"
     })
 
     // 打开图片浏览器
-    myPhotoBrowserStandalone.open();
+    myPhotoBrowserPopup.open();
 
     // myPhotoBrowserStandalone.attachEvents(true);
     // if (myPhotoBrowserStandalone.params.type === 'standalone') {
