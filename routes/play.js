@@ -41,7 +41,7 @@ router.get('/', function(req, res) {
 
 // 去约发布页面
 router.get('/post', function(req, res) {
-    console.log("*************logging from /self************res.session.user", req.session);
+    console.log("*************logging from /self************res.session.user", req.session.user);
     User.find({_id: req.session.user._id}, function(err, doc) {
       if (err) {
         console.log(err);
