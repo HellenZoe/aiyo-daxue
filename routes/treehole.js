@@ -38,7 +38,7 @@ router.get('/', function(req, res) {
             User.find({_id: item.author}, function(err, u) {
               if (err) {
                 console.log(err);
-              }else {                // console.log(u[0]., req.session.user);
+              }else {
                 console.log(u[0].school, req.session.user.school);
                 if (req.session.user.school && u[0].school) {
                   if (u[0].school== req.session.user.school) {
@@ -54,12 +54,11 @@ router.get('/', function(req, res) {
                     }),
                     schoolTreeholes: schoolTreeholes,
                     user: crtUser
+                  });
                 }
-        
+
               }
             });
-
-
         })
       }else {
         res.render("treeholeIndex", {
