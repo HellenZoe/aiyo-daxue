@@ -54,8 +54,12 @@
 .self .self-info a {
   color: #F57E7A;
 }
+.content-block {
+  overflow: auto;
+}
 .topic-tag {
   width: 100%;
+  height: 2.3rem;
 }
 .topic-tag .tag-left,
 .topic-tag .tag-right,
@@ -76,7 +80,6 @@
   text-align: center;
 }
 .topic-block {
-  margin-top: 3rem;
   width: 100%;
 }
 .topic-block .my-topic {
