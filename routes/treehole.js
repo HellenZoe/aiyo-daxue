@@ -48,7 +48,7 @@ router.get('/', function(req, res) {
               }
             })
             return flag;
-        }););
+        }));
         res.render("treeholeIndex", {
           title: "树洞首页",
           allTreeholes: ts.map(function(item){
