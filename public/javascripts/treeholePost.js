@@ -247,8 +247,6 @@ canvas.forEach(function(item, index) {
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('postText', info.postText);
     formData.append('name', info.name);
-    alert(info.pics);
-    console.log(formData);
     var url = "http://" + location.host + "/treehole/new"
   	$.ajax({
   		type: 'POST',
