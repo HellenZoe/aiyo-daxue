@@ -102,6 +102,7 @@
 .topic-block .my-topic .topic-content {
   height: 4rem;
   margin: 0.4rem 0.4rem 0.4rem 0px;
+  position: relative;
 }
 .topic-block .my-topic .topic-content .content-title {
   font-size: .8rem;
@@ -111,6 +112,10 @@
   font-size: .6rem;
   color: #999;
   margin: .2rem 0rem;
+}
+.topic-block .my-topic .topic-content .treehole-action {
+  position: absolute;
+  bottom: 0rem;
 }
 .topic-block .my-topic .topic-content .enjoy-count,
 .topic-block .my-topic .topic-content .comment-count {
