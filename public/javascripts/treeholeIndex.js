@@ -20,6 +20,7 @@ $(function() {
   //   点击图片的时候  跳转到相应的详情页去
 var fucks = $("#fuck");
 fucks.each(function(index, el) {
+  var t = $(el);
   console.log(index, el);
   el.on('click', function(e) {
       var cardId = $(this).parent().attr('data-tId');
