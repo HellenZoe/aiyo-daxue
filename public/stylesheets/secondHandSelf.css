@@ -69,6 +69,7 @@
   width: 100%;
   padding: .4rem;
   border: 1px solid #dedede;
+  margin-top: .5rem;
 }
 .item-block .img-wrapper {
   float: left;
