@@ -63,7 +63,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写标题哟~");
       return;
-    }else if (!/^[\u4e00-\u9fa5|0-9]{0,14}$/.test(name)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,14}$/.test(name)) {
       $.hidePreloader();
       $.toast("标题超过字数了亲~");
       return;
@@ -75,7 +75,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
       return;
-    }else if (!/^[\u4e00-\u9fa5|0-9]{0,140}$/.test(desc)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Z-a-z]{0,140}$/.test(desc)) {
       console.log(desc);
       $.hidePreloader();
       $.toast("简介超过字数了亲~");
@@ -89,7 +89,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写地址哟～");
       return;
-    }else if (!/^[\u4e00-\u9fa5|0-9]{0,15}$/.test(address)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,15}$/.test(address)) {
       console.log(address);
       $.hidePreloader();
       $.toast();
@@ -132,6 +132,7 @@ $(function() {
 
     //   检查用户是否发布图片
     if (formInfo.pics.length == 0) {
+      $.hidePreloader();
       $.toast("请至少添加一张照片");
       return;
     }
@@ -221,6 +222,9 @@ $(function() {
   	var reader = new FileReader();
 
   	reader.onloadend = function () {
+
+      //  显示进度记载图标
+      $.showPreloader();
   		processFile(reader.result, file.type);
   	}
 
@@ -301,7 +305,8 @@ $(function() {
     console.log("new ", formInfo.pics);
     picCount = picCount + 1;
 
-
+    // 隐藏加载图标
+    $.hidePreloader();
   }
 
 
