@@ -174,14 +174,14 @@ router.post('/new', upload.single('test'), function(req, res) {
         var logoUrl = ( gender == "男" ) ? (baseUrl + "/logo01.png") : (baseUrl + "/logo02.png");
         var newTreehole = new Treehole({
             author: authorId,
-            authorName: ifAnonymous ? "匿名小马甲" : us[0].name,
+            authorName: ifAnonymous == "true" ? "匿名小马甲" : us[0].name,
             authorAvatarUrl: logoUrl,
-            authorSchool: ifAnonymous ? "哈佛" : us[0].school,
+            authorSchool: ifAnonymous == "true" ? "哈佛" : us[0].school,
             content: content,
             title: title,
             time: time
         })
-        console.log("logging from ******************logging from /treehole/new --treeholeToSave", newTreehole);
+        console.log("logging from ******************logging from /treehole/new --treeholeToSave", JSON.stringify(newTreehole));
         newTreehole.save(function(err, treehole) {
           if (err) {
             console.log("save treehole error");

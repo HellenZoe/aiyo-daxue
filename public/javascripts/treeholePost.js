@@ -9,7 +9,7 @@ $(function() {
   var allPic  = {
     postText: "",
     name: "",
-    ifAnonymous: false,
+    ifAnonymous: "",
     pics: []
   }
   var picCount = 0;
@@ -45,7 +45,7 @@ $(function() {
     allPic.name = name;
 
     //  是否匿名
-    allPic.ifAnonymous = $(".input[type='checkbox']").is(':checked');
+    allPic.ifAnonymous = $(".input[type='checkbox']").is(':checked') ? "true" : "false";
 
     //  发送所有信息
     sendFile(allPic);
