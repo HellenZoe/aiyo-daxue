@@ -24,7 +24,7 @@ block content
 
         div.buttons-tab
           a.tab-link.button.active.play(href="#tab-play") 我的去约
-        div.content-block
+        div.content-block#play-content
           div.tabs
             div#tab-play.tab.active
               div.content-block
@@ -33,7 +33,7 @@ block content
                     div.item-block(data-pId= item._id)
                       div.img-wrapper
                         img(src= item.picUrl[0])
-                        span.no-img
+                        span.no-img  没有图片
                       div.item-content
                         div.item-header
                           - var name = ( item.type == "can") ? "我能行-" + item.name : "我需要-" + item.name
