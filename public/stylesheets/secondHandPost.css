@@ -72,6 +72,12 @@
   overflow: hidden;
   display: none;
 }
+.price span {
+  position: absolute;
+}
+.price input {
+  padding-left: .8rem;
+}
 .category,
 .type {
   margin-top: 1rem;
