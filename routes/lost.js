@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
           goods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }),
-          transGoods: gs.map(function(item){
+          cardGoods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "transport";
@@ -39,6 +39,11 @@ router.get('/', function(req, res) {
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "ele"
+          }),
+          othersGoods: gs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }).filter(function(item, index) {
+            return item.category == "other"
           }),
           user: crtUser
         });
