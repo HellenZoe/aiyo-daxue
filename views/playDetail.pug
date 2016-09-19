@@ -16,14 +16,14 @@ block content
       //-   h1.title.text-white 详情
 
       div.content
-        div(class="swiper-container index-swiper-container" data-space-between="10")
-          div.swiper-wrapper
-            each url in play.picUrl
-              div.swiper-slide
-                img(src= url)
-          div.swiper-pagination
-            each url in play.picUrl
-              span.swiper-pagination-bullet
+        //- div(class="swiper-container index-swiper-container" data-space-between="10")
+        //-   div.swiper-wrapper
+        //-     each url in play.picUrl
+        //-       div.swiper-slide
+        //-         img(src= url)
+        //-   div.swiper-pagination
+        //-     each url in play.picUrl
+        //-       span.swiper-pagination-bullet
         div.card.facebook-card
           div.card-content
             div.title-category
@@ -39,8 +39,11 @@ block content
             //-   span 浏览次数#{play.view}
 
         div.desc
-            i.iconfont-playDetail &#xe640;
-            span= play.desc          
+          i.iconfont-playDetail &#xe640;
+          span= play.desc       
+          div.img-wrapper
+            each url in play.picUrl
+              img(src= url)
         div.card.facebook-card
           //- div.card-header.no-border
           //-   div.facebook-avatar

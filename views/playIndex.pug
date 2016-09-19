@@ -71,7 +71,7 @@ block content
                 if plays
                   each play, index in plays
                     if play.type == "want"
-                      div.card.facebook-card(data-tId= play._id)
+                      div.card.facebook-card(data-pId= play._id)
                         div.card-header.no-border
                           div.facebook-avatar
                               img(src= play.authorAvatarUrl)

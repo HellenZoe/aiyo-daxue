@@ -25,6 +25,14 @@ div.desc i {
 div.desc span {
   margin-left: .5rem;
 }
+div.desc .img-wrapper {
+  margin-top: .8rem;
+  width: 100%;
+}
+div.desc .img-wrapper img {
+  width: 100%;
+  margin: .2rem;
+}
 .facebook-card {
   margin: .5rem 0px 0px 0px;
 }
