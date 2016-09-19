@@ -136,6 +136,7 @@
   margin-bottom: 1.２rem;
 }
 .item-block .item-content .item-footer {
+  height: 1rem;
   position: relative;
   font-size: .6rem;
 }
