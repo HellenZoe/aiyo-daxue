@@ -1,5 +1,5 @@
 $('.del').on('click', function(e) {
-  e.stopPropagationx();
+  e.stopPropagation();
   var pId = $(this).attr('data-pId');
   var info = {
     pId: pId,
