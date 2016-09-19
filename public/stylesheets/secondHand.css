@@ -80,6 +80,8 @@
   background-color: #13B7F5;
   color: #fff;
   padding: 0px .1rem;
+  position: relative;
+  top: .15rem;
 }
 .facebook-card > .card-footer {
   background-color: #fff;

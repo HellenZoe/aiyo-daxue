@@ -51,11 +51,19 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写名称哟～");
       return;
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,25}$/.test(name)) {
+      $.hidePreloader();
+      $.toast("名称超过字数了亲~");
+      return;
     }
     var desc = $('.desc > input').val();
     if (!desc) {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
+      return;
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,25}$/.test(desc)) {
+      $.hidePreloader();
+      $.toast("描述超过字数了亲~");
       return;
     }
     var price = $('.price > input').val();
@@ -63,13 +71,22 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写价格哟～");
       return;
+    }else if (!/^\d{0,4}$/.test(price)) {
+      $.hidePreloader();
+      $.toast("再贵就买不起啦~");
+      return;
     }
     var address = $('.location input').val();
     if (!address) {
       $.hidePreloader();
       $.toast("还没有写地址哟～");
       return;
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,25}$/.test(desc)) {
+      $.hidePreloader();
+      $.toast("地址超过字数了亲~");
+      return;
     }
+
     var category = $('.category input:checked')
     if (category.length == 0) {
       $.hidePreloader();
@@ -86,13 +103,22 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写qq哟～");
       return;
+    }else if (!/^\d{4,11}$/.test(qq)) {
+      $.hidePreloader();
+      $.toast("qq格式错误~");
+      return;
     }
     var tel = $('.tel input').val();
     if (!tel) {
       $.hidePreloader();
       $.toast("还没有写电话哟～");
       return;
+    }else if (!/^1[3|4|5|7|8]\d{9}$/.test(tel)) {
+      $.hidePreloader();
+      $.toast("电话格式错误~");
+      return;
     }
+
     formInfo.name = name;
     formInfo.desc = desc;
     formInfo.price = price;

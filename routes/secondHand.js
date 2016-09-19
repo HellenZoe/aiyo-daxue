@@ -59,8 +59,18 @@ router.get('/', function(req, res) {
 
 // 二手交易发布页面
 router.get('/post', function(req, res) {
-  res.render('secondHandPost', {
-    title: "发布"
+  console.log("*************logging from /self************res.session.user", req.session.user);
+  User.find({_id: req.session.user._id}, function(err, u) {
+    if (err) {
+      console.log(err);
+    }else {
+      console.log("*************logging from /self************userinfo", u[0]);
+      res.render('secondHandPost', {
+        userInfo: u[0],
+        title: "发布"
+      })
+
+    }
   })
 })
 
