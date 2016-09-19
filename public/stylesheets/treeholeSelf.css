@@ -93,6 +93,15 @@
   margin: 0.5rem 2%;
   border: 1px solid #e7e7e7;
 }
+.topic-block .my-topic .no-img {
+  color: #666;
+  font-size: .7rem;
+  position: absolute;
+  display: none;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-60%);
+}
 .topic-block .my-topic img {
   width: 4rem;
   height: 4rem;

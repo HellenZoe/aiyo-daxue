@@ -93,6 +93,7 @@
 .item-block .item-content .item-header .item-price {
   float: right;
   margin-right: .3rem;
+  color: #F97C06;
 }
 .item-block .item-content .item-header .item-category {
   background-color: #F97C06;
