@@ -73,7 +73,6 @@
   padding: 0rem;
 }
 #play-content .content-block {
-  padding: .4rem;
   width: 96%;
   margin: 0 auto;
 }
@@ -86,6 +85,9 @@
 .item-block {
   width: 100%;
   border: 1px solid #dedede;
+  padding: .4rem;
+  height: 4.8rem;
+  margin: .3rem 0rem;
 }
 .item-block .img-wrapper {
   text-align: center;
