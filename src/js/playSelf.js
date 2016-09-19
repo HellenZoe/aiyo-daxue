@@ -46,3 +46,14 @@ plays.forEach(function(item, index) {
       location.href = "http://" + host + "/play/detail/" + cardId;
   })
 })
+
+
+
+// 如果用户没有发布图片显示提示
+var imgs = $('.img-wrapper img');
+imgs.each(function(index, item) {
+  var i = $(item);
+  if (!i.attr('src')) {
+    i.parent().children('.no-img').css('display', 'block');
+  }
+})

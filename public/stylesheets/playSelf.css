@@ -77,7 +77,18 @@
   border: 1px solid #dedede;
 }
 .item-block .img-wrapper {
+  text-align: center;
+  position: relative;
   float: left;
+}
+.item-block .img-wrapper .no-img {
+  color: #666;
+  font-size: .7rem;
+  position: absolute;
+  display: none;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-60%);
 }
 .item-block .img-wrapper img {
   height: 4rem;

@@ -33,6 +33,7 @@ block content
                     div.item-block(data-pId= item._id)
                       div.img-wrapper
                         img(src= item.picUrl[0])
+                        span.no-img
                       div.item-content
                         div.item-header
                           - var name = ( item.type == "can") ? "我能行-" + item.name : "我需要-" + item.name
