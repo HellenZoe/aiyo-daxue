@@ -45,7 +45,7 @@ $(function() {
     allPic.name = name;
 
     //  是否匿名
-    allPic.ifAnonymous = $(".input[type='checkbox']:checked").length > 0 ? "true" : "false";
+    allPic.ifAnonymous = $("input[type='checkbox']:checked").length > 0 ? "true" : "false";
 
     //  发送所有信息
     sendFile(allPic);
