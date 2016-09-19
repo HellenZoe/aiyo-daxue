@@ -14,6 +14,7 @@ var playSchema = new Schema({
   authorName: String,
   authorSchool: String,
   authorAvatarUrl: String,
+  type: String,
   price: Number,
   view: Number
 })
