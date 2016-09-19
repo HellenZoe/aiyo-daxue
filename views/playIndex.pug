@@ -54,9 +54,8 @@ block content
                               img(src= play.authorAvatarUrl)
                           div.card-info
                             div.facebook-name
-                              span 我能
-                              - var middot = &middot;
-                              span!= middot
+                              span= 我能 
+                              | &middot;
                               span play.name
                             div.facebook-date
                               span= play.date
