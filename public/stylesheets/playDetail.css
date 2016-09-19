@@ -30,8 +30,10 @@ div.desc .img-wrapper {
   width: 100%;
 }
 div.desc .img-wrapper img {
-  width: 100%;
-  margin: .2rem;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  margin: .2rem auto;
 }
 .facebook-card {
   margin: 0rem 0rem .5rem 0rem;
