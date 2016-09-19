@@ -222,8 +222,8 @@ $(function() {
 
   // 处理文件
   function processFile(dataURL, fileType) {
-  	var maxWidth = 100;
-  	var maxHeight = 100;
+  	// var maxWidth = 100;
+  	// var maxHeight = 100;
   	var image = new Image();
   	image.onload = function () {
       // var previewContainer = document.getElementById("previewformInfo");
@@ -233,33 +233,33 @@ $(function() {
   		var width = image.width;
   		var height = image.height;
       // console.log(width + "ahahh" + height);
-  		var shouldResize = (width > maxWidth) || (height > maxHeight);
+  		// var shouldResize = (width > maxWidth) || (height > maxHeight);
 
       var canvas = document.createElement("canvas");
 
-  		if (!shouldResize) {
-        var ctx =  canvas.getContext("2d");
-        ctx.drawImage(this, 0, 0, width, height);
-        addCanvasToPreview(canvas, fileType);
-  			return;
-  		}
-
-
-  		var newWidth;
-  		var newHeight;
-
-  		if (width > height) {
-  			newHeight = height * (maxWidth / width);
-  			newWidth = maxWidth;
-  		} else {
-        newWidth = width * (maxHeight / height);
-  			newHeight = maxHeight;
-  		}
-  		canvas.width = newWidth;
-  		canvas.height = newHeight;
+  		// if (!shouldResize) {
+      //   var ctx =  canvas.getContext("2d");
+      //   ctx.drawImage(this, 0, 0, width, height);
+      //   addCanvasToPreview(canvas, fileType);
+  		// 	return;
+  		// }
+      //
+      //
+  		// var newWidth;
+  		// var newHeight;
+      //
+  		// if (width > height) {
+  		// 	newHeight = height * (maxWidth / width);
+  		// 	newWidth = maxWidth;
+  		// } else {
+      //   newWidth = width * (maxHeight / height);
+  		// 	newHeight = maxHeight;
+  		// }
+  		canvas.width = width;
+  		canvas.height = height;
 
   		var context = canvas.getContext('2d');
-  		context.drawImage(this, 0, 0, newWidth, newHeight);
+  		context.drawImage(this, 0, 0, width, height);
       addCanvasToPreview(canvas, fileType);
   	};
 
@@ -289,6 +289,10 @@ $(function() {
     formInfo.pics.push(dataURL);
     console.log("new ", formInfo.pics);
     picCount = picCount + 1;
+
+    // 隐藏加载图标
+    $.hidePreloader();
+    
   }
 
 
