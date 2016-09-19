@@ -90,6 +90,10 @@
   font-size: .7rem;
   color: #444;
 }
+.item-block .item-content .item-header .item-price {
+  float: right;
+  margin-right: .3rem;
+}
 .item-block .item-content .item-header .item-category {
   background-color: #F97C06;
   color: white;

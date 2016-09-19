@@ -37,6 +37,7 @@ block content
                         div.item-header
                           - var name = ( item.type == "can") ? "我能行-" + item.name : "我需要-" + item.name
                           a.item-name #{name}
+                          span.item-price ￥#{item.price}
                         div.item-desc= item.desc
                         div.item-footer
                           div.actionSheet
