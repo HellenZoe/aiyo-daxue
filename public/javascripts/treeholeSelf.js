@@ -24,7 +24,7 @@ allCard.forEach(function(item, index) {
 //  删除树洞
 $('.delete').on('click', function(e) {
   //  阻止a标签的默认事件
-  e.stopPropagation();
+  e.stopp();
   var that = this;
   var id = $(this).attr('data-tid');
   var info = {
