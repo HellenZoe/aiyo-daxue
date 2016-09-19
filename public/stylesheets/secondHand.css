@@ -64,6 +64,9 @@
 .facebook-card .card-content-text {
   font-size: .55rem;
   margin-top: .2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .title-category {
   min-height: 1.3rem;
@@ -109,7 +112,7 @@
 }
 .position span {
   display: inline-block;
-  margin: .58rem .7rem;
+  margin: .7rem .8rem;
 }
 .iconfont-position {
   color: #13B7F5;

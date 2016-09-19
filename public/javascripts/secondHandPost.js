@@ -119,6 +119,13 @@ $(function() {
       return;
     }
 
+    // 最多添加四张照片
+    if (formInfo.pics.length > 4) {
+      $.hidePreloader();
+      $.toast("最多添加四张照片");
+      return;
+    }
+
     formInfo.name = name;
     formInfo.desc = desc;
     formInfo.price = price;
