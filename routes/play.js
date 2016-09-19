@@ -13,7 +13,7 @@ var Play = require('../model/play');
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
   var queryPlay = Play.find({});
-  queryPlay.sort([['_id', -1]])exec(function(err,ps) {
+  queryPlay.sort([['_id', -1]]).exec(function(err,ps) {
     if (err) {
       console.log(err);
     }else {

@@ -78,7 +78,7 @@ $(function() {
     }else if (!/^[\u4e00-\u9fa5|0-9]{0,140}$/.test(desc)) {
       console.log(desc);
       $.hidePreloader();
-      $.toast("描述超过字数了亲~");
+      $.toast("简介超过字数了亲~");
       return;
     }
 
