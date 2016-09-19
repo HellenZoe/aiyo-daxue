@@ -72,11 +72,15 @@
   overflow: hidden;
   display: none;
 }
+.price {
+  position: relative;
+}
 .price span {
   position: absolute;
+  bottom: .3rem;
 }
 .price input {
-  padding-left: .8rem;
+  padding-left: 1.3rem;
 }
 .category,
 .type {
