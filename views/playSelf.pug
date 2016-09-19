@@ -22,26 +22,25 @@ block content
               div.facebook-sign-name 个性签名:
               a.external(href="/self") 编辑资料>
 
-        div.content.valueble-content
-          div.buttons-tab
-            a.tab-link.button.active.play(href="#tab-play") 我的去约
-          div.content-block
-            div.tabs
-              div#tab-play.tab.active
-                div.content-block
-                  if plays
-                    each item in plays
-                      div.item-block(data-pId= item._id)
-                        div.img-wrapper
-                          img(src= item.picUrl[0])
-                        div.item-content
-                          div.item-header
-                            - var name = ( item.type == "can") ? "我能行-" + item.name : "我需要-" + item.name
-                            a.item-name #{name}
-                          div.item-desc= item.desc
-                          div.item-footer
-                            div.actionSheet
-                              a.del(data-pId= item._id) 删除
+        div.buttons-tab
+          a.tab-link.button.active.play(href="#tab-play") 我的去约
+        div.content-block
+          div.tabs
+            div#tab-play.tab.active
+              div.content-block
+                if plays
+                  each item in plays
+                    div.item-block(data-pId= item._id)
+                      div.img-wrapper
+                        img(src= item.picUrl[0])
+                      div.item-content
+                        div.item-header
+                          - var name = ( item.type == "can") ? "我能行-" + item.name : "我需要-" + item.name
+                          a.item-name #{name}
+                        div.item-desc= item.desc
+                        div.item-footer
+                          div.actionSheet
+                            a.del(data-pId= item._id) 删除
       else
         div.content
           div.content-block
