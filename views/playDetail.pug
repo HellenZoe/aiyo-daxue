@@ -24,7 +24,7 @@ block content
         //-   div.swiper-pagination
         //-     each url in play.picUrl
         //-       span.swiper-pagination-bullet
-        div.card.facebook-card
+        div.card.facebook-card#play-content
           div.card-content
             div.title-category
               - var name = ( play.type == "can") ? "我能行-" + play.name : "我需要-" + play.name
@@ -44,7 +44,7 @@ block content
           div.img-wrapper
             each url in play.picUrl
               img(src= url)
-        div.card.facebook-card
+        div.card.facebook-card#connection
           //- div.card-header.no-border
           //-   div.facebook-avatar
           //-       img(src= play.authorAvatarUrl)

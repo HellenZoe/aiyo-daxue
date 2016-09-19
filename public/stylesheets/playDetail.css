@@ -35,42 +35,42 @@ div.desc .img-wrapper img {
   max-width: 100%;
   margin: .2rem auto;
 }
-.facebook-card {
+#play-content {
   margin: 0rem 0rem .5rem 0rem;
 }
-.facebook-card .facebook-avatar img {
+#play-content .facebook-avatar img {
   height: 2rem;
 }
-.facebook-card .facebook-avatar img {
+#play-content .facebook-avatar img {
   border-radius: 50%;
 }
-.facebook-card .card-content {
+#play-content .card-content {
   padding: .5rem .5rem 0px .5rem;
 }
-.facebook-card .card-content .picsWrapper img {
+#play-content .card-content .picsWrapper img {
   display: inline-block;
   margin-right: .2rem;
 }
-.facebook-card .card-info {
+#play-content .card-info {
   margin-left: 2.5rem;
 }
-.facebook-card .card-info .facebook-name,
-.facebook-card .card-info .facebook-date {
+#play-content .card-info .facebook-name,
+#play-content .card-info .facebook-date {
   margin-left: 0px;
 }
-.facebook-card .card-info .facebook-date span {
+#play-content .card-info .facebook-date span {
   font-size: .55rem;
 }
-.facebook-card .card-info .facebook-name {
+#play-content .card-info .facebook-name {
   color: #444;
   font-size: .9rem;
 }
-.facebook-card .card-info .page-view {
+#play-content .card-info .page-view {
   float: right;
   font-size: .55rem;
   margin: .25rem 0;
 }
-.facebook-card .card-content-text {
+#play-content .card-content-text {
   font-size: .55rem;
   margin-top: .2rem;
 }
@@ -120,6 +120,9 @@ div.desc .img-wrapper img {
   top: .55rem;
   font-size: .9rem;
   color: #F57E7A;
+}
+#connection {
+  margin-top: .5rem;
 }
 .connection-content {
   padding: .2rem .5rem;
