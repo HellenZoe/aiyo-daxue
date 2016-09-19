@@ -15,19 +15,19 @@ block content
       //-       i.iconfont-selfShare &#xe610;
       //-   h1.title.text-white 趣玩
 
-      nav.bar.bar-tab
-        a.tab-item.external(href="/")
-          span.icon.index-color
-            i.iconfont-indexTabBar &#xe601;
-          span.tab-label 主页
-        a.tab-item.external(href="/fun/post")
-          span.icon
-            i.iconfont-treeHoleTabsBar &#xe603;
-          span.tab-label 发布
-        a.tab-item.external(href="/fun/self")
-          span.icon
-            i.iconfont-treeHoleTabsBar &#xe604;
-          span.tab-label 个人中心
+      //- nav.bar.bar-tab
+      //-   a.tab-item.external(href="/")
+      //-     span.icon.index-color
+      //-       i.iconfont-indexTabBar &#xe601;
+      //-     span.tab-label 主页
+      //-   a.tab-item.external(href="/fun/post")
+      //-     span.icon
+      //-       i.iconfont-treeHoleTabsBar &#xe603;
+      //-     span.tab-label 发布
+      //-   a.tab-item.external(href="/fun/self")
+      //-     span.icon
+      //-       i.iconfont-treeHoleTabsBar &#xe604;
+      //-     span.tab-label 个人中心
 
 
       div.content.funIndex-content
@@ -44,16 +44,14 @@ block content
             span.swiper-pagination-bullet
             span.swiper-pagination-bullet
         div.buttons-tab
-          a.tab-link.button.active(href="#tab-index") 首页
-          a.tab-link.button(href="#tab-food") 美食
-          a.tab-link.button(href="#tab-travel") 周边游
-          a.tab-link.button(href="#tab-fun") 休闲娱乐
-          //- a.tab-link.button(href="#tab-beauty") 丽人美妆
-          //- a.tab-link.button(href="#tab-sport") 运动健身
-          //- a.tab-link.button(href="#tab-other") 其他
+          //- a.tab-link.button.active(href="#tab-index") 首页
+          a.tab-link.button.active(href="#tab-wei") 有味
+          a.tab-link.button(href="#tab-xing") 有型
+          a.tab-link.button(href="#tab-liao") 有料
+          a.tab-link.button(href="#tab-qu") 有趣          
         div.content-block
           div.tabs
-            div#tab-index.tab.active
+            div#tab-wei.tab.active
               div.content-block
                 if funs
                   each item in funs
@@ -66,25 +64,44 @@ block content
                           a.item-name= item.title
                         div.item-desc= item.content
 
-            div#tab-food.tab
+            div#tab-xing.tab
               div.content-block
-                div 这里是美食
-            div#tab-travel.tab
+                if xings
+                  each item in xings
+                    div.item-block(data-fId=  item._id)
+                      div.img-wrapper
+                        img(src= item.picUrl[0])
+                        span.no-img 没有图片
+                      div.item-content
+                        div.item-header
+                          a.item-name= item.title
+                        div.item-desc= item.content
+                    
+            div#tab-liao.tab
               div.content-block
-                div 这是周边游
-            div#tab-fun.tab
-              div.content-block
-                div 这是休闲娱乐
-            //- div#tab-beauty.tab
-            //-   div.content-block
-            //-     div 这是丽人美妆
-            //- div#tab-sport.tab
-            //-   div.content-block
-            //-     div 这是运动健身
-            //- div#tab-other.tab
-            //-   div.content-block
-            //-     div 这是其他
+                if liaos
+                  each item in liaos
+                    div.item-block(data-fId=  item._id)
+                      div.img-wrapper
+                        img(src= item.picUrl[0])
+                        span.no-img 没有图片
+                      div.item-content
+                        div.item-header
+                          a.item-name= item.title
+                        div.item-desc= item.content
 
+            div#tab-qu.tab
+              div.content-block
+                if qus
+                  each item in qus
+                    div.item-block(data-fId=  item._id)
+                      div.img-wrapper
+                        img(src= item.picUrl[0])
+                        span.no-img 没有图片
+                      div.item-content
+                        div.item-header
+                          a.item-name= item.title
+                        div.item-desc= item.content
 
 block scripts
   script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
