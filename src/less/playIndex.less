@@ -1,8 +1,10 @@
+//  颜色定义
 @body-color: #666;
 @text-color: #333;
 @grid-back-color: #fff;
 @orange-color: #F97C06;
 
+// 颜色类
 body{
   color: @body-color;
 }
@@ -16,7 +18,9 @@ body{
   color: @orange-color;
 
 }
+// 颜色类-完
 
+// 搜索框
 .playIndex-searchbar{
   background-color: #fff;
   .searchbar{
@@ -27,7 +31,9 @@ body{
     }
   }
 }
+// 搜索框
 
+//  标签栏
 .tabs-content{
   position: fixed;
   width: 100%;
@@ -50,53 +56,59 @@ body{
   }
 }
 
-.playIndex-content{
-  top: 4.5rem;
-}
+//  标签栏-完
 
-// .bar-header-secondary~.content{
-//   top: 0px;
+// 主题内容
+// .playIndex-content{
+//   top: 4.5rem;
 // }
-// 活动卡片
-.activity-card{
-  margin-top: 0.5rem;
-  line-height: .7;
+.facebook-card{
+  cursor: pointer;
+  margin:.5rem 0px;
+  .facebook-avatar img{
+    height: 2rem;
+  }
+  .facebook-avatar img{
+    border-radius: 50%;
+  }
   .card-content{
-    position: relative;
-    img{
-      width: 100%;
-    }
-    .img-desc{
-      height: 2rem;
-      width: 100%;
-      z-index: 100;
-      background-color: rgba(29, 29, 29, 0.5);
-      ilter:alpha(opacity=50);
-      -moz-opacity:0.5;
-      -khtml-opacity: 0.5;
-      padding: 0.8rem 0 0 1.0rem;
-      position: absolute;
-      left: 0px;
-      bottom: 0px;
-      span{
-        z-index: 110;
-        color: #fff;
+    padding: 0 .5rem .5rem .5rem;
+    .picsWrapper{
+      width: auto;
+      img{
+        display: inline-block;
+        margin-right: .2rem;
+        width: 5rem;
+        max-height: 5rem;
       }
+    }
+  }
+  .card-info{
+    margin-left: 2.5rem;
+    .facebook-name, .facebook-date{
+      margin-left: 0px;
+      color: #444;
+    }
+    .facebook-date span{
+      margin-right: .2rem;
+    }
+    .facebook-name{
+      font-size: .8rem;
+    }
+  }
+  .card-content-title{
+    font-weight: normal;
+    color: #444;
+  }
+  .card-content-title, .card-content-text{
+    margin: .3rem 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 
-      .price{
-        position: absolute;
-        right: .5rem;
-        color: @orange-color;
-      }
-    }
-  }
-  .card-footer{
-    width: 100%;
-    padding-left: 1rem;
-    font-size: .8rem;
-    background-color: #fff;
-  }
 }
+
 
 
 

@@ -89,6 +89,11 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写地址哟～");
       return;
+    }else if (!/^[\u4e00-\u9fa5|0-9]{0,15}$/.test(address)) {
+      console.log(address);
+      $.hidePreloader();
+      $.toast();
+      return;
     }
 
     var price = $('.price input').val();
