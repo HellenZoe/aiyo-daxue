@@ -246,7 +246,7 @@ $(function() {
       // div.appendChild(image);
       // previewContainer.appendChild(div);
   		var width = image.width;
-  		var height = image.height;  	}
+  		var height = image.height;
 
       // console.log(width + "ahahh" + height);
   		// var shouldResize = (width > maxWidth) || (height > maxHeight);
