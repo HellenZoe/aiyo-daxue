@@ -73,7 +73,7 @@ $(function() {
     var desc = $('.desc > textarea').val();
     if (!desc) {
       $.hidePreloader();
-      $.toast("还没有写描述哟～");
+      $.toast("还没有写简介哟～");
       return;
     }else if (!/^[\u4e00-\u9fa5|0-9]{0,140}$/.test(desc)) {
       console.log(desc);

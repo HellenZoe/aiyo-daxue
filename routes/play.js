@@ -91,7 +91,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             price: price,
             view: 0
         })
-        console.log("logging from ******************logging from /play/new --newPlaytosave", JSON.stringif(newPlay));
+        console.log("logging from ******************logging from /play/new --newPlaytosave", JSON.stringify(newPlay));
         newPlay.save(function(err, p) {
           if (err) {
             console.log("save treehole error");
