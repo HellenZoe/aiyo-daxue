@@ -16,25 +16,29 @@ block content
       //-   h1.title.text-white 详情
 
       div.content
-        div(class="swiper-container index-swiper-container" data-space-between="10")
-          div.swiper-wrapper
-            each url in valueble.picUrl
-              div.swiper-slide
-                img(src= url)
-          div.swiper-pagination
-            each url in valueble.picUrl
-              span.swiper-pagination-bullet
+        //- div(class="swiper-container index-swiper-container" data-space-between="10")
+        //-   div.swiper-wrapper
+        //-     each url in valueble.picUrl
+        //-       div.swiper-slide
+        //-         img(src= url)
+        //-   div.swiper-pagination
+        //-     each url in valueble.picUrl
+        //-       span.swiper-pagination-bullet
         div.card.facebook-card
           div.card-content
             div.title-category
               span.content-title= valueble.name
               span.category= valueble.category_ch
             div.card-content-text= valueble.desc
+            div.img-wrapper
+              each url in play.picUrl
+                img(src= url)
+            
           div.card-footer
             div.icon.position
               i.iconfont-position &#xe619;
-              span= valueble.location
-            div.price= valueble.price
+              span 交易地点  #{valueble.location}
+            div.price ￥#{valueble.price}
 
         div.card.facebook-card
           div.card-header.no-border
