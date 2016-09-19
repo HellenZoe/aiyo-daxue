@@ -109,7 +109,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             var base64Data = item.split(',')[1];
             var fileType = item.split(';')[0].split('/')[1];
           	var dataBuffer = new Buffer(base64Data, 'base64');
-            var picUrl = "http://obzokcbc0.bkt.clouddn.com/secondHand/" + time + "." + fileType;
+            var picUrl = "http://obzokcbc0.bkt.clouddn.com/secondHand/" + time + "-" + index + "." + fileType;
             console.log("*****************logging from /secondHand/new--picUrl**************", picUrl);
             Valueble.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
               if (err) {
@@ -118,7 +118,7 @@ router.post('/new', upload.single('test'), function(req, res) {
                 console.log(raw);
               }
             });
-            var tmpFilePath = "./upload/tmp/" + time + "." + fileType;
+            var tmpFilePath = "./upload/tmp/" + time + "-" + index + "." + fileType;
           	fs.writeFile(tmpFilePath, dataBuffer, function(err) {
           		if(err){
           		  console.log(err);
