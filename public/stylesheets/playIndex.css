@@ -38,8 +38,9 @@ body {
 .tabs-content .school-tab .iconfont-tree {
   color: #F97C06;
 }
-.tabs-content .shop-tab {
-  border-right: 1px solid #f5f5f5;
+.play-content .buttons-tab .button.active {
+  color: #F97C06;
+  border-color: #F97C06;
 }
 .facebook-card {
   cursor: pointer;
