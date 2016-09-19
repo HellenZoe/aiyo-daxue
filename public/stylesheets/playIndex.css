@@ -18,6 +18,10 @@ body {
   background-color: #f5f5f5;
   border-radius: .5rem;
 }
+.content-block {
+  margin: 0px;
+  padding: 0px;
+}
 .tabs-content {
   position: fixed;
   width: 100%;

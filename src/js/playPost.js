@@ -46,7 +46,7 @@ $(function() {
     //  显示进度图标
     $.showPreloader();
 
-    //  获取用户输入内容
+    //  检查用户输入内容
     var type = $('.type input:checked')
     if (type.length == 0) {
       $.hidePreloader();
@@ -130,7 +130,11 @@ $(function() {
       return;
     }
 
-
+    //   检查用户是否发布图片
+    if (formInfo.pics.length == 0) {
+      $.toast("请至少添加一张照片");
+      return;
+    }
 
     formInfo.type = type.attr('name');
     formInfo.name = name;
@@ -296,6 +300,8 @@ $(function() {
     formInfo.pics.push(dataURL);
     console.log("new ", formInfo.pics);
     picCount = picCount + 1;
+
+
   }
 
 
