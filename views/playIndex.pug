@@ -54,9 +54,9 @@ block content
                               img(src= play.authorAvatarUrl)
                           div.card-info
                             div.facebook-name
-                              span= 我能 
+                              span 我可以
                               | &middot;
-                              span play.name
+                              span= play.name
                             div.facebook-date
                               span= play.date
                               span= play.authorSchool
@@ -79,7 +79,10 @@ block content
                           div.facebook-avatar
                               img(src= play.authorAvatarUrl)
                           div.card-info
-                            div.facebook-name= "我要-" + play.name
+                            div.facebook-name
+                              span "我需要" 
+                              | &middot;
+                              span= play.name
                             div.facebook-date
                               span= play.date
                               span= play.authorSchool
