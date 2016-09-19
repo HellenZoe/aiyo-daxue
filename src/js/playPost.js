@@ -131,11 +131,11 @@ $(function() {
     }
 
     //   检查用户是否发布图片
-    if (formInfo.pics.length == 0) {
-      $.hidePreloader();
-      $.toast("请至少添加一张照片");
-      return;
-    }
+    // if (formInfo.pics.length == 0) {
+    //   $.hidePreloader();
+    //   $.toast("请至少添加一张照片");
+    //   return;
+    // }
 
     formInfo.type = type.attr('name');
     formInfo.name = name;
@@ -246,7 +246,8 @@ $(function() {
       // div.appendChild(image);
       // previewContainer.appendChild(div);
   		var width = image.width;
-  		var height = image.height;
+  		var height = image.height;  	}
+
       // console.log(width + "ahahh" + height);
   		// var shouldResize = (width > maxWidth) || (height > maxHeight);
 
