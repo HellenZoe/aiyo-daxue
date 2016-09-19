@@ -158,3 +158,24 @@ $('.edit').on('click', function(e) {
   var vId = $(this).attr('data-vid');
   location.href = "http://" + location.host + "/secondHand/edit/" + vId;
 })
+
+//  点击跳到详情页
+var plays = $(".item-block");
+plays.forEach(function(item, index) {
+  console.log(item, index);
+  var t = $(item);
+  t.on('click', function(e) {
+      var cardId = $(this).parent().attr('data-pId');
+      var host = location.host;
+      location.href = "http://" + host + "/play/detail/" + cardId;
+  })
+})
+
+// 如果用户没有发布图片显示提示
+var imgs = $('.img-wrapper img');
+imgs.each(function(index, item) {
+  var i = $(item);
+  if (!i.attr('src')) {
+    i.parent().children('.no-img').css('display', 'block');
+  }
+})

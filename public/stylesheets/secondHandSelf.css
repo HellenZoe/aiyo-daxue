@@ -78,6 +78,15 @@
   height: 4rem;
   width: 4rem;
 }
+.item-block .img-wrapper .no-img {
+  color: #666;
+  font-size: .7rem;
+  position: absolute;
+  display: none;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-60%);
+}
 .item-block .item-content {
   margin-left: 4.3rem;
 }
