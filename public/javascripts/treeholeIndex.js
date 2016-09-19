@@ -19,6 +19,8 @@ $(function() {
 
   //   点击图片的时候  跳转到相应的详情页去
 var fucks = $(".fuck-content");
+var headers = $(".card-header");
+
 fucks.forEach(function(item, index) {
   console.log(item, index);
   var t = $(item);
@@ -28,6 +30,16 @@ fucks.forEach(function(item, index) {
       location.href = "http://" + host + "/treehole/detail/" + cardId;
   })
 });
+headers.forEach(function(item, index) {
+  console.log(item, index);
+  var t = $(item);
+  t.on('click', function(e) {
+      var cardId = $(this).parent().attr('data-tId');
+      var host = location.host;
+      location.href = "http://" + host + "/treehole/detail/" + cardId;
+  })
+});
+
 // $("#fuck").on("click", function(e) {
 //       var cardId = $(this).parent().attr('data-tId');
 //       var host = location.host;
