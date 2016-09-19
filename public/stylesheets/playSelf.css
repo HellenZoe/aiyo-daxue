@@ -61,12 +61,18 @@
   width: 30%;
   margin: 0 auto;
 }
+.content-block {
+  margin: 0rem;
+  padding: 0rem;
+}
 #play-content {
   position: absolute;
   overflow: auto;
-  bottom: 0rem;
-  margin: 0rem;
+  margin: .5rem 0rem 0rem 0rem;
   padding: 0rem;
+}
+#play-content .content-block {
+  border: 1px solid #dedede;
 }
 #tab-selling,
 #tab-down,
@@ -77,7 +83,6 @@
 .item-block {
   width: 100%;
   padding: .4rem;
-  border: 1px solid #dedede;
 }
 .item-block .img-wrapper {
   text-align: center;

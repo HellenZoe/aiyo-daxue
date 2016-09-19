@@ -72,13 +72,19 @@
   }
 }
 
+.content-block{
+  margin: 0rem;
+  padding: 0rem;
+}
 
 #play-content{
   position: absolute;
   overflow: auto;
-  bottom: 0rem;
-  margin: 0rem;
+  margin: .5rem 0rem 0rem 0rem;
   padding: 0rem;
+  .content-block{
+    border: 1px solid #dedede;
+  }
 }
 
 #tab-selling, #tab-down, #tab-sold{
@@ -89,7 +95,6 @@
 .item-block{
   width: 100%;
   padding: .4rem;
-  border: 1px solid #dedede;
   .img-wrapper{
     float: left;
     text-align: center;
