@@ -95,6 +95,8 @@
 }
 .topic-block .my-topic .img-wrapper {
   float: left;
+  text-align: center;
+  position: relative;
 }
 .topic-block .my-topic .no-img {
   color: #666;
