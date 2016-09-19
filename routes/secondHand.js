@@ -24,20 +24,25 @@ router.get('/', function(req, res) {
           valuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }),
-          transValuebles: qs.map(function(item){
+          bookValuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
-            return item.category == "transport";
+            return item.category == "book";
           }),
-          sportValuebles: qs.map(function(item){
+          beautyValuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
-            return item.category == "sport";
+            return item.category == "beauty";
           }),
           eleValuebles: qs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "ele";
+          }),
+          otherValuebles: qs.map(function(item){
+            return item.toObject({getters: true, virtuals: true});
+          }).filter(function(item, index) {
+            return item.category == "other";
           }),
           user: crtUser
         });

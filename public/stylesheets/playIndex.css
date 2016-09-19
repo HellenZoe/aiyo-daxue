@@ -76,6 +76,11 @@ body {
   margin-left: 0px;
   color: #444;
 }
+.facebook-card .card-info .facebook-name span.right,
+.facebook-card .card-info .facebook-date span.right {
+  float: right;
+  color: #F97C06;
+}
 .facebook-card .card-info .facebook-date span {
   margin-right: .2rem;
 }

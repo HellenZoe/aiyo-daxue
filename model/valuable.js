@@ -24,26 +24,26 @@ valuebleSchema.virtual('category_ch').get(function() {
     case "other":
       return "其他"
       break;
-    case "transport":
-      return "交通工具"
-      break;
+    // case "transport":
+    //   return "交通工具"
+    //   break;
     case "sport":
       return "运动健身"
       break;
     case "ele":
-      return "电子产品"
+      return "数码"
       break;
-    case "ins":
-      return "电器"
-      break;
+    // case "ins":
+    //   return "电器"
+    //   break;
     case "beauty":
-      return "其他"
+      return "丽人"
       break;
-    case "cloth":
-      return "衣物伞帽"
-      break;
+    // case "cloth":
+    //   return "衣物伞帽"
+    //   break;
     case "book":
-      return "图书器材"
+      return "书籍"
       break;
 
     default:
