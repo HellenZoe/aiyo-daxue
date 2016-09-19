@@ -70,7 +70,7 @@
 #previewAllPic img {
   max-width: 2rem;
   z-index: 10000;
-  margin-left: .2rem;
+  margin-left: .4rem;
 }
 #fileToUpload {
   visibility: hidden;

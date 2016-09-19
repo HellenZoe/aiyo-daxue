@@ -135,6 +135,10 @@ $(function() {
       $.hidePreloader();
       $.toast("请至少添加一张照片");
       return;
+    }else if (formInfo.pics.length > 4) {
+      $.hidePreloader();
+      $.toast("最多添加四张照片");
+      return;
     }
 
     formInfo.type = type.attr('name');
