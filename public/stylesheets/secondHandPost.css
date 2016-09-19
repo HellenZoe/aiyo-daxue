@@ -63,9 +63,15 @@
   top: -0.6rem;
   right: -0.6rem;
 }
+#previewAllPic div canvas {
+  width: 5rem;
+  max-height: 5rem;
+  margin: .3rem;
+}
 #previewAllPic img {
   max-width: 2rem;
   z-index: 10000;
+  margin-left: .4rem;
 }
 #fileToUpload {
   visibility: hidden;
