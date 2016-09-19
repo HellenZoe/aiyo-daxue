@@ -176,7 +176,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             author: authorId,
             authorName: ifAnonymous ? "匿名小马甲" : us[0].name,
             authorAvatarUrl: logoUrl,
-            authorSchool: "哈佛",
+            authorSchool: ifAnonymous ？ "哈佛" ： us[0].school,
             content: content,
             title: title,
             time: time

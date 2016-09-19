@@ -56,4 +56,16 @@ $('.delete').on('click', function(e) {
 
   //  点击到详情
 
+  var treeholes = $(".topic-content");
+  treeholes.forEach(function(item, index) {
+    console.log(item, index);
+    var t = $(item);
+    t.on('click', function(e) {
+        var cardId = $(this).parent().parent().attr('data-tId');
+        var host = location.host;
+        location.href = "http://" + host + "/treehole/detail/" + cardId;
+    })
+})
+
+
 })

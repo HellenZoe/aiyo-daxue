@@ -20,7 +20,7 @@ block content
             div.self-info
               div.facebook-name= user.name
               div.facebook-sign-name 个性签名:
-              a 编辑资料>
+              a.external(href="/self") 编辑资料>
 
         div.content.valueble-content
           div.buttons-tab
@@ -31,12 +31,13 @@ block content
                 div.content-block
                   if plays
                     each item in plays
-                      div.item-block
+                      div.item-block(data-pId= item._id)
                         div.img-wrapper
                           img(src= item.picUrl[0])
                         div.item-content
                           div.item-header
-                            a.item-name= item.name
+                            - var name = ( play.type == "can") ? "我能行-" + play.name : "我需要-" + play.name
+                            a.item-name #{name}
                           div.item-desc= item.desc
                           div.item-footer
                             div.actionSheet

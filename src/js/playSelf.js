@@ -33,3 +33,16 @@ $('.del').on('click', function(e) {
   });
 
 })
+
+
+//  点击跳到详情页
+var plays = $(".item-content");
+plays.forEach(function(item, index) {
+  console.log(item, index);
+  var t = $(item);
+  t.on('click', function(e) {
+      var cardId = $(this).parent().attr('data-pId');
+      var host = location.host;
+      location.href = "http://" + host + "/play/detail/" + cardId;
+  })
+})
