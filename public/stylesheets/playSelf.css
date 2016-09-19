@@ -69,10 +69,13 @@
   position: absolute;
   overflow: auto;
   margin: .5rem 0rem 0rem 0rem;
+  width: 100%;
   padding: 0rem;
 }
 #play-content .content-block {
   border: 1px solid #dedede;
+  width: 96%;
+  margin: 0 auto;
 }
 #tab-selling,
 #tab-down,
