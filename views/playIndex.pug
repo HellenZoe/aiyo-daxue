@@ -53,11 +53,14 @@ block content
                           div.facebook-avatar
                               img(src= play.authorAvatarUrl)
                           div.card-info
-                            div.facebook-name= "我能&middot;" + play.name
+                            div.facebook-name
+                              span 我能
+                              &middot;  
+                              span play.name
                             div.facebook-date
                               span= play.date
                               span= play.authorSchool
-                        div.card-content.fuck-content
+                        div.card-content.fuck-contentl
                           // h3.card-content-title= play.title
                           p.card-content-text= play.desc
                           div.picsWrapper

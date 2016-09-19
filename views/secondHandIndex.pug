@@ -36,13 +36,10 @@ block content
       div.content.secondHand-content
         div.buttons-tab
           a.tab-link.button.active(href="#tab-index") 首页
-          a.tab-link.button(href="#tab-trans") 交通工具
-          a.tab-link.button(href="#tab-sport") 运动健身
-          a.tab-link.button(href="#tab-ele") 电子产品
-          //- a.tab-link.button(href="#tab-eleEqui") 电器
-          //- a.tab-link.button(href="#tab-beauty") 丽人美妆
-          //- a.tab-link.button(href="#tab-other") 其他
-          //- a.tab-link.button(href="#tab-eleEqui") 电器
+          a.tab-link.button(href="#tab-book") 书籍
+          a.tab-link.button(href="#tab-ele") 数码
+          a.tab-link.button(href="#tab-beauty") 丽人
+          a.tab-link.button(href="#tab-other") 其它
         div.content-block
           div.tabs
             div#tab-index.tab.active
@@ -73,7 +70,7 @@ block content
                         div.icon.position
                           i.iconfont-position &#xe619;
                           span= item.location
-                        div.price= item.price
+                        div.price ￥#{item.price}
                 else
                   div 还没人发布二手
             div#tab-trans.tab
