@@ -27,15 +27,16 @@ block content
         div.card.facebook-card
           div.card-content
             div.title-category
-              span.content-title= play.name
-              span.price= play.price
+              - var name = ( play.type == "can") ? "我能行" : "我需要"
+              span.content-title #{name}
+              span.price ￥#{play.price}
 
           div.card-footer
             div.icon.position
               i.iconfont-position &#xe619;
-              span 地址#{play.address}
-            div.view
-              span 浏览次数#{play.view}
+              span 相约地址: #{play.address}
+            //- div.view
+            //-   span 浏览次数#{play.view}
 
         div.desc
             i.iconfont-playDetail &#xe640;
