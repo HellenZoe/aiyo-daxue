@@ -32,8 +32,9 @@ block content
             each item in treeholes
               div.topic-block(data-tId= item._id, data-favId= item.favUserId)
                 div.my-topic
-                  img(src= item.picUrl[0])
-                  span.no-img  没有图片
+                  div.img-wrapper
+                    img(src= item.picUrl[0])
+                    span.no-img  没有图片
                   div.topic-content
                     a.content-title= item.title
                     div.content-text= item.content
