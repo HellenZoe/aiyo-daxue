@@ -24,6 +24,19 @@ $(function() {
     return false;
   })
 
+
+
+
+  var categoryBoxes = $('.category input[type=checkbox]');
+  console.log(categoryBoxes);
+  categoryBoxes.on('click', function() {
+    if (this.checked) {
+      categoryBoxes.prop('checked', false);
+      $(this).prop("checked", true);
+    }
+  })
+
+
   //  当用户点击分类的checkbox的时候  检测是否超过一个
   // var checkboxs = $('.category label');
   // checkboxs.on('click', function(e) {
@@ -292,7 +305,7 @@ $(function() {
 
     // 隐藏加载图标
     $.hidePreloader();
-    
+
   }
 
 

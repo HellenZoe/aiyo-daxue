@@ -25,6 +25,19 @@ $(function() {
     return false;
   })
 
+
+  var typeBoxes = $('.type input[type=checkbox]');
+  console.log(typeBoxes);
+  typeBoxes.on('click', function() {
+    if (this.checked) {
+      typeBoxes.prop('checked', false);
+      $(this).prop("checked", true);
+    }
+  })
+
+
+
+
   //  当用户点击分类的checkbox的时候  检测是否超过一个
   // var checkboxs = $('.category label');
   // checkboxs.on('click', function(e) {
