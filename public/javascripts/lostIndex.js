@@ -21,7 +21,7 @@ $('.gotoLost').on('click', function(e) {
 
   // 激活第一个标签
   $('#lost .button').removeClass('active');
-  $('#lost .button:first-child').addClass('active');
+  $('#lost .button:first-child').addClass('active').trigger('click');
 });
 
 $('.gotoFound').on('click', function(e) {
@@ -40,6 +40,6 @@ $('.gotoFound').on('click', function(e) {
 
   // 激活第一个标签
   $('#found .button').removeClass('active');
-  $('#found .button:first-child').addClass('active');
+  $('#found .button:first-child').addClass('active').trigger('click');
 
 });
