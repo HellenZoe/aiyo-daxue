@@ -72,6 +72,9 @@
   margin-top: .5rem;
 }
 .item-block .img-wrapper {
+  position: relative;
+  height: 4rem;
+  width: 4rem;
   float: left;
 }
 .item-block .img-wrapper img {
