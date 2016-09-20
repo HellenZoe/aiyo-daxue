@@ -24,8 +24,8 @@ $('.gotoFound').on('click', function(e) {
 
   $('#lost').toggle(false);  //显示
   $('#found').toggle(true);   //隐藏
-  $('.find span').removeClass('active');  //删除active类
-  $('.found span ').removeClass('active'); // 删除active类
-  $('.found span').addClass('active');  //添加active类  
+  $('.lost span').removeClass('active');  //删除active类
+  $('.found span').removeClass('active'); // 删除active类
+  $('.found span').addClass('active');  //添加active类
 
 });
