@@ -90,6 +90,7 @@
 }
 .topic-block .my-topic {
   width: 96%;
+  padding: .4rem;
   margin: 0.5rem 2%;
   border: 1px solid #e7e7e7;
 }
@@ -112,13 +113,12 @@
 .topic-block .my-topic img {
   width: 4rem;
   height: 4rem;
-  margin: 0.4rem;
   float: left;
 }
 .topic-block .my-topic .topic-content {
   height: 4rem;
-  margin: 0.4rem 0.4rem 0.4rem 0px;
   position: relative;
+  margin-left: 4.3rem;
 }
 .topic-block .my-topic .topic-content .content-title {
   font-size: .8rem;

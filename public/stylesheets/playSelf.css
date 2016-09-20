@@ -95,6 +95,7 @@
   text-align: center;
   position: relative;
   width: 4rem;
+  height: 4rem;
   float: left;
 }
 .item-block .img-wrapper .no-img {
