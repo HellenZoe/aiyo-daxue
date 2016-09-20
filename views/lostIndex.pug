@@ -16,10 +16,10 @@ block content
       div.lost-tabs
         div.lost
           span.active
-            a(href="#lost") 失物
+            a.gotoLost(href="#") 失物
         div.found
           span
-            a(href="#find") 招领
+            a.gotoFound(href="#") 招领
       nav.bar.bar-tab
         a.tab-item.external(href="/")
           span.icon.index-color
@@ -222,7 +222,7 @@ block content
                   div 什么都咩有
 
 
-      div#find.lostIndex-content
+      div#found.lostIndex-content
         div.buttons-tab
           a.tab-link.button.active(href="#tab-index") 首页
           a.tab-link.button(href="#tab-card") 卡证
@@ -415,4 +415,6 @@ block content
 
 
 block scripts
+  script(src="./javascripts/windowUtils.js")  
   script(src="./javascripts/lostIndex.js")  
+  script(type='text/javascript' src='./javascripts/imgViewer.js' charset='utf-8')

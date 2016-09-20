@@ -158,6 +158,9 @@
 .iconfont-position {
   color: #88C32E;
 }
+#find {
+  display: none;
+}
 @font-face {
   font-family: 'iconfont-treeHoleTabsBar';
   src: url('iconfont.eot');
