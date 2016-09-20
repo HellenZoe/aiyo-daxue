@@ -84,7 +84,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写名称哟～");
       return;
-    }else if (/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,25}$/.test(name)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,25}$/.test(name)) {
       $.hidePreloader();
       $.toast("名称超过字数啦~");
       return;
@@ -94,7 +94,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
       return;
-    }else if (/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,140}$/.test(desc)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,140}$/.test(desc)) {
       $.hidePreloader();
       $.toast("描述超过字数啦~");
       return;
@@ -104,7 +104,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写地点哟～");
       return;
-    }else if (/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,14}$/.test(address)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,14}$/.test(address)) {
       $.hidePreloader();
       $.toast("地址超过字数啦~");
       return;
