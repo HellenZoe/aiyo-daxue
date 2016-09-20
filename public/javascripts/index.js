@@ -15,3 +15,10 @@ if (!window.utils.getFromLocal('userInfo')) {
     location.href = "http://" + location.host + "/signin";
   });
 }
+
+
+$('more').on('click', function(e) {
+  e.preventDefault();
+
+  $.alert("功能正在完善中.敬请期待!")
+})
