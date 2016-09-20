@@ -33,7 +33,7 @@ block content
                   if goods
                     each item in goods
                       if item.type == "thing"
-                        div.item-block
+                        div.item-block(data-lId= item._id)
                           div.img-wrapper
                             img(src= item.picUrl[0])
                             span.no-img  没有图片
@@ -50,9 +50,10 @@ block content
                   if goods
                     each item in goods
                       if item.type == "person"
-                        div.item-block
+                        div.item-block(data-lId= item._id)
                           div.img-wrapper
                             img(src= item.picUrl[0])
+                            span.no-img  没有图片
                           div.item-content
                             div.item-header
                               a.item-name= item.name
