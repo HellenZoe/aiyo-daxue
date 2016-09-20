@@ -53,8 +53,8 @@ block content
           div.tabs
             div#tab-index-lost.tab.active
               div.content-block
-                if lostGoods
-                  each item in lostGoods
+                if goods
+                  each item in goods
                     if item.type == "thing"
                       div.card.facebook-card(data-lId= item._id)
                         div.card-header.no-border

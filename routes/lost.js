@@ -40,7 +40,7 @@ router.get('/', function(req, res) {
           }).filter(function(item, index) {
             return item.category == "ele"
           }),
-          othersGoods: gs.map(function(item){
+          otherGoods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
             return item.category == "other"

@@ -3,7 +3,7 @@ $.init();
 $(function() {
   // FastClick.attach(document.body);
   //
-  // autosize(document.querySelectorAll("textarea"));
+  autosize(document.querySelectorAll("textarea"));
 
 
   var formInfo  = {
