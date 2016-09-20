@@ -165,7 +165,7 @@ plays.forEach(function(item, index) {
   console.log(item, index);
   var t = $(item);
   t.on('click', function(e) {
-      var cardId = $(this).parent().attr('data-pId');
+      var cardId = $(this).parent().attr('data-sId');
       var host = location.host;
       location.href = "http://" + host + "/play/detail/" + cardId;
   })
