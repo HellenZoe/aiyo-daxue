@@ -49,11 +49,11 @@ block content
                                 a.down(data-vId= item._id) 下架
                                 a.sold(data-vId= item._id) 确认售出
               div#tab-down.tab
-                div.content-block(data-sId= item._id)
+                div.content-block
                   if valuebles
                     each item in valuebles
                       if item.status == 1
-                        div.item-block
+                        div.item-block(data-sId= item._id)
                           div.img-wrapper
                             img(src= item.picUrl[0])
                           div.item-content
@@ -67,11 +67,11 @@ block content
                                 a.up(data-vId= item._id) 重新上架
                                 a.del(data-vId= item._id) 删除
               div#tab-sold.tab
-                div.content-block(data-sId= item._id)
+                div.content-block
                   if valuebles
                     each item in valuebles
                       if item.status == 2
-                        div.item-block
+                        div.item-block(data-sId= item._id)
                           div.img-wrapper
                             img(src= item.picUrl[0])
                             span 没有图片
