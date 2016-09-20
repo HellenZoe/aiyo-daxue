@@ -116,11 +116,9 @@
 }
 .content-title {
   font-size: .75rem;
-  float: left;
   margin: .14rem 0;
 }
 .category {
-  float: left;
   font-size: .5rem;
   margin: .2rem .3rem;
   background-color: #88C32E;

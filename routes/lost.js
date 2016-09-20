@@ -67,7 +67,8 @@ router.get('/post', function(req, res) {
     }else {
       console.log("*************logging from /self************userinfo", doc[0]);
       res.render('lostPost', {
-        title: "发布"
+        title: "发布",
+        userInfo: doc[0]
       })
     }
   })
