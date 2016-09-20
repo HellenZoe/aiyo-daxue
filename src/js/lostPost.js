@@ -27,6 +27,7 @@ $(function() {
 
   //  只能选一个分类
   var typeBoxes = $('.type input[type=checkbox]');
+  console.log(typeBoxes);
   typeBoxes.on('click', function() {
     if (this.checked) {
       typeBoxes.removeAttr('checked');
@@ -35,11 +36,12 @@ $(function() {
   })
 
 
-  var categoryBoxes = $('.type input[type=checkbox]');
+  var categoryBoxes = $('.category input[type=checkbox]');
+  console.log(categoryBoxes);
   categoryBoxes.on('click', function() {
     if (this.checked) {
-      categoryBoxes.removeAttr('checked');
-      $(this).attr("checked", "checked");
+      categoryBoxes.prop('checked', false);
+      $(this).prop("checked", true);
     }
   })
 

@@ -70,6 +70,7 @@
 p.hint {
   margin: 0px;
   color: #666;
+  font-size: .7rem;
 }
 #fileToUpload {
   visibility: hidden;
