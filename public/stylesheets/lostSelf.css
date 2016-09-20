@@ -27,7 +27,7 @@
   width: 4rem;
 }
 .self {
-  height: 5.5rem;
+  height: 5rem;
   background-image: url('../images/self-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -57,9 +57,6 @@
 .self .self-info a {
   color: #F57E7A;
 }
-.buttons-tab {
-  margin-top: 5rem;
-}
 .content-block {
   margin: 0px;
   padding: 0px;
@@ -70,10 +67,13 @@
   border: 1px solid #dedede;
   margin: 0.4rem;
 }
+.valueble-content {
+  top: 5.5rem;
+}
 .valueble-content > .content-block {
   overflow: auto;
   position: absolute;
-  top: 6.2rem;
+  top: 1.5rem;
   bottom: 0rem;
   padding: 2%;
   margin-top: .5rem;
