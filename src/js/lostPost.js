@@ -24,7 +24,27 @@ $(function() {
     return false;
   })
 
-  //  当用户点击分类的checkbox的时候  检测是否超过一个
+
+  //  只能选一个分类
+  var typeBoxes = $('.type input[type=checkbox]');
+  typeBoxes.on('click', function() {
+    if (this.checked) {
+      typeBoxes.removeAttr('checked');
+      $(this).attr("checked", "checked");
+    }
+  })
+
+
+  var categoryBoxes = $('.type input[type=checkbox]');
+  categoryBoxes.on('click', function() {
+    if (this.checked) {
+      categoryBoxes.removeAttr('checked');
+      $(this).attr("checked", "checked");
+    }
+  })
+
+
+
   // var checkboxs = $('.category label');
   // checkboxs.on('click', function(e) {
   //   console.log("clicked checkbox");
@@ -127,7 +147,7 @@ $(function() {
     formInfo.name = name;
     formInfo.desc = desc;
     formInfo.location = address;
-    formInfo.category = category;
+    formInfo.category = category.attr('name');
     formInfo.qq = qq;
     formInfo.tel = tel;
 
