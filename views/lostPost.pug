@@ -10,11 +10,11 @@ block content
         a.button.button-link.button-nav.treehole-back.pull-left.external(href="/lost")
           span.icon.icon-left.text-white
         a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
-        h1.title.text-white 发布物品
+        h1.title.text-white 失物招领发布
       div.content
         div.post-valueble
           div.type
-            h3 寻物类型
+            h3 寻找类型
             div
               input#checkbox_t(type="checkbox" name="thing")
               label(for="checkbox_t")
@@ -24,59 +24,66 @@ block content
               label(for="checkbox_p")
               span 寻主
           div.name
-            h3 商品名称
-            input.border-bottom(type="text" name="name" placeholder="请填写商品名称")
+            h3 物品名称
+            input.border-bottom(type="text" name="name" placeholder="请填写物品名称(最多25个字)")
             div#previewAllPic
             span.icon
               input#fileToUpload(type="file" name="fileToUpload")
               i.iconfont-treeholePost &#xe605;
+            p.hint  最多上传四张照片哦~
           div.desc
-            h3 商品描述
-            input.border-bottom(placeholder="请填写商品用途 新旧程度")
+            h3 物品描述
+            input.border-bottom(placeholder="可以填写物品特点 新旧程度等")
           div.location
             h3 丢失地点
-            input.border-bottom(placeholder="请填写交易地点p")
+            input.border-bottom(placeholder="请填写丢失/发现地点")
           div.category
             h3 选择分类
             div.row
               div.col-3
-                input#checkbox01(type="checkbox" name="transport")
+                input#checkbox01(type="checkbox" name="card")
                 label(for="checkbox01")
-                span 交通工具
+                span 卡证
               div.col-3
                 input#checkbox02(type="checkbox" name="sport")
                 label(for="checkbox02")
-                span 运动健身
+                span 运动
               div.col-3
                 input#checkbox03(type="checkbox" name="ele")
                 label(for="checkbox03")
-                span 电子产品
-              div.col-left
-                input#checkbox04(type="checkbox" name="ins")
-                label(for="checkbox04")
-                span 电器
-              div.col-3
-                input#checkbox05(type="checkbox" name="beauty")
-                label(for="checkbox05")
-                span 丽人美妆
-              div.col-3
-                input#checkbox06(type="checkbox" name="cloth")
-                label(for="checkbox06")
-                span 衣物伞帽
-              div.col-3
-                input#checkbox07(type="checkbox" name="book")
-                label(for="checkbox07")
-                span 图书器材
+                span 数码
+              //- div.col-left
+              //-   input#checkbox04(type="checkbox" name="ins")
+              //-   label(for="checkbox04")
+              //-   span 电器
+              //- div.col-3
+              //-   input#checkbox05(type="checkbox" name="beauty")
+              //-   label(for="checkbox05")
+              //-   span 丽人美妆
+              //- div.col-3
+              //-   input#checkbox06(type="checkbox" name="cloth")
+              //-   label(for="checkbox06")
+              //-   span 衣物伞帽
+              //- div.col-3
+              //-   input#checkbox07(type="checkbox" name="book")
+              //-   label(for="checkbox07")
+              //-   span 图书器材
               div
                 input#checkbox08(type="checkbox" name="other")
                 label(for="checkbox08")
                 span 其他
           div.qq
             h3 qq号
-            input.border-bottom(placeholder="请填写qq号")
+            if userInfo
+              input.border-bottom(placeholder="请填写qq号" value= userInfo.qq)
+            else
+              input.border-bottom(placeholder="请填写qq号")              
           div.tel
             h3 电话号
-            input.border-bottom(placeholder="请填写手机号")
+            if userInfo
+              input.border-bottom(placeholder="请填写手机号" value= userInfo.tel)
+            else
+              input.border-bottom(placeholder="请填写手机号")              
 
 
 

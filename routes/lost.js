@@ -60,8 +60,16 @@ router.get('/', function(req, res) {
 
 // 失物招领发布页面
 router.get('/post', function(req, res) {
-  res.render('lostPost', {
-    title: "发布"
+  console.log("*************logging from /self************res.session.user", req.session.user);
+  User.find({_id: req.session.user._id}, function(err, doc) {
+    if (err) {
+      console.log(err);
+    }else {
+      console.log("*************logging from /self************userinfo", doc[0]);
+      res.render('lostPost', {
+        title: "发布"
+      })
+    }
   })
 })
 

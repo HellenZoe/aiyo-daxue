@@ -50,17 +50,21 @@ $(function() {
     if (type.length == 0) {
       $.hidePreloader();
       $.toast("还没有选类型哟");
+      return;
     }else if (type.length > 1) {
       $.hidePreloader();
       $.toast("只能选一个类型哦");
       return;
-    }else {
-      formInfo.type = type.attr('name');
     }
+
     var name = $('.name > input').val();
     if (!name) {
       $.hidePreloader();
       $.toast("还没有写名称哟～");
+      return;
+    }else if (/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,25}$/.test(name)) {
+      $.hidePreloader();
+      $.toast("名称超过字数啦~");
       return;
     }
     var desc = $('.desc > input').val();
@@ -68,39 +72,62 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
       return;
+    }else if (/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,140}$/.test(desc)) {
+      $.hidePreloader();
+      $.toast("描述超过字数啦~");
+      return;
     }
     var address = $('.location input').val();
     if (!address) {
       $.hidePreloader();
-      $.toast("还没有写地址哟～");
+      $.toast("还没有写地点哟～");
+      return;
+    }else if (/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,14}$/.test(address)) {
+      $.hidePreloader();
+      $.toast("地址超过字数啦~");
       return;
     }
+
+
     var category = $('.category input:checked')
     if (category.length == 0) {
       $.hidePreloader();
       $.toast("还没有选分类哟");
+      return;
     }else if (category.length > 1) {
       $.hidePreloader();
-      $.toast("只能选一个哦~~");
+      $.toast("只能选一个哦~");
       return;
-    }else {
-      formInfo.category = category.attr('name');
     }
+
+
     var qq = $('.qq input').val();
     if (!qq) {
       $.hidePreloader();
       $.toast("还没有写qq哟～");
       return;
+    }else if (!/^\d{4,11}$/.test(qq)) {
+      $.hidePreloader();
+      $.toast("qq格式错误~");
+      return;
     }
+
     var tel = $('.tel input').val();
     if (!tel) {
       $.hidePreloader();
       $.toast("还没有写电话哟～");
       return;
+    }else if (!/^1[3|4|5|7|8]\d{9}$/.test(tel)) {
+      $.hidePreloader();
+      $.toast("电话格式错误~");
+      return;
     }
+
+    formInfo.type = type.attr('name');
     formInfo.name = name;
     formInfo.desc = desc;
     formInfo.location = address;
+    formInfo.category = category;
     formInfo.qq = qq;
     formInfo.tel = tel;
 
@@ -193,8 +220,8 @@ $(function() {
 
   // 处理文件
   function processFile(dataURL, fileType) {
-  	var maxWidth = 100;
-  	var maxHeight = 100;
+  	// var maxWidth = 100;
+  	// var maxHeight = 100;
   	var image = new Image();
   	image.onload = function () {
       // var previewContainer = document.getElementById("previewformInfo");
@@ -204,33 +231,33 @@ $(function() {
   		var width = image.width;
   		var height = image.height;
       // console.log(width + "ahahh" + height);
-  		var shouldResize = (width > maxWidth) || (height > maxHeight);
+  		// var shouldResize = (width > maxWidth) || (height > maxHeight);
 
       var canvas = document.createElement("canvas");
 
-  		if (!shouldResize) {
-        var ctx =  canvas.getContext("2d");
-        ctx.drawImage(this, 0, 0, width, height);
-        addCanvasToPreview(canvas, fileType);
-  			return;
-  		}
-
-
-  		var newWidth;
-  		var newHeight;
-
-  		if (width > height) {
-  			newHeight = height * (maxWidth / width);
-  			newWidth = maxWidth;
-  		} else {
-        newWidth = width * (maxHeight / height);
-  			newHeight = maxHeight;
-  		}
-  		canvas.width = newWidth;
-  		canvas.height = newHeight;
+  		// if (!shouldResize) {
+      //   var ctx =  canvas.getContext("2d");
+      //   ctx.drawImage(this, 0, 0, width, height);
+      //   addCanvasToPreview(canvas, fileType);
+  		// 	return;
+  		// }
+      //
+      //
+  		// var newWidth;
+  		// var newHeight;
+      //
+  		// if (width > height) {
+  		// 	newHeight = height * (maxWidth / width);
+  		// 	newWidth = maxWidth;
+  		// } else {
+      //   newWidth = width * (maxHeight / height);
+  		// 	newHeight = maxHeight;
+  		// }
+  		canvas.width = width;
+  		canvas.height = height;
 
   		var context = canvas.getContext('2d');
-  		context.drawImage(this, 0, 0, newWidth, newHeight);
+  		context.drawImage(this, 0, 0, width, height);
       addCanvasToPreview(canvas, fileType);
   	};
 
