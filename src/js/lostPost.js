@@ -30,8 +30,8 @@ $(function() {
   console.log(typeBoxes);
   typeBoxes.on('click', function() {
     if (this.checked) {
-      typeBoxes.removeAttr('checked');
-      $(this).attr("checked", "checked");
+      typeBoxes.prop('checked', false);
+      $(this).prop("checked", true);
     }
   })
 
