@@ -27,7 +27,6 @@
   width: 4rem;
 }
 .self {
-  margin-top: 2.2rem;
   height: 5.5rem;
   background-image: url('../images/self-bg.jpg');
   background-repeat: no-repeat;
@@ -71,13 +70,31 @@
   border: 1px solid #dedede;
   margin: 0.4rem;
 }
+.valueble-content content-block {
+  overflow: auto;
+  position: absolute;
+  top: 2.2rem;
+  bottom: 0rem;
+  margin-top: .5rem;
+}
 .item-block {
   width: 100%;
   padding: .4rem;
   border: 1px solid #dedede;
 }
 .item-block .img-wrapper {
+  text-align: center;
+  position: relative;
   float: left;
+}
+.item-block .img-wrapper .no-img {
+  color: #666;
+  font-size: .7rem;
+  position: absolute;
+  display: none;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-60%);
 }
 .item-block .img-wrapper img {
   height: 4rem;
