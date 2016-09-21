@@ -17,12 +17,14 @@ module.exports = function(app) {
   })
 
   app.get('/test', function(req, res) {
-    fs.readFile('/root/files/test.html', function(err, data) {
-      if (err) {
-        console.log(err);
-      }
-      res.send(data);
-    })
+    var html = fs.readFileSync('/root/files/test.html', 'utf-8');
+    res.send(html);
+    // fs.readFile('/root/files/test.html', function(err, data) {
+    //   if (err) {
+    //     console.log(err);
+    //   }
+    //   res.send(data);
+    // })
     // res.render('test', {
     //   title: "测试"
     // })
