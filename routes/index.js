@@ -17,7 +17,7 @@ module.exports = function(app) {
   })
 
   app.get('/test', function(req, res) {
-    var html = fs.readFileSync('/root/files/test.html', 'utf-8');
+    var html = fs.readFileSync('../test/第一篇文章.html', 'utf-8');
     res.send(html);
     // fs.readFile('/root/files/test.html', function(err, data) {
     //   if (err) {
@@ -97,7 +97,7 @@ module.exports = function(app) {
     })
   })
 
-  //  后台 情话模块文章数据  
+  //  后台 情话模块文章数据
   app.get('/admin/schoolPrattle', function(req, res) {
     Prattle.find({}, function(err, doc) {
       var draw =  parseInt(req.query.draw);
