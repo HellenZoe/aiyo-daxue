@@ -7,6 +7,7 @@ var play = require('./play');
 var fun = require('./fun');
 var trade = require('./trade');
 var schoolList = require('../data/school');
+var fs = require('fs');
 
 
 module.exports = function(app) {
@@ -16,9 +17,15 @@ module.exports = function(app) {
   })
 
   app.get('/test', function(req, res) {
-    res.render('test', {
-      title: "测试"
+    fs.readFile('/root/files/test.html', function(err, data) {
+      if (err) {
+        console.log(err);
+      }
+      res.send(data);
     })
+    // res.render('test', {
+    //   title: "测试"
+    // })
   })
 
   //  登陆页面
@@ -97,7 +104,7 @@ module.exports = function(app) {
     var tel = req.body.tel;
     var qq = req.body.qq;
     var school = req.body.school;
-    var department = req.body.department;
+    // var department = req.body.department;
     console.log("*********logging from /self*****req.body", req.body);
     console.log("*********logging from /self*****req.session.user", req.session.user);
     User.findByIdAndUpdate({_id: req.session.user._id}, {
@@ -106,14 +113,14 @@ module.exports = function(app) {
       tel: tel,
       qq: qq,
       school: school,
-      department: department
+      // department: department
     }, function(err, u) {
       if (err) {
         console.log(err);
       }else {
         req.session.user = u;
         console.log("+++++++++++++++++req.session.user", req.session.user);
-        console.log("+++++++++++++++++u", u);        
+        console.log("+++++++++++++++++u", u);
         res.json({
           success: true,
           newUserInfo: u

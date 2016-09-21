@@ -55,22 +55,22 @@ $(function() {
       return;
     }
 
-    var department = $('.department  input').val();
-    if (!department) {
-      $.toast("还没有填写宿舍地址哦~");
-      return;
-    }else if (!/^[\u4e00-\u9fa5|0-9]{0,10}$/.test(department) ) {
-      $.toast("十个字以内就好啦~");
-      return;
-    }
-
+    // var department = $('.department  input').val();
+    // if (!department) {
+    //   $.toast("还没有填写宿舍地址哦~");
+    //   return;
+    // }else if (!/^[\u4e00-\u9fa5|0-9]{0,10}$/.test(department) ) {
+    //   $.toast("十个字以内就好啦~");
+    //   return;
+    // }
+    //
 
     // userInfo.name  = name;
     // userInfo.gender  = gender;
     userInfo.tel  = tel;
     userInfo.qq  = qq;
     userInfo.school  = school;
-    userInfo.department  = department;
+    // userInfo.department  = department;
 
     //  显示进度图标
     $.showPreloader();
@@ -94,7 +94,7 @@ $(function() {
             nowUserInfo.qq = info.qq;
             nowUserInfo.tel = info.tel;
             nowUserInfo.school = info.school;
-            nowUserInfo.department = info.department;
+            // nowUserInfo.department = info.department;
             window.utils.saveToLocal('userInfo', nowUserInfo);
             console.log("上传成功");
             location.href="http://" + location.host + "/";
