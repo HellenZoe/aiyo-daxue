@@ -83,9 +83,22 @@ module.exports = function(app) {
     }
   })
 
-  //  后台审核  获取当前数据
+  //  后台审核商圈  获取当前数据
   app.get('/admin/verify/trade', function(req, res) {
     Seller.find({}, function(err, doc) {
+      var draw =  parseInt(req.query.draw);
+      var info = {
+        "draw": draw,
+        "recordsTotal": doc.length,
+        "recordsFiltered": doc.length,
+        "data": doc
+      }
+      res.json(info);
+    })
+  })
+
+  app.get('/admin/schoolPrattle', function(req, res) {
+    Prattle.find({}, function(err, doc) {
       var draw =  parseInt(req.query.draw);
       var info = {
         "draw": draw,
