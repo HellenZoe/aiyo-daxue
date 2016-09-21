@@ -97,6 +97,7 @@ module.exports = function(app) {
     })
   })
 
+  //  后台 情话模块文章数据  
   app.get('/admin/schoolPrattle', function(req, res) {
     Prattle.find({}, function(err, doc) {
       var draw =  parseInt(req.query.draw);
@@ -109,6 +110,8 @@ module.exports = function(app) {
       res.json(info);
     })
   })
+
+  //  后台 情话模块 发布新的文章
 
 
 
