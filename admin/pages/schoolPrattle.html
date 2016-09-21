@@ -246,7 +246,7 @@
 
         <button type='button' class='btn btn-primary' id="newPrattle">新增文章</button>
 
-        <form class="form-horizontal" role="form" class="prattle-info-form">
+        <form class="form-horizontal" role="form" class="prattle-info-form" action="/article/prattle">
           <div class="form-group">
             <label for="prattle-title" class="col-sm-2 control-label">文章题目</label>
             <div class="col-sm-10">
@@ -260,11 +260,16 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="prattle-path" class="col-sm-2 control-label">路径</label>
+            <label for="prattle-path" class="col-sm-2 control-label">封面图路径</label>
             <div class="col-sm-10">
-              <input type="text"  class="prattle-path" placeholder="填写你在classeur上传的路径">
+              <input type="text"  class="prattle-path" placeholder="填写你在七牛上传图片的路径">
             </div>
           </div>
+
+          <div class="form-group">
+             <label for="prattleInputFile">上传文章(html格式)</label>
+             <input type="file" id="prattleInputFile">
+           </div>
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

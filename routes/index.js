@@ -8,7 +8,9 @@ var fun = require('./fun');
 var trade = require('./trade');
 var schoolList = require('../data/school');
 var fs = require('fs');
-
+var multer= require('multer');
+var upload = multer();
+var Prattle = require('../model/prattle');
 
 module.exports = function(app) {
   //  首页
@@ -113,6 +115,28 @@ module.exports = function(app) {
 
   //  后台 情话模块 发布新的文章
 
+  app.get('/article/prattle', upload.single('prattleInputFile'), function(req, res) {
+    console.log("*************logging from /article/prattle--body***************", req.body);
+    // var articleUrl = JSON.parse(req.body['articleUrl']);
+    console.log("*************logging from /article/prattle--file***************", req.file);
+    var title = req.body['title'];
+    var author = req.body['author'];
+    var backImgPath = req.body.['backImgPath'];
+    var time = Date.now();
+    var newPrattle = new Prattle({
+      title: title,
+      author: author,
+      backImgPath: backImgPath,
+    })
+    newPrattle.save(function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.redirect('/admin/pages/schoolPrattle.html');
+      }
+
+    })
+  })
 
 
   //  个人中心信息完善
