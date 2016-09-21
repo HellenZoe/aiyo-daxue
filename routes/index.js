@@ -17,7 +17,7 @@ module.exports = function(app) {
   })
 
   app.get('/test', function(req, res) {
-    var html = fs.readFileSync('/root/app/aiyo-daxue/test/第一篇文章.html', 'utf-8');
+    var html = fs.readFileSync('/root/app/aiyo-daxue/test/test.html', 'utf-8');
     res.send(html);
     // fs.readFile('/root/files/test.html', function(err, data) {
     //   if (err) {
