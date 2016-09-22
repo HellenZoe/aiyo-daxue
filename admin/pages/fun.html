@@ -58,7 +58,7 @@
             processData: false,
             success: function (data) {
               if (data.success) {
-                $(that).parent().parent();remove();
+                $(that).parent().parent().remove();
                 alert("删除成功！");
               }
             },

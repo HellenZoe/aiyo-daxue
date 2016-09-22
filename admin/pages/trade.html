@@ -44,6 +44,7 @@
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
           var sId = $(this).attr('data-sId');
+          var that = this;
           var info = {
             sId: sId,
             type: "del"
@@ -58,7 +59,7 @@
             processData: false,
             success: function (data) {
               if (data.success) {
-                $(that).parent().parent();remove();
+                $(that).parent().parent().remove();
                 alert("删除成功！");
               }
             },
