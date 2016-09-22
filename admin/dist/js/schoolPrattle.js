@@ -32,10 +32,11 @@ $('#prattle-submit').on('click',function(e) {
 
 
   var prattleInfo = new FormData();
-  prattleInfo.append('file', $('#prattleInputFile')).files;
+  prattleInfo.append('file', $('#prattleInputFile')[0].files[0]);
   prattleInfo.append('path', $('.prattle-path')[0].val());
   prattleInfo.append('author', $('.parattle-author')[0].val());
-  prattleInfo.append('title', $('.prattle-title'));
+  prattleInfo.append('title', $('.prattle-title')[0].val());
+  console.log(prattleInfo);
 
   var url = "http://" + location.host + "/article/prattle";
   $.ajax({
