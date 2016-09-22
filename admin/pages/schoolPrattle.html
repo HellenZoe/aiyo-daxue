@@ -36,6 +36,40 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript">
+  //  删除操作
+      function deletePrattle(){
+        var r = confirm("确定要删除吗?操作不可撤销。。");
+        if (r==true) {
+          var pId = $(this).attr('data-pId');
+          var info = {
+            pId: pId,
+            type: "del"
+          }
+          var url = "http://" + location.host + "/admin/schoolPrattle/action";
+          $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+          	contentType: "application/json",
+            data: JSON.stringify(info),
+            processData: false,
+            success: function (data) {
+              if (data.success) {
+                $(that).parent().parent();remove();
+                alert("删除成功！");
+              }
+            },
+            error: function (data) {
+                console.log("删除失败");
+            }
+
+          });
+
+        }
+      }
+  
+</script>
 </head>
 
 <body>
@@ -301,37 +335,6 @@
     $(document).ready(function() {
       var url = "http://" + location.host + "/admin/schoolPrattle";
 
-  //  删除操作
-      function deletePrattle(){
-        var r = confirm("确定要删除吗?操作不可撤销。。");
-        if (r==true) {
-          var pId = $(this).attr('data-pId');
-          var info = {
-            pId: pId,
-            type: "del"
-          }
-          var url = "http://" + location.host + "/admin/schoolPrattle/action";
-          $.ajax({
-            type: "POST",
-            url: url,
-            dataType: "json",
-          	contentType: "application/json",
-            data: JSON.stringify(info),
-            processData: false,
-            success: function (data) {
-              if (data.success) {
-                $(that).parent().parent();remove();
-                alert("删除成功！");
-              }
-            },
-            error: function (data) {
-                console.log("删除失败");
-            }
-
-          });
-
-        }
-      }
 
       $('#dataTables-prattle').DataTable({
           "processing": true,
@@ -356,8 +359,6 @@
             }
           ]
       });
-
-
 
     });
 
