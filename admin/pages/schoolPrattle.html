@@ -38,10 +38,10 @@
 
 <script type="text/javascript">
   //  删除操作
-      function deletePrattle(){
+      function deletePrattle(e){
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
-          var pId = $(this).attr('data-pId');
+          var pId = $(e.target).attr('data-pId');
           console.log(pId);
           var that = this;
           var info = {
@@ -357,7 +357,7 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' onclick='deletePrattle()' data-pId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' onclick='deletePrattle(e)' data-pId=" + data+ ">删除</button>"
               }
             }
           ]
