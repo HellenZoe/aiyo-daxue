@@ -23,7 +23,18 @@ var Prattle = require('../model/prattle');
 module.exports = function(app) {
   //  首页
   app.get('/', function(req, res) {
-    res.render('index', {title: "哎哟大学", })
+    Prattle.find({}, function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.render('index',
+          {
+            title: "哎哟大学",
+            prattles: doc
+          }
+        )
+      }
+    })
   })
 
   app.get('/test', function(req, res) {
@@ -121,6 +132,19 @@ module.exports = function(app) {
     })
   })
 
+
+
+  //  查看情话详情
+  app.get('/article/prattle/:id', function(req, res) {
+    var pId = req.params.id;
+    Prattle.find({_id: pId}, function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.send(doc[0].content);
+      }
+    })
+  })
   //  后台 情话模块 发布新的文章
 
   app.post('/article/prattle', upload.single('file'), function(req, res) {

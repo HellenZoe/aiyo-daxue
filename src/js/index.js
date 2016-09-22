@@ -22,3 +22,10 @@ $('.more').on('click', function(e) {
 
   $.alert("功能正在完善中.敬请期待!")
 })
+
+
+//  校园情话
+$('.activity-card').on('click', function(e) {
+  var pId = $(this).attr('data-pId');
+  var url = "http" + location.host + "/article/prattle/" + pId;
+})

@@ -87,17 +87,13 @@ block content
                 div.index-img-wrapper
                   img(src="/images/home_10@2x.png")
                 span.icon-text 更多
-
-        div.activity-card
-          div.card-content
-            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
-            div.img-desc
-              span 校园情话200期
-        div.activity-card
-          div.card-content
-            img(src="http://s.amazeui.org/media/i/demos/bing-1.jpg")
-            div.img-desc
-              span 校园情话200期
+        if prattles
+          each item, index in prattles
+            div.activity-card.prattle(data-pId= item._id)
+              div.card-content
+                img(src= item.backImgPath)
+                div.img-desc
+                  span 校园情话#{index}期
 block scripts
   script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
   script(src='javascripts/windowUtils.js', type='text/javascript')
