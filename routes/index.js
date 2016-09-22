@@ -23,7 +23,7 @@ var Prattle = require('../model/prattle');
 module.exports = function(app) {
   //  首页
   app.get('/', function(req, res) {
-    var queryPrattle = Treehole.find({});
+    var queryPrattle = Prattle.find({});
     queryPrattle.sort([['_id', -1]]).limit(2).exec(function(err, doc) {
       if (err) {
         console.log(err);
