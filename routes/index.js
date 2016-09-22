@@ -31,7 +31,8 @@ module.exports = function(app) {
         res.render('index',
           {
             title: "哎哟大学",
-            prattles: doc
+            prattles: doc,
+            l: doc.legth
           }
         )
       }
