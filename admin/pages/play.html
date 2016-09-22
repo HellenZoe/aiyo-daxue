@@ -29,6 +29,8 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="../dist/css/play.css" media="screen" title="no title" charset="utf-8">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -138,7 +140,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-trade">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-fun">
                                 <thead>
                                     <tr>
                                         <th>用户名</th>
@@ -211,7 +213,7 @@
       //     console.log("获取不到数据");
       //   }
       // })
-      $('#dataTables-trade').DataTable({
+      $('#dataTables-play').DataTable({
           "processing": true,
           "serverSide": true,
           "ajax": {
@@ -242,7 +244,7 @@
               }
             },
             {"data": "time"},
-            {"data": "authorSchool"},
+            // {"data": "authorSchool"},
             {
               "data": "_id",
               "render": function(data, type, row) {
