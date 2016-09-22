@@ -121,7 +121,7 @@ module.exports = function(app) {
     console.log("*************logging from /article/prattle--file***************", req.file);
     var title = req.body['title'];
     var author = req.body['author'];
-    var backImgPath = req.body['backImgPath'];
+    var backImgPath = req.body['path'];
     var time = Date.now();
     var newPrattle = new Prattle({
       title: title,

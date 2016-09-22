@@ -22,7 +22,36 @@
       });
     });
 
+$('#prattle-submit').on('click',function(e) {
+  e.preventDefault();
 
+
+  var prattleInfo = new FormData();
+  prattleInfo.append('file', $('#prattleInputFile')).files;
+  prattleInfo.append('path', $('.prattle-path')[0].val());
+  prattleInfo.append('author', $('.parattle-author')[0].val());
+  prattleInfo.append('title', $('.prattle-title'));
+
+  var url = "http://" + location.host + "/article/prattle";
+  $.ajax({
+  	type: 'POST',
+  	url: url,
+    dataType: "json",
+  	data: prattleInfo,
+  	contentType: false,
+  	processData: false,
+  	success: function (data) {
+  		if (data.success) {
+  			// showMessageSuccess("上传成功");
+        console.log("上传成功");
+  		}
+  	},
+  	error: function (data) {
+  			// showMessageFail("上传出错, 请重试");
+  	}
+  });
+
+})
 
 // var prattleInfo = {
 //   title: "",
