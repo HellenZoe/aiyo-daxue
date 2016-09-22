@@ -127,8 +127,8 @@ module.exports = function(app) {
     console.log("*************logging from /article/prattle--body***************", req.body);
     // var articleUrl = JSON.parse(req.body['articleUrl']);
     console.log("*************logging from /article/prattle--file***************", req.file);
-    var path = "/root/app/aiyo-daxue/upload/tmp/" + req.file['originalname'];
-    var content = fs.readFileSync(path, "utf-8")
+    // var path = "/root/app/aiyo-daxue/upload/tmp/" + req.file['originalname'];
+    // var content = fs.readFileSync(path, "utf-8")
     var title = req.body['title'];
     var author = req.body['author'];
     var backImgPath = req.body['path'];
@@ -137,8 +137,8 @@ module.exports = function(app) {
       title: title,
       author: author,
       backImgPath: backImgPath,
-      path: path,
-      content: content,
+      // path: path,
+      // content: content,
       view: 0,
       time: time
     })
