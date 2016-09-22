@@ -222,7 +222,7 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' data-sId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' onclick='deleteSingleton()' data-sId=" + data+ ">删除</button>"
               }
             }
 
@@ -231,7 +231,8 @@
 
 
       //  删除操作
-      $('button.delete').on('click', function(e) {
+      var deleteSingleton = function () {
+
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
           var sId = $(this).attr('data-sId');
@@ -261,7 +262,8 @@
 
         }
 
-      })
+    }
+
     });
     </script>
 
