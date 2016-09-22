@@ -45,6 +45,10 @@ $('#prattle-submit').on('click',function(e) {
   		if (data.success) {
   			// showMessageSuccess("上传成功");
         console.log("上传成功");
+        $('.prattle-info-form input').val("");
+        $('.prattle-info-form').css("display", "none");
+        alert("添加成功");
+
   		}
   	},
   	error: function (data) {
