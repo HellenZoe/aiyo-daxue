@@ -29,7 +29,9 @@ gulp.task('less', function() {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function() {
-    return gulp.src('dist/css/*.css')
+    return gulp.src('less/*.less')
+        .pipe(less())
+        .pipe(header(banner, {pkg: pkg}))
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/css'))
@@ -113,7 +115,7 @@ gulp.task('default', ['minify-css', 'minify-js', 'copy']);
 // })
 
 // Dev task with browserSync
-gulp.task('dev', ['less', 'minify-css', 'js', 'minify-js'], function() {
+gulp.task('dev', ['minify-css', 'js', 'minify-js'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('dist/css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);

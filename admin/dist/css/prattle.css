@@ -6,3 +6,6 @@
 .page-wrapper h3 {
   margin: .5rem;
 }
+.prattle-info-form {
+  display: none;
+}
