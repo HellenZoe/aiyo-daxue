@@ -12,7 +12,7 @@ var multer= require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, '/root/app/aiyo-daxue/upload/tmp')
-  }，
+  },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
   }
