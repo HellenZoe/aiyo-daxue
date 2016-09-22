@@ -195,7 +195,7 @@ module.exports = function(app) {
   })
 
   //  删除趣玩文章
-  app.post('/admin/schoolPrattle/action', function(req, res) {
+  app.post('/admin/fun/action', function(req, res) {
     var fId = req.body.fId;
     var action = req.body.type;
     console.log(req.body);
