@@ -128,7 +128,7 @@ module.exports = function(app) {
         "draw": draw,
         "recordsTotal": doc.length,
         "recordsFiltered": doc.length,
-        "data": doc
+        "prattles": doc
       }
       res.json(info);
     })
