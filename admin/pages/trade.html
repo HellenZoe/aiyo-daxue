@@ -150,6 +150,7 @@
                                         <th>qq</th>
                                         <th>浏览次数</th>
                                         <th>时间</th>
+                                        <th>操作</th>
                                     </tr>
                                 </thead>
 
@@ -205,8 +206,7 @@
             type: "GET",
             dataType: "json",
       			contentType: "application/json",
-            success: function(data) {
-            }
+            dataSrc: "data"
           },
           "columns": [
             {"data": "name"},
@@ -217,7 +217,14 @@
             {"data": "tel"},
             {"data": "qq"},
             {"data": "view"},
-            {"data": "time"}
+            {"data": "time"},
+            {
+              "data": "_id",
+              "render": function(data, type, row) {
+                return "<button class='btn btn-primary' data-tId=" + data+ ">删除</button>"
+              }
+            }
+
           ]
       });
     });
