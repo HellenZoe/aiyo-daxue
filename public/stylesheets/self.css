@@ -12,6 +12,7 @@
 .submit {
   width: 100%;
   text-align: center;
+  margin-top: 1rem;
 }
 .done {
   margin: 0 auto;
