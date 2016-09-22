@@ -34,7 +34,7 @@ $('#prattle-submit').on('click',function(e) {
   var prattleInfo = new FormData();
   prattleInfo.append('file', $('#prattleInputFile')[0].files[0]);
   prattleInfo.append('path', $('.prattle-path').val());
-  prattleInfo.append('author', $('.parattle-author').val());
+  prattleInfo.append('author', $('.prattle-author').val());
   prattleInfo.append('title', $('.prattle-title').val());
   console.log(prattleInfo);
 

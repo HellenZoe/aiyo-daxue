@@ -7,7 +7,8 @@ var PrattleSchema = new Schema({
   author: String,   //  文章的作者
   view: Number,    // 浏览次数
   content: String,   //  文章的内容　　由stackEdit生成的html字符串
-  path: String    //储存在服务器的路径
+  path: String,    //储存在服务器的路径
+  backImgPath: String
 })
 
 
