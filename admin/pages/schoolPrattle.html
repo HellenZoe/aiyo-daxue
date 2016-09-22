@@ -300,31 +300,8 @@
     //  展示已经发布过的文章
     $(document).ready(function() {
       var url = "http://" + location.host + "/admin/schoolPrattle";
-      $('#dataTables-prattle').DataTable({
-          "processing": true,
-          "serverSide": true,
-          "ajax": {
-            url: url,
-            type: "GET",
-            dataType: "json",
-            dataSrc: "prattles",
-      			contentType: "application/json"
-          },
-          "columns": [
-            {"data": "title"},
-            {"data": "author"},
-            {"data": "date"},
-            {"data": "view"},
-            {
-              "data": "_id",
-              "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' onclick='deletePrattle' data-pId=" + data+ ">删除</button>"
-              }
-            }
-          ]
-      });
 
-      //  删除操作
+  //  删除操作
       var deletePrattle  = function(){
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
@@ -355,6 +332,32 @@
 
         }
       }
+
+      $('#dataTables-prattle').DataTable({
+          "processing": true,
+          "serverSide": true,
+          "ajax": {
+            url: url,
+            type: "GET",
+            dataType: "json",
+            dataSrc: "prattles",
+      			contentType: "application/json"
+          },
+          "columns": [
+            {"data": "title"},
+            {"data": "author"},
+            {"data": "date"},
+            {"data": "view"},
+            {
+              "data": "_id",
+              "render": function(data, type, row) {
+                return "<button class='btn btn-primary delete' onclick='deletePrattle' data-pId=" + data+ ">删除</button>"
+              }
+            }
+          ]
+      });
+
+
 
     });
 
