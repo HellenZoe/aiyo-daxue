@@ -115,7 +115,7 @@ module.exports = function(app) {
 
   //  后台 情话模块 发布新的文章
 
-  app.get('/article/prattle', upload.single('prattleInputFile'), function(req, res) {
+  app.post('/article/prattle', upload.single('file'), function(req, res) {
     console.log("*************logging from /article/prattle--body***************", req.body);
     // var articleUrl = JSON.parse(req.body['articleUrl']);
     console.log("*************logging from /article/prattle--file***************", req.file);
