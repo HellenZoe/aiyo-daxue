@@ -9,6 +9,9 @@
 .page-group {
   background-color: #fafafa;
 }
+.done {
+  margin: 0 auto;
+}
 .border-bottom {
   border-top: 0px;
   background-color: #fafafa;
