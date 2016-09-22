@@ -1,25 +1,18 @@
-var mongoose =require('mongoose');
-var Schema = mongoose.Schema
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var playSchema = new Schema({
-  name: String,
-  desc: String,
-  picUrl: [ String ],
-  address: String,
-  status: Number,
-  qq: String,
-  tel: String,
-  time: {type: Date, default: Date.now},
-  author: String,
-  authorName: String,
-  authorSchool: String,
-  authorAvatarUrl: String,
-  type: String,
-  price: Number,
-  view: Number
+var PlaySchema = new Schema({
+  title: String,   //  文章的标题
+  time: { type: Date, default: Date.now},  // 发布的时间  要格式化
+  author: String,   //  文章的作者
+  view: Number,    // 浏览次数
+  content: String,   //  文章的内容　　由stackEdit生成的html字符串
+  path: String,    //储存在服务器的路径
+  backImgPath: String
 })
 
-playSchema.virtual('date').get(function() {
+
+PlaySchema.virtual('date').get(function() {
   var d = new Date();
   d.setTime(this.time);
   var month = d.getMonth() + 1;
@@ -30,5 +23,6 @@ playSchema.virtual('date').get(function() {
   return month + "-" + day + "  " + hour + ":" + minute;
 })
 
-var Play = mongoose.model('Play', playSchema);
+
+var Play = mongoose.model('Play', PlaySchema);
 module.exports =  Play;

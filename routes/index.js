@@ -2,6 +2,7 @@ var treehole = require('./treehole');
 var secondHand = require('./secondHand');
 var User = require("../model/user");
 var Seller = require("../model/seller");
+var Singleton = require("../model/singleton");
 var Play = require('../model/play');
 var lost = require('./lost');
 var play = require('./play');
@@ -109,7 +110,7 @@ module.exports = function(app) {
 
   //  后台审核商圈  获取当前数据
   app.get('/admin/verify/trade', function(req, res) {
-    Seller.find({}, function(err, doc) {
+    Singleton.find({}, function(err, doc) {
       var draw =  parseInt(req.query.draw);
       var info = {
         "draw": draw,
@@ -152,7 +153,26 @@ module.exports = function(app) {
     })
   })
 
+  app.post('/admin/schoolPrattle/action', function(req, res) {
+    var pId = req.body.pId;
+    var action = req.body.type;
+    console.log(req.body);
+    switch (action) {
+      case "del":
+        Prattle.remove({_id: pId}, function(err, doc) {
+          if (err) {
+            console.log(err);
+          }else {
+            res.json({
+              success: true
+            });
+          }
+        })
+        break;
+      default:
 
+    }
+  })
 
   //  查看情话详情
   app.get('/article/prattle/:id', function(req, res) {
@@ -165,6 +185,8 @@ module.exports = function(app) {
       }
     })
   })
+
+
   //  后台 情话模块 发布新的文章
 
   app.post('/article/prattle', upload.single('file'), function(req, res) {
@@ -197,6 +219,42 @@ module.exports = function(app) {
 
     })
   })
+
+
+
+  //  后台 趣玩模块 发布新的文章
+
+  app.post('/article/prattle', upload.single('file'), function(req, res) {
+    console.log("*************logging from /article/prattle--body***************", req.body);
+    // var articleUrl = JSON.parse(req.body['articleUrl']);
+    console.log("*************logging from /article/prattle--file***************", req.file);
+    var path = "/root/app/aiyo-daxue/upload/tmp/" + req.file.originalname;
+    var content = fs.readFileSync(path, "utf-8")
+    var title = req.body['title'];
+    var author = req.body['author'];
+    var backImgPath = req.body['path'];
+    var time = Date.now();
+    var newPlay = new Play({
+      title: title,
+      author: author,
+      backImgPath: backImgPath,
+      path: path,
+      content: content,
+      view: 0,
+      time: time
+    })
+    newPlay.save(function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else {
+        res.json({
+          success: true
+        })
+      }
+
+    })
+  })
+
 
 
   //  个人中心信息完善

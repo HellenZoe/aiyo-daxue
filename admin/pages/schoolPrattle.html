@@ -318,11 +318,45 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary' data-pId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' data-pId=" + data+ ">删除</button>"
               }
             }
           ]
       });
+
+      //  删除操作
+      $('button.delete').on('click', function(e) {
+        var r = confirm("确定要删除吗?操作不可撤销。。");
+        if (r==true) {
+          var pId = $(this).attr('data-pId');
+          var info = {
+            pId: pId,
+            type: "del"
+          }
+          var url = "http://" + location.host + "/admin/schoolPrattle/action";
+          $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+          	contentType: "application/json",
+            data: JSON.stringify(info),
+            processData: false,
+            success: function (data) {
+              if (data.success) {
+                $(that).parent().parent();remove();
+                alert("删除成功！");
+              }
+            },
+            error: function (data) {
+                console.log("删除失败");
+            }
+
+          });
+
+        }
+
+      })
+
     });
 
     </script>

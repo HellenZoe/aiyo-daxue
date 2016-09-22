@@ -214,6 +214,19 @@ router.post('/action', function(req, res) {
       })
       break;
 
+  case "del":
+      Singleton.remove({_id: sId}, function(err) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true
+          });
+        }
+      })
+      break;
+
+
     default:
 
   }
