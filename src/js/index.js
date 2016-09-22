@@ -28,6 +28,6 @@ $('.more').on('click', function(e) {
 $('.activity-card').on('click', function(e) {
   console.log($(this));
   var pId = $(this).attr('data-pId');
-  var url = "http" + location.host + "/article/prattle/" + pId;
+  var url = "http://" + location.host + "/article/prattle/" + pId;
   location.href=url;
 })
