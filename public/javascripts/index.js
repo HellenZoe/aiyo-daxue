@@ -26,6 +26,7 @@ $('.more').on('click', function(e) {
 
 //  校园情话
 $('.activity-card').on('click', function(e) {
+  console.log($(this));
   var pId = $(this).attr('data-pId');
   var url = "http" + location.host + "/article/prattle/" + pId;
 })
