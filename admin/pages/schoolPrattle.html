@@ -302,7 +302,7 @@
       var url = "http://" + location.host + "/admin/schoolPrattle";
 
   //  删除操作
-      var deletePrattle  = function(){
+      function deletePrattle(){
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
           var pId = $(this).attr('data-pId');
