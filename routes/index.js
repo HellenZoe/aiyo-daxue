@@ -132,7 +132,9 @@ module.exports = function(app) {
       if (err) {
         console.log(err);
       }else {
-        res.redirect('/admin/pages/schoolPrattle.html');
+        res.json({
+          success: true
+        })
       }
 
     })
