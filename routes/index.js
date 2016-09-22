@@ -12,10 +12,10 @@ var multer= require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, '/root/app/aiyo-daxue/upload/tmp')
+  }，
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
   }
-  // filename: function (req, file, cb) {
-  //   cb(null, file.fieldname + '-' + Date.now())
-  // }
 })
 var upload = multer({ storage: storage })
 var Prattle = require('../model/prattle');
@@ -127,7 +127,7 @@ module.exports = function(app) {
     console.log("*************logging from /article/prattle--body***************", req.body);
     // var articleUrl = JSON.parse(req.body['articleUrl']);
     console.log("*************logging from /article/prattle--file***************", req.file);
-    var path = "/root/app/aiyo-daxue/upload/tmp/" + req.file['originalname'];
+    var path = "/root/app/aiyo-daxue/upload/tmp/" + req.file.originalname;
     var content = fs.readFileSync(path, "utf-8")
     var title = req.body['title'];
     var author = req.body['author'];
