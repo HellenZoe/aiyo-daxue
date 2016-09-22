@@ -241,7 +241,7 @@
 
         <button type='button' class='btn btn-primary' id="newPrattle">新增文章</button>
 
-        <form class="form-horizontal prattle-info-form" role="form"  enctype="multipart/form-data" >
+        <form class="form-horizontal prattle-info-form" role="form"  enctype="multipart/form-data" style="display:none">
           <div class="form-group">
             <label for="prattle-title" class="col-sm-2 control-label">文章题目</label>
             <div class="col-sm-10">
@@ -299,7 +299,7 @@
     <script type="text/javascript">
     //  展示已经发布过的文章
     $(document).ready(function() {
-      var url = "http://" + location.host + "/admin/schoolPrattle";
+      var url = "http://" + location.host + "/admin/fun";
       $('#dataTables-prattle').DataTable({
           "processing": true,
           "serverSide": true,
@@ -318,22 +318,22 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' onclick='deletePrattle' data-pId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' onclick='deleteFun' data-fId=" + data+ ">删除</button>"
               }
             }
           ]
       });
 
       //  删除操作
-      var deletePrattle  = function(){
+      var deleteFun  = function(){
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
-          var pId = $(this).attr('data-pId');
+          var fId = $(this).attr('data-fId');
           var info = {
-            pId: pId,
+            fId: fId,
             type: "del"
           }
-          var url = "http://" + location.host + "/admin/schoolPrattle/action";
+          var url = "http://" + location.host + "/admin/fun/action";
           $.ajax({
             type: "POST",
             url: url,
@@ -355,6 +355,13 @@
 
         }
       }
+
+
+      //  点击添加按钮 显示表格
+      $('#newPrattle').on('click', function(e) {
+        $('.prattle-info-form').css("display", "block");
+      })
+
 
     });
 

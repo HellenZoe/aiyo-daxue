@@ -3,6 +3,7 @@ var secondHand = require('./secondHand');
 var User = require("../model/user");
 var Seller = require("../model/seller");
 var Singleton = require("../model/singleton");
+var Fun = require('../model/fun');
 var Play = require('../model/play');
 var lost = require('./lost');
 var play = require('./play');
@@ -153,6 +154,25 @@ module.exports = function(app) {
     })
   })
 
+
+  //  趣玩模块文章数据
+  app.get('/admin/fun', function(req, res) {
+    Fun.find({}, function(err, doc) {
+      var draw =  parseInt(req.query.draw);
+      var info = {
+        "draw": draw,
+        "recordsTotal": doc.length,
+        "recordsFiltered": doc.length,
+        "prattles": doc.map(function(item) {
+          console.log(item);
+          return item.toObject({getters: true, virtuals: true});
+        })
+      }
+      res.json(info);
+    })
+  })
+
+  //  删除校园情话文章
   app.post('/admin/schoolPrattle/action', function(req, res) {
     var pId = req.body.pId;
     var action = req.body.type;
@@ -160,6 +180,28 @@ module.exports = function(app) {
     switch (action) {
       case "del":
         Prattle.remove({_id: pId}, function(err, doc) {
+          if (err) {
+            console.log(err);
+          }else {
+            res.json({
+              success: true
+            });
+          }
+        })
+        break;
+      default:
+
+    }
+  })
+
+  //  删除趣玩文章
+  app.post('/admin/schoolPrattle/action', function(req, res) {
+    var fId = req.body.fId;
+    var action = req.body.type;
+    console.log(req.body);
+    switch (action) {
+      case "del":
+        Fun.remove({_id: fId}, function(err, doc) {
           if (err) {
             console.log(err);
           }else {

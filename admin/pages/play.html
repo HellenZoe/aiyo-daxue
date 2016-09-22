@@ -103,7 +103,8 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 校园情话</a>
+                            <a href="schoolPrattle.html"><i class="fa fa-edit fa-fw"></i> 校园情话</a>
+                            <a href="fun.html"><i class="fa fa-edit fa-fw"></i> 趣玩</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> 审核<span class="fa arrow"></span></a>
@@ -171,40 +172,6 @@
             </div>
             <!-- /.row -->
 
-        <button type='button' class='btn btn-primary' id="newPrattle">新增文章</button>
-
-        <form class="form-horizontal prattle-info-form" role="form"  enctype="multipart/form-data" style="display: none">
-          <div class="form-group">
-            <label for="prattle-title" class="col-sm-2 control-label">文章题目</label>
-            <div class="col-sm-10">
-              <input type="text" class="prattle-title" placeholder="填写文章的题目">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="prattle-author" class="col-sm-2 control-label">作者</label>
-            <div class="col-sm-10">
-              <input type="text"  class="prattle-author" placeholder="填写作者姓名">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="prattle-path" class="col-sm-2 control-label">封面图路径</label>
-            <div class="col-sm-10">
-              <input type="text"  class="prattle-path" placeholder="填写你在七牛上传图片的路径">
-            </div>
-          </div>
-
-          <div class="form-group">
-             <label for="prattleInputFile">上传文章(html格式)</label>
-             <input type="file" id="prattleInputFile">
-           </div>
-
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-default" id="prattle-submit">提交</button>
-            </div>
-          </div>
-        </form>
-
         </div>
         <!-- /#page-wrapper -->
 
@@ -258,12 +225,6 @@
           },
           "columns": [
             {"data": "authorName"},
-            {
-              "data": "authorAvatarUrl",
-              "render": function(data, type, row) {
-                return  "<img src=" + data + "style='height: 4rem;width:4rem'></img>";
-              }
-            },
             {"data": "name"},
             {"data": "desc"},
             {
@@ -281,7 +242,7 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' data-fId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' onclick='deletePlay()' data-fId=" + data+ ">删除</button>"
               }
             }
 
@@ -291,7 +252,9 @@
 
 
       //  删除操作
-      $('button.delete').on('click', function(e) {
+      var deletePlay  = function(){
+
+        console.log("click delete");
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
           var pId = $(this).attr('data-pId');
@@ -321,51 +284,9 @@
 
         }
 
-      })
+      }
 
 
-//  添加新文章
-$('#prattle-submit').on('click',function(e) {
-  e.preventDefault();
-
-
-  var prattleInfo = new FormData();
-  prattleInfo.append('file', $('#prattleInputFile')[0].files[0]);
-  prattleInfo.append('path', $('.prattle-path').val());
-  prattleInfo.append('author', $('.prattle-author').val());
-  prattleInfo.append('title', $('.prattle-title').val());
-  console.log(prattleInfo);
-
-  var url = "http://" + location.host + "/article/play";
-  $.ajax({
-  	type: 'POST',
-  	url: url,
-    dataType: "json",
-  	data: prattleInfo,
-  	contentType: false,
-  	processData: false,
-  	success: function (data) {
-  		if (data.success) {
-  			// showMessageSuccess("上传成功");
-        console.log("上传成功");
-        $('.prattle-info-form input').val("");
-        $('.prattle-info-form').css("display", "none");
-        alert("添加成功");
-
-  		}
-  	},
-  	error: function (data) {
-  			// showMessageFail("上传出错, 请重试");
-  	}
-  });
-
-})
-
-
-//  点击添加按钮 显示表格
-$('#newPrattle').on('click', function(e) {
-  $('.prattle-info-form').css("display", "block");
-})
 
 
     });
