@@ -32,7 +32,7 @@ module.exports = function(app) {
           {
             title: "哎哟大学",
             prattles: doc,
-            l: doc.legth
+            l: doc.length
           }
         )
       }
