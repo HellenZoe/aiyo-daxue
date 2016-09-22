@@ -42,11 +42,13 @@
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
           var pId = $(this).attr('data-pId');
+          console.log(pId);
           var that = this;
           var info = {
             pId: pId,
             type: "del"
           }
+          console.log(JSON.stringify(info));
           var url = "http://" + location.host + "/admin/schoolPrattle/action";
           $.ajax({
             type: "POST",
