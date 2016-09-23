@@ -164,7 +164,7 @@ module.exports = function(app) {
         "draw": draw,
         "recordsTotal": doc.length,
         "recordsFiltered": doc.length,
-        "prattles": doc.map(function(item) {
+        "funs": doc.map(function(item) {
           console.log(item);
           return item.toObject({getters: true, virtuals: true});
         })

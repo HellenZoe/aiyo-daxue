@@ -1,25 +1,19 @@
 var mongoose =require('mongoose');
 var Schema = mongoose.Schema
 
-var playSchema = new Schema({
-  name: String,
-  desc: String,
+var funSchema = Schema({
   picUrl: [ String ],
-  address: String,
-  status: Number,
-  qq: String,
-  tel: String,
-  time: {type: Date, default: Date.now},
+  title: String,
+  content: String,
   author: String,
+  authorAvatarUrl: String,
   authorName: String,
   authorSchool: String,
-  authorAvatarUrl: String,
-  type: String,
-  price: Number,
-  view: Number
+  time: { type: Date, default: Date.now},
+  wantUserId: [String],
 })
 
-playSchema.virtual('date').get(function() {
+funSchema.virtual('date').get(function() {
   var d = new Date();
   d.setTime(this.time);
   var month = d.getMonth() + 1;
@@ -30,5 +24,6 @@ playSchema.virtual('date').get(function() {
   return month + "-" + day + "  " + hour + ":" + minute;
 })
 
-var Play = mongoose.model('Play', playSchema);
-module.exports =  Play;
+
+var Fun = mongoose.model('Fun', funSchema);
+module.exports =  Fun;
