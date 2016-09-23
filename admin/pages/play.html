@@ -240,20 +240,6 @@
     <script>
     $(document).ready(function() {
       var url = "http://" + location.host + "/admin/verify/play";
-      // $.ajax({
-      //   url: url,
-      //   type: "GET",
-      //   dataType: "json",
-  		// 	contentType: "application/json",
-      //   success: function (data) {
-      //     if (data) {
-      //       console.log(data);
-      //     }
-      //   },
-      //   error: function (data) {
-      //     console.log("获取不到数据");
-      //   }
-      // })
       $('#dataTables-play').DataTable({
           "processing": true,
           "serverSide": true,
@@ -282,7 +268,6 @@
               }
             },
             {"data": "time"},
-            // {"data": "authorSchool"},
             {
               "data": "_id",
               "render": function(data, type, row) {

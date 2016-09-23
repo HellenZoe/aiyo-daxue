@@ -163,6 +163,8 @@ $(function() {
     formInfo.tel = tel;
     formInfo.price = price;
 
+
+    alert(JSON.stringify(formInfo));
     //  发送所有信息
     sendFile(formInfo);
     // formInfo.pics.forEach(function(item, index) {
