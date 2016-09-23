@@ -139,7 +139,8 @@ module.exports = function(app) {
 
   //  后台 情话模块文章数据
   app.get('/admin/schoolPrattle', function(req, res) {
-    Prattle.find({}, function(err, doc) {
+    var  queryPrattle = Prattle.find({});
+    queryPrattle.sort([['_id', -1]]).exec(function(err, doc) {
       var draw =  parseInt(req.query.draw);
       var info = {
         "draw": draw,
