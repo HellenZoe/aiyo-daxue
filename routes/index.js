@@ -158,7 +158,8 @@ module.exports = function(app) {
 
   //  趣玩模块文章数据
   app.get('/admin/fun', function(req, res) {
-    Fun.find({}, function(err, doc) {
+    var queryFun = Fun.find({});
+    queryFun.sort([['_id', -1]]).exec(function(err, doc) {
       var draw =  parseInt(req.query.draw);
       var info = {
         "draw": draw,
