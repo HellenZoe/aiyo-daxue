@@ -41,8 +41,10 @@ body {
 .list-block {
   margin-top: 0rem;
 }
-.item-content,
-.item-inner {
+.list-block .item-content {
+  padding: 0rem;
+}
+.list-block .item-content .item-inner {
   padding: 0rem;
 }
 @font-face {

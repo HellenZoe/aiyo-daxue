@@ -68,14 +68,12 @@ $('.activity-card').on('click', function(e) {
 
                 // 添加新条目
                 addItems(data.data);
-                if (data.data.length < itemsPerLoad) {
-                    // 加载完毕，则注销无限加载事件，以防不必要的加载
-                    $.detachInfiniteScroll($('.infinite-scroll'));
-                    // 删除加载提示符
-                    $('.infinite-scroll-preloader').remove();
-                    $.toast("没有更多了");
-                    return;
-                }
+                // 加载完毕，则注销无限加载事件，以防不必要的加载
+                $.detachInfiniteScroll($('.infinite-scroll'));
+                // 删除加载提示符
+                $('.infinite-scroll-preloader').remove();
+                return;
+
 
                 // 更新最后加载的序号
                 lastIndex = $('.list-container li').length;
@@ -122,7 +120,7 @@ $('.activity-card').on('click', function(e) {
                     $.toast("没有更多数据了");
                     return;
                 }
-                
+
                 // 更新最后加载的序号
                 lastIndex = $('.list-container li').length;
                 //容器发生改变,如果是js滚动，需要刷新滚动
