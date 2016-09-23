@@ -118,9 +118,11 @@ module.exports = function(app) {
         "draw": draw,
         "recordsTotal": doc.length,
         "recordsFiltered": doc.length,
-        "data": doc
+        "data": doc.map(function(item) {
+          return item.toObject({getters: true, virtuals: true})
+        })
       }
-      res.json(info);
+      res.json();
     })
   })
 
@@ -134,7 +136,9 @@ module.exports = function(app) {
         "draw": draw,
         "recordsTotal": doc.length,
         "recordsFiltered": doc.length,
-        "data": doc
+        "data": doc.map(function(item) {
+          item.toObject({getters: true, virtuals: true})
+        })
       }
       res.json(info);
     })
