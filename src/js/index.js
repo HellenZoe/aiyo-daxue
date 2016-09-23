@@ -68,10 +68,10 @@ $('.activity-card').on('click', function(e) {
 
                 // 添加新条目
                 addItems(data.data);
-                // 加载完毕，则注销无限加载事件，以防不必要的加载
-                $.detachInfiniteScroll($('.infinite-scroll'));
-                // 删除加载提示符
-                $('.infinite-scroll-preloader').remove();
+                // // 加载完毕，则注销无限加载事件，以防不必要的加载
+                // $.detachInfiniteScroll($('.infinite-scroll'));
+                // // 删除加载提示符
+                // $('.infinite-scroll-preloader').remove();
                 return;
 
 
