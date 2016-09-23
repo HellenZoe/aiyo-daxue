@@ -126,6 +126,7 @@ module.exports = function(app) {
   //  去约审核
   app.get('/admin/verify/play', function(req, res) {
     Play.find({}, function(err, doc) {
+      console.log(doc);
       var draw =  parseInt(req.query.draw);
       var info = {
         "draw": draw,
