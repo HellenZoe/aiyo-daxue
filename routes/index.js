@@ -111,7 +111,8 @@ module.exports = function(app) {
 
   //  后台审核商圈  获取当前数据
   app.get('/admin/verify/trade', function(req, res) {
-    Singleton.find({}, function(err, doc) {
+    var querySingleton = Singleton.find({});
+    querySingleton.sort([['_id', -1]]).exec().function(err, doc) {
       var draw =  parseInt(req.query.draw);
       var info = {
         "draw": draw,
@@ -125,8 +126,9 @@ module.exports = function(app) {
 
   //  去约审核
   app.get('/admin/verify/play', function(req, res) {
-    Play.find({}, function(err, doc) {
-      console.log(doc);
+    var queryPlay = Play.find({});
+    queryPlay.sort([['_id', -1]]).exec().function(err, doc) {
+      console.log(JSON.stringify(doc));
       var draw =  parseInt(req.query.draw);
       var info = {
         "draw": draw,

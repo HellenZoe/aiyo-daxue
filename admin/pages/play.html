@@ -262,7 +262,10 @@
             type: "GET",
             dataType: "json",
       			contentType: "application/json",
-            dataSrc: "data"
+            dataSrc: "data",
+            success: function(data) {
+              console.log(data);
+            }
           },
           "columns": [
             {"data": "authorName"},
