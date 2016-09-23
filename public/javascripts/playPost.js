@@ -59,6 +59,7 @@ $(function() {
     //  显示进度图标
     $.showPreloader();
 
+    alert('1');
     //  检查用户输入内容
     var type = $('.type input:checked')
     if (type.length == 0) {
@@ -143,6 +144,8 @@ $(function() {
       return;
     }
 
+
+    alert("2");
     //   检查用户是否发布图片
     // if (formInfo.pics.length == 0) {
     //   $.hidePreloader();
@@ -155,6 +158,7 @@ $(function() {
       return;
     }
 
+    alert("3");
     formInfo.type = type.attr('name');
     formInfo.name = name;
     formInfo.desc = desc;
