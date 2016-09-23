@@ -78,7 +78,8 @@ $.ajax({
       // 更新最后加载的序号
       lastIndex = $('.list-container li').length;
       //容器发生改变,如果是js滚动，需要刷新滚动
-      $.refreshScroller();
+      console.log(lastIndex);
+      // $.refreshScroller();
 
     }
   }
