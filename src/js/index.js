@@ -98,6 +98,7 @@ $('.activity-card').on('click', function(e) {
 
           // 设置flag
           loading = true;
+          console.log(lastIndex);
           $.ajax({
             url: "http://" + location.host + "/activity?lastIndex=" + lastIndex + "&num=" + itemsPerLoad,
         		type: 'GET',
