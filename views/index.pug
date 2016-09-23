@@ -87,13 +87,19 @@ block content
                 div.index-img-wrapper
                   img(src="/images/home_10@2x.png")
                 span.icon-text 更多
-        if prattles
-          each item, index in prattles
-            div.activity-card.prattle(data-pId= item._id)
-              div.card-content
-                img(src= item.backImgPath)
-                div.img-desc
-                  span 校园情话#{l -index + 1}期
+        div.infinite.infinite-scroll.infinite-scroll-bottom(data-instance=100)
+          div.list-block
+            ul.list-container
+              
+          div.infinite-scroll-preloader
+            div.preloader
+        //- if prattles
+        //-   each item, index in prattles
+        //-     div.activity-card.prattle(data-pId= item._id)
+        //-       div.card-content
+        //-         img(src= item.backImgPath)
+        //-         div.img-desc
+        //-           span 校园情话#{l -index + 1}期
 block scripts
   script(type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8')
   script(src='javascripts/windowUtils.js', type='text/javascript')

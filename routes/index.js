@@ -380,6 +380,22 @@ module.exports = function(app) {
 
 
 
+  app.get('/activity', function(req, res) {
+      var lastIndex = req.query.lastIndex;
+      var num = req.query.num;
+      var queryPrattle = Prattle.find({});
+      queryPrattle.sort([['_id', -1]]).skip(lastIndex).limit(num).exec(function(err, doc) {
+        if (err) {
+          console.log(err);
+        }else {
+          res.json({
+            success: true,
+            data: doc
+          })
+        }
+      })
+  })
+
   app.use('/treehole', treehole);
   app.use('/secondHand',  secondHand);
   app.use('/lost', lost);
