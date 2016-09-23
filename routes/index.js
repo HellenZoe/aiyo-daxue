@@ -268,17 +268,17 @@ module.exports = function(app) {
 
   //  后台 趣玩模块 发布新的文章
 
-  app.post('/article/prattle', upload.single('file'), function(req, res) {
-    console.log("*************logging from /article/prattle--body***************", req.body);
+  app.post('/article/fun', upload.single('file'), function(req, res) {
+    console.log("*************logging from /article/fun--body***************", req.body);
     // var articleUrl = JSON.parse(req.body['articleUrl']);
-    console.log("*************logging from /article/prattle--file***************", req.file);
+    console.log("*************logging from /article/fun--file***************", req.file);
     var path = "/root/app/aiyo-daxue/upload/tmp/" + req.file.originalname;
     var content = fs.readFileSync(path, "utf-8")
     var title = req.body['title'];
     var author = req.body['author'];
     var backImgPath = req.body['path'];
     var time = Date.now();
-    var newPlay = new Play({
+    var newFun = new Fun({
       title: title,
       author: author,
       backImgPath: backImgPath,
@@ -287,7 +287,7 @@ module.exports = function(app) {
       view: 0,
       time: time
     })
-    newPlay.save(function(err, doc) {
+    newFun.save(function(err, doc) {
       if (err) {
         console.log(err);
       }else {
