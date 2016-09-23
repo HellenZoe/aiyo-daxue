@@ -122,7 +122,7 @@ module.exports = function(app) {
           return item.toObject({getters: true, virtuals: true})
         })
       }
-      res.json();
+      res.json(info);
     })
   })
 
@@ -137,7 +137,7 @@ module.exports = function(app) {
         "recordsTotal": doc.length,
         "recordsFiltered": doc.length,
         "data": doc.map(function(item) {
-          item.toObject({getters: true, virtuals: true})
+          return item.toObject({getters: true, virtuals: true})
         })
       }
       res.json(info);
