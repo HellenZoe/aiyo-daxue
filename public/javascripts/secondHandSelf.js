@@ -160,12 +160,13 @@ $('.edit').on('click', function(e) {
 })
 
 //  点击跳到详情页
+
 var plays = $(".item-block");
 plays.forEach(function(item, index) {
   console.log(item, index);
   var t = $(item);
   t.on('click', function(e) {
-      var cardId = $(this).parent().attr('data-sId');
+      var cardId = $(this).attr('data-sId');
       var host = location.host;
       location.href = "http://" + host + "/secondHand/detail/" + cardId;
   })
