@@ -95,7 +95,7 @@ var lastIndex = 5;
 
 console.log(lastIndex);
 // 注册'infinite'事件处理函数
-$(page).on('infinite', '.infinite-scroll-bottom',function() {
+$(page).on('infinite', function() {
 
     console.log(loading);
     // 如果正在加载，则退出
