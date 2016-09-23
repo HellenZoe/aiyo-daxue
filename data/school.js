@@ -1,7 +1,7 @@
 var schoolList = [
-  {id: 0, name: "华中科技大学"},
-  {id: 1, name: "武汉大学"},
-  {id: 2, name: "武汉理工大学"}
+  {id: 0, name: "武汉东湖学院"},
+  {id: 1, name: "武汉汉口学院"},
+  // {id: 2, name: "武汉理工大学"}
 ]
 
 module.exports = schoolList
