@@ -157,6 +157,7 @@ router.get('/detail/:id', function(req, res) {
 //  操作
 router.post('/action', function(req, res) {
   var pId = req.body.pId;
+  console.log(pId);
   switch (req.body.type) {
     case "del":
       Play.remove({_id: pId}, function(err, p) {
