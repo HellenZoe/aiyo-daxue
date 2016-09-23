@@ -18,27 +18,34 @@ $(function() {
 
 
   //   点击图片的时候  跳转到相应的详情页去
-var fucks = $(".fuck-content");
-var headers = $(".card-header");
+$('.facebook-card').on('click', function(e) {
+  console.log(this);
+  var tid = $(this).attr("data-tId");
+  var host = location.host;
+  location.href = "http://" + host + "/treehole/detail/" + tid;
+})
 
-fucks.forEach(function(item, index) {
-  console.log(item, index);
-  var t = $(item);
-  t.on('click', function(e) {
-      var cardId = $(this).parent().attr('data-tId');
-      var host = location.host;
-      location.href = "http://" + host + "/treehole/detail/" + cardId;
-  })
-});
-headers.forEach(function(item, index) {
-  console.log(item, index);
-  var t = $(item);
-  t.on('click', function(e) {
-      var cardId = $(this).parent().attr('data-tId');
-      var host = location.host;
-      location.href = "http://" + host + "/treehole/detail/" + cardId;
-  })
-});
+// var fucks = $(".fuck-content");
+// var headers = $(".card-header");
+
+// fucks.forEach(function(item, index) {
+//   console.log(item, index);
+//   var t = $(item);
+//   t.on('click', function(e) {
+//       var cardId = $(this).parent().attr('data-tId');
+//       var host = location.host;
+//       location.href = "http://" + host + "/treehole/detail/" + cardId;
+//   })
+// });
+// headers.forEach(function(item, index) {
+//   console.log(item, index);
+//   var t = $(item);
+//   t.on('click', function(e) {
+//       var cardId = $(this).parent().attr('data-tId');
+//       var host = location.host;
+//       location.href = "http://" + host + "/treehole/detail/" + cardId;
+//   })
+// });
 
 // $("#fuck").on("click", function(e) {
 //       var cardId = $(this).parent().attr('data-tId');
@@ -56,6 +63,8 @@ headers.forEach(function(item, index) {
   // }
   //  点赞
   $('.iconfont-nullEnjoy').on('click', function(e) {
+    e.stopPropagation();
+
     console.log("点赞");
     var enjoyCount = $(this).parent().children('.enjoy-count');
     var treehole = $(this).parent().parent().parent();
@@ -106,6 +115,7 @@ headers.forEach(function(item, index) {
 
   //  取消点赞
   $('.iconfont-selfEnjoy').on('click', function(e) {
+    e.stopPropagation();
     console.log("取消点赞");
     var enjoyCount = $(this).parent().children('.enjoy-count');
     var treehole = $(this).parent().parent().parent();
@@ -156,7 +166,7 @@ headers.forEach(function(item, index) {
 
   //  点击评论图标跳转到评论页面
   $('#comment').on('click', function(e) {
-    e.preventDefault();
+    e.stopPropagation();
     var treeholeId = $(this).parent().parent().attr('data-tid');
     console.log(treeholeId);
     location.href = "http://" + location.host + "/treehole/detail/" + treeholeId;
