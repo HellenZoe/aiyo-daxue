@@ -1,5 +1,5 @@
 $('.found').on('click', function(e) {
-  e.preventDefault();
+  e.stopPropagation();
   var lId = $(this).attr('data-lId');
   var info = {
     lId: lId,

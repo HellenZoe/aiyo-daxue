@@ -4,7 +4,7 @@ if (window.utils) {
 
 //  删除
 $('.del').on('click', function(e) {
-  e.preventDefault();
+  e.stopPropagation();
   var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
@@ -41,7 +41,7 @@ $('.del').on('click', function(e) {
 
 // 下架
 $('.down').on('click', function(e) {
-  e.preventDefault();
+  e.stopPropagation();
   var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
@@ -79,7 +79,7 @@ $('.down').on('click', function(e) {
 
 // 上架
 $('.up').on('click', function(e) {
-  e.preventDefault();
+  e.stopPropagation();
   var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
@@ -117,7 +117,7 @@ $('.up').on('click', function(e) {
 
 // 确认售出
 $('.sold').on('click', function(e) {
-  e.preventDefault();
+  e.stopPropagation();
   var vId = $(this).attr('data-vid');
   var info = {
     vId: vId,
@@ -154,7 +154,7 @@ $('.sold').on('click', function(e) {
 
 // 编辑
 $('.edit').on('click', function(e) {
-  e.preventDefault();
+  e.stopPropagation();
   var vId = $(this).attr('data-vid');
   location.href = "http://" + location.host + "/secondHand/edit/" + vId;
 })
