@@ -167,7 +167,7 @@ plays.forEach(function(item, index) {
   t.on('click', function(e) {
       var cardId = $(this).parent().attr('data-sId');
       var host = location.host;
-      location.href = "http://" + host + "/play/detail/" + cardId;
+      location.href = "http://" + host + "/secondHand/detail/" + cardId;
   })
 })
 
