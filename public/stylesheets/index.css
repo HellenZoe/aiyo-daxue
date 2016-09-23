@@ -38,6 +38,13 @@ body {
 .grid #grid-row-02 {
   margin-top: 0.8rem;
 }
+.list-block {
+  margin-top: 0rem;
+}
+.item-content,
+.item-inner {
+  padding: 0rem;
+}
 @font-face {
   font-family: 'iconfont-indexTabBar';
   src: url('iconfont.eot');
