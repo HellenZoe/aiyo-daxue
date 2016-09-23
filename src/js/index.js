@@ -72,7 +72,6 @@ $.ajax({
       // $.detachInfiniteScroll($('.infinite-scroll'));
       // // 删除加载提示符
       // $('.infinite-scroll-preloader').remove();
-      return;
 
 
       // 更新最后加载的序号
