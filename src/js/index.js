@@ -89,6 +89,8 @@ $.ajax({
 
 var lastIndex = 5;
 
+$.attachInfiniteScroll($(".infinite-scroll"));
+
 // 注册'infinite'事件处理函数
 $(document).on('infinite', '.infinite-scroll-bottom',function() {
 
