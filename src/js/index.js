@@ -32,6 +32,9 @@ $('.activity-card').on('click', function(e) {
   location.href=url;
 })
 
+
+$(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page) {
+  // body...
 // 加载flag
 var loading = false;
 // 最多可加载的条目
@@ -89,11 +92,10 @@ $.ajax({
 
 var lastIndex = 5;
 
-$.attachInfiniteScroll($(".infinite-scroll"));
 
 console.log(lastIndex);
 // 注册'infinite'事件处理函数
-$(document).on('infinite', '.infinite-scroll-bottom',function() {
+$(page).on('infinite', '.infinite-scroll-bottom',function() {
 
     console.log(loading);
     // 如果正在加载，则退出
@@ -135,6 +137,7 @@ $(document).on('infinite', '.infinite-scroll-bottom',function() {
     })
 });
 
+})
 
 
 $.init();
