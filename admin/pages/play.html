@@ -41,13 +41,13 @@
 
 <script type="text/javascript">
       //  删除操作
-      function deletePlay(){
+      function deletePlay(e){
 
         console.log("click delete");
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
-          var pId = $(this).attr('data-pId');
-          var that = this;
+          var pId = $(e.target).attr('data-pId');
+          var that = e.target;
           var info = {
             pId: pId,
             type: "del"
@@ -283,7 +283,7 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' onclick='deletePlay()' data-fId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' onclick='deletePlay(event)' data-fId=" + data+ ">删除</button>"
               }
             }
 

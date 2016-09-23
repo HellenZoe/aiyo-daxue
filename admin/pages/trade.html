@@ -39,12 +39,12 @@
 
 <script type="text/javascript">
     //  删除操作
-      function deleteSingleton() {
+      function deleteSingleton(e) {
 
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
-          var sId = $(this).attr('data-sId');
-          var that = this;
+          var sId = $(e.target).attr('data-sId');
+          var that = e.target;
           var info = {
             sId: sId,
             type: "del"
@@ -259,7 +259,7 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' onclick='deleteSingleton()' data-sId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' onclick='deleteSingleton(event)' data-sId=" + data+ ">删除</button>"
               }
             }
 

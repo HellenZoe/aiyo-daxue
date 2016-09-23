@@ -39,11 +39,11 @@
 
 <script type="text/javascript">
   //  删除操作
-      function deleteFun(){
+      function deleteFun(e){
         var r = confirm("确定要删除吗?操作不可撤销。。");
         if (r==true) {
-          var fId = $(this).attr('data-fId');
-          var that = this;
+          var fId = $(e.target).attr('data-fId');
+          var that = e.target;
           var info = {
             fId: fId,
             type: "del"
@@ -355,7 +355,7 @@
             {
               "data": "_id",
               "render": function(data, type, row) {
-                return "<button class='btn btn-primary delete' onclick='deleteFun()' data-fId=" + data+ ">删除</button>"
+                return "<button class='btn btn-primary delete' onclick='deleteFun(event)' data-fId=" + data+ ">删除</button>"
               }
             }
           ]
