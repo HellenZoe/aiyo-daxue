@@ -128,7 +128,8 @@ $(function() {
                 console.log(schoolName);
                 $('.school input').val(schoolName);
                 //  返回编辑页面
-                $('.backEdit').trigger('click');
+                // $('.backEdit').trigger('click');
+                location.href="#editInfo";
                 console.log('fuck');
 
               })
