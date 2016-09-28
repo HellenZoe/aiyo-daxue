@@ -25,20 +25,23 @@ block content
             h3 电话
             if userInfo
               input.border-bottom(placeholder="填写电话" value= userInfo.tel)
-            input.border-bottom(placeholder="填写电话")                
+            else
+              input.border-bottom(placeholder="填写电话")                
           div.qq
             //- - var qq = userInfo.qq
             h3 qq
             if userInfo
               input.border-bottom(placeholder="填写qq" value= userInfo.qq)
-            input.border-bottom(placeholder="填写qq")              
+            else
+              input.border-bottom(placeholder="填写qq")              
           div.school
             //- - var school = userInfo.school
             h3 学校
             a(href="#selectSchool")
               if userInfo
                 input.border-bottom(placeholder="填写学校" value= userInfo.school)
-              input.border-bottom(placeholder="填写学校")                  
+              else
+                input.border-bottom(placeholder="填写学校")                  
               
           //- div.department
           //-   //- - var department = userInfo.department
