@@ -120,7 +120,7 @@ $(function() {
             data.data.forEach(function(item, index) {
               var li = document.createElement('li');
               li.innerHTML = item.name;
-              li.setAttribute("href", "#editInfo");
+              // li.setAttribute("href", "#editInfo");
               //  添加点击事件
               $(li).on('click', function(e) {
                 console.log($(this));
@@ -128,7 +128,7 @@ $(function() {
                 console.log(schoolName);
                 $('.school input').val(schoolName);
                 //  返回编辑页面
-                // $('.backEdit').trigger('click');
+                $('.backEdit').trigger('click');
                 // location.href="http://" + location.host + "/changeSchool#editInfo";
                 console.log('fuck');
                 return true;
