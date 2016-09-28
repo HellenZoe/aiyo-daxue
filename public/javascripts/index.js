@@ -6,7 +6,7 @@ $(function() {
 
 
 
-
+console.log(QC.Login.check());
 //  已经登陆
 if (QC.Login.check()) {
   alert(QC.login.check());
