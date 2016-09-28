@@ -9,7 +9,7 @@ $(function() {
 console.log(QC.Login.check());
 //  已经登陆
 if (QC.Login.check()) {
-  alert(QC.login.check());
+  alert(QC.Login.check());
   QC.api("get_user_info", paras)
   	//指定接口访问成功的接收函数，s为成功返回Response对象
   	.success(function(s){
@@ -105,6 +105,7 @@ $('.check').on('click', function(e) {
       redirectUrl: "http://s-289167.abc188.com/welcome"
     });
 
+    console.log(QC.Login.check());
     return false;
   }
   return true;
