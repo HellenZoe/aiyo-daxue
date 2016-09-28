@@ -40,7 +40,7 @@ router.get('/', function(req, res) {
                 console.log(err);
               }else {
                 // console.log(u[0].school, req.session.user.school);
-                console.log(u.length);
+                console.log(JSON.stringify(u));
                 if (u.length != 0 && req.session.user.school && u[0].school) {
                   if (u[0].school == req.session.user.school) {
                       console.log("***********logging schoolTreeholes item", item);

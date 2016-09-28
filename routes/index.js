@@ -87,7 +87,10 @@ module.exports = function(app) {
         }
       })
     }else {
-      res.redirect('/signin');
+      res.render('self', {
+        title: "个人信息",
+        userInfo: doc[0]
+      })
     }
   })
 
