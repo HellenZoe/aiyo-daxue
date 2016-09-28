@@ -354,6 +354,8 @@ module.exports = function(app) {
       qq: qq,
       school: school,
       // department: department
+    }, {
+      new: true
     }, function(err, u) {
       if (err) {
         console.log(err);
