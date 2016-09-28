@@ -99,13 +99,14 @@ if (QC.Login.check()) {
 
 $('.check').on('click', function(e) {
   if (!QC.Login.check()) {
-    alert(QC.Login.check());
     QC.Login.showPopup({
       appId: "101351420",
       redirectUrl: "http://s-289167.abc188.com/welcome"
     });
 
+    return false;
   }
+  return true;
 })
 
 $('.more').on('click', function(e) {
