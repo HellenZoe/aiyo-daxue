@@ -6,10 +6,11 @@ $(function() {
 
 
 
-console.log(QC.Login.check());
 //  已经登陆
 // if (QC.Login.check()) {
   // alert(QC.Login.check());
+if (!window.utils.getFromLocal('userInfo')) {
+
   QC.api("get_user_info", {})
   	//指定接口访问成功的接收函数，s为成功返回Response对象
   	.success(function(s){
@@ -95,7 +96,7 @@ console.log(QC.Login.check());
   	});
 
 
-// }
+}
 
 
 if (!QC.Login.check()) {
