@@ -12,7 +12,7 @@ var Goods = require('../model/goods');
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
   console.log(JSON.stringify(crtUser));
-  var queryGoods = Goods.find({'author': crtUser.school});
+  var queryGoods = Goods.find({'authorSchool': crtUser.school});
   queryGoods.sort([['_id', -1]]).exec(function(err, gs) {
     if (err) {
       console.log(err);

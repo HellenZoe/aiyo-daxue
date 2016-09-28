@@ -11,7 +11,7 @@ var Valueble = require('../model/valuable');
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
   console.log(JSON.stringify(crtUser));
-  var queryValueble = Valueble.find({'author': crtUser.school});
+  var queryValueble = Valueble.find({'authorSchool': crtUser.school});
   queryValueble.sort([['_id', -1]]).exec(function(err, qs) {
     if (err) {
       console.log(err);
