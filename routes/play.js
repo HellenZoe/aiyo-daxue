@@ -12,7 +12,7 @@ var Play = require('../model/play');
 //   去约首页
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
-  var queryPlay = Play.find({});
+  var queryPlay = Play.find({'author': crtUser.school});
   queryPlay.sort([['_id', -1]]).exec(function(err,ps) {
     if (err) {
       console.log(err);
