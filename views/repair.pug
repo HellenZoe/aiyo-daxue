@@ -1,0 +1,23 @@
+extends layout
+
+block styles
+  meta(property="qc:admins" content="23522060656755331205564536112605273510063757")
+  link(href='stylesheets/self.css' rel='stylesheet')
+block content
+  div.page-group
+    div.page.page-current#editInfo
+      header(class="bar bar-nav back-blue")
+        a.button.button-link.button-nav.treehole-back.pull-left.external(href="/")
+          span.icon.icon-left.text-white
+        h1.title.text-white 公物报修
+      
+      div.content
+        div.repairInfo
+          each item in info 
+              
+
+            
+            
+block scripts
+  script(src='javascripts/windowUtils.js', type='text/javascript')
+  script(src='javascripts/repair.js', type='text/javascript')

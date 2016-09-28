@@ -22,6 +22,7 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 var Prattle = require('../model/prattle');
+var repairInfo = require('../data/repair');
 
 module.exports = function(app) {
   //  首页
@@ -424,6 +425,21 @@ module.exports = function(app) {
       })
   })
 
+
+  //  公务报修
+  app.get('/repair', function(req, res) {
+    var info = {};
+    repairInfo.forEach(function(item, index) {
+      console.log(item);
+      if (item.school == req.session.user.school) {
+        info = item;
+      }
+    })
+    res.render('repair',{
+      title: "公物报修",
+      info: repairInfo
+    })
+  })
   app.use('/treehole', treehole);
   app.use('/secondHand',  secondHand);
   app.use('/lost', lost);
