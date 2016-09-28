@@ -103,7 +103,6 @@ $(page).on('infinite', function() {
 
     // 设置flag
     loading = true;
-    alert(lastIndex);
     $.ajax({
       url: "http://" + location.host + "/activity?lastIndex=" + lastIndex + "&num=" + itemsPerLoad,
   		type: 'GET',
@@ -115,7 +114,6 @@ $(page).on('infinite', function() {
           // 重置加载flag
           loading = false;
 
-          alert("in here");
 
           // 添加新条目
           addItems(data.data);
