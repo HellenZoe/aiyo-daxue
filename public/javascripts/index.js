@@ -99,7 +99,7 @@ if (!window.utils.getFromLocal('userInfo')) {
 }
 
 
-if (!QC.Login.check()) {
+if (!window.utils.getFromLocal('userInfo')) {
   $.alert("登陆后才能浏览", "没有登陆", function() {
     QC.Login.showPopup({
       appId: "101351420",
