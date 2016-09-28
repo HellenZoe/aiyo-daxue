@@ -83,7 +83,7 @@ $(function() {
     		type: 'POST',
     		url: url,
         dataType: "json",
-    		data: JSON.stringify(userInfo),
+    		data: JSON.stringify(info),
   			contentType: "application/json",
     		processData: false,
     		success: function (data) {

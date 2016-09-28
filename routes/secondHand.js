@@ -10,6 +10,7 @@ var Valueble = require('../model/valuable');
 //   二手交易首页
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
+  console.log(JSON.stringify(crtUser));
   var queryValueble = Valueble.find({'author': crtUser.school});
   queryValueble.sort([['_id', -1]]).exec(function(err, qs) {
     if (err) {

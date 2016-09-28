@@ -11,6 +11,7 @@ var Goods = require('../model/goods');
 //   失物招领首页
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
+  console.log(JSON.stringify(crtUser));
   var queryGoods = Goods.find({'author': crtUser.school});
   queryGoods.sort([['_id', -1]]).exec(function(err, gs) {
     if (err) {
