@@ -111,8 +111,8 @@ $('.check').on('click', function(e) {
     var crtService = $(this).attr('href');
     window.utils.saveToLocal('crtService', crtService);
     //  查看是否已经有学校信息
-    alert(window.utils.getFromLocal('userInfo').school);
-    if (!window.utils.getFromLocal('userInfo').school) {
+    alert(window.utils.getFromLocal('userInfo')["school"]);
+    if (!window.utils.getFromLocal('userInfo')["school"]) {
       location.href = "http://" + location.host + "/changeSchool";
       return false;
     }
