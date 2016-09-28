@@ -105,10 +105,10 @@ if (!QC.Login.check()) {
   });
 }
 
-$('check').on('click', function(e) {
+$('.check').on('click', function(e) {
     //  如果已经登陆
     if (!window.utils.getFromLocal('userInfo').school) {
-      location.href = "http://" + location.host + "/self";
+      location.href = "http://" + location.host + "/changeSchool";
       return false;
     }
     return true;

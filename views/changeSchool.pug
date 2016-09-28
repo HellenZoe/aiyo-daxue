@@ -20,14 +20,14 @@ block content
           //- div.gender
           //-   h3 性别
           //-   input.border-bottom(placeholder="填写性别")
-          div.tel
+          //- div.tel
             //- - var tel  = userInfo.tel
             h3 电话
             if userInfo
               input.border-bottom(placeholder="填写电话" value= userInfo.tel)
             else
               input.border-bottom(placeholder="填写电话")                
-          div.qq
+          //- div.qq
             //- - var qq = userInfo.qq
             h3 qq
             if userInfo
@@ -71,4 +71,4 @@ block content
             
 block scripts
   script(src='javascripts/windowUtils.js', type='text/javascript')
-  script(src='javascripts/self.js', type='text/javascript')
+  script(src='javascripts/changeSchool.js', type='text/javascript')
