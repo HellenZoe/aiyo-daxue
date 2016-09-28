@@ -9,6 +9,9 @@
 .page-group {
   background-color: #fafafa;
 }
+.backEdit {
+  visibility: hidden;
+}
 .submit {
   width: 100%;
   text-align: center;
@@ -59,7 +62,6 @@
 }
 #schoolListContainer {
   padding: 0px;
-  margin-top: 2.6rem;
 }
 #schoolListContainer ul {
   list-style: none;
