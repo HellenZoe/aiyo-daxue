@@ -359,8 +359,8 @@ module.exports = function(app) {
         console.log(err);
       }else {
         req.session.user = u;
-        console.log("+++++++++++++++++req.session.user", req.session.user);
-        console.log("+++++++++++++++++u", u);
+        console.log("+++++++++++++++++req.session.user", JSON.stringify(req.session.user));
+        console.log("+++++++++++++++++u", JSON.stringify(u));
         res.json({
           success: true,
           newUserInfo: u
