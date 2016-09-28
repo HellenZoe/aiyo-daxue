@@ -81,7 +81,7 @@ module.exports = function(app) {
         }else {
           console.log("*************logging from /self************userinfo", doc[0]);
           res.render('self', {
-            title: "个人信息",
+            title: "切换学校",
             userInfo: doc[0]
           })
         }

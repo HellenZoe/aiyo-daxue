@@ -98,19 +98,21 @@ console.log(QC.Login.check());
 // }
 
 
-$('.check').on('click', function(e) {
-  if (!QC.Login.check()) {
-    QC.Login.showPopup({
-      appId: "101351420",
-      redirectUrl: "http://s-289167.abc188.com/welcome"
-    });
+if (!QC.Login.check()) {
+  QC.Login.showPopup({
+    appId: "101351420",
+    redirectUrl: "http://s-289167.abc188.com/welcome"
+  });
+}
 
-    console.log(QC.Login.check());
-    return false;
-  }
-  return true;
+$('check').on('click', function(e) {
+    //  如果已经登陆
+    if (!window.utils.getFromLocal('userInfo').school) {
+      location.href = "http://" + location.host + "/self";
+      return false;
+    }
+    return true;
 })
-
 $('.more').on('click', function(e) {
   e.preventDefault();
 
