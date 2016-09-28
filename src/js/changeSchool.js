@@ -81,8 +81,9 @@ $(function() {
             nowUserInfo.school = info.school;
             // nowUserInfo.department = info.department;
             window.utils.saveToLocal('userInfo', nowUserInfo);
-            console.log("上传成功");
-            location.href="http://" + location.host + "/";
+            console.log("学校切换成功");
+            var crtService = window.utils.getFromLocal('crtService');
+            location.href="http://" + location.host + crtService;
     			}
     		},
     		error: function (data) {
