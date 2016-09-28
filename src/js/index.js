@@ -9,6 +9,7 @@ $(function() {
 
 //  已经登陆
 if (QC.Login.check()) {
+  alert(QC.login.check());
   QC.api("get_user_info", paras)
   	//指定接口访问成功的接收函数，s为成功返回Response对象
   	.success(function(s){
