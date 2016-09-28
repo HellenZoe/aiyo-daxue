@@ -99,7 +99,7 @@ console.log(QC.Login.check());
 
 
 if (!QC.Login.check()) {
-  $.alert("没有登陆", "登陆后才能浏览", function() {
+  $.alert("登陆后才能浏览", "没有登陆", function() {
     QC.Login.showPopup({
       appId: "101351420",
       redirectUrl: "http://s-289167.abc188.com/welcome"

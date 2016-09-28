@@ -79,7 +79,7 @@ module.exports = function(app) {
           console.log(err);
         }else {
           console.log("*************logging from /self************userinfo", doc[0]);
-          res.render('changeSchool', {
+          res.render('self', {
             title: "个人中心",
             userInfo: doc[0]
           })
