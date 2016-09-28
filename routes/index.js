@@ -89,7 +89,7 @@ module.exports = function(app) {
     }else {
       res.render('self', {
         title: "个人信息",
-        userInfo: doc[0]
+        userInfo: null
       })
     }
   })
