@@ -89,7 +89,7 @@ $(function() {
       $.toast("名称超过字数啦~");
       return;
     }
-    var desc = $('.desc > textarea').val().trim();
+    var desc = $('.desc > textarea').val().trim().replace(/\s+/g, "");
     alert(desc);
     if (!desc) {
       $.hidePreloader();
