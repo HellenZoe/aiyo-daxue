@@ -81,6 +81,7 @@ $(function() {
             nowUserInfo.school = info.school;
             // nowUserInfo.department = info.department;
             window.utils.saveToLocal('userInfo', nowUserInfo);
+            alert(window.utils.getFromLocal('userInfo').school);
             console.log("学校切换成功");
             var crtService = window.utils.getFromLocal('crtService');
             location.href="http://" + location.host + crtService;
