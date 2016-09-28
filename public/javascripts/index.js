@@ -10,7 +10,7 @@ console.log(QC.Login.check());
 //  已经登陆
 // if (QC.Login.check()) {
   // alert(QC.Login.check());
-  QC.api("get_user_info", paras)
+  QC.api("get_user_info", {})
   	//指定接口访问成功的接收函数，s为成功返回Response对象
   	.success(function(s){
   		//成功回调，通过s.data获取OpenAPI的返回数据
