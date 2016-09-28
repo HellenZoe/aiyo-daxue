@@ -220,7 +220,6 @@ $(page).on('infinite', function() {
               $.detachInfiniteScroll($('.infinite-scroll'));
               // 删除加载提示符
               $('.infinite-scroll-preloader').remove();
-              $.toast("没有更多数据了");
               return;
           }
 

@@ -37,7 +37,7 @@
   padding: 0 .5rem;
 }
 .schoolSearchBar {
-  top: 2.2rem;
+  top: 0rem;
 }
 .schoolSearchBar {
   background-color: #fff;
@@ -59,7 +59,7 @@
 }
 #schoolListContainer {
   padding: 0px;
-  margin-top: 4.8rem;
+  margin-top: 2.6rem;
 }
 #schoolListContainer ul {
   list-style: none;
