@@ -99,9 +99,11 @@ console.log(QC.Login.check());
 
 
 if (!QC.Login.check()) {
-  QC.Login.showPopup({
-    appId: "101351420",
-    redirectUrl: "http://s-289167.abc188.com/welcome"
+  $.alert("没有登陆", "登陆后才能浏览", function() {
+    QC.Login.showPopup({
+      appId: "101351420",
+      redirectUrl: "http://s-289167.abc188.com/welcome"
+    });
   });
 }
 
@@ -115,6 +117,8 @@ $('.check').on('click', function(e) {
     }
     return true;
 })
+
+
 $('.more').on('click', function(e) {
   e.preventDefault();
 
