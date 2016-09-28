@@ -14,7 +14,7 @@ if (!window.utils.getFromLocal('userInfo')) {
   $.alert("登陆之后才能浏览", "没有登陆", function() {
     // window.utils.saveToLocal('crt-service', '/');
     // location.href = "http://" + location.host + "/signin";
-    QC.login.showPopup({
+    QC.Login.showPopup({
       appId: "101351420",
       redirectUrl: "http://s-289167.abc188.com/welcome"
     });
