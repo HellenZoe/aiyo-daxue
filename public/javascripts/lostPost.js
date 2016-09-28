@@ -89,7 +89,8 @@ $(function() {
       $.toast("名称超过字数啦~");
       return;
     }
-    var desc = $('.desc > textarea').val();
+    var desc = $('.desc > textarea').val().trim();
+    alert(desc);
     if (!desc) {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
