@@ -129,7 +129,7 @@ $(function() {
                 $('.school input').val(schoolName);
                 //  返回编辑页面
                 // $('.backEdit').trigger('click');
-                location.href="#editInfo";
+                location.href="http://" + location.host + "/changeSchool#editInfo";
                 console.log('fuck');
 
               })
