@@ -65,8 +65,8 @@ module.exports = function(app) {
 
   //  登陆成功页面
   app.get('/welcome', function(req, res) {
-    res.render('welcome', {
-      title: "成功注册",
+    res.render('index', {
+      title: "首页",
     })
   })
 
