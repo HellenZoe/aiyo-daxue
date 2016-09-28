@@ -74,17 +74,21 @@ module.exports = function(app) {
   //  个人中心页面
   app.get('/self', function(req, res) {
     console.log("*************logging from /self************res.session.user", req.session.user);
-    User.find({_id: req.session.user._id}, function(err, doc) {
-      if (err) {
-        console.log(err);
-      }else {
-        console.log("*************logging from /self************userinfo", doc[0]);
-        res.render('self', {
-          title: "个人信息",
-          userInfo: doc[0]
-        })
-      }
-    })
+    if (req.session.user) {
+      User.find({_id: req.session.user._id}, function(err, doc) {
+        if (err) {
+          console.log(err);
+        }else {
+          console.log("*************logging from /self************userinfo", doc[0]);
+          res.render('self', {
+            title: "个人信息",
+            userInfo: doc[0]
+          })
+        }
+      })
+    }else {
+      res.redirect('/signin');
+    }
   })
 
 
