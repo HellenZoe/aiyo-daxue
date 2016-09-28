@@ -79,9 +79,10 @@ $(function() {
             // nowUserInfo.qq = info.qq;
             // nowUserInfo.tel = info.tel;
             nowUserInfo["school"] = info.school;
+            alert(JSON.stringify(nowUserInfo));
             // nowUserInfo.department = info.department;
             window.utils.saveToLocal('userInfo', nowUserInfo);
-            alert(window.utils.getFromLocal('userInfo')["school"]);
+            alert(JSON.stringify(window.utils.getFromLocal('userInfo')));
             console.log("学校切换成功");
             var crtService = window.utils.getFromLocal('crtService');
             location.href="http://" + location.host + crtService;
