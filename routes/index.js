@@ -379,7 +379,7 @@ module.exports = function(app) {
       gender: gender,
       avatarUrl: avatarUrl,
     });
-    console.log("*******************logging from /user************************", newUser);
+    console.log("*******************logging from /user************************", JSON.stringify(newUser));
     newUser.save(function(err, user) {
       if (err) {
         console.log("save user error!");
