@@ -23,16 +23,23 @@ block content
           div.tel
             //- - var tel  = userInfo.tel
             h3 电话
-            input.border-bottom(placeholder="填写电话" value= userInfo.tel)
+            if userInfo
+              input.border-bottom(placeholder="填写电话" value= userInfo.tel)
+            input.border-bottom(placeholder="填写电话")                
           div.qq
             //- - var qq = userInfo.qq
             h3 qq
-            input.border-bottom(placeholder="填写qq" value= userInfo.qq)
+            if userInfo
+              input.border-bottom(placeholder="填写qq" value= userInfo.qq)
+            input.border-bottom(placeholder="填写qq")              
           div.school
             //- - var school = userInfo.school
             h3 学校
             a(href="#selectSchool")
-              input.border-bottom(placeholder="填写学校" value= userInfo.school)
+              if userInfo
+                input.border-bottom(placeholder="填写学校" value= userInfo.school)
+              input.border-bottom(placeholder="填写学校")                  
+              
           //- div.department
           //-   //- - var department = userInfo.department
           //-   h3 宿舍地址
