@@ -332,7 +332,7 @@ $(function() {
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
     formData.append('type', info.type);
-    info.imageData = JSON.stringify(info.pics);
+    // info.imageData = JSON.stringify(info.pics);
     // alert(JSON.stringify(info));
     // alert(JSON.stringify(formData));
     var url = "http://" + location.host + "/lost/new"
@@ -340,7 +340,7 @@ $(function() {
   		type: 'POST',
   		url: url,
       dataType: "json",
-  		data: info,
+  		data: formData,
   		contentType: false,
   		processData: false,
   		success: function (data) {
