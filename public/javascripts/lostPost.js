@@ -90,7 +90,7 @@ $(function() {
       return;
     }
     var desc = $('.desc > textarea').val().trim().replace(/\s+/g, "");
-    // alert(desc);
+
     if (!desc) {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
@@ -332,14 +332,15 @@ $(function() {
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
     formData.append('type', info.type);
-    alert(JSON.stringify(info));    
+    info.imageData = JSON.stringify(info.pics);
+    alert(JSON.stringify(info));
     alert(JSON.stringify(formData));
     var url = "http://" + location.host + "/lost/new"
   	$.ajax({
   		type: 'POST',
   		url: url,
       dataType: "json",
-  		data: formData,
+  		data: info,
   		contentType: false,
   		processData: false,
   		success: function (data) {
