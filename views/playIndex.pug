@@ -48,7 +48,7 @@ block content
                 if plays
                   each play, index in plays
                     if play.type == "can"
-                      a.linkWrapper(href= "/play/detail/"+play._id)
+                      a.linkWrapper.external(href= "/play/detail/"+play._id)
                         div.card.facebook-card(data-pId= play._id)
                           div.card-header.no-border
                             div.facebook-avatar
@@ -76,7 +76,7 @@ block content
                 if plays
                   each play, index in plays
                     if play.type == "want"
-                      a.linkWrapper(href= "/play/detail/"+play._id)                      
+                      a.linkWrapper.external(href= "/play/detail/"+play._id)                      
                         div.card.facebook-card(data-pId= play._id)
                           div.card-header.no-border
                             div.facebook-avatar

@@ -56,7 +56,7 @@ block content
                 if goods
                   each item in goods
                     if item.type == "thing"
-                      a.linkWrapper(href= "/lost/detail/"+item._id)                      
+                      a.linkWrapper.external(href= "/lost/detail/"+item._id)                      
                         div.card.facebook-card(data-lId= item._id)
                           div.card-header.no-border
                             div.facebook-avatar
@@ -90,7 +90,7 @@ block content
                 if cardGoods
                   each item in cardGoods
                     if item.type == "thing"   
-                      a.linkWrapper(href= "/lost/detail/"+item._id)                                       
+                      a.linkWrapper.external(href= "/lost/detail/"+item._id)                                       
                         div.card.facebook-card(data-lId= item._id)
                           div.card-header.no-border
                             div.facebook-avatar
@@ -125,7 +125,7 @@ block content
                 if sportGoods
                   each item in sportGoods
                     if item.type == "thing"      
-                      a.linkWrapper(href= "/lost/detail/"+item._id)                                    
+                      a.linkWrapper.external(href= "/lost/detail/"+item._id)                                    
                         div.card.facebook-card(data-lId= item._id)
                           div.card-header.no-border
                             div.facebook-avatar
@@ -158,7 +158,7 @@ block content
                 if eleGoods
                   each item in eleGoods
                     if item.type == "thing"   
-                      a.linkWrapper(href= "/lost/detail/"+item._id)                                       
+                      a.linkWrapper.external(href= "/lost/detail/"+item._id)                                       
                         div.card.facebook-card(data-lId= item._id)
                           div.card-header.no-border
                             div.facebook-avatar
@@ -167,7 +167,7 @@ block content
                               div
                                 span.facebook-name= item.authorName
                                 span.page-view 浏览次数： #{item.view}
-                            div.facebook-date
+                              div.facebook-date
                                 span= item.date
                                 if item.school
                                   span 来自[#{item.authorSchool}]
@@ -194,7 +194,7 @@ block content
                 if otherGoods
                   each item in otherGoods
                     if item.type == "thing"                    
-                      a.linkWrapper(href= "/lost/detail/"+item._id)                      
+                      a.linkWrapper.external(href= "/lost/detail/"+item._id)                      
                         div.card.facebook-card(data-lId= item._id)
                           div.card-header.no-border
                             div.facebook-avatar
@@ -203,7 +203,7 @@ block content
                               div
                                 span.facebook-name= item.authorName
                                 span.page-view 浏览次数： #{item.view}
-                            div.facebook-date
+                              div.facebook-date
                                 span= item.date
                                 if item.school
                                   span 来自[#{item.authorSchool}]

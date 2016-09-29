@@ -30,7 +30,7 @@ block content
         div.content-block
           if treeholes
             each item in treeholes
-              a.lnikWrapper(href= "/treehole/detail/" + item._id)
+              a.linkWrapper.external(href= "/treehole/detail/" + item._id)
                 div.topic-block(data-tId= item._id, data-favId= item.favUserId)
                   div.my-topic
                     div.img-wrapper

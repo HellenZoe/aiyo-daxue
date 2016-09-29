@@ -33,7 +33,7 @@ block content
                   if goods
                     each item in goods
                       if item.type == "thing"
-                        a.linkWrapper(href= "/lost/detail/"+item._id)                        
+                        a.linkWrapper.external(href= "/lost/detail/"+item._id)                        
                           div.item-block(data-lId= item._id)
                             div.img-wrapper
                               img(src= item.picUrl[0])
@@ -52,7 +52,7 @@ block content
                   if goods
                     each item in goods
                       if item.type == "person"
-                        a.linkWrapper(href= "/lost/detail/"+item._id)                                                
+                        a.linkWrapper.external(href= "/lost/detail/"+item._id)                                                
                           div.item-block(data-lId= item._id)
                             div.img-wrapper
                               img(src= item.picUrl[0])

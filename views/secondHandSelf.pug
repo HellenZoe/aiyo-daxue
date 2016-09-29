@@ -34,7 +34,7 @@ block content
                   if valuebles
                     each item in valuebles
                       if item.status == 0
-                        a.linkWrapper(href= "/secondHand/detail/"+item._id)                        
+                        a.linkWrapper.external(href= "/secondHand/detail/"+item._id)                        
                           div.item-block(data-sId= item._id)
                             div.img-wrapper
                               img(src= item.picUrl[0])
@@ -55,7 +55,7 @@ block content
                   if valuebles
                     each item in valuebles
                       if item.status == 1
-                        a.linkWrapper(href= "/secondHand/detail/"+item._id)                        
+                        a.linkWrapper.external(href= "/secondHand/detail/"+item._id)                        
                           div.item-block(data-sId= item._id)
                             div.img-wrapper
                               img(src= item.picUrl[0])
@@ -75,7 +75,7 @@ block content
                   if valuebles
                     each item in valuebles
                       if item.status == 2
-                        a.linkWrapper(href= "/secondHand/detail/"+item._id)                        
+                        a.linkWrapper.external(href= "/secondHand/detail/"+item._id)                        
                           div.item-block(data-sId= item._id)
                             div.img-wrapper
                               img(src= item.picUrl[0])
