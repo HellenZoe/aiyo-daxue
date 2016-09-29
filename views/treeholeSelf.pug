@@ -31,22 +31,22 @@ block content
           if treeholes
             each item in treeholes
               a.linkWrapper.external(href= "/treehole/detail/" + item._id)
-                div.topic-block(data-tId= item._id, data-favId= item.favUserId)
-                  div.my-topic
-                    div.img-wrapper
-                      img(src= item.picUrl[0])
-                      span.no-img  没有图片
-                    div.topic-content
-                      a.content-title= item.title
-                      div.content-text= item.content
-                      div.treehole-action
-                        span.icon
-                          i.iconfont-selfEnjoy &#xe611;
-                        span.enjoy-count= item.fav
-                        span.icon
-                          i.iconfont-selfComment &#xe612;
-                        span.comment-count= item.comments
-                        a.delete(data-tId= item._id) 删除
+                  div.topic-block(data-tId= item._id, data-favId= item.favUserId)
+                    div.my-topic
+                      div.img-wrapper
+                        img(src= item.picUrl[0])
+                        span.no-img  没有图片
+                      div.topic-content
+                        a.content-title= item.title
+                        div.content-text= item.content
+                        div.treehole-action
+                          span.icon
+                            i.iconfont-selfEnjoy &#xe611;
+                          span.enjoy-count= item.fav
+                          span.icon
+                            i.iconfont-selfComment &#xe612;
+                          span.comment-count= item.comments
+                          a.delete(data-tId= item._id) 删除
           else
             div 你还没有发布话题哦~~~
       else
