@@ -90,7 +90,7 @@ $(function() {
       return;
     }
     var desc = $('.desc > textarea').val().trim().replace(/\s+/g, "");
-    alert(desc);
+    // alert(desc);
     if (!desc) {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
@@ -161,6 +161,7 @@ $(function() {
     formInfo.qq = qq;
     formInfo.tel = tel;
 
+    console.log(formInfo);
     //  发送所有信息
     sendFile(formInfo);
     // formInfo.pics.forEach(function(item, index) {

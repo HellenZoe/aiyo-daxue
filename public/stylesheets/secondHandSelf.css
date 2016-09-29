@@ -89,6 +89,7 @@
   top: 50%;
   width: 100%;
   transform: translateY(-60%);
+  text-align: center;
 }
 .item-block .item-content {
   margin-left: 4.3rem;
