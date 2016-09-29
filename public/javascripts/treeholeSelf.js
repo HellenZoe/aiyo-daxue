@@ -16,9 +16,9 @@ allCard.forEach(function(item, index) {
     item.children('.topic-card-footer').children('#enjoy').children('.iconfont-selfEnjoy').css('display', 'inline')
   }
 
-  item.on('click', function(e) {
-    location.href="http://" + location.host + "/treehole/detail/" + tId;
-  })
+  // item.on('click', function(e) {
+  //   location.href="http://" + location.host + "/treehole/detail/" + tId;
+  // })
 })
 
 //  删除树洞

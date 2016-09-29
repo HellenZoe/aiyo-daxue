@@ -41,29 +41,30 @@ block content
               div.content-block
                 if allTreeholes
                   each treehole, index in allTreeholes
-                    div.card.facebook-card(data-tId= treehole._id, data-favId= treehole.favUserId)
-                      div.card-header.no-border
-                        div.facebook-avatar
-                            img(src= treehole.authorAvatarUrl)
-                        div.card-info
-                          div.facebook-name= treehole.authorName
-                          div.facebook-date
-                            span= treehole.date
-                            span= treehole.authorSchool
-                      div.card-content.fuck-content
-                        h3.card-content-title= treehole.title
-                        p.card-content-text= treehole.content
-                        div.picsWrapper
-                          each url in treehole.picUrl
-                            img(src= url)
-                      div.topic-card-footer
-                        a#comment.icon.link(href="#")
-                          i.iconfont-selfComment &#xe612;
-                          span.comment-count= treehole.comments
-                        a#enjoy.icon.link(href="#")
-                          i.iconfont-selfEnjoy &#xe611;
-                          i.iconfont-nullEnjoy &#xe614;
-                          span.enjoy-count= treehole.fav
+                    a.linkWrapper(href= "/treehole/detail/" + treehole._id)
+                      div.card.facebook-card(data-tId= treehole._id, data-favId= treehole.favUserId)
+                        div.card-header.no-border
+                          div.facebook-avatar
+                              img(src= treehole.authorAvatarUrl)
+                          div.card-info
+                            div.facebook-name= treehole.authorName
+                            div.facebook-date
+                              span= treehole.date
+                              span= treehole.authorSchool
+                        div.card-content.fuck-content
+                          h3.card-content-title= treehole.title
+                          p.card-content-text= treehole.content
+                          div.picsWrapper
+                            each url in treehole.picUrl
+                              img(src= url)
+                        div.topic-card-footer
+                          a#comment.icon.link(href= "/treehole/detail/"+treehole._id)
+                            i.iconfont-selfComment &#xe612;
+                            span.comment-count= treehole.comments
+                          a#enjoy.icon.link(href="#")
+                            i.iconfont-selfEnjoy &#xe611;
+                            i.iconfont-nullEnjoy &#xe614;
+                            span.enjoy-count= treehole.fav
                 else
                   div 还没有人发布树洞
           
@@ -72,29 +73,30 @@ block content
               div.content-block
                 if schoolTreeholes
                   each treehole, index in schoolTreeholes
-                    div.card.facebook-card(data-tId= treehole._id, data-favId= treehole.favUserId)
-                      div.card-header.no-border
-                        div.facebook-avatar
-                            img(src= treehole.authorAvatarUrl)
-                        div.card-info
-                          div.facebook-name= treehole.authorName
-                          div.facebook-date
-                            span= treehole.date
-                            span= treehole.authorSchool
-                      div.card-content#fuck
-                        h3.card-content-title= treehole.title
-                        p.card-content-text= treehole.content
-                        div.picsWrapper
-                          each url in treehole.picUrl
-                            img(src= url)
-                      div.topic-card-footer
-                        a#comment.icon.link(href="#")
-                          i.iconfont-selfComment &#xe612;
-                          span.comment-count= treehole.comments
-                        a#enjoy.icon.link(href="#")
-                          i.iconfont-selfEnjoy &#xe611;
-                          i.iconfont-nullEnjoy &#xe614;
-                          span.enjoy-count= treehole.fav
+                    a.linkWrapper(href= "/treehole/detail/" + treehole._id)                    
+                      div.card.facebook-card(data-tId= treehole._id, data-favId= treehole.favUserId)
+                        div.card-header.no-border
+                          div.facebook-avatar
+                              img(src= treehole.authorAvatarUrl)
+                          div.card-info
+                            div.facebook-name= treehole.authorName
+                            div.facebook-date
+                              span= treehole.date
+                              span= treehole.authorSchool
+                        div.card-content#fuck
+                          h3.card-content-title= treehole.title
+                          p.card-content-text= treehole.content
+                          div.picsWrapper
+                            each url in treehole.picUrl
+                              img(src= url)
+                        div.topic-card-footer
+                          a#comment.icon.link(href= "/treehole/detail/" + treehole._id)
+                            i.iconfont-selfComment &#xe612;
+                            span.comment-count= treehole.comments
+                          a#enjoy.icon.link(href="#")
+                            i.iconfont-selfEnjoy &#xe611;
+                            i.iconfont-nullEnjoy &#xe614;
+                            span.enjoy-count= treehole.fav
                 else
                   div 没有同学校的树洞
 

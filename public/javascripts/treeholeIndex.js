@@ -17,13 +17,13 @@ $(function() {
   }
 
 
-  //   点击图片的时候  跳转到相应的详情页去
-$('.facebook-card').on('click', function(e) {
-  console.log(this);
-  var tid = $(this).attr("data-tId");
-  var host = location.host;
-  location.href = "http://" + host + "/treehole/detail/" + tid;
-})
+  //   点击卡片的时候  跳转到相应的详情页去
+// $('.facebook-card').on('click', function(e) {
+//   console.log(this);
+//   var tid = $(this).attr("data-tId");
+//   var host = location.host;
+//   location.href = "http://" + host + "/treehole/detail/" + tid;
+// })
 
 // var fucks = $(".fuck-content");
 // var headers = $(".card-header");
@@ -165,12 +165,12 @@ $('.facebook-card').on('click', function(e) {
 
 
   //  点击评论图标跳转到评论页面
-  $('#comment').on('click', function(e) {
-    e.stopPropagation();
-    var treeholeId = $(this).parent().parent().attr('data-tid');
-    console.log(treeholeId);
-    location.href = "http://" + location.host + "/treehole/detail/" + treeholeId;
-  })
+  // $('#comment').on('click', function(e) {
+  //   e.stopPropagation();
+  //   var treeholeId = $(this).parent().parent().attr('data-tid');
+  //   console.log(treeholeId);
+  //   location.href = "http://" + location.host + "/treehole/detail/" + treeholeId;
+  // })
 
   // 点击seach框跳转到search页面
   $('#search').on('keydown', function(e) {
