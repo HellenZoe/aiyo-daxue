@@ -46,9 +46,12 @@ body {
   color: #F97C06;
   border-color: #F97C06;
 }
+.bar-header-secondary ~ .content {
+  top: 0rem;
+}
 .facebook-card {
   cursor: pointer;
-  margin: .5rem 0px;
+  margin: .4rem 0px;
 }
 .facebook-card .facebook-avatar img {
   height: 2rem;
