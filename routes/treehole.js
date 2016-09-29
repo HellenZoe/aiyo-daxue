@@ -80,7 +80,8 @@ router.get('/detail/:id', function(req, res) {
   Treehole.find({_id: id}, function(err, ts) {
 
     console.log("************************logging from /detail/:id--treehole", ts);
-    Comment.find({treeholeId: id}, function(err, cs) {
+    var queryComment = Comment.find({treeholeId: id});
+    queryComment.sort([['_id', -1]]).exec(function(err, cs) {
       console.log("******************logging from /detail/:id--comments", cs);
       if (cs.length) {
         res.render("treeholeDetails", {
