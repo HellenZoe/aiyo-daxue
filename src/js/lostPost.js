@@ -333,8 +333,8 @@ $(function() {
     formData.append('tel', info.tel);
     formData.append('type', info.type);
     info.imageData = JSON.stringify(info.pics);
-    alert(JSON.stringify(info));
-    alert(JSON.stringify(formData));
+    // alert(JSON.stringify(info));
+    // alert(JSON.stringify(formData));
     var url = "http://" + location.host + "/lost/new"
   	$.ajax({
   		type: 'POST',
