@@ -98,6 +98,9 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.facebook-card .card-content-text {
+  color: #444;
+}
 .iconfont-nullEnjoy,
 .iconfont-selfEnjoy {
   color: #F57E7A;
