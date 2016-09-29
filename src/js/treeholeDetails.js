@@ -67,12 +67,16 @@ $(function() {
   //  用户点赞
   $('.iconfont-nullEnjoy').on('click', function(e) {
     var enjoyCount = $('.enjoy-count').text();
+    var that = this;
+    var selfEnjoy = $(this).parent().children('.iconfont-selfEnjoy');
     var treeholeId = location.pathname.split('/').pop();
     var countInfo = {
       fav: enjoyCount,
-      treeholeId: treeholeId
+      treeholeId: treeholeId,
+      action: "up"
     }
 
+    console.log(countInfo);
     var url = "http://" + location.host + "/treehole/fav";
 
     //  显示加载指示器
@@ -94,6 +98,8 @@ $(function() {
           $.toast('点赞成功', 2000, "toast-success");
           //  点赞数加1
           $('.enjoy-count').text(data.c);
+          that.css('display', 'none');
+          selfEnjoy.css('display', 'inline');
         }
       },
       error: function (data) {
@@ -104,6 +110,55 @@ $(function() {
     });
 
   })
+
+  //  取消点赞
+  $('.iconfont-selfEnjoy').on('click', function(e) {
+    var enjoyCount = $('.enjoy-count').text();
+    var that = this;
+    var nullEnjoy = $(this).parent().children('.iconfont-nullEnjoy');
+    var treeholeId = location.pathname.split('/').pop();
+    var countInfo = {
+      fav: enjoyCount,
+      treeholeId: treeholeId,
+      action: "down"
+    }
+
+    console.log(countInfo);
+    var url = "http://" + location.host + "/treehole/fav";
+
+    //  显示加载指示器
+    $.showPreloader();
+
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      dataType: "json",
+  		contentType: "application/json",
+      data: JSON.stringify(countInfo),
+      processData: false,
+      success: function (data) {
+        if (data.success) {
+          console.log("上传成功");
+
+          $.hidePreloader();
+          $.toast('取消点赞', 2000, "toast-success");
+          //  点赞数加1
+          $('.enjoy-count').text(data.c);
+          that.css('display', 'none');
+          nullEnjoy.css('display', 'inline');
+        }
+      },
+      error: function (data) {
+          // showMessageFail("上传出错, 请重试");
+          console.log("上传失败");
+      }
+
+    });
+
+  })
+
+
 
 
   //  用户查看评论
