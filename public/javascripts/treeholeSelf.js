@@ -44,7 +44,8 @@ $('.delete').on('click', function(e) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
         $.toast('删除成功', 2000, "toast-success");
-        //  点赞数加1
+        //  刷新页面
+        location.reload();
       }
     },
     error: function (data) {

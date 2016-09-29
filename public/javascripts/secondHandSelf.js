@@ -24,10 +24,13 @@ $('.del').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('操作成功', 2000, "toast-success");
+        $.toast('操作成功', 1000, "toast-success");
 
         //  隐藏加载
         $.hidePreloader();
+
+        //  刷新
+        setTimeout(location.reload(), 1000);
       }
     },
     error: function (data) {
@@ -61,10 +64,14 @@ $('.down').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('操作成功', 2000, "toast-success");
+        $.toast('操作成功', 1000, "toast-success");
 
-        //  点赞数加1
+        //  隐藏加载
         $.hidePreloader();
+
+        //  刷新
+        setTimeout(location.reload(), 1000);
+
       }
     },
     error: function (data) {
@@ -99,10 +106,12 @@ $('.up').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('操作成功', 2000, "toast-success");
+        $.toast('操作成功', 1000, "toast-success");
 
         //  点赞数加1
         $.hidePreloader();
+        // 刷新
+        setTimeout(location.reload(), 1000);
       }
     },
     error: function (data) {
@@ -141,6 +150,8 @@ $('.sold').on('click', function(e) {
 
         //  点赞数加1
         $.hidePreloader();
+        //  刷新
+        setTimeout(location.reload(), 1000);
       }
     },
     error: function (data) {
@@ -153,11 +164,11 @@ $('.sold').on('click', function(e) {
 })
 
 // 编辑
-$('.edit').on('click', function(e) {
-  e.stopPropagation();
-  var vId = $(this).attr('data-vid');
-  location.href = "http://" + location.host + "/secondHand/edit/" + vId;
-})
+// $('.edit').on('click', function(e) {
+//   e.stopPropagation();
+//   var vId = $(this).attr('data-vid');
+//   location.href = "http://" + location.host + "/secondHand/edit/" + vId;
+// })
 
 //  点击跳到详情页
 //
