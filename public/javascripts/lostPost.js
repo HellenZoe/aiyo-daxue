@@ -95,7 +95,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写描述哟～");
       return;
-    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,140}$/.test(desc)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z|\p{P}]{0,140}$/.test(desc)) {
       $.hidePreloader();
       $.toast("描述超过字数啦~");
       return;
@@ -161,7 +161,7 @@ $(function() {
     formInfo.qq = qq;
     formInfo.tel = tel;
 
-    alert(formInfo);
+    alert(JSON.stringify(formInfo));
     //  发送所有信息
     sendFile(formInfo);
     // formInfo.pics.forEach(function(item, index) {
@@ -332,7 +332,7 @@ $(function() {
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
     formData.append('type', info.type);
-    alert(info)
+    alert(JSON.stringify(formData));
     var url = "http://" + location.host + "/lost/new"
   	$.ajax({
   		type: 'POST',
