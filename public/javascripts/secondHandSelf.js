@@ -30,7 +30,7 @@ $('.del').on('click', function(e) {
         $.hidePreloader();
 
         //  刷新
-        setTimeout(location.reload(), 1000);
+        setTimeout(location.replace(location.href), 1000);
       }
     },
     error: function (data) {
@@ -70,7 +70,7 @@ $('.down').on('click', function(e) {
         $.hidePreloader();
 
         //  刷新
-        setTimeout(location.reload(), 1000);
+        setTimeout(location.replace(location.href), 1000);
 
       }
     },
@@ -111,7 +111,7 @@ $('.up').on('click', function(e) {
         //  点赞数加1
         $.hidePreloader();
         // 刷新
-        setTimeout(location.reload(), 1000);
+        setTimeout(location.replace(location.href), 1000);
       }
     },
     error: function (data) {
@@ -151,7 +151,7 @@ $('.sold').on('click', function(e) {
         //  点赞数加1
         $.hidePreloader();
         //  刷新
-        setTimeout(location.reload(), 1000);
+        setTimeout(location.replace(location.href), 1000);
       }
     },
     error: function (data) {
