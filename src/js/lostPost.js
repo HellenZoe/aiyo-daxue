@@ -161,7 +161,7 @@ $(function() {
     formInfo.qq = qq;
     formInfo.tel = tel;
 
-    console.log(formInfo);
+    alert(formInfo);
     //  发送所有信息
     sendFile(formInfo);
     // formInfo.pics.forEach(function(item, index) {
@@ -324,7 +324,6 @@ $(function() {
   //  上传文件
   function sendFile(info) {
   	var formData = new FormData();
-    console.log("post信息", info);
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('name', info.name);
     formData.append('desc', info.desc);
@@ -333,6 +332,7 @@ $(function() {
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
     formData.append('type', info.type);
+    alert(info)
     var url = "http://" + location.host + "/lost/new"
   	$.ajax({
   		type: 'POST',
