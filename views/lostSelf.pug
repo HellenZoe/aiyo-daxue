@@ -33,35 +33,38 @@ block content
                   if goods
                     each item in goods
                       if item.type == "thing"
-                        div.item-block(data-lId= item._id)
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                            span.no-img  没有图片
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category_ch
-                            div.item-desc= item.desc
-                            div.item-footer
-                              div.actionSheet
-                                a.found(data-lId= item._id) 已找到
+                        a.linkWrapper(href= "/lost/detail/"+item._id)                        
+                          div.item-block(data-lId= item._id)
+                            div.img-wrapper
+                              img(src= item.picUrl[0])
+                              span.no-img  没有图片
+                            div.item-content
+                              div.item-header
+                                a.item-name= item.name
+                                span.item-category= item.category_ch
+                              div.item-desc= item.desc
+                              div.item-footer
+                                div.actionSheet
+                                  a.found(data-lId= item._id) 已找到
+                                  
               div#tab-person.tab
                 div.content-block
                   if goods
                     each item in goods
                       if item.type == "person"
-                        div.item-block(data-lId= item._id)
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                            span.no-img  没有图片
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category_ch
-                            div.item-desc= item.desc
-                            div.item-footer
-                              div.actionSheet
-                                a.found(data-lId= item._id) 已找到
+                        a.linkWrapper(href= "/lost/detail/"+item._id)                                                
+                          div.item-block(data-lId= item._id)
+                            div.img-wrapper
+                              img(src= item.picUrl[0])
+                              span.no-img  没有图片
+                            div.item-content
+                              div.item-header
+                                a.item-name= item.name
+                                span.item-category= item.category_ch
+                              div.item-desc= item.desc
+                              div.item-footer
+                                div.actionSheet
+                                  a.found(data-lId= item._id) 已找到
       else
         div.content
           div.content-block

@@ -36,17 +36,17 @@ $('.found').on('click', function(e) {
 
 
 //  点击跳到详情页
-var plays = $(".item-content");
-plays.forEach(function(item, index) {
-  console.log(item, index);
-  var t = $(item);
-  t.on('click', function(e) {
-      var cardId = $(this).parent().attr('data-lId');
-      var host = location.host;
-      location.href = "http://" + host + "/lost/detail/" + cardId;
-  })
-})
-
+// var plays = $(".item-content");
+// plays.forEach(function(item, index) {
+//   console.log(item, index);
+//   var t = $(item);
+//   t.on('click', function(e) {
+//       var cardId = $(this).parent().attr('data-lId');
+//       var host = location.host;
+//       location.href = "http://" + host + "/lost/detail/" + cardId;
+//   })
+// })
+//
 
 // 如果用户没有发布图片显示提示
 var imgs = $('.img-wrapper img');

@@ -48,25 +48,26 @@ block content
                 if plays
                   each play, index in plays
                     if play.type == "can"
-                      div.card.facebook-card(data-pId= play._id)
-                        div.card-header.no-border
-                          div.facebook-avatar
-                              img(src= play.authorAvatarUrl)
-                          div.card-info
-                            div.facebook-name
-                              span 我可以
-                              | &middot;
-                              span= play.name
-                              span.right ￥#{play.price}
-                            div.facebook-date
-                              span= play.date
-                              span= play.authorSchool
-                        div.card-content.fuck-contentl
-                          // h3.card-content-title= play.title
-                          p.card-content-text= play.desc
-                          div.picsWrapper
-                            each url in play.picUrl
-                              img(src= url)
+                      a.linkWrapper(href= "/play/detail/"+play._id)
+                        div.card.facebook-card(data-pId= play._id)
+                          div.card-header.no-border
+                            div.facebook-avatar
+                                img(src= play.authorAvatarUrl)
+                            div.card-info
+                              div.facebook-name
+                                span 我可以
+                                | &middot;
+                                span= play.name
+                                span.right ￥#{play.price}
+                              div.facebook-date
+                                span= play.date
+                                span= play.authorSchool
+                          div.card-content.fuck-contentl
+                            // h3.card-content-title= play.title
+                            p.card-content-text= play.desc
+                            div.picsWrapper
+                              each url in play.picUrl
+                                img(src= url)
                 else
                   div 还没有人出售技能
 
@@ -75,25 +76,26 @@ block content
                 if plays
                   each play, index in plays
                     if play.type == "want"
-                      div.card.facebook-card(data-pId= play._id)
-                        div.card-header.no-border
-                          div.facebook-avatar
-                              img(src= play.authorAvatarUrl)
-                          div.card-info
-                            div.facebook-name
-                              span 我需要
-                              | &middot;
-                              span= play.name
-                              span.right ￥#{play.price}
-                            div.facebook-date
-                              span= play.date
-                              span= play.authorSchool
-                        div.card-content.fuck-content
-                          h3.card-content-title= play.title
-                          p.card-content-text= play.content
-                          div.picsWrapper
-                            each url in play.picUrl
-                              img(src= url)
+                      a.linkWrapper(href= "/play/detail/"+play._id)                      
+                        div.card.facebook-card(data-pId= play._id)
+                          div.card-header.no-border
+                            div.facebook-avatar
+                                img(src= play.authorAvatarUrl)
+                            div.card-info
+                              div.facebook-name
+                                span 我需要
+                                | &middot;
+                                span= play.name
+                                span.right ￥#{play.price}
+                              div.facebook-date
+                                span= play.date
+                                span= play.authorSchool
+                          div.card-content.fuck-content
+                            h3.card-content-title= play.title
+                            p.card-content-text= play.content
+                            div.picsWrapper
+                              each url in play.picUrl
+                                img(src= url)
                 else
                   div 还没有人发布需求
 

@@ -30,22 +30,23 @@ block content
               div.content-block
                 if plays
                   each item in plays
-                    div.item-block(data-pId= item._id)
-                      div.img-wrapper
-                        img(src= item.picUrl[0])
-                        span.no-img  没有图片
-                      div.item-content
-                        div.item-header
-                          - var pre = ( item.type == "can") ? "我可以"  : "我需要"
-                          a.item-name
-                            span #{pre}
-                            | &middot;
-                            span= item.name
-                          span.item-price ￥#{item.price}
-                        div.item-desc= item.desc
-                        div.item-footer
-                          div.actionSheet
-                            a.del(data-pId= item._id) 删除
+                    a.linkWrapper(href= "/play/detail/"+item._id)
+                      div.item-block(data-pId= item._id)
+                        div.img-wrapper
+                          img(src= item.picUrl[0])
+                          span.no-img  没有图片
+                        div.item-content
+                          div.item-header
+                            - var pre = ( item.type == "can") ? "我可以"  : "我需要"
+                            a.item-name
+                              span #{pre}
+                              | &middot;
+                              span= item.name
+                            span.item-price ￥#{item.price}
+                          div.item-desc= item.desc
+                          div.item-footer
+                            div.actionSheet
+                              a.del(data-pId= item._id) 删除
       else
         div.content
           div.content-block

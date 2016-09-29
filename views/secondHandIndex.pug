@@ -46,37 +46,39 @@ block content
               div.content-block
                 if valuebles
                   each item in valuebles
-                    div.card.facebook-card(data-vId= item._id)
-                      div.card-header.no-border
-                        div.facebook-avatar
-                            img(src= item.authorAvatarUrl)
-                        div.card-info
-                          div
-                            span.facebook-name= item.authorName
-                            span.page-view 浏览次数： #{item.view}
-                          div.facebook-date
-                            span= item.date 
-                            if item.school
-                              span 来自[#{item.authorSchool}]
-                      div.card-content
-                        div.picsWrapper
-                          each url in item.picUrl
-                            img(src= url)
-                        div.title-category
-                          span.content-title= item.name
-                          span.category= item.category_ch
-                        div.card-content-text= item.desc
-                      div.card-footer
-                        div.icon.position
-                          i.iconfont-position &#xe619;
-                          span 交易地点 #{item.location}
-                        div.price ￥#{item.price}
+                    a.linkWrapper(href= "/secondHand/detail/"+item._id)
+                      div.card.facebook-card(data-vId= item._id)
+                        div.card-header.no-border
+                          div.facebook-avatar
+                              img(src= item.authorAvatarUrl)
+                          div.card-info
+                            div
+                              span.facebook-name= item.authorName
+                              span.page-view 浏览次数： #{item.view}
+                            div.facebook-date
+                              span= item.date 
+                              if item.school
+                                span 来自[#{item.authorSchool}]
+                        div.card-content
+                          div.picsWrapper
+                            each url in item.picUrl
+                              img(src= url)
+                          div.title-category
+                            span.content-title= item.name
+                            span.category= item.category_ch
+                          div.card-content-text= item.desc
+                        div.card-footer
+                          div.icon.position
+                            i.iconfont-position &#xe619;
+                            span 交易地点 #{item.location}
+                          div.price ￥#{item.price}
                 else
                   div 还没人发布二手
             div#tab-book.tab
               div.content-block
                 if bookValuebles
                   each item in bookValuebles
+                    a.linkWrapper(href= "/secondHand/detail/"+item._id)                    
                       div.card.facebook-card(data-vId= item._id)
                         div.card-header.no-border
                           div.facebook-avatar
@@ -109,31 +111,32 @@ block content
               div.content-block
                 if eleValuebles
                   each item in eleValuebles
-                    div.card.facebook-card(data-vId= item._id)
-                      div.card-header.no-border
-                        div.facebook-avatar
-                            img(src= item.authorAvatarUrl)
-                        div.card-info
-                          div
-                            span.facebook-name= item.authorName
-                            span.page-view 浏览次数： #{item.view}
-                          div.facebook-date
-                            span= item.date 
-                            if item.school
-                              span 来自[#{item.authorSchool}]
-                      div.card-content
-                        div.picsWrapper
-                          each url in item.picUrl
-                            img(src= url)
-                        div.title-category
-                          span.content-title= item.name
-                          span.category= item.category_ch
-                        div.card-content-text= item.desc
-                      div.card-footer
-                        div.icon.position
-                          i.iconfont-position &#xe619;
-                          span 交易地点  #{item.location}
-                        div.price= item.price
+                    a.linkWrapper(href= "/secondHand/detail/"+item._id)                    
+                      div.card.facebook-card(data-vId= item._id)
+                        div.card-header.no-border
+                          div.facebook-avatar
+                              img(src= item.authorAvatarUrl)
+                          div.card-info
+                            div
+                              span.facebook-name= item.authorName
+                              span.page-view 浏览次数： #{item.view}
+                            div.facebook-date
+                              span= item.date 
+                              if item.school
+                                span 来自[#{item.authorSchool}]
+                        div.card-content
+                          div.picsWrapper
+                            each url in item.picUrl
+                              img(src= url)
+                          div.title-category
+                            span.content-title= item.name
+                            span.category= item.category_ch
+                          div.card-content-text= item.desc
+                        div.card-footer
+                          div.icon.position
+                            i.iconfont-position &#xe619;
+                            span 交易地点  #{item.location}
+                          div.price= item.price
                 else
                   div 还没人发布数码的二手
 
@@ -141,63 +144,65 @@ block content
               div.content-block
                 if beautyValuebles
                   each item in beautyValuebles
-                    div.card.facebook-card(data-vId= item._id)
-                      div.card-header.no-border
-                        div.facebook-avatar
-                            img(src= item.authorAvatarUrl)
-                        div.card-info
-                          div
-                            span.facebook-name= item.authorName
-                            span.page-view 浏览次数： #{item.view}
-                          div.facebook-date
-                            span= item.date 
-                            if item.school
-                              span 来自[#{item.authorSchool}]
-                      div.card-content
-                        div.picsWrapper
-                          each url in item.picUrl
-                            img(src= url)
-                        div.title-category
-                          span.content-title= item.name
-                          span.category= item.category_ch
-                        div.card-content-text= item.desc
-                      div.card-footer
-                        div.icon.position
-                          i.iconfont-position &#xe619;
-                          span 交易地点  #{item.location}
-                        div.price= item.price
-                else
-                  div 还没人发布电子产品的二手
+                    a.linkWrapper(href= "/secondHand/detail/"+item._id)                    
+                      div.card.facebook-card(data-vId= item._id)
+                        div.card-header.no-border
+                          div.facebook-avatar
+                              img(src= item.authorAvatarUrl)
+                          div.card-info
+                            div
+                              span.facebook-name= item.authorName
+                              span.page-view 浏览次数： #{item.view}
+                            div.facebook-date
+                              span= item.date 
+                              if item.school
+                                span 来自[#{item.authorSchool}]
+                        div.card-content
+                          div.picsWrapper
+                            each url in item.picUrl
+                              img(src= url)
+                          div.title-category
+                            span.content-title= item.name
+                            span.category= item.category_ch
+                          div.card-content-text= item.desc
+                        div.card-footer
+                          div.icon.position
+                            i.iconfont-position &#xe619;
+                            span 交易地点  #{item.location}
+                          div.price= item.price
+                  else
+                    div 还没人发布电子产品的二手
 
             div#tab-other.tab
               div.content-block
                 if otherValuebles
                   each item in otherValuebles
-                    div.card.facebook-card(data-vId= item._id)
-                      div.card-header.no-border
-                        div.facebook-avatar
-                            img(src= item.authorAvatarUrl)
-                        div.card-info
-                          div
-                            span.facebook-name= item.authorName
-                            span.page-view 浏览次数： #{item.view}
-                          div.facebook-date
-                            span= item.date 
-                            if item.school
-                              span 来自[#{item.authorSchool}]
-                      div.card-content
-                        div.picsWrapper
-                          each url in item.picUrl
-                            img(src= url)
-                        div.title-category
-                          span.content-title= item.name
-                          span.category= item.category_ch
-                        div.card-content-text= item.desc
-                      div.card-footer
-                        div.icon.position
-                          i.iconfont-position &#xe619;
-                          span 交易地点  #{item.location}
-                        div.price= item.price
+                    a.linkWrapper(href= "/secondHand/detail/"+item._id)                    
+                      div.card.facebook-card(data-vId= item._id)
+                        div.card-header.no-border
+                          div.facebook-avatar
+                              img(src= item.authorAvatarUrl)
+                          div.card-info
+                            div
+                              span.facebook-name= item.authorName
+                              span.page-view 浏览次数： #{item.view}
+                            div.facebook-date
+                              span= item.date 
+                              if item.school
+                                span 来自[#{item.authorSchool}]
+                        div.card-content
+                          div.picsWrapper
+                            each url in item.picUrl
+                              img(src= url)
+                          div.title-category
+                            span.content-title= item.name
+                            span.category= item.category_ch
+                          div.card-content-text= item.desc
+                        div.card-footer
+                          div.icon.position
+                            i.iconfont-position &#xe619;
+                            span 交易地点  #{item.location}
+                          div.price= item.price
                 else
                   div 还没人发布二手
 

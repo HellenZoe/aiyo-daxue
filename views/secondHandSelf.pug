@@ -34,58 +34,61 @@ block content
                   if valuebles
                     each item in valuebles
                       if item.status == 0
-                        div.item-block(data-sId= item._id)
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                            span.no-img  没有图片
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category_ch
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                a.edit(data-vId= item._id) 编辑
-                                a.down(data-vId= item._id) 下架
-                                a.sold(data-vId= item._id) 确认售出
+                        a.linkWrapper(href= "/secondHand/detail/"+item._id)                        
+                          div.item-block(data-sId= item._id)
+                            div.img-wrapper
+                              img(src= item.picUrl[0])
+                              span.no-img  没有图片
+                            div.item-content
+                              div.item-header
+                                a.item-name= item.name
+                                span.item-category= item.category_ch
+                              div.item-desc= item.desc
+                              div.item-footer
+                                span.price= item.price
+                                div.actionSheet
+                                  a.edit(data-vId= item._id) 编辑
+                                  a.down(data-vId= item._id) 下架
+                                  a.sold(data-vId= item._id) 确认售出
               div#tab-down.tab
                 div.content-block
                   if valuebles
                     each item in valuebles
                       if item.status == 1
-                        div.item-block(data-sId= item._id)
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                            span.no-img  没有图片                              
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category_ch
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                a.up(data-vId= item._id) 重新上架
-                                a.del(data-vId= item._id) 删除
+                        a.linkWrapper(href= "/secondHand/detail/"+item._id)                        
+                          div.item-block(data-sId= item._id)
+                            div.img-wrapper
+                              img(src= item.picUrl[0])
+                              span.no-img  没有图片                              
+                            div.item-content
+                              div.item-header
+                                a.item-name= item.name
+                                span.item-category= item.category_ch
+                              div.item-desc= item.desc
+                              div.item-footer
+                                span.price= item.price
+                                div.actionSheet
+                                  a.up(data-vId= item._id) 重新上架
+                                  a.del(data-vId= item._id) 删除
               div#tab-sold.tab
                 div.content-block
                   if valuebles
                     each item in valuebles
                       if item.status == 2
-                        div.item-block(data-sId= item._id)
-                          div.img-wrapper
-                            img(src= item.picUrl[0])
-                            span.no-img 没有图片
-                          div.item-content
-                            div.item-header
-                              a.item-name= item.name
-                              span.item-category= item.category_ch
-                            div.item-desc= item.desc
-                            div.item-footer
-                              span.price= item.price
-                              div.actionSheet
-                                a.del(data-vId= item._id)  删除
+                        a.linkWrapper(href= "/secondHand/detail/"+item._id)                        
+                          div.item-block(data-sId= item._id)
+                            div.img-wrapper
+                              img(src= item.picUrl[0])
+                              span.no-img 没有图片
+                            div.item-content
+                              div.item-header
+                                a.item-name= item.name
+                                span.item-category= item.category_ch
+                              div.item-desc= item.desc
+                              div.item-footer
+                                span.price= item.price
+                                div.actionSheet
+                                  a.del(data-vId= item._id)  删除
       else
         div.content
           div.content-block

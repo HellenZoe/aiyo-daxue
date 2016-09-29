@@ -1,9 +1,9 @@
 //  点击到详情页
-$('.facebook-card').on('click', function(e) {
-  var lId = $(this).attr("data-lId");
-  var host = location.host;
-  location.href = "http://" + host + "/lost/detail/" + lId;
-})
+// $('.facebook-card').on('click', function(e) {
+//   var lId = $(this).attr("data-lId");
+//   var host = location.host;
+//   location.href = "http://" + host + "/lost/detail/" + lId;
+// })
 
 //  切换失物和招领
 $('.gotoLost').on('click', function(e) {
