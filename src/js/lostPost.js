@@ -332,6 +332,7 @@ $(function() {
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
     formData.append('type', info.type);
+    alert(JSON.stringify(info));    
     alert(JSON.stringify(formData));
     var url = "http://" + location.host + "/lost/new"
   	$.ajax({
