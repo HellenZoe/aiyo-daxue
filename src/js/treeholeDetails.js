@@ -67,7 +67,7 @@ $(function() {
   //  用户点赞
   $('.iconfont-nullEnjoy').on('click', function(e) {
     var enjoyCount = $('.enjoy-count').text();
-    var that = this;
+    var that = $(this);
     var selfEnjoy = $(this).parent().children('.iconfont-selfEnjoy');
     var treeholeId = location.pathname.split('/').pop();
     var countInfo = {
@@ -114,7 +114,7 @@ $(function() {
   //  取消点赞
   $('.iconfont-selfEnjoy').on('click', function(e) {
     var enjoyCount = $('.enjoy-count').text();
-    var that = this;
+    var that = $(this);
     var nullEnjoy = $(this).parent().children('.iconfont-nullEnjoy');
     var treeholeId = location.pathname.split('/').pop();
     var countInfo = {
