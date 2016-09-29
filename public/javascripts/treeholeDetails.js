@@ -161,9 +161,5 @@ $(function() {
 
 
 
-  //  用户查看评论
-  $('.check-session a').on('click',  function(e) {
-    location.href = "http://" + location.host + "/treehole/comment/" + $(this).attr('data-commentid');
-  })
 
 });
