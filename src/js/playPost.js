@@ -351,7 +351,7 @@ $(function() {
   		contentType: false,
   		processData: false,
   		success: function (data) {
-  			if (data.sucess) {
+  			if (data.success) {
 
           // 发送完请求之后隐藏
           $.hidePreloader();
