@@ -115,6 +115,9 @@
 .facebook-card .card-content-text {
   font-size: .55rem;
   margin-top: .2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .title-category {
   min-height: 1.3rem;

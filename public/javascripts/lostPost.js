@@ -89,7 +89,7 @@ $(function() {
       $.hidePreloader();
       $.toast("还没有写名称哟～");
       return;
-    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,25}$/.test(name)) {
+    }else if (!/^[\u4e00-\u9fa5|0-9|A-Za-z]{0,15}$/.test(name)) {
       $.hidePreloader();
       $.toast("名称超过字数啦~");
       return;
