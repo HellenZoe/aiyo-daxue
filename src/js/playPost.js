@@ -387,7 +387,7 @@ $(function() {
   })
 
   $(document).on('ajaxError', function(e, xhr,optioms, error) {
-    alert("ajax error");
+    alert(xhr.status);
   })
 
 });
