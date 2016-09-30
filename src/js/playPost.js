@@ -347,9 +347,10 @@ $(function() {
   		type: 'POST',
   		url: url,
       dataType: "json",
-  		data: formData == {} ? {status: "wrong"} : formData,
+  		data: formData,
   		contentType: false,
   		processData: false,
+      timeout: 500,
   		success: function (data) {
   			if (data.success) {
 
@@ -371,5 +372,14 @@ $(function() {
   		}
   	});
   }
+
+
+  $(document).on('ajaxComplete', function(e, xhr, options) {
+    alert("complete");
+  })
+
+  $(document).on('ajaxBeforeSend', function(e, xhr, options) {
+    alert("before");
+  })
 
 });
