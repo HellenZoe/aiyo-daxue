@@ -115,9 +115,9 @@ router.post('/new', upload.single('test'), function(req, res) {
           		if(err){
           		  console.log(err);
           		}else{
-                uploadToQiniu(tmpFilePath, "play");
+                uploadToQiniu(res, tmpFilePath, "play");
                 // res.json({success: true});
-                console.log("success upload");
+                // console.log("success upload");
               }
           	});
           })

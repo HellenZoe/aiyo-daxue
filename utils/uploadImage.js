@@ -8,7 +8,7 @@ qiniu.conf.SECRET_KEY = qiniuConfig.SECRET_KEY;
 
 
 //构造上传函数
-function uploadFile(uptoken, key, localFile) {
+function uploadFile(res, uptoken, key, localFile) {
   var extra = new qiniu.io.PutExtra();
     qiniu.io.putFile(uptoken, key, localFile, extra, function(err, ret) {
       if(!err) {
@@ -16,15 +16,16 @@ function uploadFile(uptoken, key, localFile) {
         console.log(ret.hash, ret.key, ret.persistentId);
       } else {
         // 上传失败， 处理返回代码
-        console.log(err);
-        console.log("上传七牛失败");
+        res.json({
+          success: true
+        })
       }
   });
 }
 
 
 
-module.exports = function uploadToQiniu(path, module) {
+module.exports = function uploadToQiniu(res, path, module) {
   //要上传的空间
   var bucket = 'aiyodaxue';
 
@@ -43,5 +44,5 @@ module.exports = function uploadToQiniu(path, module) {
 
 
   //调用uploadFile上传
-  uploadFile(token, key, path);
+  uploadFile(res, token, key, path);
 }
