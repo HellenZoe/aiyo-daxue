@@ -1,4 +1,5 @@
 if (window.utils.getFromLocal('lost') == "found") {
+  alert('here');
   window.utils.removeFromLocal('lost');
   location.reload();
 }
