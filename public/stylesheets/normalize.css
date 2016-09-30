@@ -34,5 +34,5 @@
 }
 .linkWrapper {
   color: #444;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: #fff;
 }
