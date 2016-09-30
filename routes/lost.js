@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
           cardGoods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
           }).filter(function(item, index) {
-            return item.category == "transport";
+            return item.category == "card";
           }),
           sportGoods: gs.map(function(item){
             return item.toObject({getters: true, virtuals: true});
