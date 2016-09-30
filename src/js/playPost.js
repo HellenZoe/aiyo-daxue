@@ -382,4 +382,8 @@ $(function() {
     alert("before");
   })
 
+  $(document).on('ajaxSuccess', function(e, xhr, data) {
+    alert(data);
+  })
+
 });
