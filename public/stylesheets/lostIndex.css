@@ -110,6 +110,7 @@
   font-size: .9rem;
 }
 .facebook-card .card-info .page-view {
+  color: #666;
   float: right;
   font-size: .55rem;
   margin: .25rem 0;
@@ -120,9 +121,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #666;
 }
 .title-category {
   min-height: 1.3rem;
+  color: #555;
 }
 .content-title {
   font-size: .75rem;
