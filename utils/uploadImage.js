@@ -16,6 +16,7 @@ function uploadFile(res, uptoken, key, localFile) {
         console.log(ret.hash, ret.key, ret.persistentId);
       } else {
         // 上传失败， 处理返回代码
+        console.log("in here");
         res.json({
           success: true
         })
