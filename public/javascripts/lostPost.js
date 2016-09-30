@@ -161,7 +161,7 @@ $(function() {
     formInfo.qq = qq;
     formInfo.tel = tel;
 
-    alert(JSON.stringify(formInfo));
+    // alert(JSON.stringify(formInfo));
     //  发送所有信息
     sendFile(formInfo);
     // formInfo.pics.forEach(function(item, index) {
