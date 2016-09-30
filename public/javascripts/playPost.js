@@ -349,7 +349,7 @@ $(function() {
     formData.append('tel', info.tel);
     formData.append('type', info.type);
     formData.append('price', info.price);
-    var url = "http://" + location.host + "/play/new"
+    var url = "http://" + location.host + "/play/new";
   	$.ajax({
   		type: 'POST',
   		url: url,

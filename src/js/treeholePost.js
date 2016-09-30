@@ -22,7 +22,7 @@ $(function() {
       $.toast("最多添加四张照片");
       return false;
     }
-    
+
     $('#fileToUpload').trigger('click');
     return false;
   })
@@ -257,7 +257,7 @@ canvas.forEach(function(item, index) {
     formData.append('postText', info.postText);
     formData.append('name', info.name);
     formData.append('ifAnonymous', info.ifAnonymous);
-    var url = "http://" + location.host + "/treehole/new"
+    var url = "http://" + location.host + "/treehole/new";
   	$.ajax({
   		type: 'POST',
   		url: url,

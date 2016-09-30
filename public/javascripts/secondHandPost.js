@@ -25,7 +25,7 @@ $(function() {
       $.toast("最多添加四张照片");
       return false;
     }
-    
+
     $('#fileToUpload').trigger('click');
     return false;
   })
@@ -330,7 +330,7 @@ $(function() {
     alert(JSON.stringify(info));
     alert(JSON.stringify(formData));
 
-    var url = "http://" + location.host + "/secondHand/new"
+    var url = "http://" + location.host + "/secondHand/new";
   	$.ajax({
   		type: 'POST',
   		url: url,
