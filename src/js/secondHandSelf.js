@@ -26,9 +26,7 @@ $('.del').on('click', function(e) {
         $(that).parent().parent().parent().parent().remove();
         $.toast('操作成功', 1000, "toast-success");
 
-        //  隐藏加载
-        $.hidePreloader();
-
+        window.utils.saveToLocal('secondHand', 'action');
         //  刷新
         setTimeout(location.replace(location.href), 1000);
       }
@@ -65,10 +63,7 @@ $('.down').on('click', function(e) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
         $.toast('操作成功', 1000, "toast-success");
-
-        //  隐藏加载
-        $.hidePreloader();
-
+        window.utils.saveToLocal('secondHand', 'action');
         //  刷新
         setTimeout(location.replace(location.href), 1000);
 
@@ -107,9 +102,7 @@ $('.up').on('click', function(e) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
         $.toast('操作成功', 1000, "toast-success");
-
-        //  点赞数加1
-        $.hidePreloader();
+        window.utils.saveToLocal('secondHand', 'action');                  window.utils.saveToLocal('secondHand', 'action');
         // 刷新
         setTimeout(location.replace(location.href), 1000);
       }
@@ -146,10 +139,8 @@ $('.sold').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('操作成功', 2000, "toast-success");
-
-        //  点赞数加1
-        $.hidePreloader();
+        $.toast('操作成功', 1000, "toast-success");
+        window.utils.saveToLocal('secondHand', 'action');
         //  刷新
         setTimeout(location.replace(location.href), 1000);
       }

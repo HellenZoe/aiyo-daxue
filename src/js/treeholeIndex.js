@@ -1,6 +1,10 @@
 $(function() {
   // FastClick.attach(document.body);
+  if (window.utils.getFromLocal('treehole') == "action") {
 
+    window.utils.removeFromLocal('treehole');
+    location.reload();
+  }
   //  把用户已经点过赞的图标换成红色
   var allCard = $('.facebook-card');
     if (allCard) {

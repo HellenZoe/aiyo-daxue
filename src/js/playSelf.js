@@ -19,8 +19,8 @@ $('.del').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('操作成功', 2000, "toast-success");
-
+        $.toast('操作成功', 1000, "toast-success");
+        window.utils.saveToLocal('play', 'action');
         //  隐藏加载
         $.hidePreloader();
       }
@@ -36,17 +36,17 @@ $('.del').on('click', function(e) {
 
 
 //  点击跳到详情页
-var plays = $(".item-content");
-plays.forEach(function(item, index) {
-  console.log(item, index);
-  var t = $(item);
-  t.on('click', function(e) {
-      var cardId = $(this).parent().attr('data-pId');
-      var host = location.host;
-      location.href = "http://" + host + "/play/detail/" + cardId;
-  })
-})
-
+// var plays = $(".item-content");
+// plays.forEach(function(item, index) {
+//   console.log(item, index);
+//   var t = $(item);
+//   t.on('click', function(e) {
+//       var cardId = $(this).parent().attr('data-pId');
+//       var host = location.host;
+//       location.href = "http://" + host + "/play/detail/" + cardId;
+//   })
+// })
+//
 
 
 // 如果用户没有发布图片显示提示

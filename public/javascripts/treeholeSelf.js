@@ -43,9 +43,10 @@ $('.delete').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('删除成功', 2000, "toast-success");
-        //  刷新页面
-        location.reload();
+        $.toast('删除成功', 1000, "toast-success");
+        window.utils.saveToLocal('treehole', 'action');
+        //  刷新
+        setTimeout(location.replace(location.href), 1000);
       }
     },
     error: function (data) {

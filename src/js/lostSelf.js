@@ -19,11 +19,11 @@ $('.found').on('click', function(e) {
       if (data.success) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
-        $.toast('操作成功', 2000, "toast-success");
+        $.toast('操作成功', 1000, "toast-success");
         window.utils.saveToLocal('lost', 'found');
-        alert(window.utils.getFromLocal('lost'));
-        // //  隐藏加载
-        // $.hidePreloader();
+        //  刷新
+        setTimeout(location.replace(location.href), 1000);
+
       }
     },
     error: function (data) {
