@@ -16,10 +16,10 @@ block content
       div.lost-tabs
         div.lost
           span.active
-            a.gotoLost.external(href="#lost" ) 失物
+            a.gotoLost(href="#lost" onclick="gotoLost()") 失物
         div.found
           span
-            a.gotoFound.external(href="#found") 招领
+            a.gotoFound(href="#found" onclick="gotoFound()") 招领
       nav.bar.bar-tab
         a.tab-item.external(href="/")
           span.icon.index-color
