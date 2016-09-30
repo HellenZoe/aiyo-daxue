@@ -373,21 +373,21 @@ $(function() {
   }
 
 
-  $(document).on('ajaxComplete', function(e, xhr, options) {
-    alert("complete");
-  })
-
-  $(document).on('ajaxBeforeSend', function(e, xhr, options) {
-    alert("before");
-  })
-
-  $(document).on('ajaxSuccess', function(e, xhr, data) {
-    alert(data);
-  })
-
-  $(document).on('ajaxError', function(e, xhr,options, error) {
-    alert(xhr.status);
-    alert(error);
-  })
+  // $(document).on('ajaxComplete', function(e, xhr, options) {
+  //   alert("complete");
+  // })
+  //
+  // $(document).on('ajaxBeforeSend', function(e, xhr, options) {
+  //   alert("before");
+  // })
+  //
+  // $(document).on('ajaxSuccess', function(e, xhr, data) {
+  //   alert(data);
+  // })
+  //
+  // $(document).on('ajaxError', function(e, xhr,options, error) {
+  //   alert(xhr.status);
+  //   alert(error);
+  // })
 
 });
