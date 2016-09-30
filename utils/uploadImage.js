@@ -9,6 +9,7 @@ qiniu.conf.SECRET_KEY = qiniuConfig.SECRET_KEY;
 
 //构造上传函数
 function uploadFile(res, uptoken, key, localFile) {
+  console.log("you");
   var extra = new qiniu.io.PutExtra();
     qiniu.io.putFile(uptoken, key, localFile, extra, function(err, ret) {
       if(!err) {
