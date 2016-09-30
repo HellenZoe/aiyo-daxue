@@ -350,7 +350,6 @@ $(function() {
   		data: formData,
   		contentType: false,
   		processData: false,
-      timeout: 500,
   		success: function (data) {
   			if (data.success) {
 
