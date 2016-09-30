@@ -255,6 +255,7 @@ $(function() {
   	// var maxHeight = 100;
   	var image = new Image();
   	image.onload = function () {
+
       // var previewContainer = document.getElementById("previewformInfo");
       // var div = document.createElement('div');
       // div.appendChild(image);

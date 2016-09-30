@@ -34,13 +34,6 @@ block content
             i.iconfont-treeHoleTabsBar &#xe604;
           span.tab-label 个人中心
           
-      //- div.bar.lostIndex-searchbar
-      //-   div.searchbar
-      //-     a.searchbar-cancel 取消
-      //-     div.search-input
-      //-       label.icon.icon-search(for="search")
-      //-       input#search(type="search", placeholder="搜搜看")
-      //-     a.gotoSearch.link(href="#search-page") 
       
       div#lost.lostIndex-content
         div.buttons-tab
@@ -145,6 +138,8 @@ block content
                             div.title-category
                               span 失物
                               | &middot;
+                              span.content-title= item.name
+                              span.category= item.category_ch
                             div.card-content-text= item.desc
                           div.card-footer
                             div.icon.position
