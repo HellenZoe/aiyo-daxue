@@ -53,7 +53,7 @@ body {
 .bar-header-secondary ~ .content {
   top: 0rem;
 }
-.play-content > content-block {
+.play-content > .content-block {
   position: absolute;
   width: 100%;
   top: 2.4rem;
