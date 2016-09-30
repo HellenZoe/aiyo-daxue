@@ -341,6 +341,7 @@ $(function() {
   function sendFile(info) {
   	var formData = new FormData();
     console.log("post信息", info);
+    formData.append("fuck", "up");
   	formData.append('imageData', JSON.stringify(info.pics));
     formData.append('name', info.name);
     formData.append('desc', info.desc);
