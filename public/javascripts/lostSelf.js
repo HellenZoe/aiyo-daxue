@@ -20,9 +20,9 @@ $('.found').on('click', function(e) {
         $.hidePreloader();
         $(that).parent().parent().parent().parent().remove();
         $.toast('操作成功', 2000, "toast-success");
-
-        //  隐藏加载
-        $.hidePreloader();
+        window.utils.saveToLocal('lost', 'found');
+        // //  隐藏加载
+        // $.hidePreloader();
       }
     },
     error: function (data) {

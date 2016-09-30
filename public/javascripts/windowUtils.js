@@ -12,6 +12,9 @@ var utils = {
     return JSON.parse(localStorage.getItem(name));
   },
 
+  removeFromLocal: function(name) {
+    localStorage.removeItem(name);
+  },
   contains: function(o, s) {
     var length = o.length;
     while (length--) {

@@ -1,4 +1,7 @@
-location.reload();
+if (window.utils.getFromLocal('lost') == "found") {
+  window.utils.removeFromLocal('lost');
+  location.reload();
+}
 //  切换失物和招领
 $('.gotoLost').on('click', function(e) {
 
