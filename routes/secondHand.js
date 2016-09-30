@@ -134,7 +134,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           		if(err){
           		  console.log(err);
           		}else{
-                uploadToQiniu(tmpFilePath, "secondHand");
+                uploadToQiniu(res,tmpFilePath, "secondHand");
                 console.log("success upload");
               }
           	});

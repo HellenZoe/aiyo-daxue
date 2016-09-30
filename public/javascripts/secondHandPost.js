@@ -159,17 +159,6 @@ $(function() {
     //   console.log("上传 ", item);
     // })
 
-    // 发送完请求之后隐藏
-    $.hidePreloader();
-
-    //  提醒用户已经发布成功  然后回到树洞首页
-    $.alert("现在返回主页", "发布成功", function() {
-      var host = location.host;
-      console.log("http://" + host + "/secondHand");
-      location.href= "http://" + host + "/secondHand";
-      return;
-    })
-
   })
 
 
@@ -342,6 +331,18 @@ $(function() {
   			if (data.sucess) {
   				// showMessageSuccess("上传成功");
           console.log("上传成功");
+          // 发送完请求之后隐藏
+          $.hidePreloader();
+
+          //  提醒用户已经发布成功  然后回到树洞首页
+          $.alert("现在返回主页", "发布成功", function() {
+            var host = location.host;
+            console.log("http://" + host + "/secondHand");
+            location.href= "http://" + host + "/secondHand";
+            return;
+          })
+
+
   			}
   		},
   		error: function (data) {

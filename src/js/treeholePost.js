@@ -56,15 +56,6 @@ $(function() {
     //  发送所有信息
     sendFile(allPic);
 
-    // 发送完请求之后隐藏
-    $.hidePreloader();
-
-    //  提醒用户已经发布成功  然后回到树洞首页
-    $.alert("现在返回主页", "发布成功", function() {
-      var host = location.host;
-      location.href= "http://" + host  + "/treehole";
-      return;
-    })
 
   })
 
@@ -269,6 +260,16 @@ canvas.forEach(function(item, index) {
   			if (data.success) {
   				// showMessageSuccess("上传成功");
           console.log("上传成功");
+          // 发送完请求之后隐藏
+          $.hidePreloader();
+
+          //  提醒用户已经发布成功  然后回到树洞首页
+          $.alert("现在返回主页", "发布成功", function() {
+            var host = location.host;
+            location.href= "http://" + host  + "/treehole";
+            return;
+          })
+
   			}
   		},
   		error: function (data) {

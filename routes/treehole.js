@@ -206,8 +206,8 @@ router.post('/new', upload.single('test'), function(req, res) {
               		if(err){
               		  console.log(err);
               		}else{
-                    uploadToQiniu(tmpFilePath, "treehole");
-                    console.log("success upload");
+                    uploadToQiniu(res,tmpFilePath, "treehole");
+                    // console.log("success upload");
                   }
               	});
                 console.log(raw);

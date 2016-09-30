@@ -157,7 +157,7 @@ router.post('/new', upload.single('test'), function(req, res) {
           		if(err){
           		  console.log(err);
           		}else{
-                uploadToQiniu(tmpFilePath, "lost");
+                uploadToQiniu(res, tmpFilePath, "lost");
                 console.log("success upload");
               }
           	});

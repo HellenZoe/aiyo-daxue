@@ -386,8 +386,9 @@ $(function() {
     alert(data);
   })
 
-  $(document).on('ajaxError', function(e, xhr,optioms, error) {
+  $(document).on('ajaxError', function(e, xhr,options, error) {
     alert(xhr.status);
+    alert(error);
   })
 
 });
