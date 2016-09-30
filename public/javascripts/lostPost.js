@@ -336,7 +336,7 @@ $(function() {
   		contentType: false,
   		processData: false,
   		success: function (data) {
-  			if (data.sucess) {
+  			if (data.success) {
   				// showMessageSuccess("上传成功");
           console.log("上传成功");
           // 发送完请求之后隐藏
