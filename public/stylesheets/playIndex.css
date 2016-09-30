@@ -56,8 +56,8 @@ body {
 .play-content > .content-block {
   position: absolute;
   width: 100%;
-  top: 2.4rem;
-  bottom: 2rem;
+  top: 2rem;
+  bottom: 0rem;
   overflow: auto;
   margin: 0rem;
 }
