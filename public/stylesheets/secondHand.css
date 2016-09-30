@@ -68,6 +68,7 @@
   float: right;
   font-size: .55rem;
   margin: .25rem 0;
+  color: #666;
 }
 .facebook-card .card-content-text {
   font-size: .55rem;
@@ -75,6 +76,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #666;
 }
 .title-category {
   min-height: 1.3rem;
@@ -83,6 +85,7 @@
   font-size: .75rem;
   float: left;
   margin: .14rem 0;
+  color: #555;
 }
 .category {
   float: left;

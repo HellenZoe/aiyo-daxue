@@ -218,6 +218,9 @@ $(function() {
   	var reader = new FileReader();
 
   	reader.onloadend = function () {
+      //  显示进度记载图标
+      $.showPreloader();
+
   		processFile(reader.result, file.type);
   	}
 
@@ -334,6 +337,7 @@ $(function() {
           // 发送完请求之后隐藏
           $.hidePreloader();
 
+          alert(JSON.stringify(data));
           //  提醒用户已经发布成功  然后回到树洞首页
           $.alert("现在返回主页", "发布成功", function() {
             var host = location.host;

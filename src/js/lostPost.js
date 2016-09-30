@@ -229,6 +229,9 @@ $(function() {
   	var reader = new FileReader();
 
   	reader.onloadend = function () {
+      //  显示进度记载图标
+      $.showPreloader();
+
   		processFile(reader.result, file.type);
   	}
 
@@ -309,6 +312,9 @@ $(function() {
     formInfo.pics.push(dataURL);
     console.log("new ", formInfo.pics);
     picCount = picCount + 1;
+    // 隐藏加载图标
+    $.hidePreloader();
+
   }
 
 
