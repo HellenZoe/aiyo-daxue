@@ -69,10 +69,23 @@ body{
     border-color: @tab-color;
 }
 
+.play-content .buttons-tab{
+  position: fixed;
+  width: 100%;
+}
 .bar-header-secondary~.content{
   top: 0rem;
 }
 
+
+.play-content > content-block{
+  position: absolute;
+  width: 100%;
+  top: 2.4rem;
+  bottom: 2rem;
+  overflow: auto;
+  margin: 0rem;
+}
 
 //  标签栏-完
 
@@ -127,6 +140,9 @@ body{
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+  .card-content-text{
+    color: #666;
   }
 
 }

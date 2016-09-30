@@ -353,7 +353,7 @@ $(function() {
     var url = "http://" + location.host + "/play/new";
     alert("here");
     // while(formData=={});
-    alert(JSON.stringify(formData));
+    // alert(formData.serialize());
   	$.ajax({
   		type: 'POST',
   		url: url,

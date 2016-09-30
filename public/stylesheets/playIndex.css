@@ -46,8 +46,20 @@ body {
   color: #F97C06;
   border-color: #F97C06;
 }
+.play-content .buttons-tab {
+  position: fixed;
+  width: 100%;
+}
 .bar-header-secondary ~ .content {
   top: 0rem;
+}
+.play-content > content-block {
+  position: absolute;
+  width: 100%;
+  top: 2.4rem;
+  bottom: 2rem;
+  overflow: auto;
+  margin: 0rem;
 }
 .facebook-card {
   cursor: pointer;
@@ -100,6 +112,9 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+.facebook-card .card-content-text {
+  color: #666;
 }
 @font-face {
   font-family: 'iconfont-treeHoleTabsBar';
