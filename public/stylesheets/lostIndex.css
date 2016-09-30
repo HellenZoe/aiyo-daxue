@@ -16,6 +16,8 @@
 }
 .lost-tabs a {
   color: #fff;
+  width: 3rem;
+  display: inline-block;
 }
 .lost-tabs .active {
   padding-bottom: .2rem;
