@@ -100,6 +100,9 @@ router.post('/action', function(req, res) {
 router.post('/new', upload.single('test'), function(req, res) {
     console.log("*************logging from /lost/new--user***************", req.session.user);
     console.log("*************logging from /lost/new--req.body***************", req.body);
+    if (req.body.status == "wrong") {
+      console.log("(************fuck**************)");
+    }
     var imageData = JSON.parse(req.body['imageData']);
     var type = req.body['type'];
     var name = req.body['name'];
