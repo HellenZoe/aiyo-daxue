@@ -337,7 +337,7 @@ $(function() {
     // alert(JSON.stringify(info));
     // alert(JSON.stringify(formData));
     // while(formData=={});
-    var url = "http://" + location.host + "/lost/new"
+    var url = "http://" + location.host + "/lost/new";
   	$.ajax({
   		type: 'POST',
   		url: url,
