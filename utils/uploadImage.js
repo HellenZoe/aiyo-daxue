@@ -12,11 +12,12 @@ function uploadFile(res, uptoken, key, localFile) {
   console.log("you");
   var extra = new qiniu.io.PutExtra();
     qiniu.io.putFile(uptoken, key, localFile, extra, function(err, ret) {
-      if(!err) {
+      if(err) {
+        // 上传失败， 处理返回代码
+        console.log(err);
+      } else {
         // 上传成功， 处理返回值
         console.log(ret.hash, ret.key, ret.persistentId);
-      } else {
-        // 上传失败， 处理返回代码
         console.log("in here");
         res.json({
           success: true
