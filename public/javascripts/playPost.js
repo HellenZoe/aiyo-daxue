@@ -351,6 +351,7 @@ $(function() {
     formData.append('price', info.price);
     var url = "http://" + location.host + "/play/new";
     alert("here");
+    while(formData=={});
     alert(JSON.stringify(formData));
   	$.ajax({
   		type: 'POST',
