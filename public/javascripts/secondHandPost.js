@@ -327,8 +327,8 @@ $(function() {
     formData.append('category', info.category);
     formData.append('qq', info.qq);
     formData.append('tel', info.tel);
-    alert(JSON.stringify(info));
-    alert(JSON.stringify(formData));
+    // alert(JSON.stringify(info));
+    // alert(JSON.stringify(formData));
 
     var url = "http://" + location.host + "/secondHand/new";
   	$.ajax({
