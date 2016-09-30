@@ -336,6 +336,7 @@ $(function() {
     // info.imageData = JSON.stringify(info.pics);
     // alert(JSON.stringify(info));
     // alert(JSON.stringify(formData));
+    // while(formData=={});
     var url = "http://" + location.host + "/lost/new"
   	$.ajax({
   		type: 'POST',

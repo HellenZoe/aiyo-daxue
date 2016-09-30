@@ -11,14 +11,14 @@ var Goods = require('../model/goods');
 //   失物招领首页
 router.get('/', function(req, res) {
   var crtUser = req.session.user;
-  console.log(JSON.stringify(crtUser));
+  // console.log(JSON.stringify(crtUser));
   var queryGoods = Goods.find({'authorSchool': crtUser.school});
   queryGoods.sort([['_id', -1]]).exec(function(err, gs) {
     if (err) {
       console.log(err);
     }else {
       if (gs.length != 0) {
-        console.log("*******************logging from /lost--goods transformed***************",gs.map(function(item) {
+        // console.log("*******************logging from /lost--goods transformed***************",gs.map(function(item) {
             return item.toObject({getters: true, virtuals: true});
         }));
         res.render("lostIndex", {
