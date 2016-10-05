@@ -349,7 +349,7 @@ $(function() {
   		data: formData,
   		contentType: false,
   		processData: false,
-      timeout: 4000,
+      timeout: 6000,
   		success: function (data) {
   			if (data.success) {
 
@@ -388,7 +388,7 @@ $(function() {
   $(document).on('ajaxError', function(e, xhr,options, error) {
     if (parseInt(xhr.status) == 0) {
       $.hidePreloader();
-      $.alert("现在返回主页", "发布成功", function() {
+      $.alert("稍后再来", "发布失败", function() {
         var host = location.host;
         // console.log("http://" + host + "/play");
         location.href= "http://" + host + "/play";
