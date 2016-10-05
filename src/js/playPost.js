@@ -385,9 +385,9 @@ $(function() {
   //   alert(data);
   // })
   //
-  // $(document).on('ajaxError', function(e, xhr,options, error) {
-  //   alert(xhr.status);
-  //   alert(error);
-  // })
+  $(document).on('ajaxError', function(e, xhr,options, error) {
+    alert(xhr.status);
+    alert(error);
+  })
 
 });
