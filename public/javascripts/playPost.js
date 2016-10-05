@@ -340,7 +340,6 @@ $(function() {
     formData.append('type', info.type);
     formData.append('price', info.price);
     var url = "http://" + location.host + "/play/new";
-    alert("here");
     // while(formData=={});
     // alert(formData.serialize());
   	$.ajax({
@@ -350,6 +349,7 @@ $(function() {
   		data: formData,
   		contentType: false,
   		processData: false,
+      timeout: 2000,
   		success: function (data) {
   			if (data.success) {
 
@@ -385,9 +385,9 @@ $(function() {
   //   alert(data);
   // })
   //
-  // $(document).on('ajaxError', function(e, xhr,options, error) {
-  //   alert(xhr.status);
-  //   alert(error);
-  // })
+  $(document).on('ajaxError', function(e, xhr,options, error) {
+    alert(xhr.status);
+    alert(error);
+  })
 
 });
