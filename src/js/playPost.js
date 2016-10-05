@@ -349,7 +349,7 @@ $(function() {
   		data: formData,
   		contentType: false,
   		processData: false,
-      timeout: 2000,
+      timeout: 4000,
   		success: function (data) {
   			if (data.success) {
 
@@ -387,7 +387,15 @@ $(function() {
   //
   $(document).on('ajaxError', function(e, xhr,options, error) {
     alert(xhr.status);
-    alert(error);
+    if (parseInt(xhr.status) == 0) {
+      $.alert("现在返回主页", "发布成功", function() {
+        var host = location.host;
+        // console.log("http://" + host + "/play");
+        location.href= "http://" + host + "/play";
+        return;
+      })
+
+    }
   })
 
 });
