@@ -212,7 +212,8 @@ router.post('/action', function(req, res) {
 router.get('/self', function(req, res) {
   if (req.session.user) {
     console.log("*************************log from /play/self--req.session.user**********************", req.session.user);
-    Play.find({author: req.session.user._id}, function(err, ps) {
+    var q = Play.find({author: req.session.user._id});
+    q.sort([['_id', -1]]).exec(function(err, ps) {
       if (err) {
         console.log("取出用户对应的树洞出错", err);
       }else {

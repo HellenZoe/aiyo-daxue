@@ -268,7 +268,8 @@ router.get('/detail/:id', function(req, res) {
 router.get('/self', function(req, res) {
   if (req.session.user) {
     console.log("*************************log from /secondHand/self--req.session.user**********************", req.session.user);
-    Valueble.find({author: req.session.user._id}, function(err, vs) {
+    var q = Valueble.find({author: req.session.user._id});
+    q.sort([['_id', -1]]).exec(function(err, vs) {
       if (err) {
         console.log("取出用户对应的商品出错出错", err);
       }else {

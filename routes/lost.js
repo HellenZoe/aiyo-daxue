@@ -232,7 +232,8 @@ router.get('/detail/:id', function(req, res) {
 router.get('/self', function(req, res) {
   if (req.session.user) {
     console.log("*************************log from /lost/self--req.session.user**********************", req.session.user);
-    Goods.find({author: req.session.user._id}, function(err, gs) {
+    var q = Goodsfind({author: req.session.user._id});
+    q.sort([['_id', -1]]).exec(function(err, gs) {
       if (err) {
         console.log("取出用户对应的商品出错出错", err);
       }else {
