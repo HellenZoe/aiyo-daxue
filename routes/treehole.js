@@ -129,7 +129,9 @@ router.get('/self', function(req, res) {
   //
   if (req.session.user) {
     console.log("*************************log from /treehole/self--req.session.user**********************", req.session.user);
-    Treehole.find({author: req.session.user._id}, function(err, ts) {
+    var q = Treehole.find({author: req.session.user._id});
+
+    q.sort([['_id', -1]]).exec(function(err, ts) {
       if (err) {
         console.log("取出用户对应的树洞出错", err);
       }else {

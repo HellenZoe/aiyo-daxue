@@ -254,6 +254,7 @@ canvas.forEach(function(item, index) {
   		url: url,
       dataType: "json",
   		data: formData,
+      // timeout: 3000,
   		contentType: false,
   		processData: false,
   		success: function (data) {
