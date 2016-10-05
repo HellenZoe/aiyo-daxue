@@ -386,8 +386,9 @@ $(function() {
   // })
   //
   $(document).on('ajaxError', function(e, xhr,options, error) {
-    alert(xhr.status);
+    alert(parseInt(xhr.status) == 0);
     if (parseInt(xhr.status) == 0) {
+      $.hidePreloader();
       $.alert("现在返回主页", "发布成功", function() {
         var host = location.host;
         // console.log("http://" + host + "/play");
