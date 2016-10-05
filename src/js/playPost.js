@@ -340,7 +340,6 @@ $(function() {
     formData.append('type', info.type);
     formData.append('price', info.price);
     var url = "http://" + location.host + "/play/new";
-    alert("here");
     // while(formData=={});
     // alert(formData.serialize());
   	$.ajax({
