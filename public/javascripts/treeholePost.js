@@ -254,7 +254,7 @@ canvas.forEach(function(item, index) {
   		url: url,
       dataType: "json",
   		data: formData,
-      // timeout: 3000,
+      timeout: 6000,
   		contentType: false,
   		processData: false,
   		success: function (data) {
@@ -278,5 +278,19 @@ canvas.forEach(function(item, index) {
   		}
   	});
   }
+
+
+  $(document).on('ajaxError', function(e, xhr,options, error) {
+    if (parseInt(xhr.status) == 0) {
+      $.hidePreloader();
+      $.alert("稍后再来", "发布失败", function() {
+        var host = location.host;
+        // console.log("http://" + host + "/play");
+        location.href= "http://" + host + "/play";
+        return;
+      })
+
+    }
+  })
 
 });

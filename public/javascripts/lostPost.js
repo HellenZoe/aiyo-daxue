@@ -341,6 +341,7 @@ $(function() {
   		data: formData,
   		contentType: false,
   		processData: false,
+      timeout: 6000,
   		success: function (data) {
   			if (data.success) {
   				// showMessageSuccess("上传成功");
@@ -363,5 +364,20 @@ $(function() {
   		}
   	});
   }
+
+
+  $(document).on('ajaxError', function(e, xhr,options, error) {
+    if (parseInt(xhr.status) == 0) {
+      $.hidePreloader();
+      $.alert("稍后再来", "发布失败", function() {
+        var host = location.host;
+        // console.log("http://" + host + "/play");
+        location.href= "http://" + host + "/play";
+        return;
+      })
+
+    }
+  })
+
 
 });
