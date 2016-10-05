@@ -9,7 +9,7 @@ $(function() {
 //  已经登陆
 // if (QC.Login.check()) {
   // alert(QC.Login.check());
-// if (!window.utils.getFromLocal('userInfo')) {
+if (!window.utils.getFromLocal('userInfo')) {
 
   QC.api("get_user_info", {})
   	//指定接口访问成功的接收函数，s为成功返回Response对象
@@ -96,7 +96,7 @@ $(function() {
   	});
 
 
-// }
+}
 
 
 if (!window.utils.getFromLocal('userInfo')) {
