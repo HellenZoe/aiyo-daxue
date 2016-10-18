@@ -127,7 +127,8 @@ $(function() {
                 });
                 $('.school_item').on('click',function () {
                     var schoolName = $(this).html();
-                    $('.school div').html(schoolName);
+                    $('.school div').html(schoolName)
+                        .removeClass('c_gray');
                     $('#selectSchool').hide();
                 })
 

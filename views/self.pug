@@ -23,14 +23,14 @@ block content
           div.tel
             //- - var tel  = userInfo.tel
             h3 电话
-            if userInfo
+            if userInfo.tel
               input.border-bottom(placeholder="填写电话" value= userInfo.tel)
             else
               input.border-bottom(placeholder="填写电话")                
           div.qq
             //- - var qq = userInfo.qq
             h3 qq
-            if userInfo
+            if userInfo.qq
               input.border-bottom(placeholder="填写qq" value= userInfo.qq)
             else
               input.border-bottom(placeholder="填写qq")              
