@@ -48,10 +48,10 @@ if (!window.utils.getFromLocal('userInfo')) {
         data: JSON.stringify(userInfo),
         processData: false,
         success: function (data) {
-          if (data) {
+          if (dataa.success) {
   					if (window.utils) {
   						// window.utils.saveToLocal("userInfo", data.userInfo);
-  						// alert(JSON.stringify(data.userInfo));
+  						alert(JSON.stringify(data.userInfo));
   						// window.localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
   						// alert(window.localStorage.getItem("userInfo"));
   						// console.log("save userInfo success", window.getFromLocal("userInfo"));
