@@ -12,7 +12,7 @@ $(function() {
 
 
 if (!window.utils.getFromLocal('userInfo')) {
-    alert(JSON.stringify(window.utils.getFromLocal('userInfo'))+ "haha");
+    debugger;
     $.alert("登陆后才能浏览", "没有登陆", function() {
         QC.Login.showPopup({
             appId: "101351420",
