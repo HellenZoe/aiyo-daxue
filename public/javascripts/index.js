@@ -14,14 +14,15 @@ $(function() {
 if (!window.utils.getFromLocal('userInfo')) {
     alert(JSON.stringify(window.utils.getFromLocal('userInfo'))+ "haha");
     $.alert("登陆后才能浏览", "没有登陆", function() {
-        QC.Login.showPopup({
-            appId: "101351420",
-            redirectURI: "http://s-289167.abc188.com/welcome"
-        });
+        QC.Login.showPopup();
+        // {
+        //     appId: "101351420",
+        //         redirectURI: "http://s-289167.abc188.com/welcome"
+        // }
     });
 }
 if (!window.utils.getFromLocal('userInfo')) {
-
+    debugger;
     QC.api("get_user_info", {})
     //指定接口访问成功的接收函数，s为成功返回Response对象
         .success(function(s){
