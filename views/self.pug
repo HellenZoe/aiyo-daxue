@@ -36,7 +36,7 @@ block content
               input.border-bottom(placeholder="填写qq")              
           div.school
             h3 学校
-            if userInfo
+            if userInfo.school
               div.border-bottom #{userInfo.school}
             else
               div.border-bottom.c_gray 选择学校
