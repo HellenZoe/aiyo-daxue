@@ -14,6 +14,7 @@ if (!window.utils.getFromLocal('userInfo')) {
   QC.api("get_user_info", {})
   	//指定接口访问成功的接收函数，s为成功返回Response对象
   	.success(function(s){
+      console.log("post success");
   		//成功回调，通过s.data获取OpenAPI的返回数据
       $.hidePreloader();
       // showHint("获取信息成功", "success");
