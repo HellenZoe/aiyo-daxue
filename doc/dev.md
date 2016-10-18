@@ -54,6 +54,8 @@
   + /views  页面源代码文件  用的模板是pug(前身是jade)
   + webgook.js  接受webhok请求  执行deply-dev.sh  拉取代码
 
+
+
 ### 路由
 
 比如树洞模块
@@ -79,6 +81,11 @@
 + treeholeCommentDetail.pug/js/less  评论详情
 
 其余模块类似  可能有部分文件不符合命名规范
+
+关于视图文件的组织
+app首页继承layout.pug
+模块首页继承和个人中心继承serviceLayout.pug
+详情页继承detailLayout.pug
 
 
 ###  用到过的图标
@@ -126,8 +133,8 @@
 
 ### 开发流程(建议...)
 
-+ cd到项目根目录 运行gulp dev
-+ 打开putty  登陆到服务器 cd ~/app/aiyo-daxue;pm2 run logs;
++ cd到项目根目录 npm run dev(在自己机器上)
++ 打开putty  登陆到服务器 cd ~/app/aiyo-daxue;pm2 logs;
 + 本地修改..
 + git add;git commit;git push;
 + 查看log 看到已拉取代码之后 刷新浏览器看效果
