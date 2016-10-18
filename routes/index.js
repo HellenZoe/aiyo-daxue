@@ -66,25 +66,9 @@ module.exports = function(app) {
 
     //  登陆成功页面
     app.get('/welcome', function(req, res) {
-        console.log('**************************welcome**************************');
-        if (req.session.user) {
-            User.find({_id: req.session.user._id}, function(err, doc) {
-                if (err) {
-                    console.log(err);
-                }else {
-                    console.log("*************logging from /welcome************userinfo", doc[0]);
-                    res.render('self', {
-                        title: "个人信息",
-                        userInfo: doc[0]
-                    })
-                }
-            })
-        }else {
-            res.render('self', {
-                title: "个人信息",
-                userInfo: null
-            })
-        }
+        res.render('index', {
+            title: "首页"
+        })
     });
 
 
