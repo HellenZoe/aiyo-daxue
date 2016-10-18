@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 
 var db = null;
 
+//  数据库连接  在app.js调用connect函数创建连接  返回实例
 module.exports = {
   connect: function() {
     db = mongoose.connect(config.uri).connection;

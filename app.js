@@ -42,23 +42,6 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-//  添加webhook 中间件
-// app.use(function(req,res) {
-//   handler(req, res, function(err) {
-//     if (err) {
-//       res.statusCode=404;
-//       res.end('no such location');
-//     }
-//   })
-// })
-
-// handler.on('push', function (event) {
-//   console.log('Received a push event for %s to %s',
-//     event.payload.repository.name,
-//     event.payload.ref);
-//   console.log("in here");
-//   util.run_cmd('sh', ['./bin/deploy-dev.sh'], function(text){ console.log(text) });
-// })
  //设置静态目录
 app.use(express.static(path.join(__dirname, 'public')));
 
