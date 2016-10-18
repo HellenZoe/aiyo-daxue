@@ -37,9 +37,9 @@ block content
           div.school
             h3 学校
             if userInfo
-              input.border-bottom(placeholder="填写学校" value= userInfo.school)
+              div.border-bottom #{userInfo.school}
             else
-              input.border-bottom(placeholder="填写学校")
+              div.border-bottom.c_gray 选择学校
               
           //- div.department
           //-   //- - var department = userInfo.department

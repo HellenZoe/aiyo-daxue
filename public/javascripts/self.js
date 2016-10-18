@@ -110,8 +110,7 @@ $(function() {
     });
 
 
-    $('.school input').on('click', function(e) {
-        e.preventDefault();
+    $('.school div').on('click', function(e) {
         //  清除
         $('#school_list').empty();
         $.showPreloader();
