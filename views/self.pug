@@ -36,11 +36,10 @@ block content
               input.border-bottom(placeholder="填写qq")              
           div.school
             h3 学校
-            a(href="#selectSchool")
-              if userInfo
-                input.border-bottom(placeholder="填写学校" value= userInfo.school)
-              else
-                input.border-bottom(placeholder="填写学校")                  
+            if userInfo
+              input.border-bottom(placeholder="填写学校" value= userInfo.school)
+            else
+              input.border-bottom(placeholder="填写学校")
               
           //- div.department
           //-   //- - var department = userInfo.department

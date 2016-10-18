@@ -111,50 +111,12 @@ $(function() {
 
 
     $('.school input').on('click', function(e) {
-        //  阻止默认事件
-        e.preventDefault();
 
         //  清除
-        $('#schoolListContainer').find('ul').remove();
+        $('#school_list').empty();
         $.showPreloader();
+        $('#selectSchool').show();
         var url = "http://" + location.host + "/school";
-        /*$.ajax({
-            type: 'GET',
-            url: url,
-            dataType: "json",
-            contentType: "application/json",
-            processData: false,
-            success: function (data) {
-                if (data.success) {
-                    $.hidePreloader();
-
-                    var list = document.createElement('ul');
-                    data.data.forEach(function(item, index) {
-                        var li = document.createElement('li');
-                        li.innerHTML = item.name;
-
-                        //  添加点击事件
-                        $(li).on('click', function(e) {
-                            console.log($(this));
-                            var schoolName = $(this).html();
-                            console.log(schoolName);
-                            $('.school input').val(schoolName);
-                            //  返回编辑页面
-                            $('.backEdit').trigger('click');
-                            console.log('fuck');
-
-                        })
-                        list.appendChild(li);
-                    })
-
-                    var container = document.getElementById("schoolListContainer");
-                    container.appendChild(list);
-                }
-            },
-            error: function (data) {
-                // showMessageFail("上传出错, 请重试");
-            }
-        });*/
         $.get(url,function (json) {
             if(json.success){
                 $.hidePreloader();
@@ -167,7 +129,7 @@ $(function() {
                 $('.school_item').on('click',function () {
                     var schoolName = $(this).html();
                     $('.school').find('input').val(schoolName);
-                    $('.backEdit').trigger('click');
+                    $('#selectSchool').hide();
                 })
 
             }
