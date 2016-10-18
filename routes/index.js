@@ -62,12 +62,12 @@ module.exports = function(app) {
         res.render('signin', {
             title: "注册"
         })
-    })
+    });
 
     //  登陆成功页面
-    app.get('/welcome', function(req, res) {
+/*    app.get('/welcome', function(req, res) {
         res.end('just test welcome');
-    });
+    });*/
 
 
     //  修改个人信息
