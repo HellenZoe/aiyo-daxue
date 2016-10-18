@@ -71,7 +71,7 @@ $(function() {
       $.toast("还没有写地址哟～");
       return;
     }
-    var category = $('.category input:checked'
+    var category = $('.category input:checked');
     if (category.length == 0) {
       $.hidePreloader();
       $.toast("还没有选分类哟");
@@ -242,7 +242,7 @@ $(function() {
     var wrapper = document.createElement("div");
     var deleteIcon = document.createElement("i");
     deleteIcon.className = "iconfont-postDelete";
-    deleteIcon.innerHTML = "&#xe607;"
+    deleteIcon.innerHTML = "&#xe607";
     bindDeleteAction(deleteIcon);
     wrapper.appendChild(deleteIcon);
     wrapper.appendChild(canvas);
