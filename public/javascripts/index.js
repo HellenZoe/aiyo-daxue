@@ -10,16 +10,6 @@ $(function() {
 // if (QC.Login.check()) {
 // alert(QC.Login.check());
 
-
-if (!window.utils.getFromLocal('userInfo')) {
-    debugger;
-    $.alert("登陆后才能浏览", "没有登陆", function() {
-        QC.Login.showPopup({
-            appId: "101351420",
-            redirectURI: "http://s-289167.abc188.com/welcome"
-        });
-    });
-}
 if (!window.utils.getFromLocal('userInfo')) {
     debugger;
     QC.api("get_user_info", {})
@@ -96,15 +86,21 @@ if (!window.utils.getFromLocal('userInfo')) {
             //失败回调
             alert("post error");
             // showHint("获取信息失败,麻烦重新登陆", "fail");
+            $.alert("登陆后才能浏览", "没有登陆", function() {
+                QC.Login.showPopup({
+                    appId: "101351420",
+                    redirectURI: "http://s-289167.abc188.com/welcome"
+                });
+            });
         })
         //指定接口完成请求后的接收函数，c为完成请求返回Response对象
         .complete(function(c){
             //完成请求回调
             alert("post complete");
         });
-
-
 }
+
+
 
 $('.check').on('click', function(e) {
     var crtService = $(this).attr('href');
