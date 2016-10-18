@@ -2,7 +2,7 @@ $(function() {
     $(".swiper-container").swiper({
         autoplay: 2000
     })
-})
+});
 
 
 
@@ -11,14 +11,12 @@ $(function() {
 // alert(QC.Login.check());
 
 if (!window.utils.getFromLocal('userInfo')) {
-    debugger;
     if(QC.Login.check()){
         QC.api("get_user_info")
         //指定接口访问成功的接收函数，s为成功返回Response对象
             .success(function(s){
                 //成功回调，通过s.data获取OpenAPI的返回数据
-                $.hidePreloader();
-                // showHint("获取信息成功", "success");
+                //获取用户唯一的openId,accessToken,保存本地
                 QC.Login.getMe(function(openId, accessToken){
                     var userInfo={
                         name:s.data.nickname,
@@ -46,36 +44,30 @@ if (!window.utils.getFromLocal('userInfo')) {
                     });
                 });
 
-                // 获取参数
+                /*获取参数
 
 
-                // 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
-                // if (window.utils.getFromLocal('crt-service') == '/') {
-                // 	redirectUrl = "/";
-                // }else {
-                //   var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
-                // }
+                通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
+                if (window.utils.getFromLocal('crt-service') == '/') {
+                	redirectUrl = "/";
+                }else {
+                  var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
+                }
 
-                // $('.gotoSelf').attr('href', redirectUrl);
-                //  把用户登陆信息提交到服务端 存储到数据库
-
-
-                //  之前的实现方式  现在已经改用session实现
-                //  让去完善的按钮带上相应用户的参数
-                // var oldHref = $('.gotoSelf').attr('href');
-                // var newHref = oldHref + "?avatarUrl=" + avatarUrl
-                // $('.gotoSelf').attr('href', newHref);
+                $('.gotoSelf').attr('href', redirectUrl);
+                 把用户登陆信息提交到服务端 存储到数据库
 
 
-                //  将用户信息存储到localstorage 每次进入到首页用ajax获取数据
+                 之前的实现方式  现在已经改用session实现
+                 让去完善的按钮带上相应用户的参数
+                var oldHref = $('.gotoSelf').attr('href');
+                var newHref = oldHref + "?avatarUrl=" + avatarUrl
+                $('.gotoSelf').attr('href', newHref);
+                 将用户信息存储到localstorage 每次进入到首页用ajax获取数据
 
 
-                // 隐藏加载
+                隐藏加载*/
                 $.hidePreloader();
-
-
-
-
             })
             //指定接口访问失败的接收函数，f为失败返回Response对象
             .error(function(f){
@@ -111,14 +103,14 @@ $('.check').on('click', function(e) {
         return false;
     }
     return true;
-})
+});
 
 
 $('.more').on('click', function(e) {
     e.preventDefault();
 
     $.alert("功能正在完善中.敬请期待!")
-})
+});
 
 
 //  校园情话
@@ -127,7 +119,7 @@ $('.activity-card').on('click', function(e) {
     var pId = $(this).attr('data-pId');
     var url = "http://" + location.host + "/article/prattle/" + pId;
     location.href=url;
-})
+});
 
 
 $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page) {
@@ -146,7 +138,7 @@ $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page)
         var length = data.length;
         data.forEach(function(item, index) {
             html += '<li class="item-content"><div class="item-inner"><div class="activity-card prattle" data-pId=' + item._id + '><div class="card-content"><img src=' + item.backImgPath + '><div class="img-desc"><span>' + item.title+ '</span></div></div></div></div></li>';
-        })
+        });
 
         // 添加新条目
         $('.infinite-scroll-bottom .list-container').append(html);
@@ -182,7 +174,7 @@ $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page)
 
             }
         }
-    })
+    });
 
 
 // 上次加载的序号
@@ -232,7 +224,7 @@ $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page)
         })
     });
 
-})
+});
 
 
 $.init();

@@ -19,7 +19,7 @@ var storage = multer.diskStorage({
     filename: function (req, file, cb) {
         cb(null, file.originalname);
     }
-})
+});
 var upload = multer({ storage: storage })
 var Prattle = require('../model/prattle');
 var repairInfo = require('../data/repair');
@@ -66,10 +66,10 @@ module.exports = function(app) {
 
     //  登陆成功页面
     app.get('/welcome', function(req, res) {
-        res.render('index', {
-            title: "首页",
+        res.render('self', {
+            title: "个人信息"
         })
-    })
+    });
 
 
     //  修改个人信息
@@ -345,8 +345,8 @@ module.exports = function(app) {
         var qq = req.body.qq;
         var school = req.body.school;
         // var department = req.body.department;
-        console.log("*********logging from /self*****req.body", req.body);
-        console.log("*********logging from /self*****req.session.user", req.session.user);
+        console.log("*********logging from /self*****req.body\n", req.body);
+        console.log("*********logging from /self*****req.session.user\n", req.session.user);
         User.findByIdAndUpdate({_id: req.session.user._id}, {
             // name: name,
             // gender: gender,
@@ -396,7 +396,7 @@ module.exports = function(app) {
         })
 
 
-    })
+    });
 
     // 返回学校信息
     app.get('/school', function(req, res) {
@@ -433,12 +433,12 @@ module.exports = function(app) {
             if (item.school == req.session.user.school) {
                 info = item;
             }
-        })
+        });
         res.render('repair',{
             title: "公物报修",
             info: repairInfo
         })
-    })
+    });
     app.use('/treehole', treehole);
     app.use('/secondHand',  secondHand);
     app.use('/lost', lost);
