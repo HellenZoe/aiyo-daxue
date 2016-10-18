@@ -56,7 +56,7 @@ if (!window.utils.getFromLocal('userInfo')) {
   						// alert(window.localStorage.getItem("userInfo"));
   						// console.log("save userInfo success", window.getFromLocal("userInfo"));
   						window.utils.saveToLocal("userInfo", data.userInfo);
-  						// alert(window.utils.getFromLocal("userInfo"));
+  						alert(window.utils.getFromLocal("userInfo"));
   					}
 
             console.log("上传成功");
@@ -100,6 +100,7 @@ if (!window.utils.getFromLocal('userInfo')) {
 
 
 if (!window.utils.getFromLocal('userInfo')) {
+  alert(window.utils.getFromLocal('userInfo'));
   $.alert("登陆后才能浏览", "没有登陆", function() {
     QC.Login.showPopup({
       appId: "101351420",
