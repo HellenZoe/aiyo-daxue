@@ -38,7 +38,7 @@ if (!window.utils.getFromLocal('userInfo')) {
       }
 
 			window.utils.saveToLocal("userInfo", userInfo);
-			alert(window.utils.getFromLocal("userInfo")+"here");
+			alert(JSOn.stringify(window.utils.getFromLocal("userInfo"))+"here");
   		// $('.gotoSelf').attr('href', redirectUrl);
   		//  把用户登陆信息提交到服务端 存储到数据库
   	  var url = "http://" + location.host + "/user"
