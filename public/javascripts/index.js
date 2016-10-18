@@ -96,15 +96,15 @@ if (!window.utils.getFromLocal('userInfo')) {
 }
 
 
-// if (!window.utils.getFromLocal('userInfo')) {
-//   alert(JSON.stringify(window.utils.getFromLocal('userInfo'))+ "haha");
-//   $.alert("登陆后才能浏览", "没有登陆", function() {
-//     QC.Login.showPopup({
-//       appId: "101351420",
-//       redirectURI: "http://s-289167.abc188.com/welcome"
-//     });
-//   });
-// }
+if (!window.utils.getFromLocal('userInfo')) {
+  alert(JSON.stringify(window.utils.getFromLocal('userInfo'))+ "haha");
+  $.alert("登陆后才能浏览", "没有登陆", function() {
+    QC.Login.showPopup({
+      appId: "101351420",
+      redirectURI: "http://s-289167.abc188.com/welcome"
+    });
+  });
+}
 
 $('.check').on('click', function(e) {
     var crtService = $(this).attr('href');
