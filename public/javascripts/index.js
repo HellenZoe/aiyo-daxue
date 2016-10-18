@@ -14,11 +14,10 @@ $(function() {
 if (!window.utils.getFromLocal('userInfo')) {
     alert(JSON.stringify(window.utils.getFromLocal('userInfo'))+ "haha");
     $.alert("登陆后才能浏览", "没有登陆", function() {
-        QC.Login.showPopup();
-        // {
-        //     appId: "101351420",
-        //         redirectURI: "http://s-289167.abc188.com/welcome"
-        // }
+        QC.Login.showPopup({
+            appId: "101351420",
+            redirectURI: "http://s-289167.abc188.com/welcome"
+        });
     });
 }
 if (!window.utils.getFromLocal('userInfo')) {
@@ -48,13 +47,13 @@ if (!window.utils.getFromLocal('userInfo')) {
                 avatarUrl: avatarUrl,
                 gender: gender,
                 redirectUrl: redirectUrl
-            }
+            };
 
             window.utils.saveToLocal("userInfo", userInfo);
-            alert(JSOn.stringify(window.utils.getFromLocal("userInfo"))+"here");
+            alert(JSON.stringify(window.utils.getFromLocal("userInfo"))+"here");
             // $('.gotoSelf').attr('href', redirectUrl);
             //  把用户登陆信息提交到服务端 存储到数据库
-            var url = "http://" + location.host + "/user"
+            var url = "http://" + location.host + "/user";
             $.ajax({
                 type: "POST",
                 url: url,
