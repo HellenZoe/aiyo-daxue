@@ -16,12 +16,11 @@ if (!window.utils.getFromLocal('userInfo')) {
         QC.api("get_user_info")
         //指定接口访问成功的接收函数，s为成功返回Response对象
             .success(function(s){
-                console.log("post success");
                 //成功回调，通过s.data获取OpenAPI的返回数据
                 $.hidePreloader();
                 // showHint("获取信息成功", "success");
 
-
+                console.log('login success');
                 // 获取参数
                 var userName = s.data.nickname;
                 var avatarUrl = s.data.figureurl_qq_1;
@@ -41,7 +40,6 @@ if (!window.utils.getFromLocal('userInfo')) {
                 };
 
                 window.utils.saveToLocal("userInfo", userInfo);
-                alert(JSON.stringify(window.utils.getFromLocal("userInfo"))+"here");
                 // $('.gotoSelf').attr('href', redirectUrl);
                 //  把用户登陆信息提交到服务端 存储到数据库
                 var url = "http://" + location.host + "/user";
@@ -85,13 +83,13 @@ if (!window.utils.getFromLocal('userInfo')) {
             //指定接口访问失败的接收函数，f为失败返回Response对象
             .error(function(f){
                 //失败回调
-                alert("post error");
                 // showHint("获取信息失败,麻烦重新登陆", "fail");
+                console.log('login error:',f);
             })
             //指定接口完成请求后的接收函数，c为完成请求返回Response对象
             .complete(function(c){
                 //完成请求回调
-                alert("post complete");
+                console.log('login complete:',c);
             });
     }else{
         $.alert("登陆后才能浏览", "没有登陆", function() {
