@@ -107,11 +107,11 @@ $(function() {
         }
 
 
-    })
+    });
 
 
     $('.school input').on('click', function(e) {
-
+        e.preventDefault();
         //  清除
         $('#school_list').empty();
         $.showPreloader();
