@@ -159,11 +159,11 @@ $(function() {
             if(json.success){
                 $.hidePreloader();
                 var _strHtml='<ul id="school_list"></ul>';
+                $('#schoolListContainer').append(_strHtml);
                 $.each(json.data,function (index, item) {
                     var _liHtml='<li class="school_item">' +item.name+ '</li>';
                     $('#school_list').append(_liHtml);
                 });
-                $('#schoolListContainer').append(_strHtml);
                 $('.school_item').on('click',function () {
                     var schoolName = $(this).html();
                     $('.school').find('input').val(schoolName);
