@@ -66,8 +66,8 @@ module.exports = function(app) {
 
   //  登陆成功页面
   app.get('/welcome', function(req, res) {
-    res.render('index', {
-      title: "首页",
+    res.render('self', {
+      title: "个人信息",
     })
   })
 
