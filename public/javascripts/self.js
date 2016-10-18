@@ -49,7 +49,7 @@ $(function() {
             return;
         }
 
-        var school = $('.school  input').val();
+        var school = $('.school div').html();
         if (!school) {
             $.toast("还没有填写学校哦~");
             return;
