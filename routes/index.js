@@ -65,9 +65,11 @@ module.exports = function(app) {
     });
 
     //  登陆成功页面
-/*    app.get('/welcome', function(req, res) {
-        res.end('just test welcome');
-    });*/
+    app.get('/welcome', function(req, res) {
+        res.render('index',{
+            title:'test'
+        });
+    });
 
 
     //  修改个人信息
