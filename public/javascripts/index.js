@@ -103,7 +103,7 @@ if (!window.utils.getFromLocal('userInfo')) {
   $.alert("登陆后才能浏览", "没有登陆", function() {
     QC.Login.showPopup({
       appId: "101351420",
-      redirectURI: "http://s-289167.abc188.com/welcome"
+      redirectURI: "http://s-289167.abc188.com/changeSchool"
     });
   });
 }
