@@ -127,7 +127,7 @@ $(function() {
                 });
                 $('.school_item').on('click',function () {
                     var schoolName = $(this).html();
-                    $('.school').find('input').val(schoolName);
+                    $('.school div').html(schoolName);
                     $('#selectSchool').hide();
                 })
 
