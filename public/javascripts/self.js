@@ -158,10 +158,10 @@ $(function() {
         $.get(url,function (json) {
             if(json.success){
                 $.hidePreloader();
-                var _strHtml='<ul></ul>';
+                var _strHtml='<ul id="school_list"></ul>';
                 $.each(json.data,function (index, item) {
                     var _liHtml='<li class="school_item">' +item.name+ '</li>';
-                    _strHtml.append(_liHtml);
+                    $('#school_list').append(_liHtml);
                 });
                 $('#schoolListContainer').append(_strHtml);
                 $('.school_item').on('click',function () {
