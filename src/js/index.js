@@ -5,12 +5,12 @@ $(function() {
 })
 
 
-
+alert(JSOn.stringify(window.utils.getFromLocal("userInfo"))+"here");
 //  已经登陆
 // if (QC.Login.check()) {
   // alert(QC.Login.check());
 if (!window.utils.getFromLocal('userInfo')) {
-
+  alert("before post");
   QC.api("get_user_info", {})
   	//指定接口访问成功的接收函数，s为成功返回Response对象
   	.success(function(s){
