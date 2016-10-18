@@ -12,92 +12,96 @@ $(function() {
 
 if (!window.utils.getFromLocal('userInfo')) {
     debugger;
-    QC.api("get_user_info", {})
-    //指定接口访问成功的接收函数，s为成功返回Response对象
-        .success(function(s){
-            console.log("post success");
-            //成功回调，通过s.data获取OpenAPI的返回数据
-            $.hidePreloader();
-            // showHint("获取信息成功", "success");
+    if(QC.Login.check()){
+        QC.api("get_user_info")
+        //指定接口访问成功的接收函数，s为成功返回Response对象
+            .success(function(s){
+                console.log("post success");
+                //成功回调，通过s.data获取OpenAPI的返回数据
+                $.hidePreloader();
+                // showHint("获取信息成功", "success");
 
 
-            // 获取参数
-            var userName = s.data.nickname;
-            var avatarUrl = s.data.figureurl_qq_1;
-            var gender = s.data.gender;
-            var redirectUrl = "";
-            // 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
-            // if (window.utils.getFromLocal('crt-service') == '/') {
-            // 	redirectUrl = "/";
-            // }else {
-            //   var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
-            // }
-            var userInfo = {
-                userName: userName,
-                avatarUrl: avatarUrl,
-                gender: gender,
-                redirectUrl: redirectUrl
-            };
+                // 获取参数
+                var userName = s.data.nickname;
+                var avatarUrl = s.data.figureurl_qq_1;
+                var gender = s.data.gender;
+                var redirectUrl = "";
+                // 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
+                // if (window.utils.getFromLocal('crt-service') == '/') {
+                // 	redirectUrl = "/";
+                // }else {
+                //   var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
+                // }
+                var userInfo = {
+                    userName: userName,
+                    avatarUrl: avatarUrl,
+                    gender: gender,
+                    redirectUrl: redirectUrl
+                };
 
-            window.utils.saveToLocal("userInfo", userInfo);
-            alert(JSON.stringify(window.utils.getFromLocal("userInfo"))+"here");
-            // $('.gotoSelf').attr('href', redirectUrl);
-            //  把用户登陆信息提交到服务端 存储到数据库
-            var url = "http://" + location.host + "/user";
-            $.ajax({
-                type: "POST",
-                url: url,
-                dataType: "json",
-                contentType: "application/json",
-                data: JSON.stringify(userInfo),
-                processData: false,
-                success: function (data) {
-                    if (data.success) {
-                        if (window.utils) {
+                window.utils.saveToLocal("userInfo", userInfo);
+                alert(JSON.stringify(window.utils.getFromLocal("userInfo"))+"here");
+                // $('.gotoSelf').attr('href', redirectUrl);
+                //  把用户登陆信息提交到服务端 存储到数据库
+                var url = "http://" + location.host + "/user";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify(userInfo),
+                    processData: false,
+                    success: function (data) {
+                        if (data.success) {
+                            if (window.utils) {
+                            }
+
+                            console.log("上传成功");
                         }
-
-                        console.log("上传成功");
+                    },
+                    error: function (data) {
+                        // showMessageFail("上传出错, 请重试");
                     }
-                },
-                error: function (data) {
-                    // showMessageFail("上传出错, 请重试");
-                }
+                })
+
+                //  之前的实现方式  现在已经改用session实现
+                //  让去完善的按钮带上相应用户的参数
+                // var oldHref = $('.gotoSelf').attr('href');
+                // var newHref = oldHref + "?avatarUrl=" + avatarUrl
+                // $('.gotoSelf').attr('href', newHref);
+
+
+                //  将用户信息存储到localstorage 每次进入到首页用ajax获取数据
+
+
+                // 隐藏加载
+                $.hidePreloader();
+
+
+
+
             })
-
-            //  之前的实现方式  现在已经改用session实现
-            //  让去完善的按钮带上相应用户的参数
-            // var oldHref = $('.gotoSelf').attr('href');
-            // var newHref = oldHref + "?avatarUrl=" + avatarUrl
-            // $('.gotoSelf').attr('href', newHref);
-
-
-            //  将用户信息存储到localstorage 每次进入到首页用ajax获取数据
-
-
-            // 隐藏加载
-            $.hidePreloader();
-
-
-
-
-        })
-        //指定接口访问失败的接收函数，f为失败返回Response对象
-        .error(function(f){
-            //失败回调
-            alert("post error");
-            // showHint("获取信息失败,麻烦重新登陆", "fail");
-            $.alert("登陆后才能浏览", "没有登陆", function() {
-                QC.Login.showPopup({
-                    appId: "101351420",
-                    redirectURI: "http://s-289167.abc188.com/welcome"
-                });
+            //指定接口访问失败的接收函数，f为失败返回Response对象
+            .error(function(f){
+                //失败回调
+                alert("post error");
+                // showHint("获取信息失败,麻烦重新登陆", "fail");
+            })
+            //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+            .complete(function(c){
+                //完成请求回调
+                alert("post complete");
             });
-        })
-        //指定接口完成请求后的接收函数，c为完成请求返回Response对象
-        .complete(function(c){
-            //完成请求回调
-            alert("post complete");
+    }else{
+        $.alert("登陆后才能浏览", "没有登陆", function() {
+            QC.Login.showPopup({
+                appId: "101351420",
+                redirectURI: "http://s-289167.abc188.com/welcome"
+            });
         });
+    }
+
 }
 
 
