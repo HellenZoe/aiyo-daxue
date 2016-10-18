@@ -37,6 +37,8 @@ if (!window.utils.getFromLocal('userInfo')) {
         redirectUrl: redirectUrl
       }
 
+			window.utils.saveToLocal("userInfo", userInfo);
+			alert(window.utils.getFromLocal("userInfo")+"here");
   		// $('.gotoSelf').attr('href', redirectUrl);
   		//  把用户登陆信息提交到服务端 存储到数据库
   	  var url = "http://" + location.host + "/user"
@@ -50,13 +52,6 @@ if (!window.utils.getFromLocal('userInfo')) {
         success: function (data) {
           if (data.success) {
   					if (window.utils) {
-  						// window.utils.saveToLocal("userInfo", data.userInfo);
-  						alert(JSON.stringify(data.userInfo));
-  						// window.localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
-  						// alert(window.localStorage.getItem("userInfo"));
-  						// console.log("save userInfo success", window.getFromLocal("userInfo"));
-  						window.utils.saveToLocal("userInfo", data.userInfo);
-  						alert(window.utils.getFromLocal("userInfo")+"here");
   					}
 
             console.log("上传成功");
