@@ -57,7 +57,7 @@ router.get('/', function(req, res) {
       }
     }
   })
-})
+});
 
 // 失物招领发布页面
 router.get('/post', function(req, res) {
@@ -73,7 +73,7 @@ router.get('/post', function(req, res) {
       })
     }
   })
-})
+});
 
 
 //  操作
@@ -89,12 +89,12 @@ router.post('/action', function(req, res) {
             success: true
           });
         }
-      })
+      });
       break;
     default:
 
   }
-})
+});
 
 //  发布新的失物
 router.post('/new', upload.single('test'), function(req, res) {
@@ -132,7 +132,7 @@ router.post('/new', upload.single('test'), function(req, res) {
             time: time,
             view: 0,
             type: type
-        })
+        });
         console.log("logging from ******************logging from /lost/new --losttosave", newLost);
         newLost.save(function(err, l) {
           if (err) {
@@ -168,7 +168,7 @@ router.post('/new', upload.single('test'), function(req, res) {
       }
     })
 
-})
+});
 
 
 // 查看失物详情

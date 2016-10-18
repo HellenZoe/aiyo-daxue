@@ -7,7 +7,7 @@ $(function() {
         qq: "",
         school: "",
         department: ""
-    }
+    };
 
     $('.done').on('click', function(e) {
 
@@ -115,12 +115,10 @@ $(function() {
         e.preventDefault();
 
         //  清除
-        $('#schoolListContainer ul').remove();
+        $('#schoolListContainer').find('ul').remove();
         $.showPreloader();
-
         var url = "http://" + location.host + "/school";
-
-        $.ajax({
+        /*$.ajax({
             type: 'GET',
             url: url,
             dataType: "json",
@@ -156,6 +154,23 @@ $(function() {
             error: function (data) {
                 // showMessageFail("上传出错, 请重试");
             }
+        });*/
+        $.get(url,function (json) {
+            if(json.success){
+                $.hidePreloader();
+                var _strHtml='<ul></ul>';
+                $.each(json.data,function (index, item) {
+                    var _liHtml='<li class="school_item">' +item.name+ '</li>';
+                    _strHtml.append(_liHtml);
+                });
+                $('#schoolListContainer').append(_strHtml);
+                $('.school_item').on('click',function () {
+                    var schoolName = $(this).html();
+                    $('.school').find('input').val(schoolName);
+                    $('.backEdit').trigger('click');
+                })
+
+            }
         })
     })
-})
+});
