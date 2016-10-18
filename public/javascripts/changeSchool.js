@@ -34,7 +34,7 @@ $(function() {
     //   return;
     // }
 
-    var school = $('.school  input').val();
+    var school = $('.school div').html();
     if (!school) {
       $.toast("还没有填写学校哦~");
       return;
@@ -98,53 +98,29 @@ $(function() {
   })
 
 
-  $('.school input').on('click', function(e) {
-    //  阻止默认事件
-    e.preventDefault();
+    $('.school div').on('click', function(e) {
+        //  清除
+        $('#school_list').empty();
+        $.showPreloader();
+        $('#selectSchool').show();
+        var url = "http://" + location.host + "/school";
+        $.get(url,function (json) {
+            if(json.success){
+                $.hidePreloader();
+                var _strHtml='<ul id="school_list"></ul>';
+                $('#schoolListContainer').append(_strHtml);
+                $.each(json.data,function (index, item) {
+                    var _liHtml='<li class="school_item">' +item.name+ '</li>';
+                    $('#school_list').append(_liHtml);
+                });
+                $('.school_item').on('click',function () {
+                    var schoolName = $(this).html();
+                    $('.school div').html(schoolName)
+                        .removeClass('c_gray');
+                    $('#selectSchool').hide();
+                })
 
-    //  清除
-    $('#schoolListContainer ul').remove();
-    $.showPreloader();
-
-    var url = "http://" + location.host + "/school";
-
-    $.ajax({
-    		type: 'GET',
-    		url: url,
-        dataType: "json",
-  			contentType: "application/json",
-    		processData: false,
-    		success: function (data) {
-    			if (data.success) {
-            $.hidePreloader();
-
-            var list = document.createElement('ul');
-            data.data.forEach(function(item, index) {
-              var li = document.createElement('li');
-              li.innerHTML = item.name;
-              // li.setAttribute("href", "#editInfo");
-              //  添加点击事件
-              $(li).on('click', function(e) {
-                console.log($(this));
-                var schoolName = $(this).html();
-                console.log(schoolName);
-                $('.school input').val(schoolName);
-                //  返回编辑页面
-                $('.backEdit').trigger('click');
-                // location.href="http://" + location.host + "/changeSchool#editInfo";
-                console.log('fuck');
-                return true;
-              })
-              list.appendChild(li);
-            })
-
-            var container = document.getElementById("schoolListContainer");
-            container.appendChild(list);
-    			}
-    		},
-    		error: function (data) {
-    				// showMessageFail("上传出错, 请重试");
-    		}
+            }
+        })
     })
-  })
-})
+});

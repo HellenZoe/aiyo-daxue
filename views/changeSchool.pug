@@ -6,61 +6,18 @@ block styles
 block content
   div.page-group
     div.page.page-current#editInfo
-      //- header(class="bar bar-nav back-blue")
-      //-   a.button.button-link.button-nav.treehole-back.pull-left.external(href="/")
-      //-     span.icon.icon-left.text-white
-      //-   a.button.button-link.button-nav.pull-right.external.text-white.finishPost 完成
-      //-   h1.title.text-white 个人信息
-      
       div.content
         div.user-info
-          //- div.name
-          //-   h3 姓名
-          //-   input.border-bottom(placeholder="填写姓名")
-          //- div.gender
-          //-   h3 性别
-          //-   input.border-bottom(placeholder="填写性别")
-          //- div.tel
-            //- - var tel  = userInfo.tel
-            h3 电话
-            if userInfo
-              input.border-bottom(placeholder="填写电话" value= userInfo.tel)
-            else
-              input.border-bottom(placeholder="填写电话")                
-          //- div.qq
-            //- - var qq = userInfo.qq
-            h3 qq
-            if userInfo
-              input.border-bottom(placeholder="填写qq" value= userInfo.qq)
-            else
-              input.border-bottom(placeholder="填写qq")              
           div.school
             h3 学校
-            a(href="#selectSchool")
-              if userInfo
-                input.border-bottom(placeholder="填写学校" value= userInfo.school)
-              else
-                input.border-bottom(placeholder="填写学校")                  
+            if userInfo.school
+              div.border-bottom #{userInfo.school}
+            else
+              div.border-bottom.c_gray 选择学校
               
-          //- div.department
-          //-   //- - var department = userInfo.department
-          //-   h3 宿舍地址
-          //-   input.border-bottom(placeholder="填写宿舍地址" value= userInfo.department)
-          
           div.submit
             button.success.done  完成
     div.page#selectSchool
-      //- header.bar.bar-nav.back-blue
-        a.button.button-link.button-nav.pull-left.backEdit(href="#editInfo")
-      //-     span.icon.icon-left.text-white
-      //-   h1.title.text-white  树洞
-      a.link.backEdit(href="#editInfo")      
-      //- div.bar.bar-header-secondary.schoolSearchBar
-      //-   div.searchbar
-      //-     a.searchbar-cancel 取消
-      //-     div.search-input
-      //-       label.icon.icon-search(for="search")
-      //-       input#search(type="search", placeholder="搜索学校名称")     
       div.content-block#schoolListContainer
         div.welcome-hint 欢迎来到哎哟大学，哎哟大学正在努力涵盖所有大学，若现在没有您的大学，请给我们一些时间
         
