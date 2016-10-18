@@ -27,6 +27,23 @@ if (!window.utils.getFromLocal('userInfo')) {
                     };
                     window.utils.saveToLocal("userInfo", userInfo);
                     console.log('userInfo',JSON.stringify(userInfo));
+                    var url = "http://" + location.host + "/user";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: JSON.stringify(userInfo),
+                        processData: false,
+                        success: function (data) {
+                            if (data.success) {
+                                console.log("上传成功");
+                            }
+                        },
+                        error: function (data) {
+                            // showMessageFail("上传出错, 请重试");
+                        }
+                    });
                 });
 
                 // 获取参数
@@ -41,23 +58,7 @@ if (!window.utils.getFromLocal('userInfo')) {
 
                 // $('.gotoSelf').attr('href', redirectUrl);
                 //  把用户登陆信息提交到服务端 存储到数据库
-                var url = "http://" + location.host + "/user";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    dataType: "json",
-                    contentType: "application/json",
-                    data: JSON.stringify(userInfo),
-                    processData: false,
-                    success: function (data) {
-                        if (data.success) {
-                            console.log("上传成功");
-                        }
-                    },
-                    error: function (data) {
-                        // showMessageFail("上传出错, 请重试");
-                    }
-                });
+
 
                 //  之前的实现方式  现在已经改用session实现
                 //  让去完善的按钮带上相应用户的参数
