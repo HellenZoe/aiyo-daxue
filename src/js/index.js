@@ -25,11 +25,11 @@ if (!window.utils.getFromLocal('userInfo')) {
       var gender = s.data.gender;
   		var redirectUrl = "";
   		// 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
-  		if (window.utils.getFromLocal('crt-service') == '/') {
-  			redirectUrl = "/";
-  		}else {
-  	    var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
-  		}
+  		// if (window.utils.getFromLocal('crt-service') == '/') {
+  		// 	redirectUrl = "/";
+  		// }else {
+  	  //   var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
+  		// }
       var userInfo = {
         userName: userName,
         avatarUrl: avatarUrl,
@@ -82,7 +82,7 @@ if (!window.utils.getFromLocal('userInfo')) {
   	//指定接口访问失败的接收函数，f为失败返回Response对象
   	.error(function(f){
   		//失败回调
-
+      alert("post error");
       // showHint("获取信息失败,麻烦重新登陆", "fail");
   	})
   	//指定接口完成请求后的接收函数，c为完成请求返回Response对象
