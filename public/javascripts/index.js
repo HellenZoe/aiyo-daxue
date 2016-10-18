@@ -19,27 +19,26 @@ if (!window.utils.getFromLocal('userInfo')) {
                 //成功回调，通过s.data获取OpenAPI的返回数据
                 $.hidePreloader();
                 // showHint("获取信息成功", "success");
+                QC.Login.getMe(function(openId, accessToken){
+                    var userInfo={
+                        name:s.data.nickname,
+                        openId:openId,
+                        token:accessToken
+                    };
+                    window.utils.saveToLocal("userInfo", userInfo);
+                    console.log('userInfo',JSON.stringify(userInfo));
+                });
 
-                console.log('login success');
                 // 获取参数
-                var userName = s.data.nickname;
-                var avatarUrl = s.data.figureurl_qq_1;
-                var gender = s.data.gender;
-                var redirectUrl = "";
+
+
                 // 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
                 // if (window.utils.getFromLocal('crt-service') == '/') {
                 // 	redirectUrl = "/";
                 // }else {
                 //   var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
                 // }
-                var userInfo = {
-                    userName: userName,
-                    avatarUrl: avatarUrl,
-                    gender: gender,
-                    redirectUrl: redirectUrl
-                };
 
-                window.utils.saveToLocal("userInfo", userInfo);
                 // $('.gotoSelf').attr('href', redirectUrl);
                 //  把用户登陆信息提交到服务端 存储到数据库
                 var url = "http://" + location.host + "/user";
@@ -52,16 +51,13 @@ if (!window.utils.getFromLocal('userInfo')) {
                     processData: false,
                     success: function (data) {
                         if (data.success) {
-                            if (window.utils) {
-                            }
-
                             console.log("上传成功");
                         }
                     },
                     error: function (data) {
                         // showMessageFail("上传出错, 请重试");
                     }
-                })
+                });
 
                 //  之前的实现方式  现在已经改用session实现
                 //  让去完善的按钮带上相应用户的参数

@@ -26,7 +26,7 @@ var utils = {
     return false;
   }
 
-}
+};
 
 
 if (window) {
