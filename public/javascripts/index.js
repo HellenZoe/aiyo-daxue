@@ -9,9 +9,9 @@ $(function() {
 //  已经登陆
 // if (QC.Login.check()) {
   // alert(QC.Login.check());
-if (!window.utils.getFromLocal('userInfo')) {
+  if (!window.utils.getFromLocal('userInfo')) {
 
-  QC.api("get_user_info", {})
+    QC.api("get_user_info", {})
   	//指定接口访问成功的接收函数，s为成功返回Response对象
   	.success(function(s){
   		//成功回调，通过s.data获取OpenAPI的返回数据
@@ -20,36 +20,36 @@ if (!window.utils.getFromLocal('userInfo')) {
 
 
         // 获取参数
-      var userName = s.data.nickname;
-      var avatarUrl = s.data.figureurl_qq_1;
-      var gender = s.data.gender;
-  		var redirectUrl = "";
+        var userName = s.data.nickname;
+        var avatarUrl = s.data.figureurl_qq_1;
+        var gender = s.data.gender;
+        var redirectUrl = "";
   		// 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
   		if (window.utils.getFromLocal('crt-service') == '/') {
   			redirectUrl = "/";
   		}else {
-  	    var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
-  		}
-      var userInfo = {
-        userName: userName,
-        avatarUrl: avatarUrl,
-        gender: gender,
-        redirectUrl: redirectUrl
-      }
+       var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
+     }
+     var userInfo = {
+      userName: userName,
+      avatarUrl: avatarUrl,
+      gender: gender,
+      redirectUrl: redirectUrl
+    }
 
   		// $('.gotoSelf').attr('href', redirectUrl);
   		//  把用户登陆信息提交到服务端 存储到数据库
-  	  var url = "http://" + location.host + "/user"
-      $.ajax({
-        type: "POST",
-        url: url,
-        dataType: "json",
-  			contentType: "application/json",
-        data: JSON.stringify(userInfo),
-        processData: false,
-        success: function (data) {
-          if (data) {
-  					if (window.utils) {
+     var url = "http://" + location.host + "/user"
+     $.ajax({
+      type: "POST",
+      url: url,
+      dataType: "json",
+      contentType: "application/json",
+      data: JSON.stringify(userInfo),
+      processData: false,
+      success: function (data) {
+        if (data) {
+         if (window.utils) {
   						// window.utils.saveToLocal("userInfo", data.userInfo);
   						// alert(JSON.stringify(data.userInfo));
   						// window.localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
@@ -64,8 +64,8 @@ if (!window.utils.getFromLocal('userInfo')) {
         },
         error: function (data) {
             // showMessageFail("上传出错, 请重试");
-        }
-      })
+          }
+        })
 
   		//  之前的实现方式  现在已经改用session实现
   		//  让去完善的按钮带上相应用户的参数
@@ -83,32 +83,32 @@ if (!window.utils.getFromLocal('userInfo')) {
 
 
 
-  	})
+    })
   	//指定接口访问失败的接收函数，f为失败返回Response对象
   	.error(function(f){
   		//失败回调
 
       // showHint("获取信息失败,麻烦重新登陆", "fail");
-  	})
+    })
   	//指定接口完成请求后的接收函数，c为完成请求返回Response对象
   	.complete(function(c){
   		//完成请求回调
   	});
 
 
-}
+  }
 
 
-if (!window.utils.getFromLocal('userInfo')) {
-  $.alert("登陆后才能浏览", "没有登陆", function() {
-    QC.Login.showPopup({
-      appId: "101351420",
-      redirectURI: "http://s-289167.abc188.com/welcome"
+  if (!window.utils.getFromLocal('userInfo')) {
+    $.alert("登陆后才能浏览", "没有登陆", function() {
+      QC.Login.showPopup({
+        appId: "101351420",
+        redirectURI: "http://s-289167.abc188.com/changeSchool"
+      });
     });
-  });
-}
+  }
 
-$('.check').on('click', function(e) {
+  $('.check').on('click', function(e) {
     var crtService = $(this).attr('href');
     window.utils.saveToLocal('crtService', crtService);
     //  查看是否已经有学校信息
@@ -118,14 +118,14 @@ $('.check').on('click', function(e) {
       return false;
     }
     return true;
-})
+  })
 
 
-$('.more').on('click', function(e) {
-  e.preventDefault();
+  $('.more').on('click', function(e) {
+    e.preventDefault();
 
-  $.alert("功能正在完善中.敬请期待!")
-})
+    $.alert("功能正在完善中.敬请期待!")
+  })
 
 
 //  校园情话
@@ -158,17 +158,17 @@ function addItems(data) {
         // 添加新条目
         $('.infinite-scroll-bottom .list-container').append(html);
 
-}
+      }
 
 
-$.ajax({
-  url: "http://" + location.host + "/activity?lastIndex=0&num=" + itemsPerLoad,
-	type: 'GET',
-  dataType: "json",
-	contentType: "application/json",
-	processData: false,
-  success: function(data) {
-    if (data.success) {
+      $.ajax({
+        url: "http://" + location.host + "/activity?lastIndex=0&num=" + itemsPerLoad,
+        type: 'GET',
+        dataType: "json",
+        contentType: "application/json",
+        processData: false,
+        success: function(data) {
+          if (data.success) {
       // 重置加载flag
       loading = false;
 
@@ -201,7 +201,7 @@ console.log(lastIndex);
 // 注册'infinite'事件处理函数
 $(page).on('infinite', function() {
 
-    console.log(loading);
+  console.log(loading);
     // 如果正在加载，则退出
     if (loading) return;
 
@@ -209,10 +209,10 @@ $(page).on('infinite', function() {
     loading = true;
     $.ajax({
       url: "http://" + location.host + "/activity?lastIndex=" + lastIndex + "&num=" + itemsPerLoad,
-  		type: 'GET',
+      type: 'GET',
       dataType: "json",
-			contentType: "application/json",
-  		processData: false,
+      contentType: "application/json",
+      processData: false,
       success: function(data) {
         if (data.success) {
           // 重置加载flag
@@ -227,7 +227,7 @@ $(page).on('infinite', function() {
               // 删除加载提示符
               $('.infinite-scroll-preloader').remove();
               return;
-          }
+            }
 
           // 更新最后加载的序号
           lastIndex = $('.list-container li').length;
@@ -237,7 +237,7 @@ $(page).on('infinite', function() {
         }
       }
     })
-});
+  });
 
 })
 
