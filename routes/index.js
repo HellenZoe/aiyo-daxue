@@ -79,7 +79,7 @@ module.exports = function(app) {
                 if (err) {
                     console.log(err);
                 }else {
-                    console.log("*************logging from /self************userinfo", doc[0]);
+                    console.log("*************logging from /self************userInfo :", JSON.stringify(doc[0]));
                     res.render('self', {
                         title: "个人信息",
                         userInfo: doc[0]
