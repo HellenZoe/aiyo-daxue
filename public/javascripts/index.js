@@ -95,7 +95,7 @@ if (!window.utils.getFromLocal('userInfo')) {
 
 
 if (!window.utils.getFromLocal('userInfo')) {
-  alert(JSON.parse(window.utils.getFromLocal('userInfo'))+ "haha");
+  alert(JSON.stringify(window.utils.getFromLocal('userInfo'))+ "haha");
   $.alert("登陆后才能浏览", "没有登陆", function() {
     QC.Login.showPopup({
       appId: "101351420",
