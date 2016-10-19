@@ -66,9 +66,10 @@ module.exports = function(app) {
 
     //  修改个人信息页面
     app.get('/self', function(req, res) {
+        console.log("=======================get /self userInfo====================\n",
+            JSON.stringify(req.session.user));
         if (req.session.user) {
-            console.log("=======================get /self userInfo====================\n",
-                JSON.stringify(req.session.user));
+
             User.findOne({_id: req.session.user._id}, function(err, doc) {
                 if (err) {
                     console.log('get /self findOne error:',err);
