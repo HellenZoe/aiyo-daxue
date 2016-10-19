@@ -381,14 +381,20 @@ module.exports = function(app) {
             avatarUrl: req.body.avatarUrl,
             redirectUrl: req.body.redirectUrl
         });
-        console.log("*******************logging from /user************************\n", JSON.stringify(newUser));
+        console.log(
+            "*******************logging from /user************************\n",
+            JSON.stringify(newUser));
         newUser.save(function(err, user) {
             if (err) {
                 console.log("save user error!");
             }else {
                 // 将user存储到session 保持用户登陆
                 req.session.user = user;
-                console.log("*************************logging from /user*********************\n", JSON.stringify(req.session));
+                console.log(
+                    "*************************logging from /user*********************\n",
+                    JSON.stringify(req.session.cookie),
+                    JSON.stringify(req.session.user)
+                );
                 // res.redirect(redirectUrl);
                 res.json({
                     userInfo: user
