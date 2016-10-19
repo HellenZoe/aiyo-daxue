@@ -31,7 +31,7 @@ if (!window.utils.getFromLocal('userInfo')) {
                         url: url,
                         dataType: "json",
                         contentType: "application/json",
-                        data: userInfo,
+                        data: JSON.stringify(userInfo),
                         success: function (data) {
                             if (data.success) {
                                 console.log("上传成功");
