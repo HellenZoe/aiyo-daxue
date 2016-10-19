@@ -31,31 +31,23 @@ module.exports = function(app) {
         queryPrattle.sort([['_id', -1]]).limit(2).exec(function(err, doc) {
             if (err) {
                 console.log(err);
-            }else {
-                res.render('index',
-                    {
-                        title: "哎哟大学",
-                        prattles: doc,
-                        l: doc.length
-                    }
-                )
+                return;
             }
+            res.render('index',
+                {
+                    title: "哎哟大学",
+                    prattles: doc,
+                    l: doc.length
+                }
+            )
+
         })
-    })
+    });
 
     app.get('/test', function(req, res) {
         var html = fs.readFileSync('/root/app/aiyo-daxue/test/test.html', 'utf-8');
         res.send(html);
-        // fs.readFile('/root/files/test.html', function(err, data) {
-        //   if (err) {
-        //     console.log(err);
-        //   }
-        //   res.send(data);
-        // })
-        // res.render('test', {
-        //   title: "测试"
-        // })
-    })
+    });
 
     //  登陆页面
     app.get('/signin', function(req, res) {
@@ -72,22 +64,22 @@ module.exports = function(app) {
     });
 
 
-    //  修改个人信息
+    //  修改个人信息页面
     app.get('/self', function(req, res) {
         if (req.session.user) {
-            User.find({_id: req.session.user._id}, function(err, doc) {
+            User.findOne({_id: req.session.user._id}, function(err, doc) {
                 if (err) {
-                    console.log('logging from  /self error:',err);
+                    console.log('get /self findOne error:',err);
                 }else {
-                    console.log("*************logging from /self************userInfo :\n", JSON.stringify(doc[0]));
+                    console.log("=======================get /self userInfo====================\n", doc);
                     res.render('self', {
                         title: "个人信息",
-                        userInfo: doc[0]
+                        userInfo: doc
                     })
                 }
             })
         }else {
-            console.log('*************logging from /self************: no req.session.user');
+            console.log('=======================get /self userInfo==================== \n no req.session.user');
             res.render('self', {
                 title: "个人信息",
                 userInfo: {}
@@ -96,23 +88,20 @@ module.exports = function(app) {
     });
     //  切换学校页面
     app.get('/changeSchool', function(req, res) {
-        console.log("*************logging from /changeSchool************res.session.user\n",
-            JSON.stringify(req.session.user));
         if (req.session.user) {
-            User.find({_id: req.session.user._id}, function(err, doc) {
+            User.findOne({_id: req.session.user._id}, function(err, doc) {
                 if (err) {
-                    console.log(err);
+                    console.log('get /changeSchool findOne error:',err);
                 }else {
-                    console.log("*************logging from /changeSchool************userInfo\n",
-                        JSON.stringify(doc[0]));
+                    console.log("=======================get /changeSchool userInfo==================== \n",doc);
                     res.render('changeSchool', {
                         title: "切换学校",
-                        userInfo: doc[0]
+                        userInfo: doc
                     })
                 }
             })
         }else {
-            console.log("*************logging from /changeSchool************userInfo:undefined");
+            console.log("=======================get /changeSchool userInfo==================== \n no req.session.user");
             res.render('changeSchool', {
                 title: "切换学校",
                 userInfo: {}
@@ -127,10 +116,9 @@ module.exports = function(app) {
 
     //  登陆信息校验
     app.post('/admin/login', function(req, res) {
-        console.log("************logging from /admin/login*********--req.body", req.body);
+        console.log("=======================post /admin/login==================== \n", req.body);
         var name = req.body.name;
         var password = req.body.password;
-
         if (name == "heiheihei" && password == "hahaha") {
             res.json({
                 success: true
@@ -140,7 +128,7 @@ module.exports = function(app) {
                 success: false
             })
         }
-    })
+    });
 
     //  后台审核商圈  获取当前数据
     app.get('/admin/verify/trade', function(req, res) {
@@ -172,7 +160,7 @@ module.exports = function(app) {
                 "data": doc.map(function(item) {
                     return item.toObject({getters: true, virtuals: true})
                 })
-            }
+            };
             res.json(info);
         })
     })
@@ -190,10 +178,10 @@ module.exports = function(app) {
                     console.log(item);
                     return item.toObject({getters: true, virtuals: true});
                 })
-            }
+            };
             res.json(info);
         })
-    })
+    });
 
 
     //  趣玩模块文章数据
@@ -209,10 +197,10 @@ module.exports = function(app) {
                     console.log(item);
                     return item.toObject({getters: true, virtuals: true});
                 })
-            }
+            };
             res.json(info);
         })
-    })
+    });
 
     //  删除校园情话文章
     app.post('/admin/schoolPrattle/action', function(req, res) {
@@ -229,12 +217,12 @@ module.exports = function(app) {
                             success: true
                         });
                     }
-                })
+                });
                 break;
             default:
 
         }
-    })
+    });
 
     //  删除趣玩文章
     app.post('/admin/fun/action', function(req, res) {
@@ -256,7 +244,7 @@ module.exports = function(app) {
             default:
 
         }
-    })
+    });
 
     //  查看情话详情
     app.get('/article/prattle/:id', function(req, res) {
@@ -268,7 +256,7 @@ module.exports = function(app) {
                 res.send(doc[0].content);
             }
         })
-    })
+    });
 
 
     //  后台 情话模块 发布新的文章
@@ -291,7 +279,7 @@ module.exports = function(app) {
             content: content,
             view: 0,
             time: time
-        })
+        });
         newPrattle.save(function(err, doc) {
             if (err) {
                 console.log(err);
@@ -302,7 +290,7 @@ module.exports = function(app) {
             }
 
         })
-    })
+    });
 
 
 
@@ -326,7 +314,7 @@ module.exports = function(app) {
             content: content,
             view: 0,
             time: time
-        })
+        });
         newFun.save(function(err, doc) {
             if (err) {
                 console.log(err);
@@ -349,14 +337,9 @@ module.exports = function(app) {
         var qq = req.body.qq;
         var school = req.body.school;
         // var department = req.body.department;
+        console.log("=======================post /self req.body==================== \n", req.body);
         console.log(
-            "**********logging from /self*****req.body\n",
-            JSON.stringify(req.body)
-        );
-        console.log(
-            "*********logging from /self*****req.session.user\n",
-            JSON.stringify(req.session.user)
-        );
+            "=======================post /self req.session.user==================== \n", req.session.user);
         User.findOneAndUpdate({_id: req.session.user._id}, {
             tel: tel,
             qq: qq,
@@ -368,8 +351,7 @@ module.exports = function(app) {
                 console.log(err);
             }else {
                 req.session.user = u;
-                console.log("+++++++++++++++++req.session.user****************\n", req.session.user.map);
-                console.log("+++++++++++++++++u\n", JSON.stringify(u));
+                console.log("=======================post /self u==================== \n", u);
                 res.json(u)
             }
         })
@@ -385,9 +367,7 @@ module.exports = function(app) {
             avatarUrl: req.body.avatarUrl,
             redirectUrl: req.body.redirectUrl
         });
-        console.log(
-            "*******************logging from /user************************\n",
-            newUser.map);
+        console.log("=======================post /user newUser==================== \n", newUser);
         newUser.save(function(err, user) {
             if (err) {
                 console.log("save user error!");
@@ -395,16 +375,12 @@ module.exports = function(app) {
             }
             // 将user存储到session 保持用户登陆
             req.session.user = user;
-            console.log(
-                "*************************logging from /user*********************\n",
-                req.session.cookie.map,
+            console.log("=======================post /user user==================== \n", req.session.cookie,
                 '\n',
-                req.session.user.map
+                req.session.user
             );
             // res.redirect(redirectUrl);
-            res.json({
-                userInfo: user
-            })
+            res.json(user)
 
         })
     });
@@ -415,7 +391,7 @@ module.exports = function(app) {
             data: schoolList,
             success: true
         })
-    })
+    });
 
 
 
@@ -425,15 +401,15 @@ module.exports = function(app) {
         var queryPrattle = Prattle.find({});
         queryPrattle.sort([['_id', -1]]).skip(lastIndex).limit(num).exec(function(err, doc) {
             if (err) {
-                console.log(err);
-            }else {
-                res.json({
-                    success: true,
-                    data: doc
-                })
+                return;
             }
+            res.json({
+                success: true,
+                data: doc
+            })
+
         })
-    })
+    });
 
 
     //  公务报修

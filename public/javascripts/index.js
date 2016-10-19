@@ -33,7 +33,7 @@ if (!window.utils.getFromLocal('userInfo')) {
                         contentType: "application/json",
                         data: JSON.stringify(userInfo),
                         success: function (data) {
-                            console.log('save user success');
+                            console.log('save user success',data);
                         }
                     });
                 });
