@@ -96,13 +96,15 @@ module.exports = function(app) {
     });
     //  切换学校页面
     app.get('/changeSchool', function(req, res) {
-        console.log("*************logging from /self************res.session.user\n", req.session.user);
+        console.log("*************logging from /changeSchool************res.session.user\n",
+            JSON.stringify(req.session.user));
         if (req.session.user) {
             User.find({_id: req.session.user._id}, function(err, doc) {
                 if (err) {
                     console.log(err);
                 }else {
-                    console.log("*************logging from /self************userInfo\n", doc[0]);
+                    console.log("*************logging from /changeSchool************userInfo\n",
+                        JSON.stringify(doc[0]));
                     res.render('changeSchool', {
                         title: "切换学校",
                         userInfo: doc[0]
@@ -110,6 +112,7 @@ module.exports = function(app) {
                 }
             })
         }else {
+            console.log("*************logging from /changeSchool************userInfo:undefined");
             res.render('changeSchool', {
                 title: "切换学校",
                 userInfo: {}
