@@ -71,7 +71,7 @@ module.exports = function(app) {
                 if (err) {
                     console.log('get /self findOne error:',err);
                 }else {
-                    console.log("=======================get /self userInfo====================\n", doc);
+                    console.log("=======================get /self userInfo====================\n", JSON.stringify(doc));
                     res.render('self', {
                         title: "个人信息",
                         userInfo: doc
@@ -93,7 +93,7 @@ module.exports = function(app) {
                 if (err) {
                     console.log('get /changeSchool findOne error:',err);
                 }else {
-                    console.log("=======================get /changeSchool userInfo==================== \n",doc);
+                    console.log("=======================get /changeSchool userInfo==================== \n",JSON.stringify(doc));
                     res.render('changeSchool', {
                         title: "切换学校",
                         userInfo: doc
@@ -337,9 +337,9 @@ module.exports = function(app) {
         var qq = req.body.qq;
         var school = req.body.school;
         // var department = req.body.department;
-        console.log("=======================post /self req.body==================== \n", req.body);
+        console.log("=======================post /self req.body==================== \n", JSON.stringify(req.body));
         console.log(
-            "=======================post /self req.session.user==================== \n", req.session.user);
+            "=======================post /self req.session.user==================== \n", JSON.stringify(req.session.user));
         User.findOneAndUpdate({_id: req.session.user._id}, {
             tel: tel,
             qq: qq,
@@ -351,7 +351,7 @@ module.exports = function(app) {
                 console.log(err);
             }else {
                 req.session.user = u;
-                console.log("=======================post /self u==================== \n", u);
+                console.log("=======================post /self u==================== \n",JSON.stringify(u));
                 res.json(u)
             }
         })
@@ -367,7 +367,7 @@ module.exports = function(app) {
             avatarUrl: req.body.avatarUrl,
             redirectUrl: req.body.redirectUrl
         });
-        console.log("=======================post /user newUser==================== \n", newUser.map);
+        console.log("=======================post /user newUser==================== \n", JSON.stringify(newUser));
         newUser.save(function(err, user) {
             if (err) {
                 console.log("save user error!");
@@ -377,7 +377,7 @@ module.exports = function(app) {
             req.session.user = user;
             console.log("=======================post /user user==================== \n", req.session.cookie,
                 '\n',
-                req.session.user
+                JSON.stringify(req.session.user)
             );
             // res.redirect(redirectUrl);
             res.json(user)
