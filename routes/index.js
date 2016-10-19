@@ -368,7 +368,7 @@ module.exports = function(app) {
                 console.log(err);
             }else {
                 req.session.user = u;
-                console.log("+++++++++++++++++req.session.user****************\n", JSON.stringify(req.session.user));
+                console.log("+++++++++++++++++req.session.user****************\n", req.session.user.map);
                 console.log("+++++++++++++++++u\n", JSON.stringify(u));
                 res.json(u)
             }
@@ -387,7 +387,7 @@ module.exports = function(app) {
         });
         console.log(
             "*******************logging from /user************************\n",
-            JSON.stringify(newUser));
+            newUser.map);
         newUser.save(function(err, user) {
             if (err) {
                 console.log("save user error!");
@@ -397,9 +397,9 @@ module.exports = function(app) {
             req.session.user = user;
             console.log(
                 "*************************logging from /user*********************\n",
-                JSON.stringify(req.session.cookie),
+                req.session.cookie.map,
                 '\n',
-                JSON.stringify(req.session.user)
+                req.session.user.map
             );
             // res.redirect(redirectUrl);
             res.json({
