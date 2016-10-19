@@ -404,6 +404,13 @@ module.exports = function(app) {
                 console.log("=======================post /user user==================== \n",
                     JSON.stringify(user)
                 );
+                req.session.user = user;
+                console.log("=======================post /user user==================== \n",
+                    'cookie:',
+                    req.session.cookie,
+                    '\n session:',
+                    JSON.stringify(req.session.user)
+                );
                 res.json(user);
             })
     });
