@@ -32,7 +32,6 @@ if (!window.utils.getFromLocal('userInfo')) {
                         dataType: "json",
                         contentType: "application/json",
                         data: userInfo,
-                        processData: false,
                         success: function (data) {
                             if (data.success) {
                                 console.log("上传成功");

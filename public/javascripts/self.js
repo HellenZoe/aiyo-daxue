@@ -116,23 +116,29 @@ $(function() {
         $.showPreloader();
         $('#selectSchool').show();
         var url = "http://" + location.host + "/school";
-        $.get(url,function (json) {
-            if(json.success){
-                $.hidePreloader();
-                var _strHtml='<ul id="school_list"></ul>';
-                $('#schoolListContainer').append(_strHtml);
-                $.each(json.data,function (index, item) {
-                    var _liHtml='<li class="school_item">' +item.name+ '</li>';
-                    $('#school_list').append(_liHtml);
-                });
-                $('.school_item').on('click',function () {
-                    var schoolName = $(this).html();
-                    $('.school div').html(schoolName)
-                        .removeClass('c_gray');
-                    $('#selectSchool').hide();
-                })
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success:function (json) {
+                if(json.success){
+                    $.hidePreloader();
+                    var _strHtml='<ul id="school_list"></ul>';
+                    $('#schoolListContainer').append(_strHtml);
+                    $.each(json.data,function (index, item) {
+                        var _liHtml='<li class="school_item">' +item.name+ '</li>';
+                        $('#school_list').append(_liHtml);
+                    });
+                    $('.school_item').on('click',function () {
+                        var schoolName = $(this).html();
+                        $('.school div').html(schoolName)
+                            .removeClass('c_gray');
+                        $('#selectSchool').hide();
+                    })
 
+                }
             }
-        })
+        });
+
     })
 });
