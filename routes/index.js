@@ -337,7 +337,7 @@ module.exports = function(app) {
             }
 
         })
-    })
+    });
 
 
 
@@ -368,8 +368,8 @@ module.exports = function(app) {
                 console.log(err);
             }else {
                 req.session.user = u;
-                console.log("+++++++++++++++++req.session.user", JSON.stringify(req.session.user));
-                console.log("+++++++++++++++++u", JSON.stringify(u));
+                console.log("+++++++++++++++++req.session.user****************\n", JSON.stringify(req.session.user));
+                console.log("+++++++++++++++++u\n", JSON.stringify(u));
                 res.json(u)
             }
         })

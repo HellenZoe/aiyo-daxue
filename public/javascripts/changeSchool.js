@@ -9,7 +9,7 @@ $(function() {
     $('.done').on('click', function(e) {
 
         var _school = $('.school div').html();
-        if (!school) {
+        if (!_school) {
             $.toast("还没有填写学校哦~");
             return;
         }
