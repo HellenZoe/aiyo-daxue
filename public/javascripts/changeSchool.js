@@ -7,7 +7,7 @@ $(function() {
         qq: "",
         school: "",
         department: ""
-    }
+    };
 
     $('.done').on('click', function(e) {
 

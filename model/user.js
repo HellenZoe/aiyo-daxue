@@ -1,14 +1,16 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var UserSchema = new Schema({
-  name: String,
-  openId: String,
-  token: String,
-  tel: String,
-  qq: String,
-  school: String,
-  department: String,
-  status: Number
+    name: String,
+    openId: String,
+    token: String,
+    avatarUrl:String,
+    redirectUrl:String,
+    tel: String,
+    qq: String,
+    school: String,
+    department: String,
+    status: Number
 });
 
 

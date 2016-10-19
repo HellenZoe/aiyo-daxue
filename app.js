@@ -39,8 +39,8 @@ app.use(session({
   key: "aiyodaxue",//cookie name
   cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},//30 days
   resave: true,
-  saveUninitialized: true,
-}))
+  saveUninitialized: true
+}));
 
  //设置静态目录
 app.use(express.static(path.join(__dirname, 'public')));

@@ -6,9 +6,7 @@ $(function() {
 
 
 
-//  已经登陆
-// if (QC.Login.check()) {
-// alert(QC.Login.check());
+//查看本地是有userInfo缓存
 
 if (!window.utils.getFromLocal('userInfo')) {
     if(QC.Login.check()){
@@ -21,8 +19,10 @@ if (!window.utils.getFromLocal('userInfo')) {
                     var userInfo={
                         name:s.data.nickname,
                         openId:openId,
-                        token:accessToken
-                    };
+                        token:accessToken,
+                        avatarUrl: s.data.figureurl_qq_1,
+                        redirectUrl:''
+                };
                     window.utils.saveToLocal("userInfo", userInfo);
                     console.log('userInfo',JSON.stringify(userInfo));
                     var url = "http://" + location.host + "/user";
@@ -36,9 +36,6 @@ if (!window.utils.getFromLocal('userInfo')) {
                             if (data.success) {
                                 console.log("上传成功");
                             }
-                        },
-                        error: function (data) {
-                            // showMessageFail("上传出错, 请重试");
                         }
                     });
                 });
@@ -46,26 +43,26 @@ if (!window.utils.getFromLocal('userInfo')) {
                 /*获取参数
 
 
-                通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
-                if (window.utils.getFromLocal('crt-service') == '/') {
-                	redirectUrl = "/";
-                }else {
-                  var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
-                }
+                 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
+                 if (window.utils.getFromLocal('crt-service') == '/') {
+                 redirectUrl = "/";
+                 }else {
+                 var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
+                 }
 
-                $('.gotoSelf').attr('href', redirectUrl);
+                 $('.gotoSelf').attr('href', redirectUrl);
                  把用户登陆信息提交到服务端 存储到数据库
 
 
                  之前的实现方式  现在已经改用session实现
                  让去完善的按钮带上相应用户的参数
-                var oldHref = $('.gotoSelf').attr('href');
-                var newHref = oldHref + "?avatarUrl=" + avatarUrl
-                $('.gotoSelf').attr('href', newHref);
+                 var oldHref = $('.gotoSelf').attr('href');
+                 var newHref = oldHref + "?avatarUrl=" + avatarUrl
+                 $('.gotoSelf').attr('href', newHref);
                  将用户信息存储到localstorage 每次进入到首页用ajax获取数据
 
 
-                隐藏加载*/
+                 隐藏加载*/
                 $.hidePreloader();
             })
             //指定接口访问失败的接收函数，f为失败返回Response对象

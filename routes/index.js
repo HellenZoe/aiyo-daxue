@@ -377,7 +377,9 @@ module.exports = function(app) {
         var newUser =  new User({
             name: req.body.name,
             openId: req.body.openId,
-            token: req.body.token
+            token: req.body.token,
+            avatarUrl: req.body.avatarUrl,
+            redirectUrl: req.body.redirectUrl
         });
         console.log("*******************logging from /user************************\n", JSON.stringify(newUser));
         newUser.save(function(err, user) {
@@ -386,16 +388,13 @@ module.exports = function(app) {
             }else {
                 // 将user存储到session 保持用户登陆
                 req.session.user = user;
-                console.log("*************************logging from /user*********************\n", req.session);
+                console.log("*************************logging from /user*********************\n", JSON.stringify(req.session));
                 // res.redirect(redirectUrl);
                 res.json({
-                    success: true,
                     userInfo: user
                 })
             }
         })
-
-
     });
 
     // 返回学校信息
