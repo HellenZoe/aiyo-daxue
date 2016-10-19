@@ -22,7 +22,7 @@ if (!window.utils.getFromLocal('userInfo')) {
                         token:accessToken,
                         avatarUrl: s.data.figureurl_qq_1,
                         redirectUrl:''
-                };
+                    };
                     window.utils.saveToLocal("userInfo", userInfo);
                     console.log('userInfo',JSON.stringify(userInfo));
                     var url = "http://" + location.host + "/user";
@@ -33,9 +33,7 @@ if (!window.utils.getFromLocal('userInfo')) {
                         contentType: "application/json",
                         data: JSON.stringify(userInfo),
                         success: function (data) {
-                            if (data.success) {
-                                console.log("上传成功");
-                            }
+                            console.log('save user success');
                         }
                     });
                 });

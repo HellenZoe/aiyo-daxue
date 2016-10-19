@@ -77,9 +77,9 @@ module.exports = function(app) {
         if (req.session.user) {
             User.find({_id: req.session.user._id}, function(err, doc) {
                 if (err) {
-                    console.log(err);
+                    console.log('logging from  /self error:',err);
                 }else {
-                    console.log("*************logging from /self************userInfo :", JSON.stringify(doc[0]));
+                    console.log("*************logging from /self************userInfo :\n", JSON.stringify(doc[0]));
                     res.render('self', {
                         title: "个人信息",
                         userInfo: doc[0]
@@ -87,21 +87,22 @@ module.exports = function(app) {
                 }
             })
         }else {
+            console.log('*************logging from /self************: no req.session.user');
             res.render('self', {
                 title: "个人信息",
-                userInfo: null
+                userInfo: {}
             })
         }
     });
     //  切换学校页面
     app.get('/changeSchool', function(req, res) {
-        console.log("*************logging from /self************res.session.user", req.session.user);
+        console.log("*************logging from /self************res.session.user\n", req.session.user);
         if (req.session.user) {
             User.find({_id: req.session.user._id}, function(err, doc) {
                 if (err) {
                     console.log(err);
                 }else {
-                    console.log("*************logging from /self************userinfo", doc[0]);
+                    console.log("*************logging from /self************userInfo\n", doc[0]);
                     res.render('changeSchool', {
                         title: "切换学校",
                         userInfo: doc[0]
@@ -111,10 +112,10 @@ module.exports = function(app) {
         }else {
             res.render('changeSchool', {
                 title: "切换学校",
-                userInfo: null
+                userInfo: {}
             })
         }
-    })
+    });
 
 
     // app.get('/admin', function(req, res) {
@@ -345,7 +346,7 @@ module.exports = function(app) {
         var qq = req.body.qq;
         var school = req.body.school;
         // var department = req.body.department;
-        console.log("*********logging from /self*****req.body\n", req.body);
+        console.log("**********logging from /self*****req.body\n", req.body);
         console.log("*********logging from /self*****req.session.user\n", req.session.user);
         User.findByIdAndUpdate({_id: req.session.user._id}, {
             // name: name,
@@ -364,7 +365,6 @@ module.exports = function(app) {
                 console.log("+++++++++++++++++req.session.user", JSON.stringify(req.session.user));
                 console.log("+++++++++++++++++u", JSON.stringify(u));
                 res.json({
-                    success: true,
                     newUserInfo: u
                 })
             }
@@ -387,19 +387,21 @@ module.exports = function(app) {
         newUser.save(function(err, user) {
             if (err) {
                 console.log("save user error!");
-            }else {
-                // 将user存储到session 保持用户登陆
-                req.session.user = user;
-                console.log(
-                    "*************************logging from /user*********************\n",
-                    JSON.stringify(req.session.cookie),
-                    JSON.stringify(req.session.user)
-                );
-                // res.redirect(redirectUrl);
-                res.json({
-                    userInfo: user
-                })
+                return;
             }
+            // 将user存储到session 保持用户登陆
+            req.session.user = user;
+            console.log(
+                "*************************logging from /user*********************\n",
+                JSON.stringify(req.session.cookie),
+                '\n',
+                JSON.stringify(req.session.user)
+            );
+            // res.redirect(redirectUrl);
+            res.json({
+                userInfo: user
+            })
+
         })
     });
 

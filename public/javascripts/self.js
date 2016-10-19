@@ -1,35 +1,15 @@
 $(function() {
 
     var userInfo = {
-        // name: "",
-        // gender: "",
         tel: "",
         qq: "",
-        school: "",
-        department: ""
+        school: ""
     };
 
     $('.done').on('click', function(e) {
 
         //  阻止默认点击事件
         e.preventDefault();
-
-
-        //  获取用户输入内容
-        // var name = $('.name > input').val();
-        // if (!name) {
-        //   $.hidePreloader();
-        //   $.toast("还没有填写名称哦~");
-        //   return;
-        // }
-        //
-        //
-        // var gender = $('.gender > input').val();
-        // if (!gender) {
-        //   $.hidePreloader();
-        //   $.toast("还没有填写性別哦~");
-        //   return;
-        // }
 
         var tel = $('.tel  input').val();
         if (!tel) {
@@ -65,12 +45,9 @@ $(function() {
         // }
         //
 
-        // userInfo.name  = name;
-        // userInfo.gender  = gender;
         userInfo.tel  = tel;
         userInfo.qq  = qq;
         userInfo.school  = school;
-        // userInfo.department  = department;
 
         //  显示进度图标
         $.showPreloader();
@@ -85,23 +62,16 @@ $(function() {
                 dataType: "json",
                 data: JSON.stringify(info),
                 contentType: "application/json",
-                processData: false,
-                success: function (data) {
-                    if (data.success) {
-                        // showMessageSuccess("上传成功");
-                        $.hidePreloader();
-                        var nowUserInfo = window.utils.getFromLocal('userInfo');
-                        nowUserInfo.qq = info.qq;
-                        nowUserInfo.tel = info.tel;
-                        nowUserInfo.school = info.school;
-                        // nowUserInfo.department = info.department;
-                        window.utils.saveToLocal('userInfo', nowUserInfo);
-                        console.log("上传成功");
-                        location.href="http://" + location.host + "/";
-                    }
-                },
-                error: function (data) {
-                    // showMessageFail("上传出错, 请重试");
+                success: function () {
+                    // showMessageSuccess("上传成功");
+                    $.hidePreloader();
+                    var nowUserInfo = window.utils.getFromLocal('userInfo');
+                    nowUserInfo.qq = info.qq;
+                    nowUserInfo.tel = info.tel;
+                    nowUserInfo.school = info.school;
+                    window.utils.saveToLocal('userInfo', nowUserInfo);
+                    console.log("修改个人信息：",JSON.stringify(nowUserInfo));
+                    location.href="http://" + location.host + "/";
                 }
             });
         }
