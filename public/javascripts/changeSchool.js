@@ -1,8 +1,6 @@
 $(function() {
 
     var userInfo = {
-        tel: "",
-        qq: "",
         school: ""
     };
 

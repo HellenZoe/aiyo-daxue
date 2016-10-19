@@ -336,8 +336,8 @@ module.exports = function(app) {
     app.post('/self', function(req, res) {
         // var name = req.body.name;
         // var gender = req.body.gender;
-        var tel = req.body.tel;
-        var qq = req.body.qq;
+        var tel = req.body.tel||req.session.user.tel;
+        var qq = req.body.qq||req.session.user.qq;
         var school = req.body.school;
         // var department = req.body.department;
         console.log("=======================post /self req.body==================== \n", JSON.stringify(req.body));
