@@ -70,7 +70,7 @@ module.exports = function(app) {
             JSON.stringify(req.session.user));
         if (req.session.user) {
 
-            User.findOne({_id: req.session.user._id}, function(err, doc) {
+            User.findOne({openId: req.session.user.openId}, function(err, doc) {
                 if (err) {
                     console.log('get /self findOne error:',err);
                 }else {
@@ -92,7 +92,7 @@ module.exports = function(app) {
     //  切换学校页面
     app.get('/changeSchool', function(req, res) {
         if (req.session.user) {
-            User.findOne({_id: req.session.user._id}, function(err, doc) {
+            User.findOne({openId: req.session.user.openId}, function(err, doc) {
                 if (err) {
                     console.log('get /changeSchool findOne error:',err);
                 }else {
@@ -343,7 +343,7 @@ module.exports = function(app) {
         console.log("=======================post /self req.body==================== \n", JSON.stringify(req.body));
         console.log(
             "=======================post /self req.session.user==================== \n", JSON.stringify(req.session.user));
-        User.findOneAndUpdate({_id: req.session.user._id}, {
+        User.findOneAndUpdate({openId: req.session.user.openId}, {
             tel: tel,
             qq: qq,
             school: school
@@ -363,29 +363,6 @@ module.exports = function(app) {
     //  新增用户
     app.post('/user', function(req, res) {
 
-        /*var newUser =  new User({
-            name: req.body.name,
-            openId: req.body.openId,
-            token: req.body.token,
-            avatarUrl: req.body.avatarUrl,
-            redirectUrl: req.body.redirectUrl
-        });
-        console.log("=======================post /user newUser==================== \n", JSON.stringify(newUser));
-        newUser.save(function(err, user) {
-            if (err) {
-                console.log("save user error!");
-                return;
-            }
-            // 将user存储到session 保持用户登陆
-            req.session.user = user;
-            console.log("=======================post /user user==================== \n", req.session.cookie,
-                '\n',
-                JSON.stringify(req.session.user)
-            );
-            // res.redirect(redirectUrl);
-            res.json(user)
-
-        });*/
         User.findOneAndUpdate(
             {
                 openId:req.body.openId
@@ -405,6 +382,7 @@ module.exports = function(app) {
                 console.log("=======================post /user user==================== \n",
                     JSON.stringify(user)
                 );
+                //用户信息缓存在session，免登陆
                 req.session.user = user;
                 console.log("=======================post /user user==================== \n",
                     'cookie:',
