@@ -360,7 +360,7 @@ module.exports = function(app) {
     //  新增用户
     app.post('/user', function(req, res) {
 
-        var newUser =  new User({
+        /*var newUser =  new User({
             name: req.body.name,
             openId: req.body.openId,
             token: req.body.token,
@@ -382,7 +382,29 @@ module.exports = function(app) {
             // res.redirect(redirectUrl);
             res.json(user)
 
-        })
+        });*/
+        User.findOneAndUpdate(
+            {
+                openId:req.body.openId
+            },
+            {
+                name: req.body.name,
+                openId: req.body.openId,
+                token: req.body.token,
+                avatarUrl: req.body.avatarUrl,
+                redirectUrl: req.body.redirectUrl
+            },{
+                new: true,
+                upsert:true
+            },function (err,user) {
+                if(err){
+                    console.log(err);
+                    return;
+                }
+                console.log("=======================post /user user==================== \n",
+                    JSON.stringify(user)
+                )
+            })
     });
 
     // 返回学校信息
