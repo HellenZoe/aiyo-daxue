@@ -66,7 +66,7 @@ module.exports = function(app) {
 
     //  修改个人信息页面
     app.get('/self', function(req, res) {
-        console.log("=======================get /self userInfo====================\n",
+        console.log("=======================get /self req.session.user====================\n",
             JSON.stringify(req.session.user));
         if (req.session.user) {
 
