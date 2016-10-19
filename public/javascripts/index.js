@@ -19,9 +19,7 @@ if (!window.utils.getFromLocal('userInfo')) {
                     var userInfo={
                         name:s.data.nickname,
                         openId:openId,
-                        token:accessToken,
-                        avatarUrl: s.data.figureurl_qq_1,
-                        redirectUrl:''
+                        avatarUrl: s.data.figureurl_qq_1
                     };
                     window.utils.saveToLocal("userInfo", userInfo);
                     console.log('userInfo',JSON.stringify(userInfo));

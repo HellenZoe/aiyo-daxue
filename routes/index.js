@@ -390,9 +390,7 @@ module.exports = function(app) {
             {
                 name: req.body.name,
                 openId: req.body.openId,
-                token: req.body.token,
-                avatarUrl: req.body.avatarUrl,
-                redirectUrl: req.body.redirectUrl
+                avatarUrl: req.body.avatarUrl
             },{
                 new: true,
                 upsert:true
@@ -403,7 +401,8 @@ module.exports = function(app) {
                 }
                 console.log("=======================post /user user==================== \n",
                     JSON.stringify(user)
-                )
+                );
+                res.json(user);
             })
     });
 
