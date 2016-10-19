@@ -47,7 +47,7 @@ goodsSchema.virtual('category_ch').get(function() {
     default:
 
   }
-})
+});
 
 goodsSchema.virtual('date').get(function() {
   var d = new Date();
