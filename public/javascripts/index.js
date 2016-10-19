@@ -102,7 +102,6 @@ $('.check').on('click', function(e) {
 
 $('.more').on('click', function(e) {
     e.preventDefault();
-
     $.alert("功能正在完善中.敬请期待!")
 });
 

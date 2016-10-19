@@ -349,15 +349,18 @@ module.exports = function(app) {
         var qq = req.body.qq;
         var school = req.body.school;
         // var department = req.body.department;
-        console.log("**********logging from /self*****req.body\n", req.body);
-        console.log("*********logging from /self*****req.session.user\n", req.session.user);
-        User.findByIdAndUpdate({_id: req.session.user._id}, {
-            // name: name,
-            // gender: gender,
+        console.log(
+            "**********logging from /self*****req.body\n",
+            JSON.stringify(req.body)
+        );
+        console.log(
+            "*********logging from /self*****req.session.user\n",
+            JSON.stringify(req.session.user)
+        );
+        User.findOneAndUpdate({_id: req.session.user._id}, {
             tel: tel,
             qq: qq,
             school: school
-            // department: department
         }, {
             new: true
         }, function(err, u) {
@@ -367,9 +370,7 @@ module.exports = function(app) {
                 req.session.user = u;
                 console.log("+++++++++++++++++req.session.user", JSON.stringify(req.session.user));
                 console.log("+++++++++++++++++u", JSON.stringify(u));
-                res.json({
-                    newUserInfo: u
-                })
+                res.json(u)
             }
         })
     });
