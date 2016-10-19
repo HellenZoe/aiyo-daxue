@@ -92,7 +92,7 @@ module.exports = function(app) {
                 userInfo: null
             })
         }
-    })
+    });
     //  切换学校页面
     app.get('/changeSchool', function(req, res) {
         console.log("*************logging from /self************res.session.user", req.session.user);
@@ -352,7 +352,7 @@ module.exports = function(app) {
             // gender: gender,
             tel: tel,
             qq: qq,
-            school: school,
+            school: school
             // department: department
         }, {
             new: true

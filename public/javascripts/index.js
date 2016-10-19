@@ -31,7 +31,7 @@ if (!window.utils.getFromLocal('userInfo')) {
                         url: url,
                         dataType: "json",
                         contentType: "application/json",
-                        data: JSON.stringify(userInfo),
+                        data: userInfo,
                         processData: false,
                         success: function (data) {
                             if (data.success) {
