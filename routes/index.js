@@ -367,7 +367,7 @@ module.exports = function(app) {
             avatarUrl: req.body.avatarUrl,
             redirectUrl: req.body.redirectUrl
         });
-        console.log("=======================post /user newUser==================== \n", newUser);
+        console.log("=======================post /user newUser==================== \n", newUser.map);
         newUser.save(function(err, user) {
             if (err) {
                 console.log("save user error!");
