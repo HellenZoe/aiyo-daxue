@@ -18,16 +18,16 @@ $(function() {
   var picCount = 0;
 
   // hack 默认的上传文件的样式  然后用另外一个图标的点击来触发
-  var newFileIcon = $('.iconfont-treeholePost');
-  newFileIcon.on('click', function() {
-    if (formInfo.pics.length >= 4) {
-      $.hidePreloader();
-      $.toast("最多添加四张照片");
-      return false;
-    }
-    $('#fileToUpload').trigger('click');
-    return false;
-  });
+  // var newFileIcon = $('.iconfont-treeholePost');
+  // newFileIcon.on('click', function() {
+  //   if (formInfo.pics.length >= 4) {
+  //     $.hidePreloader();
+  //     $.toast("最多添加四张照片");
+  //     return false;
+  //   }
+  //   $('#fileToUpload').trigger('click');
+  //   return false;
+  // });
 
 
   //  只能选一个分类
@@ -66,14 +66,11 @@ $(function() {
 
   var finishButton = $('.finishPost');
   finishButton.on('click', function(e) {
-    //  阻止默认的链接事件
-    e.preventDefault();
-
     //  显示进度图标
     $.showPreloader();
 
     //  获取用户输入内容
-    var type = $('.type input:checked')
+    var type = $('.type input:checked');
     if (type.length == 0) {
       $.hidePreloader();
       $.toast("还没有选类型哟");
@@ -117,7 +114,7 @@ $(function() {
     }
 
 
-    var category = $('.category input:checked')
+    var category = $('.category input:checked');
     if (category.length == 0) {
       $.hidePreloader();
       $.toast("还没有选分类哟");
@@ -170,7 +167,7 @@ $(function() {
     // })
 
 
-  })
+  });
 
 
   // 点击删除小图标的时候
@@ -367,8 +364,7 @@ $(function() {
       $.alert("稍后再来", "发布失败", function() {
         var host = location.host;
         // console.log("http://" + host + "/play");
-        location.href= "http://" + host + "/play";
-        return;
+        location.href= "http://" + host + "/lost";
       })
 
     }
