@@ -86,6 +86,11 @@ var addItems=function(data) {
     });
     // 添加新条目
     $('.infinite-scroll-bottom .list-container').append(html);
+    $('.activity-card').on('click', function() {
+        console.log($(this));
+        var pId = $(this).attr('data-pId');
+        location.href = "http://" + location.host + "/article/prattle/" + pId;
+    });
 };
 /**
  * 事件绑定
@@ -106,12 +111,6 @@ var _bindEvent=function () {
     $('.more').on('click', function(e) {
         e.preventDefault();
         $.alert("功能正在完善中.敬请期待!");
-    });
-//  校园情话
-    $('.activity-card').on('click', function() {
-        console.log($(this));
-        var pId = $(this).attr('data-pId');
-        location.href = "http://" + location.host + "/article/prattle/" + pId;
     });
     $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page) {
         var loading = false;    // 加载flag
