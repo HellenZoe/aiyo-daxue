@@ -135,7 +135,7 @@ router.post('/new', upload.single('test'), function(req, res) {
                 view: 0,
                 type: type
             });
-            console.log("logging from ******************logging from /lost/new --losttosave", newLost);
+            console.log("\n ======================lost  post/new --newLost =================\n", newLost);
             newLost.save(function(err, l) {
                 if (err) {
                     console.log("save treehole error");
