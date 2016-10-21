@@ -13,7 +13,5 @@ module.exports = {
       console.log('mongodb has been connected!')
     });
     return db;
-  },
-
-  db: db
+  }
 };
