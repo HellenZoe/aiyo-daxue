@@ -118,7 +118,7 @@ router.post('/new', upload.single('test'), function(req, res) {
         if (err) {
             console.log(err);
         }else {
-            console.log("\n ======================lost  post/new --find us =================\n",us);
+            console.log("\n ======================lost  post/new --find us =================\n",user);
             var newLost = new Goods({
                 author: authorId,
                 authorName: user.name,
