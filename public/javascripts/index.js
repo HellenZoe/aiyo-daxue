@@ -71,7 +71,7 @@ var _checkUserInfo=function () {
 var addItems=function(data) {
     // 生成新条目的HTML
     var html = '';
-    $.ecah(data,function(index,item) {
+    $.each(data,function(index,item) {
         html += '<li class="item-content">' +
             '<div class="item-inner">' +
             '<div class="activity-card prattle" data-pId=' + item._id + '>' +
