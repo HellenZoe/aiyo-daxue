@@ -118,7 +118,7 @@ router.post('/new', upload.single('test'), function(req, res) {
         if (err) {
             console.log(err);
         }else {
-            console.log("\n ======================lost  post/new --find us =================\n",user);
+            console.log("\n ======================lost  post/new --find us =================\n",JSON.stringify(user));
             var newLost = new Goods({
                 author: authorId,
                 authorName: user.name,
@@ -135,7 +135,7 @@ router.post('/new', upload.single('test'), function(req, res) {
                 view: 0,
                 type: type
             });
-            console.log("\n ======================lost  post/new --newLost =================\n", newLost);
+            console.log("\n ======================lost  post/new --newLost =================\n", JSON.stringify(newLost));
             newLost.save(function(err, l) {
                 if (err) {
                     console.log("save treehole error");
