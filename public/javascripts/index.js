@@ -2,8 +2,8 @@ $(function() {
     /*
      轮播图
      */
-    var mySwiper= new Swiper('.swiper-container', {
-        autoplay: 2000//可选选项，自动滑动
+    $(".swiper-container").swiper({
+        autoplay:2000
     });
     _checkUserInfo();
     _bindEvent();
