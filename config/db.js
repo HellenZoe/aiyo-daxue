@@ -6,7 +6,6 @@ var db = null;
 //  数据库连接  在app.js调用connect函数创建连接  返回实例
 module.exports = {
   connect: function() {
-    mongoose.Promise = global.Promise;
     db = mongoose.connect(config.uri).connection;
     console.log("now connecting to mongodb");
     db.on('error', console.error.bind(console, 'connection error:'));
