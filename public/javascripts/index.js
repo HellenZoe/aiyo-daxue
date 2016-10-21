@@ -1,116 +1,106 @@
 $(function() {
+    /*
+     轮播图
+     */
     $(".swiper-container").swiper({
         autoplay: 2000
-    })
+    });
+    _checkUserInfo();
+    _bindEvent();
 });
 
-
-
-//查看本地是有userInfo缓存
-
-if (!window.utils.getFromLocal('userInfo')) {
-    if(QC.Login.check()){
-        QC.api("get_user_info")
-        //指定接口访问成功的接收函数，s为成功返回Response对象
-            .success(function(s){
-                //成功回调，通过s.data获取OpenAPI的返回数据
-                //获取用户唯一的openId,accessToken,保存本地
-                QC.Login.getMe(function(openId, accessToken){
-                    var userInfo={
-                        name:s.data.nickname,
-                        openId:openId,
-                        avatarUrl: s.data.figureurl_qq_1
-                    };
-                    window.utils.saveToLocal("userInfo", userInfo);
-                    console.log('userInfo',JSON.stringify(userInfo));
-                    var url = "http://" + location.host + "/user";
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        dataType: "json",
-                        contentType: "application/json",
-                        data: JSON.stringify(userInfo),
-                        success: function (data) {
-                            console.log('save user success',data);
-                        }
+//查看本地是有userInfo缓存,如果无，触发登陆弹框
+var _checkUserInfo=function () {
+    var _userInfo=window.utils.getFromLocal('userInfo');
+    if (!_userInfo) {
+        if(QC.Login.check()){
+            QC.api("get_user_info")
+                .success(function(s){
+                    /*成功回调，通过s.data获取OpenAPI的返回数据
+                     获取用户唯一的openId保存本地*/
+                    QC.Login.getMe(function(openId){
+                        var userInfo={
+                            name:s.data.nickname,
+                            openId:openId,
+                            avatarUrl: s.data.figureurl_qq_1
+                        };
+                        window.utils.saveToLocal("userInfo", userInfo);
+                        console.log('userInfo',JSON.stringify(userInfo));
+                        var url = "http://" + location.host + "/user";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            dataType: "json",
+                            contentType: "application/json",
+                            data: JSON.stringify(userInfo),
+                            success: function (data) {
+                                console.log('save user success',data);
+                            }
+                        });
                     });
+                    // 隐藏加载
+                    $.hidePreloader();
+                })
+                //指定接口访问失败的接收函数，f为失败返回Response对象
+                .error(function(f){
+                    //失败回调
+                    // showHint("获取信息失败,麻烦重新登陆", "fail");
+                    console.log('login error:',f);
+                })
+                //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+                .complete(function(c){
+                    //完成请求回调
+                    console.log('login complete:',c);
                 });
-
-                /*获取参数
-
-
-                 通过localStorage 获取当前用户所在服务,  确保用户登陆之后返回到该服务模块的个人中心
-                 if (window.utils.getFromLocal('crt-service') == '/') {
-                 redirectUrl = "/";
-                 }else {
-                 var redirectUrl = "/" + window.utils.getFromLocal('crt-service') + "/self";
-                 }
-
-                 $('.gotoSelf').attr('href', redirectUrl);
-                 把用户登陆信息提交到服务端 存储到数据库
-
-
-                 之前的实现方式  现在已经改用session实现
-                 让去完善的按钮带上相应用户的参数
-                 var oldHref = $('.gotoSelf').attr('href');
-                 var newHref = oldHref + "?avatarUrl=" + avatarUrl
-                 $('.gotoSelf').attr('href', newHref);
-                 将用户信息存储到localstorage 每次进入到首页用ajax获取数据
-
-
-                 隐藏加载*/
-                $.hidePreloader();
-            })
-            //指定接口访问失败的接收函数，f为失败返回Response对象
-            .error(function(f){
-                //失败回调
-                // showHint("获取信息失败,麻烦重新登陆", "fail");
-                console.log('login error:',f);
-            })
-            //指定接口完成请求后的接收函数，c为完成请求返回Response对象
-            .complete(function(c){
-                //完成请求回调
-                console.log('login complete:',c);
+        }else{
+            $.alert("登陆后才能浏览", "没有登陆", function() {
+                QC.Login.showPopup({
+                    appId: "101351420",
+                    redirectURI: "http://s-289167.abc188.com/welcome"
+                });
             });
-    }else{
-        $.alert("登陆后才能浏览", "没有登陆", function() {
-            QC.Login.showPopup({
-                appId: "101351420",
-                redirectURI: "http://s-289167.abc188.com/welcome"
-            });
-        });
+        }
     }
+};
 
-}
-
-
-
-$('.check').on('click', function(e) {
-    var crtService = $(this).attr('href');
-    window.utils.saveToLocal('crtService', crtService);
-    //  查看是否已经有学校信息
-    var _userInfo=window.utils.getFromLocal('userInfo')||{};
-    if (!_userInfo.school) {
-        location.href = "http://" + location.host + "/changeSchool";
-        return false;
-    }
-    return true;
-});
-
-
-$('.more').on('click', function(e) {
-    e.preventDefault();
-    $.alert("功能正在完善中.敬请期待!")
-});
-
-
+/**
+ * 事件绑定
+ * @private
+ */
+var _bindEvent=function () {
+    $('.check').on('click', function() {
+        var crtService = $(this).attr('href');
+        window.utils.saveToLocal('crtService', crtService);
+        //  查看是否已经有学校信息
+        var _userInfo=window.utils.getFromLocal('userInfo')||{};
+        if (!_userInfo.school) {
+            location.href = "http://" + location.host + "/changeSchool";
+            return false;
+        }
+        return true;
+    });
+    $('.more').on('click', function(e) {
+        e.preventDefault();
+        $.alert("功能正在完善中.敬请期待!");
+    });
 //  校园情话
-$('.activity-card').on('click', function(e) {
-    console.log($(this));
-    var pId = $(this).attr('data-pId');
-    var url = "http://" + location.host + "/article/prattle/" + pId;
-    location.href=url;
-});
+    $('.activity-card').on('click', function() {
+        console.log($(this));
+        var pId = $(this).attr('data-pId');
+        location.href = "http://" + location.host + "/article/prattle/" + pId;
+    });
+
+};
+
+
+
+
+
+
+
+
+
+
 
 
 $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page) {
