@@ -1,5 +1,5 @@
 var mongoose =require('mongoose');
-var Schema = mongoose.Schema
+var Schema = mongoose.Schema;
 
 var goodsSchema = new Schema({
   type: String,
@@ -17,35 +17,25 @@ var goodsSchema = new Schema({
   authorSchool: String,
   authorAvatarUrl: String,
   view: Number
-})
+});
 
 
 goodsSchema.virtual('category_ch').get(function() {
   switch (this.category) {
     case "other":
-      return "其他"
+      return "其他";
       break;
     case "sport":
-      return "运动"
+      return "运动";
       break;
     case "ele":
-      return "数码"
+      return "数码";
       break;
-    // case "ins":
-    //   return "电器"
-    //   break;
-    // case "beauty":
-    //   return "其他"
-    //   break;
-    // case "cloth":
-    //   return "衣物伞帽"
-    //   break;
     case "card":
-      return "卡证"
+      return "卡证";
       break;
-
     default:
-
+      break;
   }
 });
 
@@ -58,8 +48,7 @@ goodsSchema.virtual('date').get(function() {
   var minute = d.getMinutes();
   minute = (minute >= 10) ? minute : "0" +  minute;
   return month + "-" + day + "  " + hour + ":" + minute;
-})
-
+});
 
 var Goods = mongoose.model('goods', goodsSchema);
 module.exports =  Goods;

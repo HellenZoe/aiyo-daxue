@@ -14,7 +14,7 @@ $(function() {
     tel: "",
     pics: [],
     type: ""
-  }
+  };
   var picCount = 0;
 
   // hack 默认的上传文件的样式  然后用另外一个图标的点击来触发
@@ -27,7 +27,7 @@ $(function() {
     }
     $('#fileToUpload').trigger('click');
     return false;
-  })
+  });
 
 
   //  只能选一个分类
@@ -38,7 +38,7 @@ $(function() {
       typeBoxes.prop('checked', false);
       $(this).prop("checked", true);
     }
-  })
+  });
 
 
   var categoryBoxes = $('.category input[type=checkbox]');
@@ -48,7 +48,7 @@ $(function() {
       categoryBoxes.prop('checked', false);
       $(this).prop("checked", true);
     }
-  })
+  });
 
 
 
@@ -196,100 +196,100 @@ $(function() {
   }
   //  测试浏览器是否支持文件上传
   function isUploadSupported() {
-      if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
-          return false;
-      }
-      var elem = document.createElement('input');
-      elem.type = 'file';
-      return !elem.disabled;
+    if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
+      return false;
+    }
+    var elem = document.createElement('input');
+    elem.type = 'file';
+    return !elem.disabled;
   };
 
 
 
   //读取文件
   if (window.File && window.FileReader && window.FormData) {
-  	var $inputField = $('#fileToUpload');
+    var $inputField = $('#fileToUpload');
 
-  	$inputField.on('change', function (e) {
-  		var file = e.target.files[0];
-  		if (file) {
+    $inputField.on('change', function (e) {
+      var file = e.target.files[0];
+      if (file) {
         console.log(file.type);
-  			if (/^image\//i.test(file.type)) {
-  				readFile(file);
-  			} else {
-  				showMessageFail("只能上传jpg/png格式的图片");
-  			}
-  		}
-  	});
+        if (/^image\//i.test(file.type)) {
+          readFile(file);
+        } else {
+          showMessageFail("只能上传jpg/png格式的图片");
+        }
+      }
+    });
   } else {
-  	showMessageFail("不支持图片上传");
+    showMessageFail("不支持图片上传");
   }
 
   function readFile(file) {
-  	var reader = new FileReader();
+    var reader = new FileReader();
 
-  	reader.onloadend = function () {
+    reader.onloadend = function () {
       //  显示进度记载图标
       $.showPreloader();
 
-  		processFile(reader.result, file.type);
-  	}
+      processFile(reader.result, file.type);
+    }
 
-  	reader.onerror = function () {
-  		showMessageFail("上传出错，请重试");
-  	}
+    reader.onerror = function () {
+      showMessageFail("上传出错，请重试");
+    }
 
-  	reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
   }
 
   // 处理文件
   function processFile(dataURL, fileType) {
-  	// var maxWidth = 100;
-  	// var maxHeight = 100;
-  	var image = new Image();
-  	image.onload = function () {
+    // var maxWidth = 100;
+    // var maxHeight = 100;
+    var image = new Image();
+    image.onload = function () {
 
       // var previewContainer = document.getElementById("previewformInfo");
       // var div = document.createElement('div');
       // div.appendChild(image);
       // previewContainer.appendChild(div);
-  		var width = image.width;
-  		var height = image.height;
+      var width = image.width;
+      var height = image.height;
       // console.log(width + "ahahh" + height);
-  		// var shouldResize = (width > maxWidth) || (height > maxHeight);
+      // var shouldResize = (width > maxWidth) || (height > maxHeight);
 
       var canvas = document.createElement("canvas");
 
-  		// if (!shouldResize) {
+      // if (!shouldResize) {
       //   var ctx =  canvas.getContext("2d");
       //   ctx.drawImage(this, 0, 0, width, height);
       //   addCanvasToPreview(canvas, fileType);
-  		// 	return;
-  		// }
+      // 	return;
+      // }
       //
       //
-  		// var newWidth;
-  		// var newHeight;
+      // var newWidth;
+      // var newHeight;
       //
-  		// if (width > height) {
-  		// 	newHeight = height * (maxWidth / width);
-  		// 	newWidth = maxWidth;
-  		// } else {
+      // if (width > height) {
+      // 	newHeight = height * (maxWidth / width);
+      // 	newWidth = maxWidth;
+      // } else {
       //   newWidth = width * (maxHeight / height);
-  		// 	newHeight = maxHeight;
-  		// }
-  		canvas.width = width;
-  		canvas.height = height;
+      // 	newHeight = maxHeight;
+      // }
+      canvas.width = width;
+      canvas.height = height;
 
-  		var context = canvas.getContext('2d');
-  		context.drawImage(this, 0, 0, width, height);
+      var context = canvas.getContext('2d');
+      context.drawImage(this, 0, 0, width, height);
       addCanvasToPreview(canvas, fileType);
-  	};
+    };
 
 
-  	image.onerror = function () {
-  		showMessageFail("处理出错，请重试");
-  	};
+    image.onerror = function () {
+      showMessageFail("处理出错，请重试");
+    };
 
     image.src = dataURL;
   }
@@ -320,8 +320,8 @@ $(function() {
 
   //  上传文件
   function sendFile(info) {
-  	var formData = new FormData();
-  	formData.append('imageData', JSON.stringify(info.pics));
+    var formData = new FormData();
+    formData.append('imageData', JSON.stringify(info.pics));
     formData.append('name', info.name);
     formData.append('desc', info.desc);
     formData.append('location', info.location);
@@ -334,17 +334,17 @@ $(function() {
     // alert(JSON.stringify(formData));
     // while(formData=={});
     var url = "http://" + location.host + "/lost/new";
-  	$.ajax({
-  		type: 'POST',
-  		url: url,
+    $.ajax({
+      type: 'POST',
+      url: url,
       dataType: "json",
-  		data: formData,
-  		contentType: false,
-  		processData: false,
+      data: formData,
+      contentType: false,
+      processData: false,
       timeout: 6000,
-  		success: function (data) {
-  			if (data.success) {
-  				// showMessageSuccess("上传成功");
+      success: function (data) {
+        if (data.success) {
+          // showMessageSuccess("上传成功");
           console.log("上传成功");
           // 发送完请求之后隐藏
           $.hidePreloader();
@@ -352,17 +352,12 @@ $(function() {
           //  提醒用户已经发布成功  然后回到树洞首页
           $.alert("现在返回主页", "发布成功", function() {
             var host = location.host;
-            console.log("http://" + host + "/lost");
             location.href= "http://" + host + "/lost";
-            return;
           })
 
-  			}
-  		},
-  		error: function (data) {
-  				// showMessageFail("上传出错, 请重试");
-  		}
-  	});
+        }
+      }
+    });
   }
 
 

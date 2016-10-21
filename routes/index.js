@@ -443,4 +443,4 @@ module.exports = function(app) {
     app.use('/trade', trade);
 
 
-}
+};
