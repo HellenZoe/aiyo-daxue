@@ -87,7 +87,6 @@ var addItems=function(data) {
     // 添加新条目
     $('.infinite-scroll-bottom .list-container').append(html);
     $('.activity-card').on('click', function() {
-        console.log($(this));
         var pId = $(this).attr('data-pId');
         location.href = "http://" + location.host + "/article/prattle/" + pId;
     });
