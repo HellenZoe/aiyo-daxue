@@ -114,11 +114,11 @@ router.post('/new', upload.single('test'), function(req, res) {
     var tel = req.body['tel'];
     var authorId = req.session.user.openId;
     var time = Date.now();
-    User.find({openId: authorId}, "name school avatarUrl", function(err, user) {
+    User.findOne({openId: authorId}, "name school avatarUrl", function(err, user) {
         if (err) {
             console.log(err);
         }else {
-            console.log("\n ======================lost  post/new --find us =================\n",JSON.stringify(user));
+            console.log("\n ======================lost  post/new --find user =================\n",JSON.stringify(user));
             var newLost = new Goods({
                 author: authorId,
                 authorName: user.name,
