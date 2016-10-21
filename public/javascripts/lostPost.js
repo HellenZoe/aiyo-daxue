@@ -29,7 +29,6 @@ $(function() {
   //   return false;
   // });
 
-
   //  只能选一个分类
   var typeBoxes = $('.type input[type=checkbox]');
   console.log(typeBoxes);
