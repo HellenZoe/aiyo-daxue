@@ -136,22 +136,23 @@ router.post('/new', upload.single('test'), function(req, res) {
                 type: type
             });
             console.log("\n ======================lost  post/new --newLost =================\n", JSON.stringify(newLost));
-            newLost.save(function(err, l) {
+            newLost.save(function(err, lost) {
                 if (err) {
                     console.log("save treehole error");
+                    return;
                 }
-                console.log("*******************logging from /lost/new--lost", l);
+                console.log("\n ======================lost  post/new --save =================\n", JSON.stringify(lost));
                 imageData.forEach(function(item, index) {
                     var base64Data = item.split(',')[1];
                     var fileType = item.split(';')[0].split('/')[1];
                     var dataBuffer = new Buffer(base64Data, 'base64');
                     var picUrl = "http://obzokcbc0.bkt.clouddn.com/lost/" + time + "-" + index + "." + fileType;
-                    console.log("*****************logging from /lost/new--picUrl**************", picUrl);
+                    console.log("\n ======================lost  post/new --picUrl =================\n", picUrl);
                     Goods.update({time: time}, {$push: {"picUrl": picUrl}}, function(err, raw) {
                         if (err) {
                             console.log("保存lost url出错", err);
                         }else {
-                            console.log(raw);
+                            console.log(JSON.stringify(raw));
                         }
                     });
                     var tmpFilePath = "./upload/tmp/" + time + "-" + index + "." + fileType;
