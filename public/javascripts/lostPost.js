@@ -18,16 +18,16 @@ $(function() {
   var picCount = 0;
 
   // hack 默认的上传文件的样式  然后用另外一个图标的点击来触发
-  // var newFileIcon = $('.iconfont-treeholePost');
-  // newFileIcon.on('click', function() {
-  //   if (formInfo.pics.length >= 4) {
-  //     $.hidePreloader();
-  //     $.toast("最多添加四张照片");
-  //     return false;
-  //   }
-  //   $('#fileToUpload').trigger('click');
-  //   return false;
-  // });
+  var newFileIcon = $('.iconfont-treeholePost');
+  newFileIcon.on('click', function() {
+    if (formInfo.pics.length >= 4) {
+      $.hidePreloader();
+      $.toast("最多添加四张照片");
+      return false;
+    }
+    $('#fileToUpload').click();
+    return false;
+  });
 
   //  只能选一个分类
   var typeBoxes = $('.type input[type=checkbox]');
