@@ -73,9 +73,9 @@ p.hint {
   font-size: .7rem;
 }
 #fileToUpload {
- /* visibility: hidden;
+  visibility: hidden;
   overflow: hidden;
-  display: none*/;
+  display: none;
 }
 textarea {
   -webkit-appearance: none;
