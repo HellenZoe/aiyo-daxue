@@ -24,7 +24,7 @@ allImages.forEach(function(item, index) {
     var myPhotoBrowserPopup = $.photoBrowser({
       photos: urls,
       type: "popup"
-    })
+    });
 
     e.stopPropagation();
     // 打开图片浏览器
