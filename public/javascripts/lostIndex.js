@@ -1,49 +1,46 @@
-if (window.utils.getFromLocal('lost') == "found") {
-  // alert('here');
-  window.utils.removeFromLocal('lost');
-  location.reload();
-}
-//  切换失物和招领
-function gotoLost(){
-  $('.gotoLost').on('click', function(e) {
+(function ($) {
+    $.lostIndex=function () {
+        var $lostSpan;
+        var $foundSpan;
+        var $lostContainer;
+        var $foundContainer;
+        this.init=function () {
+            if (window.utils.getFromLocal('lost') == "found") {
+                window.utils.removeFromLocal('lost');
+                location.reload();
+            }
+            _domInit();
+            _bindEvent();
+        };
+        var _domInit=function () {
+            $lostSpan=$('.lost span');
+            $foundSpan=$('.found span');
+            $lostContainer=$('#lost');
+            $foundContainer=$('#found');
+        };
+        var _bindEvent=function () {
+            $('.lost').on('click',function () {
+                $lostContainer.show();
+                $foundContainer.hide();
+                $foundSpan.removeClass('active');
+                $lostSpan.removeClass('active').addClass('active');
+                $lostContainer.find('.button').removeClass('active');
+                $lostContainer.find('.button').eq(0).click();
 
-    e.preventDefault();
+            });
+            $('.found').on('click',function () {
+                $lostContainer.hide();
+                $foundContainer.show();
+                $foundSpan.removeClass('active').addClass('active');
+                $lostSpan.removeClass('active');
+                $foundContainer.find('.button').removeClass('active');
+                $foundContainer.find('.button').eq(0).click();
+            })
+        }
 
-    // 切换内容
-    $('#lost').toggle(true);  //显示
-    $('#found').toggle(false);   //隐藏
-
-    //  切换当前标签
-    $('.lost span').removeClass('active');  //删除active类
-    $('.found span ').removeClass('active'); // 删除active类
-    $('.lost span').addClass('active');  //添加active类
-
-    // 激活第一个标签
-    $('#lost .button').removeClass('active');
-    $('#lost .button:first-child').addClass('active').trigger('click');
-  });
-
-}
-
-function gotoFound(){
-  $('.gotoFound').on('click', function(e) {
-
-    e.preventDefault();
-
-    // 切换内容
-    $('#lost').toggle(false);  //显示
-    $('#found').toggle(true);   //隐藏
-
-    //  切换当前标签
-    $('.lost span').removeClass('active');  //删除active类
-    $('.found span').removeClass('active'); // 删除active类
-    $('.found span').addClass('active');  //添加active类
-
-
-    // 激活第一个标签
-    $('#found .button').removeClass('active');
-    $('#found .button:first-child').addClass('active').trigger('click');
-
-  });
-
-}
+    }
+})(jQuery);
+$(function () {
+    var lostIndex=new $.lostIndex();
+    lostIndex.init();
+});
