@@ -25,7 +25,9 @@
                 $foundSpan.removeClass('active');
                 $lostSpan.removeClass('active').addClass('active');
                 $lostContainer.find('.button').removeClass('active');
-                $lostContainer.find('.button').eq(0).click();
+                $lostContainer.find('.button').eq(0)
+                    .addClass('active')
+                    .click();
 
             });
             $('.found').on('click',function () {
@@ -34,7 +36,9 @@
                 $foundSpan.removeClass('active').addClass('active');
                 $lostSpan.removeClass('active');
                 $foundContainer.find('.button').removeClass('active');
-                $foundContainer.find('.button').eq(0).click();
+                $foundContainer.find('.button').eq(0)
+                    .addClass('active')
+                    .click();
             })
         }
 
