@@ -39,7 +39,7 @@
         }
 
     }
-})(jQuery);
+})(Zepto);
 $(function () {
     var lostIndex=new $.lostIndex();
     lostIndex.init();
