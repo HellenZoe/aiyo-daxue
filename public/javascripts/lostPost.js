@@ -200,7 +200,7 @@ $(function() {
     var elem = document.createElement('input');
     elem.type = 'file';
     return !elem.disabled;
-  }
+  };
 
 
 
