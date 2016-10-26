@@ -37,6 +37,7 @@
     width: 100%;
     bottom: 2.5rem;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .bar .lostIndex-back {
     color: #fff;
@@ -56,11 +57,10 @@
 .lostIndex-content > .content-block {
     margin: 2.4rem 0 0 0;
     padding: 0;
-    -webkit-overflow-scrolling: touch;
 }
 .lostIndex-content > .content-block .tabs .content-block {
-    margin: 0rem;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 .lostIndex-searchbar {
     position: absolute;
