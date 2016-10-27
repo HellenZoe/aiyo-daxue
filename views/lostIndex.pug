@@ -20,36 +20,55 @@ block content
                 a.tab-item.external(href="/lost/self")
                     span.icon.icon-me
                     span.tab-label 个人中心
-            .content.native-scroll
-                p 其他内容区域
-                p 其他内容区域
-                p 其他内容区域
-                p 其他内容区域
-                p 其他内容区域
-                .buttons-tab.fixed-tab(data-offset='44')
-                    a.tab-link.active.button(href='#tab1') 全部
-                    a.tab-link.button(href='#tab2') 待付款
-                    a.tab-link.button(href='#tab3') 待发货
-                .tabs
-                    #tab1.tab.active
-                        .content-block
-                            .buttons-row
-                                a.tab-link.active.button(href='#tab1-1') Tab 1
-                                a.tab-link.button(href='#tab1-2') Tab 2
-                                a.tab-link.button(href='#tab1-3') Tab 3
-                            .tabs
-                                p#tab1-1.tab.active(style='height:600px') This is tab 1-1 content
-                                p#tab1-2.tab This is tab 1-2 content
-                                p#tab1-3.tab 13855589778
-                    #tab2.tab
-                        .content-block
-                            p(style='height:600px') This is tab 2 content start
-                            p This is tab 2 content end
-                    #tab3.tab
-                        .content-block
-                            p(style='height:600px') This is tab 3 content start
-                            p This is tab 3 content end
-
+            .content
+                .buttons-tab.fixed-tab
+                    a.tab-link.button.active(href="#tab-index-lost") 首页
+                    a.tab-link.button(href="#tab-card-lost") 卡证
+                    a.tab-link.button(href="#tab-ele-lost") 数码
+                    a.tab-link.button(href="#tab-sport-lost") 运动
+                    a.tab-link.button(href="#tab-other-lost") 其它
+                .content-block
+                    .tabs
+                        .tab.active
+                            .content-block
+                                .page-index
+                                    .card
+                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
+                                        .card-content
+                                            .card-content-inner
+                                                p.color-gray 发表于 2015/01/15
+                                                p 此处是内容...
+                                        .card-footer
+                                            a.link(href='#') 赞
+                                            a.link(href='#') 更多
+                                    .card
+                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
+                                        .card-content
+                                            .card-content-inner
+                                                p.color-gray 发表于 2015/01/15
+                                                p 此处是内容...
+                                        .card-footer
+                                            a.link(href='#') 赞
+                                            a.link(href='#') 更多
+                                    .card
+                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
+                                        .card-content
+                                            .card-content-inner
+                                                p.color-gray 发表于 2015/01/15
+                                                p 此处是内容...
+                                        .card-footer
+                                            a.link(href='#') 赞
+                                            a.link(href='#') 更多
+                                    .card
+                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
+                                        .card-content
+                                            .card-content-inner
+                                                p.color-gray 发表于 2015/01/15
+                                                p 此处是内容...
+                                        .card-footer
+                                            a.link(href='#') 赞
+                                            a.link(href='#') 更多
+                                    |   ... 可以多放几张卡片
 
 
 
