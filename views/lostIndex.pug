@@ -10,17 +10,6 @@ block content
                 h1.title
                     .title_tab.title-active 失物
                     .title_tab 招领
-            nav.bar.bar-tab
-                a.tab-item.external(href="/")
-                    span.icon.icon-home
-                    span.tab-label 主页
-                a.tab-item.external(href="/lost/post")
-                    span.icon.icon-edit
-                    span.tab-label 发布
-                a.tab-item.external(href="/lost/self")
-                    span.icon.icon-me
-                    span.tab-label 个人中心
-            .content
                 .buttons-tab
                     a.tab-link.button.active(href="#tab-index-lost") 首页
                     a.tab-link.button(href="#tab-card-lost") 卡证
@@ -32,6 +21,18 @@ block content
                         input#search(type='search', placeholder='输入关键字...')
                     a.button.button-fill.button-primary.col-15
                         span.icon.icon-search
+            nav.bar.bar-tab
+                a.tab-item.external(href="/")
+                    span.icon.icon-home
+                    span.tab-label 主页
+                a.tab-item.external(href="/lost/post")
+                    span.icon.icon-edit
+                    span.tab-label 发布
+                a.tab-item.external(href="/lost/self")
+                    span.icon.icon-me
+                    span.tab-label 个人中心
+            .content
+
                 .page-index
                     .card
                         .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
