@@ -47,4 +47,5 @@
 $(function () {
     var lostIndex=new $.lostIndex();
     lostIndex.init();
+    $.init();
 });
