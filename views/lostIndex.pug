@@ -11,6 +11,13 @@ block content
                     .title_tab.title-active 失物
                     .title_tab 招领
             .bar.bar-header-secondary
+                .buttons-tab
+                    a.tab-link.button.active(href="#tab-index-lost") 首页
+                    a.tab-link.button(href="#tab-card-lost") 卡证
+                    a.tab-link.button(href="#tab-ele-lost") 数码
+                    a.tab-link.button(href="#tab-sport-lost") 运动
+                    a.tab-link.button(href="#tab-other-lost") 其它
+            .bar.bar-footer-secondary
                 .searchbar.row
                     .search-input.col-85
                         input#search(type='search', placeholder='输入关键字...')
@@ -27,12 +34,6 @@ block content
                     span.icon.icon-me
                     span.tab-label 个人中心
             .content
-                .buttons-tab.fixed-tab(data-offset="88")
-                    a.tab-link.button.active(href="#tab-index-lost") 首页
-                    a.tab-link.button(href="#tab-card-lost") 卡证
-                    a.tab-link.button(href="#tab-ele-lost") 数码
-                    a.tab-link.button(href="#tab-sport-lost") 运动
-                    a.tab-link.button(href="#tab-other-lost") 其它
                 .content-block
                     .tabs
                         .tab.active
