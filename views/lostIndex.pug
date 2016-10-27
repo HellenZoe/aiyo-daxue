@@ -10,11 +10,6 @@ block content
                 h1.title
                     .title_tab 失物
                     .title_tab 招领
-            .searchbar.row
-                .search-input.col-85
-                    input#search(type='search', placeholder='输入关键字...')
-                a.button.button-fill.button-primary.col-15
-                    span.icon.icon-search
             nav.bar.bar-tab
                 a.tab-item.external(href="/")
                     span.icon.icon-home
@@ -27,6 +22,12 @@ block content
                     span.tab-label 个人中心
             .content
                 .content-block
+                    .content-padded
+                        .searchbar.row
+                            .search-input.col-85
+                                input#search(type='search', placeholder='输入关键字...')
+                            a.button.button-fill.button-primary.col-15
+                                span.icon.icon-search
 
 
 block scripts
