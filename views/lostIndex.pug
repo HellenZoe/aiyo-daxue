@@ -4,12 +4,18 @@ block styles
     link(href="./stylesheets/lostIndex.css" rel='stylesheet')
 
 block content
-    div.page-group
-        div.page.page-current
+    .page-group
+        .page.page-current
             header.bar.bar-nav
                 h1.title
-                    div.title_tab 失物
-                    div.title_tab 招领
+                    .title_tab 失物
+                    .title_tab 招领
+                .bar.bar-header-secondary
+                    .searchbar
+                        a.searchbar-cancel 取消
+                        .search-input
+                            label.icon.icon-search(for='search')
+                            input#search(type='search', placeholder='输入关键字...')
             nav.bar.bar-tab
                 a.tab-item.external(href="/")
                     span.icon.icon-home
@@ -20,8 +26,8 @@ block content
                 a.tab-item.external(href="/lost/self")
                     span.icon.icon-me
                     span.tab-label 个人中心
-            div.content
-                div.content-block
+            .content
+                .content-block
 
 block scripts
     script(src="./javascripts/windowUtils.js")
