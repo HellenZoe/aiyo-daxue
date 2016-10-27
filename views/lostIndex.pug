@@ -8,16 +8,14 @@ block content
         #lost.page.page-current
             header.bar.bar-nav
                 h1.title
-                    .title_tab
-                        a(href='#lost') 失物
-                    .title_tab
-                        a(href='#found') 招领
+                    .title_tab 失物
+                    .title_tab 招领
             .bar.bar-header-secondary
                 .searchbar
                     a.searchbar-cancel 取消
                     .search-input
                         label.icon.icon-search(for='search')
-                        input#search_lost(type='search', placeholder='输入关键字...')
+                        input#search(type='search', placeholder='输入关键字...')
             nav.bar.bar-tab
                 a.tab-item.external(href="/")
                     span.icon.icon-home
@@ -30,21 +28,7 @@ block content
                     span.tab-label 个人中心
             .content
                 .content-block
-        #found.page
-            header.bar.bar-nav
-                h1.title
-                    .title_tab
-                        a(href='lost') 失物
-                    .title_tab
-                        a(href='found') 招领
-            .bar.bar-header-secondary
-                .searchbar
-                    a.searchbar-cancel 取消
-                    .search-input
-                        label.icon.icon-search(for='search')
-                        input#search_found(type='search', placeholder='输入关键字...')
-            .content
-                .content-block
+
 
 block scripts
     script(src="./javascripts/windowUtils.js")
