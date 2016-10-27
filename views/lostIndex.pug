@@ -20,8 +20,8 @@ block content
                 a.tab-item.external(href="/lost/self")
                     span.icon.icon-me
                     span.tab-label 个人中心
-            .content
-                .buttons-tab
+            .content.native-scroll
+                .buttons-tab.fixed-tab(data-offset='0')
                     a.tab-link.button.active(href="#tab-index-lost") 首页
                     a.tab-link.button(href="#tab-card-lost") 卡证
                     a.tab-link.button(href="#tab-ele-lost") 数码
