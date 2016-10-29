@@ -1,0 +1,236 @@
+.lost-page > .bar:after {
+    height: 0px;
+}
+.index-color {
+    color: #88C32E;
+}
+.toast-success {
+    background-color: #88C32E;
+    color: #fff;
+}
+.lost-tabs {
+    position: absolute;
+    width: 100%;
+    min-height: 2.2rem;
+    background-color: #88C32E;
+}
+.lost-tabs a {
+    color: #fff;
+    width: 3rem;
+    display: inline-block;
+}
+.lost-tabs .active {
+    padding-bottom: .2rem;
+    border-bottom: 1px solid #fff;
+}
+.lost-tabs .lost,
+.lost-tabs .found {
+    width: 50%;
+    float: left;
+    border: 0px solid #2690F7;
+    text-align: center;
+    padding-top: .6rem;
+}
+.lostIndex-content {
+    position: absolute;
+    top: 2.2rem;
+    width: 100%;
+    bottom: 2.5rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.bar .lostIndex-back {
+    color: #fff;
+}
+.buttons-tab {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+.lostIndex-content > .buttons-tab > .button {
+    background-color: #fff;
+}
+.lostIndex-content .buttons-tab .button.active {
+    color: #88C32E;
+    border-color: #88C32E;
+}
+.lostIndex-content > .content-block {
+    margin: 2.4rem 0 0 0;
+    padding: 0;
+}
+.lostIndex-content > .content-block .tabs .content-block {
+    margin: 0;
+    padding: 0;
+}
+.lostIndex-searchbar {
+    position: absolute;
+    top: 2.2rem;
+    background-color: #fff;
+}
+.lostIndex-searchbar .searchbar {
+    background-color: #fff;
+}
+.lostIndex-searchbar .searchbar input#search,
+.lostIndex-searchbar .searchbar input#search-action {
+    background-color: #f5f5f5;
+    border-radius: .5rem;
+}
+.facebook-card {
+    margin: .5rem 0 0 0;
+}
+.facebook-card .facebook-avatar img {
+    height: 2rem;
+}
+.facebook-card .facebook-avatar img {
+    border-radius: 50%;
+}
+.facebook-card .card-content {
+    padding: 0 .5rem;
+}
+.facebook-card .card-content .picsWrapper {
+    width: auto;
+}
+.facebook-card .card-content .picsWrapper img {
+    display: inline-block;
+    margin-right: .2rem;
+    width: 5rem;
+    max-height: 5rem;
+}
+.facebook-card .card-info {
+    margin-left: 2.5rem;
+}
+.facebook-card .card-info .facebook-name,
+.facebook-card .card-info .facebook-date {
+    margin-left: 0px;
+}
+.facebook-card .card-info .facebook-date span {
+    font-size: .55rem;
+}
+.facebook-card .card-info .facebook-name {
+    color: #444;
+    font-size: .9rem;
+}
+.facebook-card .card-info .page-view {
+    color: #666;
+    float: right;
+    font-size: .55rem;
+    margin: .25rem 0;
+}
+.facebook-card .card-content-text {
+    font-size: .55rem;
+    margin-top: .2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666;
+}
+.title-category {
+    min-height: 1.3rem;
+    color: #555;
+}
+.content-title {
+    font-size: .75rem;
+    margin: .14rem 0;
+}
+.category {
+    font-size: .5rem;
+    margin: .2rem .3rem;
+    background-color: #88C32E;
+    color: #fff;
+    padding: 0px .1rem;
+}
+.facebook-card > .card-footer {
+    background-color: #fff;
+}
+.card-footer:before {
+    background-color: #fff;
+}
+.card-footer {
+    padding: 0px;
+    min-height: 2rem;
+}
+.position,
+.price {
+    position: absolute;
+}
+.position {
+    left: .4rem;
+    top: 0rem;
+    font-size: .5rem;
+    height: 100%;
+}
+.position i {
+    position: absolute;
+    margin-top: .5rem;
+}
+.position span {
+    display: inline-block;
+    margin: .7rem;
+}
+.iconfont-position {
+    color: #88C32E;
+}
+#found {
+    display: none;
+}
+@font-face {
+    font-family: 'iconfont-treeHoleTabsBar';
+    src: url('iconfont.eot');
+    /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-treeHoleTabsBar.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-treeHoleTabsBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-treeHoleTabsBar.svg#iconfont-treeHoleTabsBar') format('svg');
+    /* iOS 4.1- */
+}
+.iconfont-treeHoleTabsBar {
+    font-family: "iconfont-treeHoleTabsBar" !important;
+    font-size: 1.2rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: 'iconfont-indexTabBar';
+    src: url('iconfont.eot');
+    /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-indexTabBar.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-indexTabBar.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-indexTabBar.svg#iconfont-indexTabBar') format('svg');
+    /* iOS 4.1- */
+}
+.iconfont-indexTabBar {
+    font-family: "iconfont-indexTabBar" !important;
+    font-size: 1.3rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: 'iconfont-position';
+    src: url('iconfont.eot');
+    /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-position.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-position.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-position.svg#iconfont-position') format('svg');
+    /* iOS 4.1- */
+}
+.iconfont-position {
+    font-family: "iconfont-position" !important;
+    font-size: .75rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: 'iconfont-selfShare';
+    src: url('iconfont.eot');
+    /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont-selfShare.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont-selfShare.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont-selfShare.svg#iconfont-selfShare') format('svg');
+    /* iOS 4.1- */
+}
+.iconfont-selfShare {
+    font-family: "iconfont-selfShare" !important;
+    font-size: 1rem;
+    font-style: normal;
+    margin-right: 0.3rem;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
