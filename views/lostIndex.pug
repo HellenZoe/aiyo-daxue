@@ -14,22 +14,17 @@ block content
                         input#search(type='search', placeholder='输入关键字...')
             nav.bar.bar-tab
                 a.tab-item.external(href="/")
-                    span.icon.index-color
-                        i.iconfont-indexTabBar &#xe601;
+                    span.icon.icon-home
                     span.tab-label 主页
                 a.tab-item.external(href="/lost/post")
-                    span.icon
-                        i.iconfont-treeHoleTabsBar &#xe603;
+                    span.icon.icon-edit
                     span.tab-label 发布
                 a.tab-item.external(href="/lost/self")
-                    span.icon
-                        i.iconfont-treeHoleTabsBar &#xe604;
+                    span.icon.icon-me
                     span.tab-label 个人中心
                 a.tab-item.external.create-actions
                     span.icon.icon-menu
                     span#menu_item.tab-label 失物
-
-
             div#lost.lostIndex-content
                 div.buttons-tab.fixed-tab(data-offset='44')
                     a.tab-link.button.active(href="#tab-index-lost") 首页
