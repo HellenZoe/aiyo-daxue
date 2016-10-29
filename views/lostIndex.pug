@@ -5,77 +5,81 @@ block styles
 
 block content
     .page-group
-        #lost.page.page-current
+        .page.page-current
+            // 你的html代码
             header.bar.bar-nav
-                h1.title
-                    .title_tab.title-active 失物
-                    .title_tab 招领
-            .bar.bar-header-secondary
-                .buttons-tab
-                    a.tab-link.button.active(href="#tab-index-lost") 首页
-                    a.tab-link.button(href="#tab-card-lost") 卡证
-                    a.tab-link.button(href="#tab-ele-lost") 数码
-                    a.tab-link.button(href="#tab-sport-lost") 运动
-                    a.tab-link.button(href="#tab-other-lost") 其它
-            .bar.bar-footer-secondary
-                .searchbar.row
-                    .search-input.col-85
+                .searchbar
+                    a.searchbar-cancel 取消
+                    .search-input
+                        label.icon.icon-search(for='search')
                         input#search(type='search', placeholder='输入关键字...')
-                    a.button.button-fill.button-primary.col-15(style='top: 0;')
-                        span.icon.icon-search
             nav.bar.bar-tab
-                a.tab-item.external(href="/")
+                a.tab-item.external(href='/')
                     span.icon.icon-home
                     span.tab-label 主页
-                a.tab-item.external(href="/lost/post")
+                a.tab-item.external(href='/lost/post')
                     span.icon.icon-edit
                     span.tab-label 发布
-                a.tab-item.external(href="/lost/self")
+                a.tab-item.external(href='/lost/self')
                     span.icon.icon-me
                     span.tab-label 个人中心
+                    // <span class="badge">2</span>
+                a.tab-item.external.create-actions(href='#')
+                    span.icon.icon-menu
+                    span#menu_item.tab-label 失物
             .content
-                .content-block
-                    .tabs
-                        .tab.active
-                            .content-block
-                                .page-index
-                                    .card
-                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
-                                        .card-content
-                                            .card-content-inner
-                                                p.color-gray 发表于 2015/01/15
-                                                p 此处是内容...
-                                        .card-footer
-                                            a.link(href='#') 赞
-                                            a.link(href='#') 更多
-                                    .card
-                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
-                                        .card-content
-                                            .card-content-inner
-                                                p.color-gray 发表于 2015/01/15
-                                                p 此处是内容...
-                                        .card-footer
-                                            a.link(href='#') 赞
-                                            a.link(href='#') 更多
-                                    .card
-                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
-                                        .card-content
-                                            .card-content-inner
-                                                p.color-gray 发表于 2015/01/15
-                                                p 此处是内容...
-                                        .card-footer
-                                            a.link(href='#') 赞
-                                            a.link(href='#') 更多
-                                    .card
-                                        .card-header.color-white.no-border(style='background-image:url(//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250.3.0q60.jpg)', valign='bottom') 旅途的山
-                                        .card-content
-                                            .card-content-inner
-                                                p.color-gray 发表于 2015/01/15
-                                                p 此处是内容...
-                                        .card-footer
-                                            a.link(href='#') 赞
-                                            a.link(href='#') 更多
-                                    |   ... 可以多放几张卡片
+                .buttons-tab.fixed-tab(data-offset='44')
+                    a.tab-link.active.button(href='#tab_lost-index') 全部
+                    a.tab-link.button(href='#tab_lost-card') 卡证
+                    a.tab-link.button(href='#tab_lost-sport') 运动
+                    a.tab-link.button(href='#tab_lost-digital') 数码
+                    a.tab-link.button(href='#tab5_lost-other') 其它
+                .tabs
+                    #tab_lost-index.tab.active
+                        if goods
+                            each item in goods
+                                if item.type == "thing"
+                                    a.linkWrapper.external(href= "/lost/detail/" + item._id)
+                                        div.card.facebook-card(id= item._id)
+                                            div.card-header.no-border
+                                                div.facebook-avatar
+                                                    img(src= item.authorAvatarUrl)
+                                                div.card-info
+                                                    div
+                                                        span.facebook-name= item.authorName
+                                                        span.page-view 浏览次数： #{item.view}
+                                                    div.facebook-date
+                                                        span= item.date
+                                                        if item.authorSchool
+                                                            span 来自[#{item.authorSchool}]
+                                            div.card-content
+                                                div.picsWrapper
+                                                    each url in item.picUrl
+                                                        img(src= url)
+                                                div.title-category
+                                                    span 失物
+                                                    | &middot;
+                                                    span.content-title= item.name
+                                                    span.category= item.category_ch
+                                                div.card-content-text= item.desc
+                                            div.card-footer.no-border
+                                                div.icon.position
+                                                    i.iconfont-position &#xe619;
+                                                    span 丢失地点  #{item.location}
+                        else
+                            div 什么都咩有
+                    #tab_lost-card.tab
+                        .content-block
+                            p This is tab 2 content
+                    #tab_lost-sport.tab
+                        .content-block
+                            p This is tab 3 content
+                    #tab_lost-digital.tab
+                        .content-block
+                            p This is tab 3 content
+                    #tab_lost-other.tab
+                        .content-block
+                            p This is tab 3 content
 
 
 

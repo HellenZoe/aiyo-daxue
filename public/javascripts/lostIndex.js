@@ -45,7 +45,27 @@
     }
 })(Zepto);
 $(function () {
-    var lostIndex=new $.lostIndex();
-    lostIndex.init();
+    $('.create-actions').on('click', function () {
+        var buttons1 = [
+            {
+                text: '请选择',
+                label: true
+            },
+            {
+                text: '失物',
+                onClick: function() {
+                    $('#menu_item').html('失物')
+                }
+            },
+            {
+                text: '招领',
+                onClick: function() {
+                    $('#menu_item').html('招领')
+                }
+            }
+        ];
+        var groups = [buttons1];
+        $.actions(groups);
+    });
     $.init();
 });
