@@ -4,9 +4,14 @@ block styles
     link(href="./stylesheets/lostIndex.css" rel='stylesheet')
 
 block content
-    .page-group
-        .page.page-current.lost-page
-
+    div.page-group
+        div.page.page-current.lost-page
+            header.bar.bar-nav
+                .searchbar
+                    a.searchbar-cancel 取消
+                    .search-input
+                        label.icon.icon-search(for='search')
+                        input#search(type='search', placeholder='输入关键字...')
             nav.bar.bar-tab
                 a.tab-item.external(href="/")
                     span.icon.index-color
@@ -25,389 +30,378 @@ block content
                     span#menu_item.tab-label 失物
 
 
-            #lost.lostIndex-content
-                .buttons-tab
+            div#lost.lostIndex-content
+                div.buttons-tab.fixed-tab(data-offset='44')
                     a.tab-link.button.active(href="#tab-index-lost") 首页
                     a.tab-link.button(href="#tab-card-lost") 卡证
                     a.tab-link.button(href="#tab-ele-lost") 数码
                     a.tab-link.button(href="#tab-sport-lost") 运动
                     a.tab-link.button(href="#tab-other-lost") 其它
-                .content-block
-                    .tabs
-                        #tab-index-lost.tab.active
-                            .content-block
+                div.content-block
+                    div.tabs
+                        div#tab-index-lost.tab.active
+                            div.content-block
                                 if goods
                                     each item in goods
                                         if item.type == "thing"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 失物
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
-                                     div 什么都咩有
-                        #tab-card-lost.tab
-                            .content-block
+                                    div 什么都咩有
+                        div#tab-card-lost.tab
+                            div.content-block
                                 if cardGoods
                                     each item in cardGoods
                                         if item.type == "thing"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 失物
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
                                     div 什么都咩有
 
-                        #tab-sport-lost.tab
-                            .content-block
+                        div#tab-sport-lost.tab
+                            div.content-block
                                 if sportGoods
                                     each item in sportGoods
                                         if item.type == "thing"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 失物
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
                                     div 什么都咩有
 
-                        #tab-ele-lost.tab
-                            .content-block
+                        div#tab-ele-lost.tab
+                            div.content-block
                                 if eleGoods
                                     each item in eleGoods
                                         if item.type == "thing"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 失物
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
                                     div 什么都咩有
 
 
-                        #tab-other-lost.tab
-                            .content-block
+                        div#tab-other-lost.tab
+                            div.content-block
                                 if otherGoods
                                     each item in otherGoods
                                         if item.type == "thing"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 失物
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
                                     div 什么都咩有
 
 
-            #found.lostIndex-content
-                .buttons-tab
+            div#found.lostIndex-content
+                div.buttons-tab.fixed-tab(data-offset='44')
                     a.tab-link.button.active(href="#tab-index-found") 首页
                     a.tab-link.button(href="#tab-card-found") 卡证
                     a.tab-link.button(href="#tab-ele-found") 数码
                     a.tab-link.button(href="#tab-sport-found") 运动
                     a.tab-link.button(href="#tab-other-found") 其它
-                .content-block
-                    .tabs
-                        #tab-index-found.tab.active
-                            .content-block
+                div.content-block
+                    div.tabs
+                        div#tab-index-found.tab.active
+                            div.content-block
                                 if goods
                                     each item in goods
                                         if item.type == "person"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 招领
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
                                     div 什么都咩有
-                        #tab-card-found.tab
-                            .content-block
+                        div#tab-card-found.tab
+                            div.content-block
                                 if cardGoods
                                     each item in cardGoods
                                         if item.type == "person"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 招领
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
                                     div 什么都咩有
 
-                        #tab-sport-found.tab
-                            .content-block
+                        div#tab-sport-found.tab
+                            div.content-block
                                 if sportGoods
                                     each item in sportGoods
                                         if item.type == "person"
                                             a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
                                                             img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
+                                                        div.card-info
+                                                            div
                                                                 span.facebook-name= item.authorName
                                                                 span.page-view 浏览次数： #{item.view}
-                                                            .facebook-date
+                                                            div.facebook-date
                                                                 span= item.date
                                                                 if item.authorSchool
                                                                     span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
+                                                    div.card-content
+                                                        div.picsWrapper
                                                             each url in item.picUrl
                                                                 img(src= url)
-                                                        .title-category
+                                                        div.title-category
                                                             span 招领
                                                             | &middot;
                                                             span.content-title= item.name
                                                             span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
-                                                            i.iconfont-position &#xe619;
-                                                            span 丢失地点  #{item.location}
-                                else
-                                   div  什么都咩有
-
-                        #tab-ele-found.tab
-                            .content-block
-                                if eleGoods
-                                    each item in eleGoods
-                                        if item.type == "person"
-                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
-                                                            img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
-                                                                span.facebook-name= item.authorName
-                                                                span.page-view 浏览次数： #{item.view}
-                                                        .facebook-date
-                                                            span= item.date
-                                                            if item.authorSchool
-                                                                span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
-                                                            each url in item.picUrl
-                                                                img(src= url)
-                                                        .title-category
-                                                            span 招领
-                                                            | &middot;
-                                                            span.content-title= item.name
-                                                            span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
-                                                            i.iconfont-position &#xe619;
-                                                            span 丢失地点  #{item.location}
-                                else
-                                   div  什么都咩有
-
-
-                        #tab-other-found.tab
-                            .content-block
-                                if otherGoods
-                                    each item in otherGoods
-                                        if item.type == "person"
-                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
-                                                .card.facebook-card(data-lId= item._id)
-                                                    .card-header.no-border
-                                                        .facebook-avatar
-                                                            img(src= item.authorAvatarUrl)
-                                                        .card-info
-                                                            
-                                                                span.facebook-name= item.authorName
-                                                                span.page-view 浏览次数： #{item.view}
-                                                        .facebook-date
-                                                            span= item.date
-                                                            if item.authorSchool
-                                                                span 来自[#{item.authorSchool}]
-                                                    .card-content
-                                                        .picsWrapper
-                                                            each url in item.picUrl
-                                                                img(src= url)
-                                                        .title-category
-                                                            span 招领
-                                                            | &middot;
-                                                            span.content-title= item.name
-                                                            span.category= item.category_ch
-                                                        .card-content-text= item.desc
-                                                    .card-footer
-                                                        .icon.position
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
                                                             i.iconfont-position &#xe619;
                                                             span 丢失地点  #{item.location}
                                 else
                                     div 什么都咩有
 
-        .page#search-page
-            header.bar.bar-nav.back-blue
-                a.button.button-link.button-nav.pull-left(href="#index")
-                    span.icon.icon-left
-                h1.title.text-white 失物招领
-            //- 在这里写搜索页面的内容
-            .bar.bar-header-secondary.lostIndex-searchbar
-                .searchbar
-                    .search-input
-                        label.icon.icon-search(for="search")
-                        input#search(type="search", placeholder="搜索感兴趣的话题")
+                        div#tab-ele-found.tab
+                            div.content-block
+                                if eleGoods
+                                    each item in eleGoods
+                                        if item.type == "person"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                        div.facebook-date
+                                                            span= item.date
+                                                            if item.authorSchool
+                                                                span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 招领
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+
+
+                        div#tab-other-found.tab
+                            div.content-block
+                                if otherGoods
+                                    each item in otherGoods
+                                        if item.type == "person"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                        div.facebook-date
+                                                            span= item.date
+                                                            if item.authorSchool
+                                                                span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 招领
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
 
 
 block scripts
     script(src="./javascripts/windowUtils.js")
     script(src="./javascripts/lostIndex.js")
     script(type='text/javascript' src='./javascripts/imgViewer.js' charset='utf-8')
+
