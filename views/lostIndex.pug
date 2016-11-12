@@ -4,74 +4,395 @@ block styles
     link(href="./stylesheets/lostIndex.css" rel='stylesheet')
 
 block content
-    .page-group
-        .page.page-current
-            // 你的html代码
+    div.page-group
+        div.page.page-current.lost-page
             header.bar.bar-nav
-                h1.title 失物
+                .searchbar
+                    a.searchbar-cancel 取消
+                    .search-input
+                        label.icon.icon-search(for='search')
+                        input#search(type='search', placeholder='输入关键字...')
             nav.bar.bar-tab
-                a.tab-item.external(href='/')
+                a.tab-item.external(href="/")
                     span.icon.icon-home
                     span.tab-label 主页
-                a.tab-item.external(href='/lost/post')
+                a.tab-item.external(href="/lost/post")
                     span.icon.icon-edit
                     span.tab-label 发布
-                a.tab-item.external(href='/lost/search')
-                    span.icon.icon-search
-                    span.tab-label 搜索
-                a.tab-item.external(href='/lost/self')
+                a.tab-item.external(href="/lost/self")
                     span.icon.icon-me
                     span.tab-label 个人中心
-                    // <span class="badge">2<pan>
-                a.tab-item.external.create-actions(href='#')
+                a.tab-item.external.create-actions
                     span.icon.icon-menu
                     span#menu_item.tab-label 失物
-            .content
-                .buttons-tab.fixed-tab(data-offset='44')
-                    a.tab-link.active.button(href='#tab-index-lost') 全部
-                    a.tab-link.button(href='#tab-card-lost') 数码
-                    a.tab-link.button(href='#tab-ele-lost') 运动
-                    a.tab-link.button(href='#tab-sport-lost') 卡证
-                    a.tab-link.button(href='#tab-other-lost') 其它
-                .tabs
-                    #tab-index-lost.tab.active
-                        .list-block.cards-list
-                            ul
+            div#lost.lostIndex-content
+                div.buttons-tab.fixed-tab(data-offset='44')
+                    a.tab-link.button.active(href="#tab-index-lost") 首页
+                    a.tab-link.button(href="#tab-card-lost") 卡证
+                    a.tab-link.button(href="#tab-ele-lost") 数码
+                    a.tab-link.button(href="#tab-sport-lost") 运动
+                    a.tab-link.button(href="#tab-other-lost") 其它
+                div.content-block
+                    div.tabs
+                        div#tab-index-lost.tab.active
+                            div.content-block
                                 if goods
                                     each item in goods
-                                        if item.type == 'thing'
-                                            li.card.facebook-card
-                                                .card-header.no-border
-                                                    .facebook-avatar
-                                                        img(src= item.authorAvatarUrl)
-                                                    .facebook-name
-                                                        span.author_name=item.authorName
-                                                        span.view_times 浏览次数：#{item.view}
-                                                    .facebook-date
-                                                        span.publish_time=item.date
-                                                        span.author_locale 来自[#{item.authorSchool}]
-                                                .card-content
-                                                    .card-content-inner
-                                                        each url in item.picUrl
-                                                            img(src= url)
-                                                    .card-content-inner
-                                                        span.content-title= item.name
-                                                        span.category= item.category_ch
-                                                .card-footer.no-border
-                                                    span.lost_site 丢失地点  #{item.location}
-                    #tab-card-lost.tab
-                        .content-block
-                            p This is tab 2 content
-                    #tab-ele-lost.tab
-                        .content-block
-                            p This is tab 3 content
-                    #tab-sport-lost.tab
-                        .content-block
-                            p This is tab 3 content
-                    #tab-other-lost.tab
-                        .content-block
-                            p This is tab 3 content
+                                        if item.type == "thing"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 失物
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+                        div#tab-card-lost.tab
+                            div.content-block
+                                if cardGoods
+                                    each item in cardGoods
+                                        if item.type == "thing"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 失物
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
 
+                        div#tab-sport-lost.tab
+                            div.content-block
+                                if sportGoods
+                                    each item in sportGoods
+                                        if item.type == "thing"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 失物
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+
+                        div#tab-ele-lost.tab
+                            div.content-block
+                                if eleGoods
+                                    each item in eleGoods
+                                        if item.type == "thing"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 失物
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+
+
+                        div#tab-other-lost.tab
+                            div.content-block
+                                if otherGoods
+                                    each item in otherGoods
+                                        if item.type == "thing"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 失物
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+
+
+            div#found.lostIndex-content
+                div.buttons-tab.fixed-tab(data-offset='44')
+                    a.tab-link.button.active(href="#tab-index-found") 首页
+                    a.tab-link.button(href="#tab-card-found") 卡证
+                    a.tab-link.button(href="#tab-ele-found") 数码
+                    a.tab-link.button(href="#tab-sport-found") 运动
+                    a.tab-link.button(href="#tab-other-found") 其它
+                div.content-block
+                    div.tabs
+                        div#tab-index-found.tab.active
+                            div.content-block
+                                if goods
+                                    each item in goods
+                                        if item.type == "person"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 招领
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+                        div#tab-card-found.tab
+                            div.content-block
+                                if cardGoods
+                                    each item in cardGoods
+                                        if item.type == "person"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 招领
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+
+                        div#tab-sport-found.tab
+                            div.content-block
+                                if sportGoods
+                                    each item in sportGoods
+                                        if item.type == "person"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                            div.facebook-date
+                                                                span= item.date
+                                                                if item.authorSchool
+                                                                    span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 招领
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+
+                        div#tab-ele-found.tab
+                            div.content-block
+                                if eleGoods
+                                    each item in eleGoods
+                                        if item.type == "person"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                        div.facebook-date
+                                                            span= item.date
+                                                            if item.authorSchool
+                                                                span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 招领
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
+
+
+                        div#tab-other-found.tab
+                            div.content-block
+                                if otherGoods
+                                    each item in otherGoods
+                                        if item.type == "person"
+                                            a.linkWrapper.external(href= "/lost/detail/"+item._id)
+                                                div.card.facebook-card(data-lId= item._id)
+                                                    div.card-header.no-border
+                                                        div.facebook-avatar
+                                                            img(src= item.authorAvatarUrl)
+                                                        div.card-info
+                                                            div
+                                                                span.facebook-name= item.authorName
+                                                                span.page-view 浏览次数： #{item.view}
+                                                        div.facebook-date
+                                                            span= item.date
+                                                            if item.authorSchool
+                                                                span 来自[#{item.authorSchool}]
+                                                    div.card-content
+                                                        div.picsWrapper
+                                                            each url in item.picUrl
+                                                                img(src= url)
+                                                        div.title-category
+                                                            span 招领
+                                                            | &middot;
+                                                            span.content-title= item.name
+                                                            span.category= item.category_ch
+                                                        div.card-content-text= item.desc
+                                                    div.card-footer
+                                                        div.icon.position
+                                                            i.iconfont-position &#xe619;
+                                                            span 丢失地点  #{item.location}
+                                else
+                                    div 什么都咩有
 block scripts
     script(src="./javascripts/windowUtils.js")
     script(src="./javascripts/lostIndex.js")
