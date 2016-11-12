@@ -31,6 +31,7 @@
                             $lostContainer.find('.button').eq(0)
                                 .addClass('active')
                                 .click();
+                            $('.title').html('失物');
                         }
                     },
                     {
@@ -43,10 +44,17 @@
                             $foundContainer.find('.button').eq(0)
                                 .addClass('active')
                                 .click();
+                            $('.title').html('招领');
                         }
                     }
                 ];
-                var groups = [buttons1];
+                var buttons2 = [
+                    {
+                        text: '取消',
+                        bg: 'danger'
+                    }
+                ];
+                var groups = [buttons1,buttons2];
                 $.actions(groups);
             });
         }

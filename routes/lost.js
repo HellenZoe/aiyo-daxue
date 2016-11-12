@@ -19,7 +19,6 @@ router.get('/', function(req, res) {
         }else {
             if (gs.length != 0) {
                 res.render("lostIndex", {
-                    title: "失物招领首页",
                     goods: gs.map(function(item){
                         return item.toObject({getters: true, virtuals: true});
                     }),
