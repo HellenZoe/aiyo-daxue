@@ -300,16 +300,16 @@ $(function() {
 
 
     function addCanvasToPreview(canvas, fileType) {
-        var wrapper = document.createElement("div");
-        var deleteIcon = document.createElement("i");
-        deleteIcon.className = "iconfont-postDelete";
-        deleteIcon.innerHTML = "&#xe607;"
-        bindDeleteAction(deleteIcon);
-        wrapper.appendChild(deleteIcon);
-        wrapper.appendChild(canvas);
-        wrapper.setAttribute('data-index', picCount);
-        var previewContainer = document.getElementById("previewAllPic");
-        previewContainer.appendChild(wrapper);
+        // var wrapper = document.createElement("div");
+        // var deleteIcon = document.createElement("i");
+        // deleteIcon.className = "iconfont-postDelete";
+        // deleteIcon.innerHTML = "&#xe607;"
+        // bindDeleteAction(deleteIcon);
+        // wrapper.appendChild(deleteIcon);
+        // wrapper.appendChild(canvas);
+        // wrapper.setAttribute('data-index', picCount);
+        // var previewContainer = document.getElementById("previewAllPic");
+        // previewContainer.appendChild(wrapper);
 
 
         dataURL = canvas.toDataURL(fileType);
